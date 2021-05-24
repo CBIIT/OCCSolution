@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Menu id="defaultMainMenu" >
-  <MenuItem text="Home" navigateUrl="~/Home/Index" />
-  <MenuItem text="About" navigateUrl="~/Home/About" />
-  <MenuItem text="Contact" navigateUrl="~/Home/Contact" />
-</Menu>
-
