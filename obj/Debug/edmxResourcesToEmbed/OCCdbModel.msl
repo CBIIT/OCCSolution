@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OCCdbModelStoreContainer" CdmEntityContainer="OCCEntities">
+    <EntitySetMapping Name="Centers">
+      <EntityTypeMapping TypeName="OCCdbModel.Center">
+        <MappingFragment StoreEntitySet="Center">
+          <ScalarProperty Name="CenterName" ColumnName="CenterName" />
+          <ScalarProperty Name="InstitutionName" ColumnName="InstitutionName" />
+          <ScalarProperty Name="GrantNumber" ColumnName="GrantNumber" />
+          <ScalarProperty Name="MigrationSource" ColumnName="MigrationSource" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="LastUpdatedUserName" ColumnName="LastUpdatedUserName" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="CenterId" ColumnName="CenterId" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="StreetAddress2" ColumnName="StreetAddress2" />
+          <ScalarProperty Name="CenterTypeID" ColumnName="CenterTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CenterDetails">
+      <EntityTypeMapping TypeName="OCCdbModel.CenterDetail">
+        <MappingFragment StoreEntitySet="CenterDetail">
+          <ScalarProperty Name="P30Type" ColumnName="P30Type" />
+          <ScalarProperty Name="P30GrantNumber" ColumnName="P30GrantNumber" />
+          <ScalarProperty Name="PIName" ColumnName="PIName" />
+          <ScalarProperty Name="PD" ColumnName="PD" />
+          <ScalarProperty Name="C2014BudgetStart" ColumnName="2014BudgetStart" />
+          <ScalarProperty Name="C2014BudgetEnd" ColumnName="2014BudgetEnd" />
+          <ScalarProperty Name="C2015BudgetStart" ColumnName="2015BudgetStart" />
+          <ScalarProperty Name="eDataDueDate" ColumnName="eDataDueDate" />
+          <ScalarProperty Name="GrantNumber" ColumnName="GrantNumber" />
+          <ScalarProperty Name="CenterDetailID" ColumnName="CenterDetailID" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="LastUpdatedUserName" ColumnName="LastUpdatedUserName" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="CenterID" ColumnName="CenterID" />
+          <ScalarProperty Name="FY" ColumnName="FY" />
+          <ScalarProperty Name="PDPersonID" ColumnName="PDPersonID" />
+          <ScalarProperty Name="InstitutionName" ColumnName="InstitutionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CenterPOCs">
+      <EntityTypeMapping TypeName="OCCdbModel.CenterPOC">
+        <MappingFragment StoreEntitySet="CenterPOC">
+          <ScalarProperty Name="PITitle" ColumnName="PITitle" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+          <ScalarProperty Name="PIEmail" ColumnName="PIEmail" />
+          <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
+          <ScalarProperty Name="AdminPhone" ColumnName="AdminPhone" />
+          <ScalarProperty Name="LeadAdminFirstName" ColumnName="LeadAdminFirstName" />
+          <ScalarProperty Name="LeadAdminEmail" ColumnName="LeadAdminEmail" />
+          <ScalarProperty Name="AsstLastName" ColumnName="AsstLastName" />
+          <ScalarProperty Name="AsstEmail" ColumnName="AsstEmail" />
+          <ScalarProperty Name="CenterID" ColumnName="CenterID" />
+          <ScalarProperty Name="GrantNumber" ColumnName="GrantNumber" />
+          <ScalarProperty Name="CenterPOCID" ColumnName="CenterPOCID" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="LastUpdatedUserName" ColumnName="LastUpdatedUserName" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="PIFirstName" ColumnName="PIFirstName" />
+          <ScalarProperty Name="PILastName" ColumnName="PILastName" />
+          <ScalarProperty Name="PIMiddleName" ColumnName="PIMiddleName" />
+          <ScalarProperty Name="AdminLastName" ColumnName="AdminLastName" />
+          <ScalarProperty Name="AdminFirstName" ColumnName="AdminFirstName" />
+          <ScalarProperty Name="AdminMiddleName" ColumnName="AdminMiddleName" />
+          <ScalarProperty Name="InstitutionName" ColumnName="InstitutionName" />
+          <ScalarProperty Name="EffectiveDate" ColumnName="EffectiveDate" />
+          <ScalarProperty Name="AsstFirstName" ColumnName="AsstFirstName" />
+          <ScalarProperty Name="LeadAdminLastName" ColumnName="LeadAdminLastName" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DTtrackings">
+      <EntityTypeMapping TypeName="OCCdbModel.DTtracking">
+        <MappingFragment StoreEntitySet="DTtracking">
+          <ScalarProperty Name="DTtrackingId" ColumnName="DTtrackingId" />
+          <ScalarProperty Name="CenterID" ColumnName="CenterID" />
+          <ScalarProperty Name="GrantNumber" ColumnName="GrantNumber" />
+          <ScalarProperty Name="FY" ColumnName="FY" />
+          <ScalarProperty Name="OCCcomments" ColumnName="OCCcomments" />
+          <ScalarProperty Name="CenterComments" ColumnName="CenterComments" />
+          <ScalarProperty Name="isSubmitted" ColumnName="isSubmitted" />
+          <ScalarProperty Name="isPassed30Days" ColumnName="isPassed30Days" />
+          <ScalarProperty Name="EmailedDate" ColumnName="EmailedDate" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="LastUpdatedUserName" ColumnName="LastUpdatedUserName" />
+          <ScalarProperty Name="eDataDueDate" ColumnName="eDataDueDate" />
+          <ScalarProperty Name="isPassed2Weeks" ColumnName="isPassed2Weeks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeritAwards">
+      <EntityTypeMapping TypeName="OCCdbModel.MeritAward">
+        <MappingFragment StoreEntitySet="MeritAward">
+          <ScalarProperty Name="MeritAwardID" ColumnName="MeritAwardID" />
+          <ScalarProperty Name="MeritSRID" ColumnName="MeritSRID" />
+          <ScalarProperty Name="GrantNumber" ColumnName="GrantNumber" />
+          <ScalarProperty Name="AwardedYear" ColumnName="AwardedYear" />
+          <ScalarProperty Name="AwardedName" ColumnName="AwardedName" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="LastUpdatedUserName" ColumnName="LastUpdatedUserName" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeritFinances">
+      <EntityTypeMapping TypeName="OCCdbModel.MeritFinance">
+        <MappingFragment StoreEntitySet="MeritFinance">
+          <ScalarProperty Name="MeritFinaceID" ColumnName="MeritFinaceID" />
+          <ScalarProperty Name="SumStatementID" ColumnName="SumStatementID" />
+          <ScalarProperty Name="GrantNumber" ColumnName="GrantNumber" />
+          <ScalarProperty Name="FullP30GrantNumber" ColumnName="FullP30GrantNumber" />
+          <ScalarProperty Name="TotalSrLeaderDC" ColumnName="TotalSrLeaderDC" />
+          <ScalarProperty Name="TotalMajorProgDirDC" ColumnName="TotalMajorProgDirDC" />
+          <ScalarProperty Name="TotalStaffInvstDC" ColumnName="TotalStaffInvstDC" />
+          <ScalarProperty Name="TotalPlanEvalDC" ColumnName="TotalPlanEvalDC" />
+          <ScalarProperty Name="TotalDevFundDC" ColumnName="TotalDevFundDC" />
+          <ScalarProperty Name="TotalAdminDC" ColumnName="TotalAdminDC" />
+          <ScalarProperty Name="TotalPRMSDC" ColumnName="TotalPRMSDC" />
+          <ScalarProperty Name="TotalProtocolSpecificDC" ColumnName="TotalProtocolSpecificDC" />
+          <ScalarProperty Name="TotalDSMDC" ColumnName="TotalDSMDC" />
+          <ScalarProperty Name="TotalDataSharingDC" ColumnName="TotalDataSharingDC" />
+          <ScalarProperty Name="TotalSharedResourceDC" ColumnName="TotalSharedResourceDC" />
+          <ScalarProperty Name="SupportYear" ColumnName="SupportYear" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="YearFirstAward" ColumnName="YearFirstAward" />
+          <ScalarProperty Name="YearsOfAward" ColumnName="YearsOfAward" />
+          <ScalarProperty Name="RemainingYears" ColumnName="RemainingYears" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="LastUpdatedUserName" ColumnName="LastUpdatedUserName" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeritProgs">
+      <EntityTypeMapping TypeName="OCCdbModel.MeritProg">
+        <MappingFragment StoreEntitySet="MeritProg">
+          <ScalarProperty Name="MeritProgID" ColumnName="MeritProgID" />
+          <ScalarProperty Name="SumStatementID" ColumnName="SumStatementID" />
+          <ScalarProperty Name="GrantNumber" ColumnName="GrantNumber" />
+          <ScalarProperty Name="AwardedYear" ColumnName="AwardedYear" />
+          <ScalarProperty Name="ProgName" ColumnName="ProgName" />
+          <ScalarProperty Name="MeritLevel" ColumnName="MeritLevel" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="LastUpdatedUserName" ColumnName="LastUpdatedUserName" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeritSRs">
+      <EntityTypeMapping TypeName="OCCdbModel.MeritSR">
+        <MappingFragment StoreEntitySet="MeritSR">
+          <ScalarProperty Name="MeritSRID" ColumnName="MeritSRID" />
+          <ScalarProperty Name="SumStatementID" ColumnName="SumStatementID" />
+          <ScalarProperty Name="GrantNumber" ColumnName="GrantNumber" />
+          <ScalarProperty Name="MeritSRName" ColumnName="MeritSRName" />
+          <ScalarProperty Name="MeritLevel" ColumnName="MeritLevel" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="LastUpdatedUserName" ColumnName="LastUpdatedUserName" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OCCStaffPOCs">
+      <EntityTypeMapping TypeName="OCCdbModel.OCCStaffPOC">
+        <MappingFragment StoreEntitySet="OCCStaffPOC">
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="WorkEmail" ColumnName="WorkEmail" />
+          <ScalarProperty Name="PersonalEmail" ColumnName="PersonalEmail" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="MigrationSource" ColumnName="MigrationSource" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+          <ScalarProperty Name="OCCStaffPOCID" ColumnName="OCCStaffPOCID" />
+          <ScalarProperty Name="LastUpdatedUserName" ColumnName="LastUpdatedUserName" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+          <ScalarProperty Name="RelatedPersonID" ColumnName="RelatedPersonID" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SumStatements">
+      <EntityTypeMapping TypeName="OCCdbModel.SumStatement">
+        <MappingFragment StoreEntitySet="SumStatement">
+          <ScalarProperty Name="SumStatementID" ColumnName="SumStatementID" />
+          <ScalarProperty Name="CenterID" ColumnName="CenterID" />
+          <ScalarProperty Name="GrantNumber" ColumnName="GrantNumber" />
+          <ScalarProperty Name="RequestedDate" ColumnName="RequestedDate" />
+          <ScalarProperty Name="ReleasedDate" ColumnName="ReleasedDate" />
+          <ScalarProperty Name="PILastName" ColumnName="PILastName" />
+          <ScalarProperty Name="PIFirstName" ColumnName="PIFirstName" />
+          <ScalarProperty Name="PIMiddleName" ColumnName="PIMiddleName" />
+          <ScalarProperty Name="PriorityScore" ColumnName="PriorityScore" />
+          <ScalarProperty Name="ImpactScore" ColumnName="ImpactScore" />
+          <ScalarProperty Name="FY1" ColumnName="FY1" />
+          <ScalarProperty Name="FY2" ColumnName="FY2" />
+          <ScalarProperty Name="FY3" ColumnName="FY3" />
+          <ScalarProperty Name="FY4" ColumnName="FY4" />
+          <ScalarProperty Name="FY5" ColumnName="FY5" />
+          <ScalarProperty Name="AwardedFY1" ColumnName="AwardedFY1" />
+          <ScalarProperty Name="AwardedFY2" ColumnName="AwardedFY2" />
+          <ScalarProperty Name="AwardedFY3" ColumnName="AwardedFY3" />
+          <ScalarProperty Name="AwardedFY4" ColumnName="AwardedFY4" />
+          <ScalarProperty Name="AwardedFY5" ColumnName="AwardedFY5" />
+          <ScalarProperty Name="ReqDC1" ColumnName="ReqDC1" />
+          <ScalarProperty Name="ReqDC2" ColumnName="ReqDC2" />
+          <ScalarProperty Name="ReqDC3" ColumnName="ReqDC3" />
+          <ScalarProperty Name="ReqDC4" ColumnName="ReqDC4" />
+          <ScalarProperty Name="ReqDC5" ColumnName="ReqDC5" />
+          <ScalarProperty Name="SugDC1" ColumnName="SugDC1" />
+          <ScalarProperty Name="SugDC2" ColumnName="SugDC2" />
+          <ScalarProperty Name="SugDC3" ColumnName="SugDC3" />
+          <ScalarProperty Name="SugDC4" ColumnName="SugDC4" />
+          <ScalarProperty Name="SugDC5" ColumnName="SugDC5" />
+          <ScalarProperty Name="TC1" ColumnName="TC1" />
+          <ScalarProperty Name="TC2" ColumnName="TC2" />
+          <ScalarProperty Name="TC3" ColumnName="TC3" />
+          <ScalarProperty Name="TC4" ColumnName="TC4" />
+          <ScalarProperty Name="TC5" ColumnName="TC5" />
+          <ScalarProperty Name="isHumanSubject" ColumnName="isHumanSubject" />
+          <ScalarProperty Name="HumanSubjectDesc" ColumnName="HumanSubjectDesc" />
+          <ScalarProperty Name="isAnimalSubject" ColumnName="isAnimalSubject" />
+          <ScalarProperty Name="AnimalSubjectDesc" ColumnName="AnimalSubjectDesc" />
+          <ScalarProperty Name="EC6PhySpaceMeritLevel" ColumnName="EC6PhySpaceMeritLevel" />
+          <ScalarProperty Name="EC6OrgCapMeritLevel" ColumnName="EC6OrgCapMeritLevel" />
+          <ScalarProperty Name="EC6TranCollabMeritLevel" ColumnName="EC6TranCollabMeritLevel" />
+          <ScalarProperty Name="EC6CancerFocusMeritLevel" ColumnName="EC6CancerFocusMeritLevel" />
+          <ScalarProperty Name="EC6InstCommitMeritLevel" ColumnName="EC6InstCommitMeritLevel" />
+          <ScalarProperty Name="EC6CenterDirMeritLevel" ColumnName="EC6CenterDirMeritLevel" />
+          <ScalarProperty Name="OrgAdminSrLeaderMeritLevel" ColumnName="OrgAdminSrLeaderMeritLevel" />
+          <ScalarProperty Name="OrgAdminPlanEvalMeritLevel" ColumnName="OrgAdminPlanEvalMeritLevel" />
+          <ScalarProperty Name="OrgAdminDevFundMeritLevel" ColumnName="OrgAdminDevFundMeritLevel" />
+          <ScalarProperty Name="OrgAdminAdminMeritLevel" ColumnName="OrgAdminAdminMeritLevel" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+          <ScalarProperty Name="LastUpdatedUserName" ColumnName="LastUpdatedUserName" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,846 @@
+﻿
+/*get rid of the defaults */
+/**{
+    margin:0px;	
+	padding:0px;
+}*/
+
+/*******************************************************************************************************************************************************
+   DATE         DEV     COMMENTS
+                Chi     Note Dot (.) indicates class and class  can be used multiple times in the same HTML document. 
+                        Hash tag (#) indicate an ID, short for fragment identifier. 
+                        You can only use an ID name once in any XHTML or HTML document. CSS can select ID's to apply individual styles to them using the hash sign (#)
+
+   11/16/2014   Chi     create centerContent class
+   12/06/2014   AM      Removed padding on img-staff on meet our team page
+   12/07/2014   Chi     Changed all the dataTables to a uniformed blue color: 
+                        for border-color:#94c0d2 baby blue; 
+                        background-color: #daecf4; light baby blue; and 
+                        header column or sorted column #9fcee2 deeper blue
+******************************************************************************************************************************************************/
+a[title]:hover:after  {
+    border-color: #f0c36d;
+    background-color: #f9edbe;
+    border-radius:3px;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+            background-image:none !important;
+}
+ .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+     background-color:#daecf4;  /*baby blue*/
+     /*background-color:#428bca;  blue*/
+}
+
+ /* keep change #111111 black to #94c0d2 baby blue  */
+   table.dataTable thead th,
+   table.dataTable thead td {
+   padding: 10px 18px;
+   border-bottom: 1px solid #94c0d2;
+   }
+
+   /*keep*/
+   table.dataTable tfoot th,
+   table.dataTable tfoot td {
+   padding: 10px 18px 6px 18px;
+   border-top: 1px solid #94c0d2;
+   }
+
+   /*keep*/
+   table.dataTable.stripe tbody tr.even, table.dataTable.display tbody tr.even {
+   background-color: #B20000;
+   }
+
+   /*keep #D3D6FF purple to #9fcee2 deeper baby blue */
+   table.dataTable tr.odd td.sorting_1 {
+   background-color: #9fcee2;
+    }
+    
+    /*keep #D3D6FF purple to #9fcee2 deeper baby blue */
+   table.dataTable tr.even td.sorting_1 {
+   background-color: #9fcee2;
+    }
+
+   /*Keep from #E2E4FF light purple to #daecf4 light baby blue*/
+    table.dataTable tr.odd {
+        background-color: #daecf4;
+    }
+
+    /*from #DADCFF purple to light baby blue*/
+    table.dataTable tr.odd td.sorting_2 td.sorting_3 td.sorting_4 td.sorting_5 {
+        background-color: #daecf4 !important;
+    }
+
+    /*from purple to light baby blue */
+    table.dataTable tr.odd td.sorting_2 {
+    background-color: #daecf4;
+    }
+
+   
+    table.dataTable tr.odd td.sorting_3 {
+   background-color: #daecf4;
+   }
+
+     /*light purple #F2F3FF to  white */
+    table.dataTable tr.even td.sorting_2 {
+    background-color: #F9F9FF;
+    }
+    
+            
+    /* from DDD gray to  to light baby blue*/
+    tr.group, tr.group:hover {
+    background-color: #daecf4;
+    }
+
+    thead th div.DataTables_sort_wrapper {
+    position: relative;
+    padding-right: 10px;
+    }
+
+    /*change gray to #94c0d2 baby blue */
+    table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: #94c0d2 !important;
+    }
+
+    /*change from #ddd gray to */
+    .table-bordered th,
+    .table-bordered td {
+    border: 1px solid #94c0d2;
+  }
+
+    
+    /* subheader: dark gray rgb(169, 169, 169) to deeper blue   */
+    keygen, select, select[size="0"], select[size="1"] {
+    border-radius: 0px;
+    border-color: #9fcee2;
+    }
+    /*--------------------------------------------------------12/06/2014------------------------------------------------------------*/
+       /*top header, revmoved  url(../images/ui-bg_highlight-soft_75_cccccc_1x100.png)*/
+        .ui-widget-header {
+        border: 1px solid #94c0d2 /*{borderColorHeader}*/;
+        background-color: #9fcee2  !important;
+        color: #222222 /*{fcHeader}*/;
+        font-weight: bold;
+        height:50px; 
+        padding:.5em;  
+        }
+
+        /* border #d3d3d3 gray to bably blue, background from gray to light baby blue, removed url(../images/ui-bg_glass_75_e6e6e6_1x400.png)  */
+        .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+        border: 1px solid #94c0d2 !important ; /*{borderColorDefault}*/
+        background: #daecf4 !important ; /*{bgColorDefault}*/
+        font-weight: normal ;/*{fwDefault}*/
+        color: #555555 ;/*{fcDefault}*/
+        }
+
+        /* subheader */
+        .tableBody {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 12px !important;
+            line-height: 1.428571429;
+            color: #333333;            /*black*/
+            background-color: #daecf4;  /*from white to diff light baby blue*/
+            border: 1px solid #94c0d2;
+        }  
+
+        .paging_full_numbers a.paginate_button:hover {
+            background-color: #94c0d2;
+            text-decoration: none !important;
+            }
+
+        /* light baby blue*/
+        .paging_full_numbers a.paginate_button {
+         background-color: #daecf4;
+         }
+
+        .paging_full_numbers a.paginate_button, .paging_full_numbers a.paginate_active {
+            border: 1px solid #94c0d2;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            /*padding: 2px 5px 2px;*/
+            padding: .5em;
+            margin: 0 3px;
+            cursor: pointer;
+            color: #333 !important;
+        }
+
+        /*infor on the footer, showing 1 to 10 of 68 entries*/
+       .dataTables_wrapper .dataTables_info {
+        clear: both;
+        float: left;
+        padding-top: 0.25em;
+        }
+
+        /*pdf/excel/print button*/
+        button.DTTT_button, div.DTTT_button, a.DTTT_button {
+        position: relative;
+        display: inline-block;
+        /*margin-right: 3px;*/
+        /*padding: 5px 8px;*/
+        border: 1px solid #94c0d2;
+        cursor: pointer;
+        font-size: 0.88em;
+        color: black !important;
+        border-radius: 5px !important;
+        background-color: #daecf4 !important;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        -ms-border-radius: 2px;
+        -o-border-radius: 2px;     
+        -webkit-box-shadow: 1px 1px 3px #ccc;
+        -moz-box-shadow: 1px 1px 3px #ccc;
+        -ms-box-shadow: 1px 1px 3px #ccc;
+        -o-box-shadow: 1px 1px 3px #ccc;
+        box-shadow: 1px 1px 3px #ccc;     
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daecf4', endColorstr='#f9f9f9',GradientType=0 );
+    }
+        /* search button 'f'*/
+        input, input[type="password" i], input[type="search" i] {
+        -webkit-appearance: textfield;
+        padding: 1px;
+        background-color: white;
+        border: 2px inset;
+        border-color: #94c0d2;
+        border-radius: 5px;
+        border-image-source: initial;
+        border-image-slice: initial;
+        border-image-width: initial;
+        border-image-outset: initial;
+        border-image-repeat: initial;
+        -webkit-rtl-ordering: logical;
+        -webkit-user-select: text;
+        cursor: auto;
+        }
+
+        /*show n entries 'l'*/
+        keygen, select, select[size="0"], select[size="1"] {
+        border-radius: 5px;
+        border-color: #9fcee2;
+        }
+
+    
+/*----------------------------------------------------------------------------------------------------------------------------------*/
+
+/* Hover dropdown */
+.hover_drop_down.input-group-btn ul.dropdown-menu{margin-top: 0px;}/*To avoid unwanted close*/
+.hover_drop_down.btn-group ul.dropdown-menu{margin-top:2px;}/*To avoid unwanted close*/
+.hover_drop_down:hover ul.dropdown-menu{
+   display: block;
+}
+
+
+
+/* change the nav icon color */
+.dropdown-submenu:hover>a:after{border-left-color:#428BCA;}
+
+.navbar navbar-default {
+  top: 0;
+  z-index: 1030;
+  overflow-y:scroll !important;
+}
+
+.DTimage img{
+    float:left; width:70px; height:65px; padding-right:.5em;
+}
+
+.bodyFontAndSize p{
+    font-family:Helvetica Neue,Helvetica,Arial,sans-serif;
+    text-justify:inter-word; font-size:small;
+}
+
+
+#newsMessageScroll{
+    position:absolute;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    overflow-y: scroll;
+}
+
+
+.occHeader{
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-weight:bold;
+    color:white;
+}
+
+
+/* Centering the web page */
+#pageCenterID { /* id name */
+    width: 960px; /* divides into 3 parts really well */
+    margin: 0px auto; /* Centers the web page, set 0px to top and bottom and auto the left & right */
+}
+
+#centerContentID{
+    margin: 0px auto;
+}
+
+.centerContent{
+    margin: 0px auto !important;
+}
+
+.breadcrumb {
+    background-color:#FFFFFF
+}
+
+.breadcrumb > li + li:before {
+  color: #f2e2cd;
+  content:none;
+  background-color:#ffffff;
+}
+.btn-danger {
+  color: #c91515;
+  background-color: #c91515;
+  border-color: #d43f3a;
+}
+
+.item {
+	background: #eeeeee; /*gradient light grey for the slider background*/
+	text-align: center;
+	height: 230px !important;
+}
+
+.item img {
+
+	height: 230px !important; /*adjust the height of the images within the slider*/
+}
+        
+/*make image slide*/
+.carousel {
+	margin-top: 20px;}
+
+.bs-example{
+	margin: 20px;}
+
+/*to make the dd menu font white*/
+.occWhite{
+    color:#FFF;
+}
+    
+
+/* Cancer Centers List Box */
+.holder {
+	width: 250px;
+	margin: 26px;
+	float: left;
+	overflow: hidden;
+}
+.topbar {
+	border: 1px solid rgba(0,0,0,0.2);
+	box-shadow: inset 0px 0px 1px 1px rgba(255,255,255,0.5), 
+				inset 0px -3px 15px -1px rgba(0,0,0,0.2);
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	-webkit-background-clip: padding-box;
+}
+.topbar h1 {
+	background: url(http://noisepng.com/100-90-4-monochrome.png);
+	text-align: center;
+	margin: 0px 0px 0px 0px;
+	color: #fff;
+	font-size: 20px;
+	text-shadow: 1px 1px 0px rgba(0,0,0,0.3);
+	letter-spacing: -1px;
+}
+.inbar {
+	border: 1px solid rgba(0,0,0,0.2);
+	box-shadow: inset 0px 0px 10px -2px rgba(0,0,0,0.2);
+}
+.inbar ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.inbar ul li { 
+	margin: 0;
+	padding: 0;
+	clear: both;
+	background: rgb(255,255,255);
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmN2Y3ZjciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(247,247,247,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(247,247,247,1)));
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%);
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%);
+	background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7f7f7',GradientType=0 );
+}
+.inbar ul li span {
+	float: left;
+	padding: 5px 30px 5px 30px;
+	border-right: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	font-weight: 800;
+	font-size: 30px;
+	color: #888;
+	background: #fff;
+}
+.inbar ul li p {
+	padding: 17px 0px 16px 70px;
+	border-right: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	margin: 0;
+	color: #666;
+	font-size: 16px;
+	text-shadow: 1px 1px 0 #fff;
+	box-shadow: inset 0 0 1px 1px #fff;
+}
+.inbar ul li:hover p {
+	background: rgba(0,0,0,0.02); 
+}
+.inbar ul li:hover span {
+	color: rgba(0,0,0,0.3);
+}
+
+.blue {
+background: rgb(64,150,238);
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzQwOTZlZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyMzcwYmMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  rgba(64,150,238,1) 0%, rgba(35,112,188,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(64,150,238,1)), color-stop(100%,rgba(35,112,188,1)));
+background: -webkit-linear-gradient(top,  rgba(64,150,238,1) 0%,rgba(35,112,188,1) 100%);
+background: -o-linear-gradient(top,  rgba(64,150,238,1) 0%,rgba(35,112,188,1) 100%);
+background: -ms-linear-gradient(top,  rgba(64,150,238,1) 0%,rgba(35,112,188,1) 100%);
+background: linear-gradient(top,  rgba(64,150,238,1) 0%,rgba(35,112,188,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4096ee', endColorstr='#2370bc',GradientType=0 );
+}
+
+
+/*The simplest technique for adapting images to small screens is to include the following CSS rule in your media query:*/
+img {
+    max-width: 100%;
+    height: auto;
+    }
+
+.main { margin-top: 50px }
+
+input {
+    font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    color: #555860;
+}
+
+.search {
+    position: relative;
+    margin: 0 auto;
+    width: 300px;
+}
+
+.search input {
+    height: 26px;
+    width: 100%;
+    padding: 0 12px 0 25px;
+    background: white url("http://cssdeck.com/uploads/media/items/5/5JuDgOa.png") 8px 6px no-repeat;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #a8acbc #babdcc #c0c3d2;
+    border-radius: 13px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+    -moz-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+    -ms-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+    -o-box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+    box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+}
+
+.search input:focus {
+    outline: none;
+    border-color: #66b1ee;
+    -webkit-box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+    -moz-box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+    -ms-box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+    -o-box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+    box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+}
+
+.search input:focus + .results { display: block }
+
+.search .results {
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #cbcfe2 #c8cee7 #c4c7d7;
+    border-radius: 3px;
+    background-color: #fdfdfd;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fdfdfd), color-stop(100%, #eceef4));
+    background-image: -webkit-linear-gradient(top, #fdfdfd, #eceef4);
+    background-image: -moz-linear-gradient(top, #fdfdfd, #eceef4);
+    background-image: -ms-linear-gradient(top, #fdfdfd, #eceef4);
+    background-image: -o-linear-gradient(top, #fdfdfd, #eceef4);
+    background-image: linear-gradient(top, #fdfdfd, #eceef4);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.search .results li { display: block }
+
+.search .results li:first-child { margin-top: -1px }
+
+.search .results li:first-child:before, .search .results li:first-child:after {
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 50%;
+    margin-left: -5px;
+    border: 5px outset transparent;
+}
+
+.search .results li:first-child:before {
+    border-bottom: 5px solid #c4c7d7;
+    top: -11px;
+}
+
+.search .results li:first-child:after {
+    border-bottom: 5px solid #fdfdfd;
+    top: -10px;
+}
+
+.search .results li:first-child:hover:before, .search .results li:first-child:hover:after { display: none }
+
+.search .results li:last-child { margin-bottom: -1px }
+
+.search .results a {
+    display: block;
+    position: relative;
+    margin: 0 -1px;
+    padding: 6px 40px 6px 10px;
+    color: #808394;
+    font-weight: 500;
+    text-shadow: 0 1px #fff;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.search .results a span { font-weight: 200 }
+
+.search .results a:before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -9px;
+    background: url("http://cssdeck.com/uploads/media/items/7/7BNkBjd.png") 0 0 no-repeat;
+}
+
+.search .results a:hover {
+    text-decoration: none;
+    color: #fff;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+    border-color: #2380dd #2179d5 #1a60aa;
+    background-color: #338cdf;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #59aaf4), color-stop(100%, #338cdf));
+    background-image: -webkit-linear-gradient(top, #59aaf4, #338cdf);
+    background-image: -moz-linear-gradient(top, #59aaf4, #338cdf);
+    background-image: -ms-linear-gradient(top, #59aaf4, #338cdf);
+    background-image: -o-linear-gradient(top, #59aaf4, #338cdf);
+    background-image: linear-gradient(top, #59aaf4, #338cdf);
+    -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+    -ms-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+    -o-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+}
+
+:-moz-placeholder {
+    color: #a7aabc;
+    font-weight: 200;
+}
+
+::-webkit-input-placeholder {
+    color: #a7aabc;
+    font-weight: 200;
+}
+
+.lt-ie9 .search input { line-height: 26px; }
+
+
+/*Breadcrumb arrow*/
+.breadcrumb .glyphicon-circle-arrow-right    {color:#ff8300}
+
+/*Remove padding from staff pictures on Meet Our Team*/
+.img-staff {padding:0px;}
+
+/*change the dd menu background color to baby blue*/
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+            background-image:none !important;
+}
+
+/*03/04/2015 Chi, changed background from baby blue #daecf4; to neon blue 00D9D9
+                  added black font
+*/
+ .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+     color:#000000 !important;
+     background-color: #00D9D9 !important;
+}
+
+/* 03/03/2014  Chi: for ARIA-WAI, instead of #428bca;,  use #2B5881 (dark) or   #285E8E (lighter, like!) with white font */
+.btn-primary {
+    color: #ffffff !important;
+    background-color: #285E8E !important;
+    border-color: #357ebd;
+ }
+
+
+
+/* 03/03/2014  Chi:*/
+.btn:hover,
+.btn:focus {
+  color: #000000 !important;
+  background-color: #00D9D9 !important;
+  /*text-decoration: none;*/
+  /*text-decoration: underline;*/
+}
+
+
+/* dropdown font 
+   03/03/2014  Chi  change color from #428BCA (light blue) to darker blue 225079
+*/
+ .dropdown-toggle{
+     color:#225079 !important;
+ }
+
+  .grayFont{
+      color:#202020 !important;
+      font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+      font-size:14px;
+      font-weight:normal;
+  }
+
+/* from  #f0ad4e to brigher orange #EEA236 */
+  .warningBtn{
+      background-color: #EEA236 !important;
+  }
+
+  /* use on DTs views*/
+  .tealFont{
+      color:#005c83 !important;
+  }
+
+
+ /*03/04/2015 Chi: Changed container's background-color: from white #ffffff to whitesmoke #F5F5F5 */
+ .container {
+    background-color: #F5F5F5 !important;
+    width: 960px;
+    margin: 0px auto;
+}
+
+ /*03/04/2015 Chi: Changed background-color: f8f8f8 to Blanched Almond #FFEBCD  to whitesmoke #F5F5F5 */
+.navbar-default {
+    background-color: #F5F5F5 !important;
+    border-color: #e7e7e7;
+}
+
+  /*03/04/2015 Chi: Changed  Outside the container color from white to Blanched Almond #FFEBCD */
+body {
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+    padding-bottom: 0;
+    padding-top: 0;
+    margin: 0 auto;
+    background-color: #F5F5F5 !important;
+
+}
+
+.container {
+    background-color: #FFFFFF !important;
+    font-size: 14px !important;
+       -webkit-box-shadow: 0 15px 6px -6px #777;
+	   -moz-box-shadow: 0 15px 6px -6px #777;
+	        box-shadow: 0 15px 6px -6px #777;
+
+
+}
+
+.containerBackground{
+    background-color:#FFFFFF;
+
+
+}
+
+html {
+    font-size: 14px !important;
+}
+
+/*changed from 157.5 to 160 */
+.ddlWidth{
+    width:180px !important;
+}
+
+/*body font*/
+.occFontBody{
+    font-family: helvetica,arial,sans-serif;
+    font-size: 14px;
+    font-weight:normal;
+}
+
+/*OCC Header Bold */
+.occHbold{
+    font-family: helvetica,arial,sans-serif;
+    font-size: 18px;
+    font-weight:bold;
+}
+
+/*OCC Header normal */
+.occHnormal{
+    font-family: helvetica,arial,sans-serif;
+    font-size: 18px;
+    font-weight:normal;
+}
+
+
+a
+ {
+    color:#003b71;
+}
+
+
+/*  03/03/2014  Chi: for 508,  neon blue bg and black font*/
+a:hover,
+a:focus,
+a:active {
+  color: #000000 !important;
+  background-color: #00D9D9 !important;
+  text-decoration: underline;
+}
+
+/* 03/06/2014  Chi: make the caret button lit UP */
+.btn2:hover 
+.btn2:focus {
+  background-color: #00D9D9 !important;
+  color: #000000 !important;
+  /*text-decoration: underline;*/
+}
+
+/*Green btn*/
+.successBtn{
+     background-color:#2C582C !important;
+}
+
+.successBtnFont{
+     color:#FFFFFF;
+     font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+     font-size:18px;
+     font-weight:normal;
+}
+
+ 
+/* 03/06/2014  Chi: black text and neon blue bg*/
+.successBtn:hover,
+.successBtn:focus,
+.successBtn:active {
+  color: #000000 !important;
+  background-color: #00D9D9 !important;
+  text-decoration: underline;
+}
+
+.successBtnlink{
+    color: #FFFFFF !important;
+    /*text-decoration: underline;*/
+}
+
+ .dropdown ul li {
+      position: relative;
+      list-style: none;
+      margin: 5px 0;
+
+          background-color: #ffffff;
+          border: 1px solid #cccccc;
+          border: 1px solid rgba(0, 0, 0, 0.15);
+          border-radius: 4px;   
+ }
+
+ .dropdown ul li a {
+      display: block;
+      padding: 3px 10px;
+ }
+
+/*darker turquoise */
+ .dropdown ul li a:hover {
+          color: #000000 !important;
+          background-color: #00D9D9 !important;
+          /*text-decoration: underline;*/
+  }
+
+  .dropdown ul li:hover > ul {
+      display: block;
+      top: 0;
+
+        color: #000000 !important;
+        background-color: #00D9D9 !important;
+        /*text-decoration: underline;*/
+  }
+
+/*turquoise color*/
+  .dropdown ul li:hover > a {
+      color: #000000 !important;
+      background-color: #00D9D9 !important;
+      text-decoration: underline;
+  }
+
+/* display: block; show the submenu*/
+  .dropdown:focus > ul {
+        display: block;
+        color: #000000 !important;
+        background-color: #00D9D9 !important;
+        /*text-decoration: underline;*/
+  }
+
+  /*gradient white bg and dark blue font 
+  */
+  /*.subMenuBg{
+      color:#003b71 !important;
+      background-color: #FFFFFF !important;
+      box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+      width:inherit;
+  }*/
+
+/*03/18/2015: skip2home class is created for skip nav accessibility*/
+ a.skip2home {
+    left:-999px;
+    position:absolute;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    z-index:-999;
+}
+a.skip2home:focus, a.skip-main:active {
+    color: #fff;
+    background-color:#000;
+    left: auto;
+    top: auto;
+    width: 75%;
+    height: auto;
+    overflow:auto;
+    margin: 10px 35%;
+    padding:5px;
+    border-radius: 15px;
+    border:4px solid yellow;
+    text-align:center;
+    font-size:1.2em;
+    z-index:999;
+}
