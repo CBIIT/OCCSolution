@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "FAQs";
+}
+
+
+@*COMMENTS---------------------------------------------------------------------------------------------------------
+        DATE        USER    NOTES
+
+        11/12/2014  AM      Replaced Color names with HEX Codes
+                            Removed color style for "glyphicon glyphicon-circle-arrow-right"
+                            Changed colors from Maroon to Blue to be consistent with FAQ Pages
+        12/24/2014  AM      Removed target=_blank
+        01/28/2015  AM      Redesigned per Shannon Hatch Suggestion
+        01/30/2015  AM      Changed Page Header to Red Color
+        03/04/2015  AM      Changed red color to #8F0000 to pass CCA testing, hid comments, cleaned up code.
+        03/18/2015  AM      added hometooltip, grayFont
+        03/27/2015  Chi     Removed occHyperlink, added id="home" to the 1st <a> tag
+        04/02/2015  AM       Modified panel, added bootstrap well style, 
+        03/15/2021  AM      Removed FOA FAQs as they are no longer relevant per Sonya and KP
+    -------------------------------------------------------------------------------------------------------------*@
+
+<!DOCTYPE html>
+<style>
+    .well-sm { 
+            -webkit-box-shadow: 0 10px 6px -6px #777;
+	        -moz-box-shadow: 0 10px 6px -6px #777;
+	        box-shadow: 0 10px 6px -6px #777;
+            height: 90px;
+            border-width:2px; 
+            border-color:#EFF7EF;
+    }
+
+</style>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQs</title>
+
+</head>
+<body>
+    <div class="container" id="pageCenterID">
+        <div class="row" id="centerContentID">
+            @*<h2 style="color:#8F0000;"><i>&nbsp;FAQs</i></h2>
+            <span style="padding-left:1.5em;"></span>*@
+            <br />
+            <img src="~/images/faqimage.jpg" alt="faq banner" style="border-radius:10px;">
+
+            <hr style="margin-bottom:0em;" />
+            <ul class="breadcrumb" style="float:left; margin-bottom:2px;">
+                <li class ="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
+                <li class="active grayFont">FAQs</li>
+            </ul>
+        </div>
+
+
+            <div class="col-sm-8" style="margin-left:200px">
+                <div class="panel">
+                    <div class="panel-heading" style="background-color:#085584">
+                        <h3 class="panel-title" style="color:white; text-align:center">Frequently Asked Questions related to:</h3>
+                    </div>
+                    <div class="panel-body well-sm">
+                        <br />
+                        <ul>
+                            <li><a id="home" href="~/Home/CCSGFAQs">Cancer Center Support Grant (CCSG)</a></li>
+
+                            <li><a href="~/Home/DTFAQs">CCSG Data Guide</a></li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+      
+
+</body>
+</html>

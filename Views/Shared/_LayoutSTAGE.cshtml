@@ -1,0 +1,425 @@
+﻿<!DOCTYPE html>
+@******************************************************************************
+       DATE         DEVELOPER          DESC
+       09/22/2014   Chi Dinh           Created.
+       12/17/2014  Chi                 Changed the OCCFavIcon.ico
+       12/18/2014  Chi                 Updated the URLs to access file in Documents foder,
+                                       the Search with the code Jacob Mensah provided
+                                           <form method="get" action="https://google3.nci.nih.gov/search">
+                                       <input type="text" name="q" size="32" maxlength="255" value="" />
+                                       <input type="submit" name="btnG" value="Search" />
+                                       <input type="hidden" name="site" value="cancercenters_stage_collection" />
+                                       <input type="hidden"name="client" value="cancercenters_frontend" />
+                                       <input type="hidden" name="proxystylesheet" value="cancercenters_frontend" />
+                                       <input type="hidden" name="output" value="xml_no_dtd" />
+                                       </form>
+       12/29/2014 Chi                  Included Site Map Module.
+       12/31/2014 AM                   Made NIH Header font smaller
+                                       Added External Website Policy to drop down menu under External Links
+                                       Added Site Map to drop down menu under About Us
+       1/6/2015    AM                  Removed DSM Elements links
+       01/07/2015  Chi                 Changed OCC  MessageBoard to OCC Annoucements
+       01/13/2015  Chi                 Corrected spelling of the word announcement
+       01/14/2015  AM                  added CITLA to G&F P&A dropdown
+       01/30/2015  Chi                 Modified the tooltip so that it would show up faster, don't use the Title attribute.
+       02/03/2015  Chi                 Updated the tooltip, unable to include the tooltip to the Drop-down menu; it would cause the 'About Us' menu to move to the next line.
+       02/11/2015  AM                  View our history _blank
+       02/13/2015  AM                  Added 508 notice from HHS to footer
+       02/16/2015  Chi                 Commented out the 508 notice
+       02/19/2015  Chi                 Updated the Search feature  for Prod per Jacob Mensah
+                                       From name="site" value="cancercenters_stage_collection"
+                                       to name="site" value="cancercenters_collection"
+       03/03/2015  Chi                 Fixed the color contrast for 508 compliant, added occHyperLink color to Header and Footer sections,
+                                       added Title/tooltip to search button, defined and referenced successBtn
+       03/04/2015  Chi                 Redesigned the whole _layout page, assigned the occPipe a brighter orange,  ref containerBackground,
+                                       Added col-sm-# class to each section
+       03/05/2015  Chi                *Modified DD Menus for Accessible Rich Internet Applications (ARIA) (http://terrillthompson.com/blog/202) this way
+                                       as assistive technology (AT) users interact with the menu, ARIA passes updated information to their AT, and their AT then communicates that information in meaningful ways.
+                                       tabindex="0", 0 indicates that the element should be placed in the default navigation order
+                                       abindex="-1", -1 value removes the element from the default navigation flow (i.e., a user cannot tab to it), but it allows it to receive programmatic focus, meaning focus can be set to it from a link or with scripting.
+                                       "sr-only" for screen readers - inlcude this class for every input.
+       03/09/2015 Chi                  Added jquery-accessibleMegaMenu.js for Accessible Mega Menu using example from  http://terrillthompson.com/blog/474
+       03/17/2015 AM                   Modified the Logo Usage Policy from PDF to view
+       03/26/2015 Chi                 *To avoid unintended and confusing output in screen readers (particularly when icons are used purely for decoration), we hide them with the aria-hidden="true" attribute.
+                                       http://getbootstrap.com/components/
+       04/02/2015 AM                   changed header column widths 5 2 5, made Grants & Funding drop down align correctly
+                                       Updated Website version to 2.1.0 per Chi, updated Logo Usage Policy hyperlink
+       09/24/2015 AM                   Updated ICD 10 hyperlink to open pdf temporarily
+       10/14/2015 AM                   added 2016 CCITLA url
+       10/19/2015 AM                   Updated CURE Supplement URL  
+       10/22/2015 AM                   Made Notice of Correction to PAR open Grants & Funding page
+       01/13/2016 AM                   Updated CURE Supplment URL 
+       
+    ******************************************************************************************************************************************************@
+<html>
+<head>
+    <title>@ViewBag.Title - OCCWebApp 2.1.0</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">  @*some jQuery ui broke in IE 10. This will set compat mode in ie 10*@
+    <link href="~/images/OCCFavIcon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/jquery")
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @* Render sequence matters jquerymin, bundle/jquery, Scripts/jquery *@
+    @Scripts.Render("~/bundles/jquerymin")
+    @Scripts.Render("~/bundles/jquery")  @*  for dd menu*@
+    @Scripts.Render("~/Scripts/jquery")  @* for RowGrouping*@
+  
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryDT")
+   
+    <link rel="stylesheet" type="text/css" href="~/Content/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap-social.css">
+ 
+    @* jqury-1.11.1.min.js causes issue for SR page. *@
+    @*<script src="~/Scripts/jquery-1.11.1.min.js"></script>*@
+    <script src="~/Scripts/jquery-accessibleMegaMenu.js"></script>
+
+   @Styles.Render("~/Content/styles/kendo")
+   @Scripts.Render("~/Scripts/js/kendo")
+
+   <link rel="stylesheet" type="text/css" href=" ~/Content/occCustom.css">
+    @* WA_OCC_PageLoad.js is for the Adobe Analytics Tracking per Joe Welsh with the Analytics Team 03/04/2015 email*@ 
+   <script language="JavaScript" type="text/javascript" src="http://static.cancer.gov/webanalytics/WA_OCC_PageLoad.js"></script>
+   <style>
+        /*Neon Orange: FF8300 to bright FF9933, to brighter #ff5114  */
+        .occPipe {
+                color: #ff5114;
+                height: 5em;
+                width: 0.25em;
+                font-weight: bolder;
+                font-size: 15px;
+                margin-left: 5px;
+                margin-right: 5px;
+        }
+
+        .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+            background-image:none !important;
+        }
+
+        .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+         background-color:#daecf4;  /*baby blue*/
+        /*background-color:#428bca;  blue*/
+        }
+
+        /* tooltip color, border: light orange, background:light yellow */
+        .tooltipColor + .tooltip > .tooltip-inner {
+        border: 1px solid #F0C36D;
+        border-radius: 5px;
+        background-color: #f9edbe;
+        color: black;
+        }
+
+         /* mega menu list */
+        .nav-menu {
+            display: block;
+            position: relative;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            z-index: 15;
+        }
+
+        /* a top level navigation item in the mega menu */
+        .nav-item {
+            list-style: none;
+            display: inline-block;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* first descendant link within a top level navigation item */
+        .nav-item > a {
+            position: relative;
+            display: inline-block;
+            padding: 0.5em 1em;
+            margin: 0 0 -1px 0;
+            border: 1px solid transparent;
+        }
+
+        /* focus/open states of first descendant link within a top level  navigation item */
+        .nav-item > a:focus,
+        .nav-item > a.open {
+            border: 1px solid #dedede;
+        }
+
+        /* open state of first descendant link within a top level navigation item */
+        .nav-item > a.open {
+            /* background-color: #fff; */
+            border-bottom: none;
+            z-index: 1;
+        }
+
+        /* sub-navigation panel 
+           03/12/2015: added border-radius, color, bg (whitesmoke),  box-shadow, padding-right
+        */
+        .sub-nav {
+            position: absolute;
+            display: none;
+            top: 2.6em;
+            margin-top: -1px;
+            padding: 0.5em 1em;
+            border: 1px solid #dedede;
+
+            background-color: #F5F5F5 !important;
+            border-radius: 3px;
+            font-size: 13px;
+            color:#003b71 !important;
+            /*border-radius: 3px;
+            color:#003b71 !important;
+            box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+            padding-right: 0px;*/
+        }
+
+        /* sub-navigation panel open state */
+        .sub-nav.open {
+            display: block;
+        }
+
+        /* list of items within sub-navigation panel
+            03/13/2015: added line-height
+        */
+        .sub-nav ul {
+            display: inline-block;
+            vertical-align: top;
+            margin: 0 1em 0 0;
+            padding: 0;
+
+            line-height:180% !important;
+        }
+
+        /* list item within sub-navigation panel */
+        .sub-nav li {
+            display: block;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        /*make a solid dark blue color line, same color as the main menu buttons*/
+        legend { 
+          padding: 0;
+          margin:0; 
+          height:0px;
+          border-bottom:1px solid #93aec6;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $(".tip-top").tooltip({
+            placement : 'top'
+        });
+        $(".tip-right").tooltip({
+            placement : 'right'
+        });
+        $(".tip-bottom").tooltip({
+            placement : 'bottom'
+        });
+        $(".tip-left").tooltip({
+            placement : 'left'
+        });
+        $('[rel="tooltip"]').tooltip();
+
+        $("nav").accessibleMegaMenu({
+            /* prefix for generated unique id attributes, which are required
+               to indicate aria-owns, aria-controls and aria-labelledby */
+            uuidPrefix: "accessible-megamenu",
+
+            /* css class used to define the megamenu styling */
+            menuClass: "nav-menu",
+
+            /* css class for a top-level navigation item in the megamenu */
+            topNavItemClass: "nav-item",
+
+            /* css class for a megamenu panel */
+            panelClass: "sub-nav",
+
+            /* css class for a group of items within a megamenu panel */
+            panelGroupClass: "sub-nav-group",
+
+            /* css class for the hover state */
+            hoverClass: "hover",
+
+            /* css class for the focus state */
+            focusClass: "focus",
+
+            /* css class for the open state */
+            openClass: "open"
+        });
+    });
+    </script>
+</head>
+<body>
+<div class="navbar navbar-default">
+    <div class="containert" id="pageCenterID">
+        @*NCI home page: *@
+        @*<div class="col-sm-12 btn-sm containerBackground" style="border-radius:3px;" role="banner">
+            <a style="font-size:14px; color:#990000;" href="http://www.cancer.gov" target="_blank" class="tip-bottom tooltipColor" data-toggle="tooltip" title="Click here to go to Cancer.gov">National Cancer Institute</a>
+            <span style="font-size:10px; line-height:5%; color:#990000;" class="containerBackground" accesskey="i"><br /> at the National Institutes of Health</span>
+        </div>*@
+        @*OCC Logo/FAQs|Site Map/Search: *@
+        <div class="row centerContent containerBackground">
+            <div class="col-sm-12 btn-sm containerBackground">
+                @* OCC Logo:*@
+                <div class="col-sm-6" style="margin-top:10px">
+                    <a href="~/Home"><img src="~/images/OCC36LogoColor.png" alt="Office of Cancer Centers logo" style="background-color:white" class="tip-bottom tooltipColor" data-toggle="tooltip" title="Click here or press Alt/Ctrl + h to skip to OCC Home page" accesskey="h" tabindex="-1"></a>
+                </div>
+               @* Hide Keyboard Shortcut Page *@
+                <a accesskey="b" style="display:none" href="~/Home/Keyboard"></a>
+                    @* FAQs|Sige Map: *@
+                    <div class="col-sm-2">
+                        <p style="font-size:12px;">
+                            <a href="~/Home/FAQs" accesskey="q" class="tip-bottom tooltipColor" data-toggle="tooltip" title="Click here to go to the FAQs page">
+                               FAQs
+                            </a><span class="occPipe">|</span>
+                            <a href="@Url.Action("SiteMap", "Home")" accesskey="m" class="tip-bottom tooltipColor" data-toggle="tooltip" title="Click here to view the Site Map">Site Map</a>
+                        </p>
+                    </div>
+                    @*Search feature:*@
+                    <div class="col-sm-5" role="search">
+                        <form method="get" action="https://google3.nci.nih.gov/search" class="centerContent" style="float:right;">
+                            <input type="text" name="q" size="32" maxlength="255" class=" input-sm tip-bottom tooltipColor" data-toggle="tooltip" title="Enter search criteria then press ENTER key or the Search button" />
+                            <button class="btn btn-success btn-sm successBtn  tip-bottom tooltipColor" type="submit" name="btnG" value="Search" title="Search button" aria-label="search button">
+                                <span class=" glyphicon glyphicon-search tip-bottom tooltipColor" aria-hidden="true"></span>
+                            </button>
+                        @*for PROD:
+                        <input type="hidden" name="site" value="cancercenters_stage_collection" />                  
+                        <input type="hidden" name="client" value="cancercenters_frontend" />
+                        <input type="hidden" name="proxystylesheet" value="cancercenters_frontend" />
+                        *@
+                        @*For STAGE:  *@
+                        <input type="hidden" name="site" value="cancercenters_stage_collection" />
+                        <input type="hidden" name="client" value="cancercenters-stage_frontend" />
+                        <input type="hidden" name="proxystylesheet" value="cancercenters-stage_frontend" />
+
+                        <input type="hidden" name="output" value="xml_no_dtd" />
+                    </form>
+                </div>
+        </div><!--col-sm-12-->
+        </div><!--row-->
+    @***DROP DOWN MENU(DDM):***@
+        <div class="col-sm-12 centerContent containerBackground">
+            <nav id="occdrops">    
+                <ul class="nav-menu">
+                    <li class="nav-item">                                       
+                        <a class="btn btn-primary ddlWidth occWhite tip-top tooltipColor" title="Click here or press Alt/Ctrl + 1 to skip to Cancer Centers page" accesskey="1" href="~/Center/CancerCenters">Cancer Centers&nbsp;&nbsp;<span class="caret"></span></a>
+                        <div class="sub-nav" style="width:180px;">
+                            <ul class="sub-nav-group">
+                                <li title="Find a Cancer Center"><a href="@Url.Action("CCList", "Center")"><span class="fa fa-search" aria-hidden="true"></span><span > a Cancer Center</span></a></li>
+                                <li title="Find a Shared Resource"><a href="@Url.Action("ResearchProgram", "Center")"><span class= "fa fa-search" aria-hidden="true"></span><span > a Research Program</span></a></li>
+                                <li title="Find a Research Program"><a href="@Url.Action("SharedResource", "Center")"><span class="fa fa-search" aria-hidden="true"></span><span > a Shared Resource</span></a></li>                                                         
+                                <a href="#home" class="skip2home">Skip to content</a>
+                                <span style="padding-bottom:.5em;" aria-hidden="true"></span> 
+                                <legend aria-hidden="true"></legend>                                 
+                                <li><a href="@Url.Action("DT", "DT")" >Benchmark Data</a></li>
+                                <li><a href="@Url.Action("DT1", "DT")" >Data Table 1</a></li>
+                                <li><a href="@Url.Action("DT2", "DT")" >Data Table 2</a></li>
+                                <li><a href="@Url.Action("DT3", "DT")" >Data Table 3</a></li>
+                                <li><a href="@Url.Action("DT4", "DT")" >Data Table 4</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary ddlWidth occWhite tip-top tooltipColor" title="Click here or press Alt/Ctrl + 2 to skip to Grants & Funding page" accesskey="2" href="~/GrantsFunding/GrantsFunding">Grants & Funding&nbsp;&nbsp;<span class="caret"></span></a>
+                        <div class="sub-nav" style=" width:80%; right:.1%;">
+                            <ul class="sub-nav-group">
+                                <li><a href="http://grants.nih.gov/grants/guide/pa-files/PAR-13-386.html" target="_blank">CCSG</a></li>
+                                <li><a href="~/GrantsFunding/GrantsFunding" target="_blank">Notice of Correction to PAR</a></li>
+                                <li><a href="~/Documents/GuidelinesforNCICCSupplementsforUnderrepresentedHSandUndergraduateStudentResearchExperiences-508C.pdf" target="_blank">CURE Supplements</a></li>
+                                <li><a href="~/Documents/ClinicalInvestigatorTeamLeadershipAward2016-508.pdf" target="_blank">2016 CCITLA</a></li>
+                            </ul>
+                            <ul class="sub-nav-group">
+                                <li><a href="~/GrantsFunding/FOAChangesOutline">Outline of FOA Changes</a></li>
+                                <li><a href="~/GrantsFunding/GuidelineChangesOutline">Outline of Guidelines Changes</a></li>
+                                <li><a href="~/GrantsFunding/PRMSandCPDMGuidance">PRMS and CPDM Guidance</a></li>
+                                <li><a href="~/GrantsFunding/CCSGPeerRev">Peer Review Process</a></li>
+                            </ul>
+                            <a href="#home" class="skip2home">Skip to content</a>
+                            <ul class="sub-nav-group">
+                                <li><a href="~/GrantsFunding/DSMPPolicy">Policy on Peer Review of DMSP</a></li>
+                                <li><a href="~/GrantsFunding/DSMPRevCriteria">DSMP Review by NCI Staff</a></li>
+                                <span style="padding-bottom:.5em;" aria-hidden="true"></span>
+                                <legend aria-hidden="true"></legend>
+                                <li><a href="~/GrantsFunding/ICD9View">ICD 9</a></li>
+                                <li><a href="~/Documents/ICD10-508.pdf">ICD 10</a></li>
+                            </ul>
+                            <ul class="sub-nav-group">
+                                <li><a href="~/GrantsFunding/DataGuide">Data Guide</a></li>
+                                <li><a href="~/GrantsFunding/eData">eData</a></li>
+                                <li><a href="~/GrantsFunding/GrantsFunding">eData Templates</a></li>
+                                <li><a href="~/GrantsFunding/RPPR">RPPR Instructions</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class=" btn btn-primary occWhite ddlWidth tip-top tooltipColor" data-toggle="tooltip" title="Click here or press Alt/Ctrl + 3 to skip to News & Events page" accesskey="3" href="~/NewsEvents/NewsEvents">News & Events&nbsp;&nbsp;<span class="caret"></span></a>
+                        <div class="sub-nav" style="width:180px;">
+                            <ul class="sub-nav-group">
+                                <li><a href="~/NewsEvents/OCCAnnouncement" class="occHyperlink2">OCC Announcements&nbsp;&nbsp;</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class=" btn btn-primary ddlWidth occWhite tip-top tooltipColor" data-toggle="tooltip" title="Click here or press Alt/Ctrl + 4 to skip to Grants & Funding page" accesskey="4" href="~/PoliciesResources/PoliciesResources">Policies & Resources&nbsp;&nbsp;<span class="caret"></span></a>
+                        <div class="sub-nav" style="width:225px">
+                            <ul class="sub-nav-group">
+                                <li><a href="~/PoliciesResources/PoliciesResources">Peer Reviev Funding Systems</a></li>                              
+                                <li><a href="~/PoliciesResources/LogoUsagePolicy">Cancer Center Identity Badges</a></li>                                                 
+                                <li><a href="~/PoliciesResources/PoliciesResources">CTSA</a></li> 
+                                <a href="#home" class="skip2home">Skip to content</a>
+                                <legend aria-hidden="true"></legend>  
+                                <li><b>External Links:</b></li>                             
+                                <li><a href="http://www.cancer.gov/clinicaltrials/search/treatment-trial-guide" target="_blank">How to Find a Cancer Treatment Trial</a></li>
+                                <li><a href="http://obf.cancer.gov/" target="_blank">NCI Fact Book</a></li>
+                                <li><a href="http://grants.nih.gov/grants/oer.htm" target="_blank">Office of Extramural Research</a></li>
+                                <li><a href="http://grants2.nih.gov/grants/funding/2590/2590.htm" target="_blank">PHS 2590</a></li>
+                                <li><a href="http://grants.nih.gov/grants/funding/424/index.htm" target="_blank">SF 424</a></li>                        
+                                <li><a href="http://cancercontrolplanet.cancer.gov/" target="_blank">The Cancer Control Planet</a></li>                                                         
+                                <li><a href="~/Home/ExternalWebsitePolicy">External Website Policy</a></li>                             
+                            </ul>             
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class=" btn btn-primary occWhite ddlWidth tip-top tooltipColor" data-toggle="tooltip" title="Click here or press Alt/Ctrl + 5 to skip to Policies & Resources page" accesskey="5" href="~/Home/About">About Us&nbsp;&nbsp;<span class="caret"></span></a>
+                        <div class="sub-nav" style="width:180px">
+                            <ul class="sub-nav-group">
+                                <li><a href="~/Home/OurTeam">Meet Our Team</a></li>
+                                <li><a href="http://www.cancer.gov/researchandfunding/extramural/cancercenters/about/history" target="_blank">View Our History</a></li>
+                                <li><a href="~/Home/Contact">Contact Us</a></li>
+                                <a href="#home" class="skip2home">Skip to content</a>
+                                <legend aria-hidden="true"></legend>  
+                                <li><a href="~/Home/Sitemap">Site Map</a></li>
+                                <li><a href="~/Home/Keyboard">Keyboard Shortcuts</a></li>
+                                <li><a href="~/Home/AboutOCCWebApp">About Our Website&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                            </ul>
+                        </div>
+                    </li>   
+                </ul>
+            </nav>
+        </div> <!--end of class="col-sm-12"-->
+    </div> <!--class="containert"-->
+    @*Don't ref. container class, around RenderBody, it will mess up the body format!!!*@
+    @RenderBody()
+    <div class="container">
+        <hr />
+        <footer role="contentinfo">
+            <div align="center" style="font-size:small;">
+                <p><a href="~/home" class="tip-top tooltipColor" rel="tooltip" title="Click here or press Alt/Ctrl + h to skip to OCC Home page" accesskey="h"><span >Home</span></a><span class="occPipe">|</span><a href="~/home/contact"><span >Contact Us</span></a><span class="occPipe">|</span><a href="http://www.cancer.gov/global/web/policies/accessibility" target="_blank"><span >Accessibility</span></a><span class="occPipe">|</span><a href="http://www.cancer.gov/global/web/policies/foia" target="_blank"><span >FOIA</span></a></p>
+                <p><a href="http://www.hhs.gov/" target="_blank"><span >U.S. Department of Health and Human Services</span></a><span class="occPipe">|</span><a href="http://www.nih.gov/" target="_blank"><span >National Institutes of Health</span></a><span class="occPipe">|</span><a href="http://www.cancer.gov/" target="_blank"><span >National Cancer Institute</span></a><span class="occPipe">|</span><a href="http://www.usa.gov/" target="_blank"><span >USA.gov</span></a></p>
+                <p>NIH&#8230;Turning Discovery Into Health<sup>&#174;</sup></p>
+            </div>
+            <p style="font-size:small; text-align:left;">@DateTime.Now.Year - The Office Of Cancer Centers at NCI</p>
+        </footer>
+    </div>
+</div>
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("styles", required: false)
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

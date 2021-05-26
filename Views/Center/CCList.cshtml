@@ -1,0 +1,204 @@
+﻿@model IEnumerable<OCCSolution.Models.vwCCList>
+@{
+    ViewBag.Title = "Cancer Center List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*--COMMENTS-------------------------------------------------------------------------------------------------------------------------------------------
+        Date        Developer    Desc
+        11/21/2014  Chi          No error ;-)
+        12/03/2014  Chi          Made InstitutionName  links to the profileURL field,
+                                 uniformed dataTable border-color:#94c0d2 baby blue and background-color: #daecf4; light baby blue; #13688c dark teal for hi-lite
+        12/05/2014  Chi          put the <T> Excel/PDF/Print before the filter
+        12/06/2014  Chi          Modified the dataTable to uniformed baby blue color
+        12/07/2014  Chi          Added Basic/Clinical/Comp icon to the dataTable
+        12/16/2014  AM           Added Title to page - 508C
+        01/20/2015  Chi          For exported file to PDF: showed only visible columns, appended today's date to the filename, and changed to escape orienation.
+        02/01/2015  Chi          Added dropdown filter on the State Code columns,
+                                 modified the CenterProfile link open on the new tab, and
+                                 Export to PDF/Excel andp print based on filtered data
+        02/07/2015  Chi          Changed the print tooltip & sDom to dom,
+                                 Print does not work; disabled/hide the print button for now
+        02/16/2015  Chi          Modified "Export as Excel" to "Export to Excel"
+        03/25/2015  Chi          Formated State Code and Phone columns.
+        03/25/2015  Chi         *How to add a "for" attribute to labels and an "id" attribute to the input box(search filter) and combo box(length drop-down)
+                                added this http://datatables.net/forums/discussion/5784/accessibility-support-for-great-plugin, dind't seem to add any value to the ChromeVox
+        03/27/2015  Chi         Removed occHyperlink, added id="home" to the first <a> tag, and added aria-hidden="true" the decorative icons
+        01/31/2019  Chi         added aria attributes to html elements. 
+
+        NOTE: Export to Excel has .csv extention by the limitation of the dataTables current version:http://datatables.net/forums/discussion/21018/export-to-excel-has-csv-extension-why-not-xls
+    ----------------------------------------------------------------------------------------------------------------------------------------------------------->*@
+<!DOCTYPE html>
+<html lang="en">
+<head role="banner">
+    <meta charset=utf-8 />
+    <title>Search a Cancer Center</title>
+    <style>
+        /*.DTTT_print_info { display:none; }*/ 
+    </style>
+</head>
+<body>
+<div class="container" id="pageCenterID">
+    <div class="col-sm-12" id="page heading">
+        <div class="row" id="centerContentID" style="margin-bottom:0em;" role="row" aria-label="pageCenterID, page heading, centerContentID">
+            <h2 style="color:#005C83;">&nbsp;Find a Cancer Center</h2>
+            <hr style="margin-bottom:0em;" />
+            <ul role="navigation" aria-label="breadcrumbs" class="breadcrumb" id="centerContentID" style="float:left;">
+                <li ><a id="home" href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span aria-hidden="true" class="glyphicon glyphicon-circle-arrow-right"></span></li>
+                <li><a href="#">@Html.ActionLink("Cancer Centers", "CancerCenters", "Center")</a> <span aria-hidden="true" class="glyphicon glyphicon-circle-arrow-right"></span></li>
+                <li class="active grayFont">Find a Cancer Center</li>
+            </ul>
+            <p class="pull-right" style="color:#202020;" role="dialog" aria-describedby="press F5" id="press F5"><small>Press F5 to reset the data table</small></p>
+        </div>
+    </div>
+    <div class="col-sm-12" role="contentinfo" aria-describedby="ResultTable">
+        @{ <br />
+            <table id="ResultTable" class="tableBody" role="grid" aria-readonly="true">
+                <thead aria-label="ResultTable">
+                    <tr>
+                        <th role="columnheader" aria-labelledby="Click to sort ascending or descending, Type" title="Click to sort ascending or descending">Type</th>
+                        <th role="columnheader" aria-labelledby="Click to sort ascending or descending, Institution Name" title="Click to sort ascending or descending">Institution Name</th>
+                        <th role="columnheader" aria-labelledby="Click to sort ascending or descending, Center Name" title="Click to sort ascending or descending">Center Name</th>
+                        <th role="columnheader" aria-labelledby="Click to sort ascending or descending, PI" title="Click to sort ascending or descending">PI</th>
+                        <th  role="columnheader" aria-labelledby="Degree">Degree</th>
+                        <th  role="columnheader" aria-labelledby="Click to sort ascending or descending, Title" title="Click to sort ascending or descending">Title</th>
+                        <th>Address</th>                   
+                        <th id="StateCode" role="columnheader" aria-labelledby="Select a state code to filter, state" title="Select a state code to filter">State</th>
+                        <th role="columnheader" aria-labelledby="Phone">Phone</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody role="presentation">
+                    @foreach (var cc in Model)
+                    {
+                        <tr role="presentation">
+                            <td style="width:50px;">@cc.CenterType</td>
+                            <td style="width:310px;" title="Click to view profile">@cc.InstitutionName</td>
+                            <td style="width:310px;">@cc.CenterName</td>
+                            <td style="width:110px;">@cc.FullName</td>
+                            <td style="width:25px;">@cc.PIDegree</td>
+                            <td style="width:100px;">@cc.PITitle</td>
+                            <td style="width:200px; text-wrap:normal;">@cc.Address </td>
+                            <td style="width:15px !important" aria-labelledby="State Code">@cc.StateCode</td>
+                            <td style="width:210px !important;">@cc.Phone</td>
+                            <td>@cc.profileURL</td>
+                        </tr>
+                    }
+                </tbody>
+
+                <tfoot role="contentinfo">
+                    <tr>
+                        <th>Type</th>
+                        <th title="Click to sort ascending or descending">Institution Name</th>
+                        <th title="Click to sort ascending or descending">Center Name</th>
+                        <th title="Click to sort ascending or descending">PI</th>
+                        <th>Degree</th>
+                        <th title="Click to sort ascending or descending">Title</th>
+                        <th>Address</th>
+                        <th title="Select a state code to filter">State</th>
+                        <th>Phone</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </tfoot>
+            </table> }
+    </div> <!--col-sm-12-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var currentDate = new Date()
+            var day = currentDate.getDate()
+            var month = currentDate.getMonth() + 1
+            var year = currentDate.getFullYear()
+            var d = day + "-" + month + "-" + year;
+
+            /*Init DataTables */
+            var resultTable = $('#ResultTable').dataTable({
+                //"bJQueryUI": "false",  //setting it to false is not good enough, need to comment it out!
+                "sScrollX": "90%",
+                "sScrollY": "100%",
+                "sScrollXInner": "100%",             
+                "sPaginationType": "full_numbers",
+                "aaSorting": [[0, 'asc']],
+                "bSortable": true,
+                "aoColumnDefs": [
+                    { "aTargets": [0], "bSortable": true },
+                    { "aTargets": [1], "bSortable": true },
+                    { "aTargets": [2], "bSortable": true },
+                    { "aTargets": [3], "bSortable": true },
+                    { "aTargets": [4], "bSortable": false },
+                    { "aTargets": [5], "bSortable": true },
+                    { "aTargets": [6], "bSortable": false },
+                    { "aTargets": [7], "bSortable": true },  //state code
+                    { "aTargets": [8], "bSortable": false },
+                    { "aTargets": [9], "bSortable": false, "bVisible": false }, // don't display profileURL
+                    {
+                        "aTargets": [1], //make the first column (InstitutionName) link to the value in profileURL
+                        //"sToolTip": "Click to view profile",  this doesnt work!
+                        "mRender": function (data, type, full) {
+                            // 'full' is the row's data object, and 'data' is this column's data
+                            // e.g. 'full[9]' is the Center's profileURL , and 'data' is the InstitutionName
+                            return '<a href="' + full[9] + '" target="_blank">' + data + '</a>';
+                        }
+                    }
+                ],
+                //"dom": 'T<"clear">pfrtli',
+                //"dom": '<lfrT>t<ip><"clear">',
+                "dom": '<"fg-toolbar ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix"lfrT>t<"fg-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix"ip>',
+                "tableTools": {
+                    "sSwfPath": "../Content/swf/copy_csv_xls_pdf.swf",
+                    "aButtons": [
+                        {
+                            "sExtends": "pdf",
+                            "sButtonText": "Export to PDF",  //label the button
+                            "sToolTip": "Export to PDF",
+                            "sPdfOrientation": "landscape",     // change to landscapte orientation
+                            "mColumns": "visible",               //show only the visible fields
+                            "oSelectorOpts": { filter: 'applied', order: 'current' },
+                            "sFileName": "*-" + d + ".pdf"           // add the date to the filename
+                        },
+                        {
+                            "sExtends": "xls",
+                            "sButtonText": "Export to Excel",
+                            "sToolTip": "Export to Excel",
+                            "oSelectorOpts": { filter: 'applied', order: 'current' },
+                            "sFileName": "*-" + d + ".xls"
+                        },
+                        //{
+                        //    "sExtends": "print",
+                        //    "mColumns": "visible",                                       //show only the visible fields
+                        //    "oSelectorOpts": { filter: 'applied', order: 'current' },
+                        //    "sMessage": "Feature under construction.  Please check back with us at a later time.",
+                        //    //"sToolTip": "Please use your browser's print function to print this table. Press escape when finished"
+                        //    "sToolTip": "Feature under construction.  Please check back with us at a later time."
+                        //}
+                        //"print"
+                        //"select_all",
+                        //"select_none"
+                    ]
+                },
+                //add a dropdown filter on the state code column
+                initComplete: function () {
+                    var api = this.api();
+                    api.columns().indexes().flatten().each(function (i) {
+                        var column = api.column(7);  //set i=7 stateCode column
+                        var title = $('#ResultTable thead th').eq($(this).index()).text();
+                        $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo($(column.header()).empty())
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    });                 
+                } //end of initComplete callback                
+            });          
+        });
+    </script>
+    </div>
+</body>
+</html>

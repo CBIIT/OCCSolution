@@ -1,0 +1,266 @@
+﻿
+@{
+    ViewBag.Title = "CURESupp";
+}
+
+@*COMMENTS---------------------------------------------------------------------------------
+        DATE        USER    NOTES
+
+        10/31/2014  AM      Page Created
+        11/05/2015  AM      Updated Contact Address
+        12/03/2014  AM      Removed orange color from <a>
+        12/17/2014  AM      Target=_blank
+                            Updated URLs
+        01/14/2014  AM      Updated Date
+        02/03/2015  AM      Moved Print Version to Scroll Spy
+        02/10/2015  AM      Updated URLs with English Language
+        03/18/2015  AM      Home tooltip, grayFont, CCA, restructured headers, cleaned up code, hid comments
+        04/01/2015  AM      Added id="home" to home bread crumb, removed OCChyperlink class
+        04/02/2015  AM      added aria-hidden="true", removed <i>, removed darkorange style on hyperlinks
+        04/03/2015  AM      Modified Section and SubHeads
+
+    ------------------------------------------------------------------------------------------*@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CURE Supp</title>
+
+    <style type="text/css">
+        /* Custom Styles */
+ ul.nav-tabs {
+            width: 140px;
+            margin-top: 20px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+        }
+
+            ul.nav-tabs li {
+                margin: 0;
+                border-top: 1px solid #ddd;
+            }
+
+                ul.nav-tabs li:first-child {
+                    border-top: none;
+                }
+
+                ul.nav-tabs li a {
+                    margin: 0;
+                    padding: 8px 16px;
+                    border-radius: 0;
+                }
+
+                ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover {
+                    color: #fff;
+                    background: #005c83;
+                    border: 1px solid #274D9A;
+                }
+
+                ul.nav-tabs li:first-child a {
+                    border-radius: 4px 4px 0 0;
+                }
+
+                ul.nav-tabs li:last-child a {
+                    border-radius: 0 0 4px 4px;
+                }
+
+            ul.nav-tabs.affix {
+                top: 30px; /* Set the top position of pinned element */
+            }
+
+            h3 {text-align:center}
+
+            .sectionHead {font-size:large;
+                         color:#005c83
+
+            }
+
+            .subHead {font-size:medium;
+                      color:#005c83;
+            }
+
+    </style>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+    <div class="container" id="pageCenterID">
+        <div class="row" id="centerContentID">
+            <h2 style="color:#005c83">&nbsp;CURE Supplements</h2>
+            <p style="font-size:medium; padding-left:.5em;"><small>Updated September 01, 2011</small></p>
+            <hr style="margin-bottom:0em;" />
+            <ul class="breadcrumb" style="float:left; margin-bottom:2px;">
+                <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a href="#" id="home">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
+                <li><a href="~/GrantsFunding/GrantsFunding">Grants & Funding</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
+                <li class="active grayFont">CURE Supplements</li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-3" id="myScrollspy">@*scrollspy*@
+                <ul class="nav nav-tabs nav-stacked affix-top" style="color:#428BCA;" data-spy="affix" data-offset-top="125">
+                    <li style="color:#428BCA;" class="active"><a href="#Intro">Introduction</a></li>
+                    <li><a href="#Purpose">Purpose</a></li>
+                    <li><a href="#Eligibility">Eligibility</a></li>
+                    <li><a href="#Instructions">Instructions</a></li>
+                    <li><a href="~/documents/CURESupplementsforClinicalandPatientOrientedResearch.pdf" target="_blank">PDF Version</a></li>
+                </ul>
+            </div>
+
+            <div class="col-xs-9">
+
+                <h3> Guidelines for Research Supplements to the NCI Cancer Center Support Grants (CCSGs) for Clinical and Patient-Oriented Research</h3>
+
+                <p id="Intro" class="sectionHead"> Introduction</p>
+                <hr />
+
+
+                <p>The Diversity Training Branch (DTB), Center to Reduce Cancer Health Disparities of the National Cancer Institute (NCI) has established a strategy for increasing the number of underrepresented individuals engaged in basic, clinical and population-based biomedical cancer research.  This strategy is called the Continuing Umbrella of Research Experiences (CURE) Program for underserved populations.  This program begins with introductory science experiences at the high school student level and continues progressively and selectively to the production of well-trained scientists conducting independent cancer research. It is clear that the success of research designed to reduce the disproportionate burden of cancer incidence and mortality in many ethnic and racial groups will depend substantially on the presence of a cadre of culturally sensitive, well-trained scientists from these underrepresented populations.</p>
+
+                <p>The NCI invites supplements to Cancer Center Support Grants for the specific purpose of enhancing the representation of physician investigators from underserved populations in patient-oriented research.</p>
+                
+                <p id="Purpose" class="sectionHead">Purpose</p>
+                <hr>
+
+                <p>The purpose of this P30 CURE supplement is to increase the number of underrepresented clinicians who which to participate in ongoing clinical research projects in the cancer center, either as post-doctoral researchers or as investigators developing independent research careers. For the purposes of this award, patient-oriented research is defined as research conducted with human subjects (or on material of human origin such as tissues, specimens, and cognitive phenomena) for which an investigator directly interacts with human subjects. This area of research includes: (1) mechanisms of human diseases; (2) therapeutic interventions; and (3) clinical trials.</p>
+
+                <p>Since CCSGs do not directly fund research projects, an applicant institution must include a complete description of the research project in which the underrepresented clinician will be participating as well as information on the source and duration of funding for that project.
+
+                <p>NIH recognizes the need to increase the number of underrepresented scientists and physicians participating in biomedical and behavioral research.  The NCI is emphasizing the use of the administrative supplement process to reach individuals from underserved populations interested in cancer clinical research and interested in participating more effectively in patient-oriented research. Using supplements to the NCI P30 grants is an efficient way to place larger numbers of underrepresented physicians in these research environments.</p>
+
+                
+                <p id="Eligibility" class="sectionHead">Eligibility</p>
+                <hr>
+
+                <p class="subHead"> Program </p>
+
+                <p>Any NCI Cancer Center Support Grant (CCSG) is eligible to apply for this supplement.  The supplement must be used for the sole purpose of attracting individuals from underserved populations into clinical and patient-oriented cancer research.</p>
+
+                <p>The CURE supplement is not intended to provide an alternative means of supporting underrepresented individuals who already receive support from a research grant, a research training grant, a career development award, or any other DHHS funding mechanism essentially duplicating the provisions of the CURE supplement.</p>
+
+                
+                <p class="subHead">Clinician Candidates</p>
+
+                <p>For DTB purposes, a person is an underrepresented individual if he or she belongs to a particular ethnic and racial group that has been determined by the grantee institution to be underrepresented in cancer-related biomedical, behavioral, clinical or social science research.  Underrepresented individuals are not limited to racial and ethnic minorities but can also include individuals, selected by the institution, as underrepresented cancer researchers including the economically disadvantaged, individuals with disabilities, etc.</p>
+
+                <p>
+                    All candidates must be physicians holding the M.D., D.O. or equivalent degrees, or be oncology registered nurses with doctoral degrees,. Candidates must be able to spend a minimum of 50 percent of a full-time professional effort conducting research and research career development activities including taking courses during the period of the award.
+
+                <p>
+                    All clinician candidates must be U.S. citizens or non-citizen nationals, or must be lawfully admitted for permanent residence and possess an Alien Registration Card I-551 or some verification of legal admission as a permanent resident of the U.S. Non-citizen nationals, although not U.S. citizens, owe permanent allegiance to the U.S.; they usually are born in the lands that are not states, but under U.S. sovereignty, jurisdiction or administration.  Foreign nationals and individuals on temporary or student visas are not eligible.
+                </p>
+
+                <p>Individuals NOT eligible for a CURE supplement include former principal investigators on NIH research project grants (R01), FIRST Awards (R29), sub-leaders of program projects (P01) or cancer center (P30) grants, and the equivalent.  Former principal investigators of NIH Small Grants (R03) or Exploratory/Developmental Grants (R21) remain eligible.</p>
+
+               
+                <p class="subHead">Mechanism of Support and Special Considerations</p>
+
+                <p>The CURE Supplement Program uses administrative supplements to the P30 grant and provides up to 3 years of support per supplement. In all cases, at the time of a P30 CURE supplement application, the parent P30 grant must have support remaining for at least two years. Adequate mentorship should be provided by the Principal Investigator of the clinical research project (not the PI of the CCSG). Recipients of supplements must be given the opportunity to interact with appropriate individuals in the cancer center in order to enhance their skills and knowledge regarding clinical or patient-oriented research.</p>
+
+                <p>
+                    P30 CURE supplements are administered under NIH Grants Policy Statement. The competing supplements are not subject to the Just-in-Time or the modular grant procedures.  In future years, the non-competing application process is not subject to the Streamlined Non-competing Application Process (SNAP).  Expanded Authorities are in place, except that carry over of funds from one fiscal year to the next requires NCI approval.
+                </p>
+
+                <p>
+                    Support under the P30 CURE supplement program is not transferable to another individual or transportable to another institution.
+                </p>
+
+                
+                <p class="subHead">Allowable Costs</p>
+
+                <p>Clinician trainees may be provided salary up to $75,000 each year, plus fringe benefits. The total salary requested must be based on a full time, 12 month staff appointment. The actual salary must be consistent both with the established salary structure at the applicant institution and with salaries actually provided by the institution from its own funds to other members with equivalent qualifications, rank and responsibilities in the department concerned. Supplementation of the NIH salary contribution up to a level that is consistent with the institution’s salary scale is allowed.  Candidates cannot receive concurrent salary support from any other PHS award while being supported by the P30 CURE supplement program.  Salaries for principal investigators, mentors, secretaries, administrative assistants and other ancillary personnel are NOT allowed.</p>
+
+                <p>
+                    Up to $30,000 in direct costs per trainee per year can be provided for the following types of expenses: (a) research-related expenses, such as supplies, equipment and technical personnel; (b) tuition, fees and books related to career development; (c) travel to research meetings or training; and (d) statistical services including personnel and computer time. These costs must be specifically and directly related to an individual trainee’s research activities. They cannot be pooled and used for advertising; recruiting or other purposes unrelated or indirectly related to the research activities of individual trainees.
+                </p>
+
+                <p>
+                    Facilities and Administrative costs will be reimbursed at the level of the active parent grant.
+                </p>
+
+             
+                <p id="Instructions" class="sectionHead">Specific Application Instructions</p>
+                <hr>
+                <p>
+                    The PHS 398 research grant application instructions and forms (rev. 6/09) at <a href="http://grants.nih.gov/grants/funding/phs398/phs398.html" target="_blank">PHS 398</a> are to be used in applying for these supplements. For further assistance contact GrantsInfo, Telephone 301/435-0714, <a href="mailto:GrantsInfo@nih.gov">Email.</a>
+                </p>
+
+                <p> A request for CURE supplements to the NCI Cancer Center Support Grants (CCSGs) may be submitted from October 1 to December 1 and March 1 to May 1 of each fiscal year.  In making requests, the grantee institution, on behalf of the principal investigator of the parent grant, must submit the request for supplemental awards to the NCI.  Please note that this procedure is different from the instructions in the PHS 398 application package.</p>
+
+                <p> 1. The original and two (2) legible copies of the supplemental application should be sent to:</p>
+
+                <p style="margin-left:25px">
+                    Peter O. Ogunbiyi, DVM, Ph.D.<br />
+                    Diversity Training Branch<br />
+                    Center to Reduce Cancer Health Disparities<br />
+                    National Cancer Institute<br />
+                    9609 Medical Center Drive, MSC 9746<br />
+                    Sixth Floor, West Tower, 6W234
+                    Bethesda, MD 20852<br />
+
+                </p>
+
+                <p>2. Applications can also be sent as signed .pdf attachment by email to  at: <a href="mailto:po43t@nih.gov">Dr. Peter Ogunbiyi</a> via the institution’s grant office.</p>
+
+                <p>
+                    All applications should follow the format provided below:
+                </p>
+
+                <ol>
+                    <li>
+                        A completed face page with appropriate signatures using Form Page 1 of PHS Form 398.  Include the title and grant
+                    </li>
+                    <li>PHS Form 398 budget pages (Form Pages 4 and 5) for the current and future years. </li>
+                    <li> A biographical sketch of the candidate (using the Biographical Sketch Format Page) including background and achievements to date.  Include all licensures/board certifications of the candidate. </li>
+                    <li>A biographical sketch of the laboratory and the clinical research mentor(s) who will be responsible for the candidate.  This sketch should include a listing of current and pending research support, preferably using the format of the OTHER SUPPORT pages in the PHS Form 398. </li>
+                    <li>Proposed research plan for the candidate. </li>
+                    <li>A brief description of the planned mentoring and career development plan for the candidate. </li>
+
+                </ol>
+
+
+                <p>
+                    When Human Subjects are involved in any aspect of the research, all human subjects concerns
+                    must be addressed in the application. These include Inclusion of Women and Minority in
+                    Research Involving Human Subjects and the Inclusion of Children as Participants in Research
+                    Involving Human Subjects. Guidelines may be found at
+                    <a href="http://grants.nih.gov/grants/policy/hs/index.htm" target="_blank">Research Involving Human Subjects</a> and <a href="http://grants.nih.gov/grants/funding/children/children.htm" target="_blank">Inclusion of Children Policy Implementation</a>.
+
+                </p>
+
+                
+                <p class="sectionHead">Inquiries</p>
+                <hr>
+                <p>
+                    Direct inquiries regarding programmatic issues to:</p>
+                <p style="margin-left:25px">Peter O. Ogunbiyi, DVM, Ph.D.<br />
+                    Diversity Training Branch<br />
+                    Center to Reduce Cancer Health Disparities<br />
+                    National Cancer Institute<br />
+                    9609 Medical Center Drive, MSC 9746<br />
+                    Sixth Floor, West Tower, 6W234
+                    Bethesda, MD 20852<br />
+                    Tel: 240-276-6176<br />
+                    Fax: 240-276-7862<br />
+                    <a href="ogunbiyp@mail.nih.gov">Email</a>
+                </p>
+                <p>Direct inquiries regarding fiscal matters to:</p>
+                <p style="margin-left:25px">
+                    Mr. Jason Gill<br />
+                    Office of Grants Administration<br />
+                    National Cancer Institute<br />
+                    6120 Executive Blvd., Suite 243<br />
+                    Bethesda, MD 20892<br />
+                    Tel.: 301-496-7247<br />
+                    <a href="mailto:gilljas@mail.nih.gov">Email</a>
+
+                </p>
+
+            </div>@*content*@
+            
+        </div>@*row*@
+
+            </div>@*container*@
+</body>
+</html>

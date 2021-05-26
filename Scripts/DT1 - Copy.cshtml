@@ -1,0 +1,318 @@
+﻿@model IEnumerable<OCCSolution.Models.vwDT1Benchmark>
+
+@using Kendo.Mvc.UI
+@using Kendo.Mvc.Extensions
+@{
+    ViewBag.Title = "DT1";
+}
+@*------------------------------------------------------------------------------------------------------------------------------
+        DATE        Developer       Desc
+        12/14/2014  Chi             Created this view & display data based on the dropdown filter value, ref:http://www.datatables.net/release-datatables/examples/api/multi_filter_select.html
+                                    requires:
+                                    //code.jquery.com/jquery-1.11.1.min.js
+                                    //cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js
+                                   //cdn.datatables.net/1.10.4/css/jquery.dataTables.css
+
+    ------------------------------------------------------------------------------------------------------------------------------*@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    @* Don't use this style, it would reset the style on whole page <link rel="stylesheet" type="text/css" href="~/Content/reset-min.css">*@
+
+    @*for beautiful :http://datatables.net/blog/2011-05-10 *@
+    @*<link rel="stylesheet" type="text/css" href="~/Content/DataTables-1.10.2/css/dataTables.responsive.css">
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.dataTables.js")"></script>*@
+
+    @*<link rel="stylesheet" type="text/css" href="~/Content/jquery.dataTables.css">*@
+
+    @*<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.11.1.min.js")"></script>*@
+    @*<script type="text/javascript" src="@Url.Content("~/Scripts/DataTables-1.10.4/js/dataTables.min.js")"></script>*@
+
+    @*<script type="text/javascript" src="@Url.Content("~/Scripts/js/jquery.min.js")"></script>*@
+    @*<script type="text/javascript" src="@Url.Content("~/Scripts/js/kendo.all.min.js")"></script>*@
+
+    <style>
+      table.dataTable tr.horizontalLine {
+        height:1px; width:300px;
+          border-bottom: 5px solid #003f59 !important;
+      }
+
+    table.dataTable tr.odd { background-color: #daecf4 !important } /*light baby blue*/
+    table.dataTable tr.even { background-color: white; }
+
+    table.dataTable tr.highlighted { background-color: #94c0d2 !important;  border-bottom-width:medium !important; border-bottom-color:#003f59 !important;  }  /*bably blue*/
+
+    </style>
+</head>
+@*----------------------------------------------------------------------------------------------------------------
+    Date         Developer   Desc
+    12/07/2014   Chi         use this as example: http://www.htmlcodetutorial.com/tables/index_famsupp_30.html
+
+---------------------------------------------------------------------------------------------------------------*@
+<body>
+    <div class="container" id="pageCenterID" style="font-size:small">
+        <h2 style="color:#005C83;">&nbsp;Data Table 1</h2>
+        <h4 style="color:#005C83;">&nbsp;Leadership, Programs, Membership, and Shared Resources</h4>
+        <hr style="margin-bottom:0em;" />
+        <ul class="breadcrumb" style="float:left; margin-bottom:0;">
+            <li><a href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right" style="color:#ffc04c;"></span></li>
+            <li><a href="~/Center/CancerCenters">Cancer Centers</a> <span class="glyphicon glyphicon-circle-arrow-right" style="color:#ffc04c;"></span></li>
+            <li><a href="~/DT/DT">Benchmark Data</a> <span class="glyphicon glyphicon-circle-arrow-right" style="color:#ffc04c;"></span></li>
+            <li class="active" >Data Table 1</li>
+        </ul>
+
+        <div id="forecast" class="centerContent pull-left">
+            <div class="col-sm-12 pull-left" style="color:#003f59;">
+                <h5><small>Note: All values are from data submitted by Centers in FY2013 unless otherwise indicated.</small></h5><br />
+                <p style="font-size:small;">The table below is the compilation of Data Tables 1A, 1B, 1D, and 1C data. It lists, by type of center,the current high, low, and median number of Senior Leaders, Peer-Reviewed Research Programs, Peer-Reviewed Shared Resources, and overall membership size for Aligned and Non-aligned Members. It also includes subtotals and a total for all centers.</p><br />
+            </div>
+
+        @(Html.Kendo().TabStrip()
+          .Name("tabstrip")
+          .Items(tabstrip =>
+          {
+              tabstrip.Add().Text("DT1")
+                  .Selected(true)
+                  .Content(@<text>
+
+            <table id="example" cellspacing="0">
+                <thead>
+                    <tr>
+
+                        <th>Type of Center</th>
+                        <th>Range</th>
+                        <th>No. of Sr. Leaders</th>
+                        <th>No. of Research Programs</th>
+                        <th>No. of Shared Resources</th>
+                        <th>No. of Aligned Members</th>
+                        <th>No. of Non-Aligned Members</th>
+                        <th>FY</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @*FY:
+                    <select id="#ddlFY">
+                        @foreach (var dtFY in Model)
+                        {
+                            <option>@dtFY.FY</option>
+                        }
+                    </select>*@
+
+                    @foreach (var dt in Model)
+                    {
+                        <tr class="odd">
+                            <th rowspan="4"><b>@dt.BasicCount<br /> Basic Centers</b></th>
+                            <td>High</td>
+                            <td>@dt.BasicHighLeader</td>
+                            <td>@dt.BasicHighProg</td>
+                            <td>@dt.BasicHighSR</td>
+                            <td>@dt.BasicHighAlign</td>
+                            <td>@dt.BasicHighNon</td>
+                            <td>@dt.FY</td>
+                        </tr>
+                        <tr>
+                            <td>Low</td>
+                            <td>@dt.BasicLowLeader</td>
+                            <td>@dt.BasicLowProg</td>
+                            <td>@dt.BasicLowSR</td>
+                            <td>@dt.BasicLowAlign</td>
+                            <td>@dt.BasicLowNon</td>
+                            <td>@dt.FY</td>
+                        </tr>
+                        <tr class="odd">
+                            <td >Median</td>
+                            <td>@dt.BasicMedianLeader</td>
+                            <td>@dt.BasicMedianProg</td>
+                            <td>@dt.BasicMedianSR</td>
+                            <td>@dt.BasicMedianAlign</td>
+                            <td>@dt.BasicMedianNon</td>
+                            <td>@dt.FY</td>
+                        </tr>
+                        <tr style="font-weight:bolder;" class="highlighted">
+                            <td scope="row">Subtotal</td>
+                            <td>@dt.BasicSubLeader</td>
+                            <td>@dt.BasicSubProg</td>
+                            <td>@dt.BasicSubSR</td>
+                            <td>@dt.BasicSubAlign</td>
+                            <td>@dt.BasicSubNon</td>
+                            <td>@dt.FY</td>
+                        </tr>
+
+                        <tr>
+                            <th rowspan="4"><b>@dt.ClinicalCount<br />Clinical Centers</b></th>
+                            <td>High</td>
+                            <td>@dt.ClinicalHighLeader</td>
+                            <td>@dt.ClinicalHighProg</td>
+                            <td>@dt.ClinicalHighSR</td>
+                            <td>@dt.ClinicalHighAlign</td>
+                            <td>@dt.ClinicalHighNon</td>
+                            <td>@dt.FY</td>
+                        </tr>
+                        <tr>
+                            <td>Low</td>
+                            <td>@dt.ClinicalLowLeader</td>
+                            <td>@dt.ClinicalLowProg</td>
+                            <td>@dt.ClinicalLowSR</td>
+                            <td>@dt.ClinicalLowAlign</td>
+                            <td>@dt.ClinicalLowNon</td>
+                            <td>@dt.FY</td>
+                        </tr>
+                        <tr class="odd">
+                            <td>Median</td>
+                            <td>@dt.ClinicalMedianLeader</td>
+                            <td>@dt.ClinicalMedianProg</td>
+                            <td>@dt.ClinicalMedianSR</td>
+                            <td>@dt.ClinicalMedianAlign</td>
+                            <td>@dt.ClinicalMedianNon</td>
+                            <td>@dt.FY</td>
+                        </tr>
+                        <tr style="font-weight:bolder;" class="highlighted">
+                            <td scope="row">Subtotal</td>
+                            <td>@dt.ClinicalSubLeader</td>
+                            <td>@dt.ClinicalSubProg</td>
+                            <td>@dt.ClinicalSubSR</td>
+                            <td>@dt.ClinicalSubAlign</td>
+                            <td>@dt.ClinicalSubNon</td>
+                            <td>@dt.FY</td>
+                        </tr>
+
+                        <tr class="odd">
+                            <th rowspan="4" scope="rowgroup"><b>40<br />Comprehensive Centers</b></th>
+                            <td>High</td>
+                            <td>@dt.CompHighLeader</td>
+                            <td>@dt.CompHighProg</td>
+                            <td>@dt.CompHighSR</td>
+                            <td>@dt.CompHighAlign</td>
+                            <td>@dt.CompHighNon</td>
+                            <td>@dt.FY</td>
+                        </tr>
+                        <tr>
+                            <td>Low</td>
+                            <td>@dt.CompLowLeader</td>
+                            <td>@dt.CompLowProg</td>
+                            <td>@dt.CompLowSR</td>
+                            <td>@dt.CompLowAlign</td>
+                            <td>@dt.CompLowNon</td>
+                        </tr>
+                        <tr class="odd">
+                            <td>Median</td>
+                            <td>@dt.CompMedianLeader</td>
+                            <td>@dt.CompMedianProg</td>
+                            <td>@dt.CompMedianSR</td>
+                            <td>@dt.CompMedianAlign</td>
+                            <td>@dt.CompMedianNon</td>
+                            <td>@dt.FY</td>
+                        </tr>
+                        <tr style="font-weight:bolder;" class="highlighted">
+                            <td scope="row">Subtotal</td>
+                            <td>@dt.CompSubLeader</td>
+                            <td>@dt.CompSubProg</td>
+                            <td>@dt.CompSubSR</td>
+                            <td>@dt.CompSubAlign</td>
+                            <td>@dt.CompSubNon</td>
+                            <td>@dt.FY</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr></tr>
+                    <tr>
+                        <th>Total</th>
+                        <td>212.920</td>
+                        <td>214.860</td>
+                        <td>206.390</td>
+                        <td>207.535</td>
+                        <td>213.210</td>
+                        <td>213.210</td>
+                    </tr>
+                </tfoot>
+            </table>
+  </text>);
+  })
+)
+</div>
+        <!--changed from w360 x h337, padding:TRBL  80x15x0x15-->
+        <style scoped>
+
+        #forecast {
+        width: 100%;
+        height: 620px;
+                    /*margin: 30px auto;*/
+                    /* 20x15x0x15*/
+        padding: 3px 0px 3px 0px;
+               background-color: #003F59;
+               border-radius:10px;
+       }
+
+        .sunny, .cloudy, .rainy {
+            display: inline-block;
+            margin: 0;
+            width: 100%;
+            height: 300px;
+        }
+
+        .cloudy {
+            background-position: -128px 0;
+        }
+
+        .rainy {
+            background-position: -256px 0;
+        }
+
+        .weather {
+            width: 160px;
+            padding: 40px 0 0 0;
+            float: right;
+            background-color: #FFA500;
+        }
+
+        #forecast h2 {
+            font-weight: lighter;
+            font-size: 5em;
+                padding: 0;
+                margin: 0;
+            }
+
+            #forecast h2 span {
+                background: none;
+                padding-left: 5px;
+                font-size: .5em;
+                vertical-align: top;
+            }
+
+        #forecast p {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+
+        <script type="text/javascript" charset="utf-8">
+
+            $(document).ready(function() {
+                $('#example').DataTable({
+                    "bFilter": false,
+                    "bPaginate": false,
+                    "bInfo": false,
+                    "bSortable": false,
+                    "aoColumnDefs": [
+                        { "aTargets": [0], "bSortable": false }, //Type of Center
+                        { "aTargets": [1], "bSortable": false }, //Sr. Leader
+                        { "aTargets": [2], "bSortable": false }, // program
+                        { "aTargets": [3], "bSortable": false }, //SR
+                        { "aTargets": [4], "bSortable": false }, //Align memmbers
+                        { "aTargets": [5], "bSortable": false },  //NOnAligned Members
+                        { "aTargets": [6], "bSortable": false, "bVisible": false }, // don't display FY
+                        { "aTargets": [7], "bSortable": false, "bVisible": false } // don't display FY
+                ]
+                });
+                });
+
+
+    </script>
+
+</div>
+</body>
+</html>

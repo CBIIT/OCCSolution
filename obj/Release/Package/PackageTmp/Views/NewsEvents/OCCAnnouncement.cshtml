@@ -1,0 +1,118 @@
+﻿@model IEnumerable<OCCSolution.Models.vwOCCAnnouncement>
+@{
+    ViewBag.Title = "OCC Announcements";
+}
+
+@*--COMMENTS------------------------------------------------------------------------------------------------------------------
+        DATE                DEVELOPER   NOTES
+        12/12/2014          AM          Added "Announcements"
+        01/07/2015          Chi         Changed OCCMessageBoard to OCCAnnoucement
+        01/13/2015          Chi         Corrected the spelling of the word announcement
+        02/10/2015          CHi         Modified the OCC Announcements, appended the hyperlink based on the PK.
+        02/16/2015          Chi         Modified the OCC Announcements, put the EffectiveDate below the Title and italicalized it.
+        02/18/2015          Chi         Modified the title column from col-sm-2 to col-sm-3, and grayed the date
+        03/03/2015          Chi         Fixed color contrast issue, changed orange from #f0ad4e to brigher #EEA236, green font, comment block
+        03/06/2015          AM          added breadcrumbs tooltip
+        03/24/2025          Chi         Modified the content, updated the vwOCCAnnouncement
+        03/27/2015          Chi         Hyperlinked to specific location in the Data Guide, removed occHyperlink class!
+        04/02/2015          AM          Removed <i> and <b> on dates in table, increased table height
+        08/25/2014          Chi         Updated the OCC Annoucements by including the latest news on 69 NCI
+        09/25/2014          Chi         Displayed the OCC Annoucements sorted by OCCAnnouncementID
+                                           1. updated the vwOCCAnnoucement in the DB
+                                           2. Update Model from Database.. for the OCCdbModel.edmx (open this file and rt-click)
+        10/14/2014          AM          Added OCCAnnouncementID 12
+        10/19/2015          AM          Added OCCAnnouncementID 14
+        10/22/2015          AM          Added OCCAnnouncementID 15
+        11/19/2015          AM          Added OCCAnnouncementID 16
+        01/13/2016          AM          Added OCCAnnouncementID 17 & 18
+        01/20/2016          AM          Added OCCAnnouncementID 19
+        03/18/2016         Chi          Added two P30 supplement opportunities for centers not currently affiliated in the ETCTN
+        04/26/2016         Chi          It is a violation of grants policy to post p30 supplements publically on the website; however we can send these directly to centers
+                                        Removed all supplements from the webiste (updated the occAnnoucement table isActive = 0
+        08/19/2016          AM          Added OCCAnnouncement ID 24
+        12/22/2016          AM          added || item.OCCAnnouncementID == 26
+        02/02/2017          AM          added || item.OCCAnnouncementID == 31
+    ----------------------------------------------------------------------------------------------------------------------------->*@
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <div class="container" id="pageCenterID">
+            <div class="row" id="centerContentID" style="margin-bottom:0em;">
+                <h2 style="color:#002c00;">&nbsp;OCC Announcements</h2>
+                <hr style="margin-bottom:0em;" />
+                <ul class="breadcrumb" style="float:left; margin-bottom:2px;">
+                    <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a id="home" href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
+                    <li><a href="~/NewsEvents/NewsEvents"><span >News & Events</span></a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
+                    <li class="active grayFont">OCC Announcements</li>
+                </ul>
+            </div><br />
+            <div class="col-sm-12">
+                <div class="panel panel-warning" style="width:100%; height:420px; overflow-y:scroll;">
+                    <div class="warningBtn btn-sm">
+                        <span style="font-size:medium; color:#002C00;" class="glyphicon glyphicon-large glyphicon-comment"></span><span style="color:#002C00; font-size:medium; font-weight:bolder"> OCC Announcements</span>
+                    </div>
+                    <table id="grid-basic" class="table table-condensed table-hover table-striped" style="text-justify:inter-word;">
+                        <thead>
+                            <tr>
+                                <th class="col-sm-4" data-column-id="Title" data-sortable="true"></th>
+                                <th class="col-sm-8" data-column-id="Message"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Count() > 0)
+                            {
+                                foreach (var item in Model)
+                                {
+                                    if (item.OCCAnnouncementID == 1 || item.OCCAnnouncementID == 6 || item.OCCAnnouncementID == 12 || item.OCCAnnouncementID == 14 || item.OCCAnnouncementID == 15 || item.OCCAnnouncementID == 24 || item.OCCAnnouncementID == 26 || item.OCCAnnouncementID == 28 || item.OCCAnnouncementID == 30
+                                        || item.OCCAnnouncementID == 30)
+                                    {
+                                        <tr class="occFontBody">
+                                            <td style="font-size:15px; font-weight:bold;">@Html.DisplayFor(modelItem => item.Title)<br><span class="grayFont">@Html.DisplayFor(modelItem => item.EffectiveDate)</span></td>
+                                            <td>@Html.DisplayFor(modelItem => item.Message)<a href="#">@Html.ActionLink("Grants & Funding", "GrantsFunding", "GrantsFunding")</a></td>
+                                        </tr>
+                                    }
+                                    if (item.OCCAnnouncementID == 8)
+                                    {
+                                        <tr class="occFontBody">
+                                            <td style="font-size:15px; font-weight:bold;">@Html.DisplayFor(modelItem => item.Title)<br><span class="grayFont">@Html.DisplayFor(modelItem => item.EffectiveDate)</span></td>
+                                            <td>@Html.DisplayFor(modelItem => item.Message)<a href="#" >@Html.ActionLink("Data Guide", "DataGuide", "GrantsFunding", protocol: null, hostName: null, fragment: "sum", routeValues: null, htmlAttributes: null)</a></td>
+                                        </tr>
+                                    }
+                                    else if (item.OCCAnnouncementID == 3 || item.OCCAnnouncementID == 7 || item.OCCAnnouncementID == 9)
+                                    {
+                                        <tr class="occFontBody">
+                                            <td style="font-size:15px; font-weight:bold;">@Html.DisplayFor(modelItem => item.Title)<br><span class="grayFont">@Html.DisplayFor(modelItem => item.EffectiveDate)</span></td>
+                                            <td>@Html.DisplayFor(modelItem => item.Message) <a href="mailto:ncicenters-r@mail.nih.gov">email us.</a></td>
+                                        </tr>
+                                    }
+                                    else if (item.OCCAnnouncementID == 2 || item.OCCAnnouncementID == 4 || item.OCCAnnouncementID == 5 || item.OCCAnnouncementID == 16 || item.OCCAnnouncementID == 25 || item.OCCAnnouncementID == 27 || item.OCCAnnouncementID == 29)
+                                    {
+                                        <tr class="occFontBody">
+                                            <td style="font-size:15px; font-weight:bold;">@Html.DisplayFor(modelItem => item.Title)<br><span class="grayFont">@Html.DisplayFor(modelItem => item.EffectiveDate)</span></td>
+                                            <td>@Html.DisplayFor(modelItem => item.Message)</td>
+                                        </tr>
+                                    }
+
+                                    else if (item.OCCAnnouncementID == 10 || item.OCCAnnouncementID == 11)
+                                    {
+                                        <tr class="occFontBody">
+                                            <td style="font-size:15px; font-weight:bold;">@Html.DisplayFor(modelItem => item.Title)<br><span class="grayFont">@Html.DisplayFor(modelItem => item.EffectiveDate)</span></td>
+                                            <td>@Html.DisplayFor(modelItem => item.Message)</td>
+                                        </tr>
+                                    }
+
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td style="color:black">There is no message to display.</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    </div><!--panel-->
+                </div><!--col-sm-12-->
+            </div><!--container-->
+</body>
+</html>

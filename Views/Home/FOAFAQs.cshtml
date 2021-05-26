@@ -1,0 +1,301 @@
+﻿
+@{
+    ViewBag.Title = "FOAFAQs";
+}
+
+
+@*COMMENTS--------------------------------------------------------------------------------------------------------
+        DATE        USER    NOTES
+
+        11/12/2014  AM      Replaced Color names with HEX Codes
+                            Removed color style for "glyphicon glyphicon-circle-arrow-right"
+                            Moved Print VS to bottom right
+                            Made HR blue to be consistent with other FAQ pages
+        12/5/2014   AM      Corrected Breadcrumbs
+        12/17/2014  AM      Updated URLs
+        12/19/2014  AM      Corrected ASSIST user guide link
+        12/22/2014  AM      Corrected Link to Peer Review Process Relevant to the CCSG
+        01/14/2014  AM      Updated Date
+        02/17/2015  AM      added target="_blank"  to external pages
+        03/04/2015  AM      Added Blockquote, hide comments, restructured headings, cleaned up code
+                            changed colors to past CCA analyzer testing
+        03/06/2015  AM      Changed blockquote border color, modified page headers, added home tool tip, referenced classes
+        03/16/2015  AM      Changed header & blockquote border to #004040 (green)
+        04/02/2015  AM      Modified page headers, added  aria-hidden="true"
+    ------------------------------------------------------------------------------------------------------------------*@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FOA FAQs</title>
+
+    <style type="text/css">
+       
+        blockquote {
+            background: #f9f9f9;
+            color: #424242;
+            border-color: #004040;
+            border-width: 2px;
+            padding-bottom: 0px;
+            padding-top: 0px;
+            padding-right: 0px;
+            /*quotes: "\201C""\201D""\2018""\2019";*/
+        }
+
+        blockquote p {
+            font-size: 14px;
+            font-weight: normal;
+            /*display: inline;*/
+        }
+
+        .aText {
+            color: #000000;
+            padding-left: 2em;
+        }
+
+        .sectionHead {
+            font-size: x-large;
+        }
+
+        .sectionSubhead {
+            color: #5d5d5d;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="pageCenterID">
+        <div class="row" id="centerContentID">
+            <h2 style="color:#004040;">&nbsp;Funding Opportunity Announcement FAQs</h2>
+            <p style="font-size:medium; padding-left:.5em;"><small>Updated October 28, 2014</small></p>
+            <hr style="margin-bottom:0em;" />
+            <ul class="breadcrumb" style="float:left; margin-bottom:2px;">
+                <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
+                <li><a href="~/Home/FAQs">FAQs</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
+                <li class="active">Funding Opportunity Announcement FAQs</li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <br />
+                <h3 style="text-align:center; color:#004040;">FAQs related to the Funding Opportunity Announcement (FOA)</h3><br />
+
+                <blockquote>
+                    <p class="tip-top tooltipColor" data-toggle="collapse" data-target="#target1" title="Click to expand/collapse the answer">
+                        1.	Do the CCSG Guidelines still exist?
+                    </p>
+                </blockquote>
+
+                <div id="target1" class="aText collapse out">
+                    <p>
+                        NIH rules require that all information pertinent to an application be included in the
+                        Funding Opportunity Announcement (FOA). All information that was once included in
+                        the Guidelines is now in the FOA with the exception of a description of peer review
+                        processes. <a href="~/GrantsFunding/CCSGPeerRev" target="_blank" >Read more &raquo;</a>
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p class="tip-top tooltipColor" data-toggle="collapse" data-target="#target2" title="Click to expand/collapse the answer">
+                        2.	The Essential Characteristic “Facilities” is now called “Physical Space.” Is there a change in this component?
+                    </p>
+                </blockquote>
+                <div id="target2" class="aText collapse out">
+                    <p>
+                        No, the same review criteria apply and the narrative will be similar to before. The term
+                        “Facilities” has a specific meaning in NIH applications, prompting a change of the
+                        name of this Essential Characteristic. Applicants will use the “Facilities and Other
+                        Resources” attachment to provide certain information, such as a map of the center and
+                        other information as listed in the FOA and the Summary of 2014 FOA Changes.
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p class="tip-top tooltipColor" data-toggle="collapse" data-target="#target3" title="Click to expand/collapse the answer">
+                        3.	The FOA indicates that Specific Aims are required for every component. What
+                        Specific Aims are appropriate in components such as Shared Resources, Planning
+                        and Evaluation, etc.?
+                    </p>
+                </blockquote>
+                <div id="target3" class="aText collapse out">
+                    <p>
+                        Some of the components of a CCSG do not readily lend themselves to the formulation
+                        of useful Specific Aims; however, the NIH templates for FOAs require Specific Aims
+                        for every component. Applicants should do their best to briefly describe the aims of
+                        each component.
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p class="tip-top tooltipColor" data-toggle="collapse" data-target="#target4" title="Click to expand/collapse the answer">
+                        4.	How should Appendices on the PHS 398 be used?
+                    </p>
+                </blockquote>
+                <div id="target4" class="aText collapse out">
+                    <p>
+                        Applicants cannot use Appendices (or Attachments) to circumvent page limits. Misuse
+                        could result in rejection of the application by CSR. Since reviewers are not required to
+                        view Appendices, care should be exercised in using these. Colored photos are now
+                        included with the Research Programs narrative. Please contact your OCC program
+                        director to discuss any proposed use of Appendices.
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p class="tip-top tooltipColor" data-toggle="collapse" data-target="#target5" title="Click to expand/collapse the answer">
+                        5.	There is now an extensive set of Attachments. Can we be sure that reviewers will
+                        examine them?
+                    </p>
+                </blockquote>
+                <div id="target5" class="aText collapse out">
+                    <p>
+                        Much essential information, such as the Data Tables, will now be presented as
+                        Attachments. Applicants should include Attachments only as described in the FOA.
+                        Reviewers will be instructed by the Senior Review Official to consider them.
+                        Applicants may want to refer in the narrative to the information in an Attachment to
+                        ensure that reviewers can easily find it. An Attachment is not required if an applicant 8/25/2014 2
+                        has enough space in the Research Strategy section of a component to include all
+                        relevant information.
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p class="tip-top tooltipColor" data-toggle="collapse" data-target="#target6" title="Click to expand/collapse the answer">
+                        6.	The use of the term “Core” now includes components that are not shared
+                        resources. How does this affect review?
+                    </p>
+                </blockquote>
+                <div id="target6" class="aText collapse out">
+                    <p>
+                        The term “core” is one of the component types in ASSIST and does not refer to a core
+                        service or shared resource. Because they are not Research Programs (which are
+                        considered “Projects”), Planning and Evaluation, Developmental Funds, Shared
+                        Resources, CPDM, and EPCRS are termed “Cores.” They will continue to be reviewed
+                        by the criteria specific for each component listed at the end of the FOA.
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p class="tip-top tooltipColor" data-toggle="collapse" data-target="#target7" title="Click to expand/collapse the answer">
+                        7.	The FOA limits budget requests to 10% above the level in the final year of the
+                        previous cycle (unless the award is at $6 million in direct costs). How does the
+                        6.5% reduction in awards due to sequestration affect this calculation?
+                    </p>
+                </blockquote>
+                <div id="target7" class="aText collapse out">
+                    <p>
+                        Until further notice, centers should use their pre-sequestration award (FY12) as the
+                        basis in formulating a budget request. Final funding levels, of course, will be
+                        determined by NCI based on merit and NCI budget.
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p class="tip-top tooltipColor" data-toggle="collapse" data-target="#target8" title="Click to expand/collapse the answer">
+                        8.	Where can applicants get help with ASSIST?
+                    </p>
+                </blockquote>
+                <div id="target8" class="aText collapse out">
+                    <p>
+                        The ASSIST User Guide is available <a target="_blank" href="http://era.nih.gov/files/ASSIST_user_guide.pdf" >here &raquo;</a>
+                    </p>
+
+
+                    <p>Archived Webinar about using Assist <a target="_blank" href="http://grants.nih.gov/grants/webinar_docs/webinar_20130813.htm" >view &raquo;</a></p>
+                    <p>
+                        OCC program staff is not trained in ASSIST
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p class="tip-top tooltipColor" data-toggle="collapse" data-target="#target9" title="Click to expand/collapse the answer">
+                        9.	Is a table required to show accruals of minorities and women, as previously?
+                    </p>
+                </blockquote>
+                <div id="target9" class="aText collapse out">
+                    <p>
+                        Yes. Instructions for accrual reporting may be found<a target="_blank" href="http://grants.nih.gov/grants/guide/notice-files/NOT-CA-14-008.html" > here &raquo;</a>
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p class="tip-top tooltipColor" data-toggle="collapse" data-target="#target10" title="Click to expand/collapse the answer">
+                        10.	. There is reference to additional materials to be submitted “…as described in
+                        Section V.2.” What is that?
+                    </p>
+                </blockquote>
+                <div id="target10" class="aText collapse out">
+                    <p>
+                        The FOA reference should be ignored, since the NIH deleted the relevant text in
+                        Section V.2. The list of materials to be made available is now located in the document
+                        entitled “Peer Review Processes Relevant to the Cancer Center Support Grant” (see
+                        link above). The SRO requests them after submission of the application; they apply to
+                        both application only and site-visited centers. Site visited centers will want to consult
+                        with the SRO on any additional materials that may be provided.
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p class="tip-top tooltipColor" data-toggle="collapse" data-target="#target11" title="Click to expand/collapse the answer">
+                        11.	How should a center answer questions in the electronic application about Human
+                        Subject research?
+                    </p>
+                </blockquote>
+                <div id="target11" class="aText collapse out">
+                    <p>
+                        In each component of the CCSG application, ASSIST asks “Are Human Subjects
+                        Involved?”
+                        Most cancer centers conduct NIH-defined Human Subjects research. Centers should
+                        check Yes in any individual component that carries out research on Human Subjects
+                        directly supported by the CCSG. Typically, these would be restricted to Early Phase
+                        Clinical Research Support, Developmental Funds, and certain types of shared resources.
+                        The CCSG does not directly support human subject research in most other components,
+                        including the CPDM, Research Programs (unless the application requests direct funding
+                        to a Research Program for use in pilot projects that contain Human Subject research), etc.
+                        If you check Yes to any component in the application, you must check Yes to the same
+                        question in the Overall component.
+                    </p><p>
+
+                        If Human Subjects is checked Yes on the SF 424 R&R Other Project Information form,
+                        ASSIST will require attachments on the Protection of Human Subjects, Inclusion of
+                        Women and Minorities, and Inclusion of Children. However, since this specific
+                        information is not relevant to the various components of CCSG applications, the
+                        applicant should attach pdfs simply stating “Not applicable.” Otherwise, ASSIST will not
+                        allow the submission of the application.
+                    </p><p>
+                        Aggregate inclusion data (Inclusions of Women and Minorities) for all clinical research
+                        at a center should be included as Other Attachments to the CPDM component, as stated
+                        in the FOA.
+                    </p>
+                </div>
+
+                <blockquote>
+                    <p class="tip-top tooltipColor" data-toggle="collapse" data-target="#target12" title="Click to expand/collapse the answer">
+                        12.	Should re-competing centers submit the Data Tables to the OCC at the same
+                        time as their Type 2 application?
+                    </p>
+                </blockquote>
+                <div id="target12" class="aText collapse out">
+                    <p>
+                        No, re-competing centers should not submit the Data Tables to ccsgdata@mail.nih.gov
+                        concurrent with their application submission.
+                    </p><p>
+
+                        Although the re-competing application serves as the progress report for that year, centers
+                        should still submit Data Tables to ccsgdata@mail.nih.gov 60 days prior to their next start
+                        date as usual. These tables should be updated to cover the previous year, and be
+                        continuous with the last year of the previous cycle.
+                    </p><p>
+                        Type 1 centers will submit Data Tables covering the previous year to
+                        ccsgdata@mail.nih.gov at the time of their first Notice of Grant Award.
+                    </p>
+                </div>
+                    <br />
+                    <a href="~/documents/CCSGFAQs508C.pdf"  style="float:right" target="_blank">PDF Version</a>
+
+            </div>@*End page Content*@
+        </div>@*End row*@
+    </div> @*End Container*@
+</body>
+</html>

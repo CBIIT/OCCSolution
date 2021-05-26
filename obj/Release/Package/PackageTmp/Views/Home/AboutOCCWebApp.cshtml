@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "About OCC WebApp";
+}
+
+
+@******************************************************************************
+        DATE            DEVELOPER       DESC
+        03/06/2015      AM              Added tooltip to breadcrumbs, changed colors to meet CCA testing
+                                        referenced grayfont
+        04/01/2015      AM              added home ID
+        04/02/2015      AM              Updated Website version to 2.1.0 per Chi
+                                        removed occhyperlink class
+                                        removed unecessary space in alert box
+
+    *******************************************************************************@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About OCC Web Application</title>
+    <script type="text/javascript">
+    </script>
+    <style>
+        p,
+        li,
+        li p {
+            color: #000;
+        }
+
+        .alertBox{
+             box-shadow: inset  0 5px 25px  #005C83;
+             width:500px; 
+             height:320px; 
+             border-radius:10px; 
+             border-width:2px; 
+             border-color:#005C83;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container " id="pageCenterID">
+        <h2 style="color:#005C83;">&nbsp;About OCC WebApp</h2>
+        <hr style="margin-bottom:0em;" />
+        <ul class="breadcrumb" style="float:left; margin-bottom:0;">
+            <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a href="#" id="home">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></li>
+            <li class="active grayFont">About OCC WebApp</li>
+        </ul>
+        <br /><br /><br />
+        <div class="alert alert-info centerContent alertBox"> 
+            <h4 style="color:#000;">OCC Web Application (WebApp) v2.1.0 is powered by:</h4>
+            <ul>
+                <li><p>Bootstrap 3.3.1</p></li>
+                <li><p>DataTables 1.10.4</p></li>
+                <li><p>Entity Framework 6.0.0.0 Database First</p></li>
+                <li><p>Jquery-ui 1.11.2</p></li>
+                <li><p>Google Search Appliance (GSA) 7.2</p></li>
+                <li><p>Microsoft ASP .NET Model-View-Controller (MVC) Framework 5.0</p></li>
+                <li><p>Microsoft .NET Framework 4.5.50938</p></li>
+                <li><p>Microsoft SQL-Server 2012</p></li>
+                <li><p>TableTools 2.2.3</p></li>
+                <li><p>Telerik UI for ASP.NET MVC Q3 2014</p></li>
+            </ul>            
+        </div>
+  </div>
+</body>
+</html>                                		
+

@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OCCModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Center">
+    <Key>
+      <PropertyRef Name="CenterId" />
+    </Key>
+    <Property Name="CenterName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="InstitutionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GrantNumber" Type="Int32" Nullable="false" />
+    <Property Name="MigrationSource" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="Comments" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdatedUserName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="StreetAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StateCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="CenterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ZipCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="StreetAddress2" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="CenterTypeID" Type="Int32" />
+    <NavigationProperty Name="CenterPOCs" Relationship="Self.FKCCContactListCenter" FromRole="Center" ToRole="CenterPOC" />
+    <NavigationProperty Name="CenterDetails" Relationship="Self.FKCenterDetailCenter" FromRole="Center" ToRole="CenterDetail" />
+    <NavigationProperty Name="DTtrackings" Relationship="Self.FKDTtrackingCenter" FromRole="Center" ToRole="DTtracking" />
+    <NavigationProperty Name="SumStatements" Relationship="Self.FKSumStatementCenter" FromRole="Center" ToRole="SumStatement" />
+  </EntityType>
+  <EntityType Name="CenterDetail">
+    <Key>
+      <PropertyRef Name="CenterDetailID" />
+    </Key>
+    <Property Name="P30Type" Type="Double" />
+    <Property Name="P30GrantNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PIName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PD" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C2014BudgetStart" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C2014BudgetEnd" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="C2015BudgetStart" Type="DateTime" Precision="3" />
+    <Property Name="eDataDueDate" Type="DateTime" Precision="3" />
+    <Property Name="GrantNumber" Type="Int32" />
+    <Property Name="CenterDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedUserName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="CenterID" Type="Int32" />
+    <Property Name="FY" Type="Int32" />
+    <Property Name="PDPersonID" Type="Int32" />
+    <Property Name="InstitutionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Center" Relationship="Self.FKCenterDetailCenter" FromRole="CenterDetail" ToRole="Center" />
+  </EntityType>
+  <EntityType Name="CenterPOC">
+    <Key>
+      <PropertyRef Name="CenterPOCID" />
+    </Key>
+    <Property Name="PITitle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FaxNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PIEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AdminEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AdminPhone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LeadAdminFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="LeadAdminEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AsstLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="AsstEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CenterID" Type="Int32" />
+    <Property Name="GrantNumber" Type="Int32" />
+    <Property Name="CenterPOCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedUserName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="PIFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="PILastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="PIMiddleName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="AdminLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="AdminFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="AdminMiddleName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="InstitutionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EffectiveDate" Type="DateTime" Precision="0" />
+    <Property Name="AsstFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="LeadAdminLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Center" Relationship="Self.FKCCContactListCenter" FromRole="CenterPOC" ToRole="Center" />
+    <Property Name="Comments" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DTtracking">
+    <Key>
+      <PropertyRef Name="DTtrackingId" />
+    </Key>
+    <Property Name="DTtrackingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CenterID" Type="Int32" Nullable="false" />
+    <Property Name="GrantNumber" Type="Int32" Nullable="false" />
+    <Property Name="FY" Type="Int32" Nullable="false" />
+    <Property Name="OCCcomments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CenterComments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="isSubmitted" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="isPassed30Days" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="EmailedDate" Type="DateTime" Precision="3" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedUserName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="eDataDueDate" Type="DateTime" Precision="3" />
+    <Property Name="isPassed2Weeks" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Center" Relationship="Self.FKDTtrackingCenter" FromRole="DTtracking" ToRole="Center" />
+  </EntityType>
+  <EntityType Name="MeritAward">
+    <Key>
+      <PropertyRef Name="MeritAwardID" />
+    </Key>
+    <Property Name="MeritAwardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MeritSRID" Type="Int32" />
+    <Property Name="GrantNumber" Type="Int32" />
+    <Property Name="AwardedYear" Type="Int32" />
+    <Property Name="AwardedName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedUserName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MeritSR" Relationship="Self.FKMeritAwardMeritSR" FromRole="MeritAward" ToRole="MeritSR" />
+  </EntityType>
+  <EntityType Name="MeritFinance">
+    <Key>
+      <PropertyRef Name="MeritFinaceID" />
+    </Key>
+    <Property Name="MeritFinaceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SumStatementID" Type="Int32" Nullable="false" />
+    <Property Name="GrantNumber" Type="Int32" Nullable="false" />
+    <Property Name="FullP30GrantNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="TotalSrLeaderDC" Type="Int64" />
+    <Property Name="TotalMajorProgDirDC" Type="Int64" />
+    <Property Name="TotalStaffInvstDC" Type="Int64" />
+    <Property Name="TotalPlanEvalDC" Type="Int64" />
+    <Property Name="TotalDevFundDC" Type="Int64" />
+    <Property Name="TotalAdminDC" Type="Int64" />
+    <Property Name="TotalPRMSDC" Type="Int64" />
+    <Property Name="TotalProtocolSpecificDC" Type="Int64" />
+    <Property Name="TotalDSMDC" Type="Int64" />
+    <Property Name="TotalDataSharingDC" Type="Int64" />
+    <Property Name="TotalSharedResourceDC" Type="Int64" />
+    <Property Name="SupportYear" Type="Int32" />
+    <Property Name="Suffix" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="YearFirstAward" Type="Int32" />
+    <Property Name="YearsOfAward" Type="Int32" />
+    <Property Name="RemainingYears" Type="Int32" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedUserName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="Comments" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SumStatement" Relationship="Self.FKMeritFinanceSumStatement" FromRole="MeritFinance" ToRole="SumStatement" />
+  </EntityType>
+  <EntityType Name="MeritProg">
+    <Key>
+      <PropertyRef Name="MeritProgID" />
+    </Key>
+    <Property Name="MeritProgID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SumStatementID" Type="Int32" />
+    <Property Name="GrantNumber" Type="Int32" Nullable="false" />
+    <Property Name="AwardedYear" Type="Int32" />
+    <Property Name="ProgName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MeritLevel" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedUserName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="SumStatement" Relationship="Self.FKMeritProgSumStatement" FromRole="MeritProg" ToRole="SumStatement" />
+  </EntityType>
+  <EntityType Name="MeritSR">
+    <Key>
+      <PropertyRef Name="MeritSRID" />
+    </Key>
+    <Property Name="MeritSRID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SumStatementID" Type="Int32" />
+    <Property Name="GrantNumber" Type="Int32" Nullable="false" />
+    <Property Name="MeritSRName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MeritLevel" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedUserName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MeritAwards" Relationship="Self.FKMeritAwardMeritSR" FromRole="MeritSR" ToRole="MeritAward" />
+    <NavigationProperty Name="SumStatement" Relationship="Self.FKMeritSRSumStatement" FromRole="MeritSR" ToRole="SumStatement" />
+  </EntityType>
+  <EntityType Name="OCCStaffPOC">
+    <Key>
+      <PropertyRef Name="OCCStaffPOCID" />
+    </Key>
+    <Property Name="LastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Suffix" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="HomePhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="WorkPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AltEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CellPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="StreetAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ZipCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="MigrationSource" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="StateCode" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="OCCStaffPOCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastUpdatedUserName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <Property Name="Relationship" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RelatedPersonID" Type="Int32" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="FaxNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="RoomNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WorkEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PersonalEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SumStatement">
+    <Key>
+      <PropertyRef Name="SumStatementID" />
+    </Key>
+    <Property Name="SumStatementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CenterID" Type="Int32" />
+    <Property Name="GrantNumber" Type="Int32" />
+    <Property Name="RequestedDate" Type="DateTime" Precision="3" />
+    <Property Name="ReleasedDate" Type="DateTime" Precision="3" />
+    <Property Name="PILastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="PIFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="PIMiddleName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="PriorityScore" Type="Int32" />
+    <Property Name="ImpactScore" Type="Int32" />
+    <Property Name="FY1" Type="Int32" />
+    <Property Name="FY2" Type="Int32" />
+    <Property Name="FY3" Type="Int32" />
+    <Property Name="FY4" Type="Int32" />
+    <Property Name="FY5" Type="Int32" />
+    <Property Name="AwardedFY1" Type="Int32" />
+    <Property Name="AwardedFY2" Type="Int32" />
+    <Property Name="AwardedFY3" Type="Int32" />
+    <Property Name="AwardedFY4" Type="Int32" />
+    <Property Name="AwardedFY5" Type="Int32" />
+    <Property Name="ReqDC1" Type="Double" />
+    <Property Name="ReqDC2" Type="Double" />
+    <Property Name="ReqDC3" Type="Double" />
+    <Property Name="ReqDC4" Type="Double" />
+    <Property Name="ReqDC5" Type="Double" />
+    <Property Name="SugDC1" Type="Double" />
+    <Property Name="SugDC2" Type="Double" />
+    <Property Name="SugDC3" Type="Double" />
+    <Property Name="SugDC4" Type="Double" />
+    <Property Name="SugDC5" Type="Double" />
+    <Property Name="TC1" Type="Double" />
+    <Property Name="TC2" Type="Double" />
+    <Property Name="TC3" Type="Double" />
+    <Property Name="TC4" Type="Double" />
+    <Property Name="TC5" Type="Double" />
+    <Property Name="isHumanSubject" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="HumanSubjectDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="isAnimalSubject" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="AnimalSubjectDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="EC6PhySpaceMeritLevel" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="EC6OrgCapMeritLevel" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="EC6TranCollabMeritLevel" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="EC6CancerFocusMeritLevel" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="EC6InstCommitMeritLevel" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="EC6CenterDirMeritLevel" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="OrgAdminSrLeaderMeritLevel" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="OrgAdminPlanEvalMeritLevel" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="OrgAdminDevFundMeritLevel" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="OrgAdminAdminMeritLevel" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedUserName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Comments" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Center" Relationship="Self.FKSumStatementCenter" FromRole="SumStatement" ToRole="Center" />
+    <NavigationProperty Name="MeritFinances" Relationship="Self.FKMeritFinanceSumStatement" FromRole="SumStatement" ToRole="MeritFinance" />
+    <NavigationProperty Name="MeritProgs" Relationship="Self.FKMeritProgSumStatement" FromRole="SumStatement" ToRole="MeritProg" />
+    <NavigationProperty Name="MeritSRs" Relationship="Self.FKMeritSRSumStatement" FromRole="SumStatement" ToRole="MeritSR" />
+  </EntityType>
+  <Association Name="FKCCContactListCenter">
+    <End Role="Center" Type="Self.Center" Multiplicity="0..1" />
+    <End Role="CenterPOC" Type="Self.CenterPOC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Center">
+        <PropertyRef Name="CenterId" />
+      </Principal>
+      <Dependent Role="CenterPOC">
+        <PropertyRef Name="CenterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKCenterDetailCenter">
+    <End Role="Center" Type="Self.Center" Multiplicity="0..1" />
+    <End Role="CenterDetail" Type="Self.CenterDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Center">
+        <PropertyRef Name="CenterId" />
+      </Principal>
+      <Dependent Role="CenterDetail">
+        <PropertyRef Name="CenterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKDTtrackingCenter">
+    <End Role="Center" Type="Self.Center" Multiplicity="1" />
+    <End Role="DTtracking" Type="Self.DTtracking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Center">
+        <PropertyRef Name="CenterId" />
+      </Principal>
+      <Dependent Role="DTtracking">
+        <PropertyRef Name="CenterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKSumStatementCenter">
+    <End Role="Center" Type="Self.Center" Multiplicity="0..1" />
+    <End Role="SumStatement" Type="Self.SumStatement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Center">
+        <PropertyRef Name="CenterId" />
+      </Principal>
+      <Dependent Role="SumStatement">
+        <PropertyRef Name="CenterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKMeritAwardMeritSR">
+    <End Role="MeritSR" Type="Self.MeritSR" Multiplicity="0..1" />
+    <End Role="MeritAward" Type="Self.MeritAward" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MeritSR">
+        <PropertyRef Name="MeritSRID" />
+      </Principal>
+      <Dependent Role="MeritAward">
+        <PropertyRef Name="MeritSRID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKMeritFinanceSumStatement">
+    <End Role="SumStatement" Type="Self.SumStatement" Multiplicity="1" />
+    <End Role="MeritFinance" Type="Self.MeritFinance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SumStatement">
+        <PropertyRef Name="SumStatementID" />
+      </Principal>
+      <Dependent Role="MeritFinance">
+        <PropertyRef Name="SumStatementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKMeritProgSumStatement">
+    <End Role="SumStatement" Type="Self.SumStatement" Multiplicity="0..1" />
+    <End Role="MeritProg" Type="Self.MeritProg" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SumStatement">
+        <PropertyRef Name="SumStatementID" />
+      </Principal>
+      <Dependent Role="MeritProg">
+        <PropertyRef Name="SumStatementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKMeritSRSumStatement">
+    <End Role="SumStatement" Type="Self.SumStatement" Multiplicity="0..1" />
+    <End Role="MeritSR" Type="Self.MeritSR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SumStatement">
+        <PropertyRef Name="SumStatementID" />
+      </Principal>
+      <Dependent Role="MeritSR">
+        <PropertyRef Name="SumStatementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OCCEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Centers" EntityType="Self.Center" />
+    <EntitySet Name="CenterDetails" EntityType="Self.CenterDetail" />
+    <EntitySet Name="CenterPOCs" EntityType="Self.CenterPOC" />
+    <EntitySet Name="DTtrackings" EntityType="Self.DTtracking" />
+    <EntitySet Name="MeritAwards" EntityType="Self.MeritAward" />
+    <EntitySet Name="MeritFinances" EntityType="Self.MeritFinance" />
+    <EntitySet Name="MeritProgs" EntityType="Self.MeritProg" />
+    <EntitySet Name="MeritSRs" EntityType="Self.MeritSR" />
+    <EntitySet Name="OCCStaffPOCs" EntityType="Self.OCCStaffPOC" />
+    <EntitySet Name="SumStatements" EntityType="Self.SumStatement" />
+    <AssociationSet Name="FKCCContactListCenter" Association="Self.FKCCContactListCenter">
+      <End Role="Center" EntitySet="Centers" />
+      <End Role="CenterPOC" EntitySet="CenterPOCs" />
+    </AssociationSet>
+    <AssociationSet Name="FKCenterDetailCenter" Association="Self.FKCenterDetailCenter">
+      <End Role="Center" EntitySet="Centers" />
+      <End Role="CenterDetail" EntitySet="CenterDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FKDTtrackingCenter" Association="Self.FKDTtrackingCenter">
+      <End Role="Center" EntitySet="Centers" />
+      <End Role="DTtracking" EntitySet="DTtrackings" />
+    </AssociationSet>
+    <AssociationSet Name="FKSumStatementCenter" Association="Self.FKSumStatementCenter">
+      <End Role="Center" EntitySet="Centers" />
+      <End Role="SumStatement" EntitySet="SumStatements" />
+    </AssociationSet>
+    <AssociationSet Name="FKMeritAwardMeritSR" Association="Self.FKMeritAwardMeritSR">
+      <End Role="MeritSR" EntitySet="MeritSRs" />
+      <End Role="MeritAward" EntitySet="MeritAwards" />
+    </AssociationSet>
+    <AssociationSet Name="FKMeritFinanceSumStatement" Association="Self.FKMeritFinanceSumStatement">
+      <End Role="SumStatement" EntitySet="SumStatements" />
+      <End Role="MeritFinance" EntitySet="MeritFinances" />
+    </AssociationSet>
+    <AssociationSet Name="FKMeritProgSumStatement" Association="Self.FKMeritProgSumStatement">
+      <End Role="SumStatement" EntitySet="SumStatements" />
+      <End Role="MeritProg" EntitySet="MeritProgs" />
+    </AssociationSet>
+    <AssociationSet Name="FKMeritSRSumStatement" Association="Self.FKMeritSRSumStatement">
+      <End Role="SumStatement" EntitySet="SumStatements" />
+      <End Role="MeritSR" EntitySet="MeritSRs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

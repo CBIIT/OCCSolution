@@ -1,0 +1,223 @@
+﻿@model IEnumerable<OCCSolution.Models.vwRP>
+
+@{
+    ViewBag.Title = "Shared Resources by Institution Name";
+}
+@************************************************************************************************************************************
+      DATE           DEV     DESC
+      07/06/2017     Chi     Created.
+  
+
+    ********************************************************************************************************************************** *@
+<!DOCTYPE html>
+<head>
+    <title>Shared Resources</title>
+    <link href="../Content/jquery-ui-themes-1.11.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
+  
+    <style>
+        tr.group,
+        tr.group:hover {
+            background-color: #9fcee2 !important;
+        }
+
+        /* for SR, this is defined for SubHeader */
+        table {
+            display: table;
+            border-collapse: separate;
+            border-spacing: 2px;
+            border-color: #94c0d2 !important;
+        }
+
+        .dataTables_wrapper .ui-widget-header {
+            font-weight: normal;
+            padding: .5em;
+        }
+
+        /* subheader */
+        .tableBody {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 12px !important;
+            line-height: 1.428571429;
+            color: #333333; /*black*/
+            background-color: #daecf4; /*from white to diff light baby blue*/
+            border: 1px solid #94c0d2;
+        }
+
+        /*top header, revmoved  url(../images/ui-bg_highlight-soft_75_cccccc_1x100.png)*/
+        .ui-widget-header {
+            border: 1px solid #94c0d2 /*{borderColorHeader}*/;
+            background-color: #9fcee2 !important;
+            color: #222222 /*{fcHeader}*/;
+            font-weight: bold;
+            height: 50px;
+            padding: .5em;
+        }
+
+        .sorting_asc {
+            background: url('../images/sort_asc.png') no-repeat center right;
+            background-color: #daecf4 !important; /* added backgroung-color to light baby blue!*/
+        }
+
+        widget-header {
+            border: 1px solid #aaaaaa;
+            background: #9fcee2 !important;
+            color: #222222;
+            font-weight: bold;
+        }
+
+        table.dataTable.display tbody tr.odd > .sorting_3, table.dataTable.order-column.stripe tbody tr.odd > .sorting_3 {
+            background-color: #daecf4 !important;
+        }
+
+        table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.stripe tbody tr.odd > .sorting_1 {
+            background-color: #daecf4 !important;
+        }
+
+        table.dataTable.display tbody tr.odd > .sorting_2, table.dataTable.order-column.stripe tbody tr.odd > .sorting_2 {
+            background-color: #daecf4 !important;
+        }
+
+        table.dataTable.display tbody tr:hover > .sorting_2, table.dataTable.display tbody tr.odd:hover > .sorting_2, table.dataTable.display tbody tr.even:hover > .sorting_2, table.dataTable.order-column.hover tbody tr:hover > .sorting_2, table.dataTable.order-column.hover tbody tr.odd:hover > .sorting_2, table.dataTable.order-column.hover tbody tr.even:hover > .sorting_2 {
+            background-color: #daecf4 !important;
+        }
+
+        table.dataTable.display tbody tr.odd > .sorting_1, table.dataTable.order-column.stripe tbody tr.odd > .sorting_1 {
+            background-color: #daecf4 !important;
+        }
+
+        table.dataTable tr.odd {
+            background-color: #daecf4 !important;
+        }
+        /*light baby blue*/
+        table.dataTable tr.even {
+            background-color: white !important;
+        }
+
+    </style>
+
+    </head>
+    <html>
+    <body>
+    <div class="container" id="pageCenterID" >
+        <h2 style="color:#005C83">&nbsp;2015 Research Programs</h2>
+        <p style="color:#005C83; font-size:medium"><small>&nbsp;&nbsp;Grouped by Institution Name</small></p>
+        <hr style="margin-bottom:0em;" />
+        <ul class="breadcrumb" style="float:left;">
+            <li><a id="home" href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span aria-hidden="true" class="glyphicon glyphicon-circle-arrow-right"></span></li>
+            <li><a href="~/Center/CancerCenters">Cancer Centers</a> <span aria-hidden="true" class="glyphicon glyphicon-circle-arrow-right"></span></li>
+            <li class="active">Research Program</li>
+        </ul>
+        <p class="pull-right" style="color:#202020;"><small>Press F5 to reset the data table</small></p>
+        <br /><br />
+        <table id="example" class="display nowrap" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Institution Name</th>
+                    <th title="Click to sort ascending or descending" style="width:300px;">Research Program</th>
+                    <th title="Click to sort ascending or descending" style="width:300px;">Program Leader's Full Name</th>
+                </tr>
+            </thead>
+            <tbody>
+            @{
+                if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.InstitutionName
+                            </td>
+                            <td>
+                                @item.ProgName
+                            </td>
+                            <td>
+                                @item.FullName
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+            </tbody>
+        </table>
+
+        <script type="text/javascript">
+
+            //Group on first column (0) --> InstitutionName
+            $(document).ready(function () {
+
+                var currentDate = new Date()
+                var day = currentDate.getDate()
+                var month = currentDate.getMonth() + 1
+                var year = currentDate.getFullYear()
+                var d = day + "-" + month + "-" + year;
+
+                var table = $('#example').DataTable({
+                    //"bJQueryUI": "false",  
+                    "sScrollX": "90%",
+                    "sScrollY": "100%",
+                    "sScrollXInner": "100%",                 
+                    "dom": '<"fg-toolbar ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix"lfrT>t<"fg-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix"ip>',
+                    "tableTools": {
+                        "sSwfPath": "../Content/swf/copy_csv_xls_pdf.swf",
+                        "aButtons": [
+                           //{
+                           //    "sExtends": "pdf",
+                           //    "sToolTip": "Save as PDF",
+                           //    "sPdfOrientation": "landscape",     // change to landscapte orientation 
+                           //    "sFileName": d + "-*.pdf"           // append the date to the filename                            
+                           //},
+                           {
+                               "sExtends": "xls",
+                               "sButtonText": "Export to Excel",
+                               "sToolTip": "Export to Excel",
+                               "oSelectorOpts": { filter: 'applied', order: 'current' },
+                               "sFileName": "Shared Resources by Institution Name" + d + ".xls"
+                           },
+                            //{
+                            //    "sExtends": "print",
+                            //    "sMessage": "Research Programs by Institution Name",
+                            //    "sToolTip": "Right-click and select Print, and press Esc key when done",
+                            //    "oSelectorOpts": { filter: 'applied', order: 'current' }                              
+                            //}
+                        ]
+                    },
+                    "sPaginationType": "full_numbers",
+                    //"bProcessing": true,
+                    "bSort": "true",
+                    "columnDefs": [
+                        { "visible": false, "targets": 0 }
+                    ],
+                    "order": [[0,'asc'], [1,"asc"], [2,"asc"] ],
+                    "displayLength": 25,
+                    "drawCallback": function (settings) {
+                        var api = this.api();
+                        var rows = api.rows({ page: 'current' }).nodes();
+                        var last = null;
+
+                        api.column(0, { page: 'current' }).data().each(function (group, i) {
+                            if (last !== group) {
+                                $(rows).eq(i).before(
+                                    '<tr class="group"><td colspan="3">' + group + '</td></tr>'
+                                );
+
+                                last = group;
+                            }
+                        });
+                    }
+                })
+
+                // Order by the grouping
+                $('#example tbody').on('click', 'tr.group', function () {
+                    var currentOrder = table.order()[0];
+                    if (currentOrder[0] === 0 && currentOrder[1] === 'asc') {
+                        table.order([0, 'desc']).draw();
+                    }
+                    else {
+                        table.order([0, 'asc'], [1, 'asc']).draw();
+                    }
+                });
+            });
+        </script>
+    </div>
+    </body>
+    </html>

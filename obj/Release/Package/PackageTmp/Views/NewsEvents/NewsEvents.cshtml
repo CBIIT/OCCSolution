@@ -1,0 +1,87 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@{
+    ViewBag.Title = "News & Events";
+}
+
+@*COMMENTS------------------------------------------------------------------------------------------------------------------------------------------------
+    DATE            DEVELOPER   NOTES
+    01/07/2015      Chi         Reconstructed due to InvalidOperationException on Stage.
+                                attempted this: http://blogs.msdn.com/b/gaurav/archive/2014/01/15/the-view-must-derive-from-webviewpage-or-webviewpage-lt-tmodel-gt-the-view-at-views-home-index-cshtml-must-derive-from-webviewpage-or-webviewpage-lt-tmodel-gt.aspx
+    02/03/2015      AM          Added fancy tooltip
+    03/06/2015      AM          Added tooltip to breadcrumbs, reference occhyperlink and grayfont, restructured headings, changed page header color
+                                hid comments
+    03/16/2015      AM          Made Titles bold
+    03/26/2015      Chi        for skip  nav, Added id="home" on <a> tag
+    03/27/2014      Chi        Removed occHyperlink!
+    09/20/2016       Chi        Modified 1014 to 2014
+    12/22/2016      AM          Added PAR 17-095
+--------------------------------------------------------------------------------------------------------------------------------------------------------*@
+
+<!DOCTYPE html>
+<head>
+    <title>News and Events</title>
+    <style>
+        .big {
+            font-size: large;
+            line-height: 150%;
+            font-weight: bold
+        }
+
+        .small {
+            font-size: small;
+            color: #343434;
+        }
+    </style>
+
+
+</head>
+<html lang="en">
+<body>
+    <div class="container" id="pageCenterID">
+        <h2 style="color: #274D9A;">&nbsp;News & Events</h2>
+        <hr style="margin-bottom:.5em;" />
+        <ul class="breadcrumb" style="float:left; margin-bottom:0px;">
+            <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
+            <li class="active grayFont">News & Events</li>
+        </ul>
+        <div class="row" id="centerContentID" style="float:left; margin-top:10px;">@*Begin First Div*@
+            <div class="media">
+                <a id="home" href="#" data-toggle="collapse" data-target="#collapseRareID" class="pull-left">
+                    <img class="img-thumbnail tip-bottom tooltipColor" src="~/images/nihHela-I.jpg" alt="Rare Cancer Disease" align="left" style="width:150px; height:135px; border-color:#FF8300; padding:0px;" data-toggle="tooltip" data-original-title="Click to expand/collapse" title="" />
+                </a>
+                <div class="media-body">
+                    <span class="big">Participation of Trials of Rare Cancers</span> <span class="grayFont">Updated on October 31, 2014</span>
+                    <p>
+                        NCI-designated Cancer Centers play a key national role in developing new therapies in rare cancers. They are expected to lead, and/or participate in, NCI’s National Clinical Trials Network trials, including studies of rare cancers, cancers involving rare molecular subtypes, and uncommon clinical subsets of more common cancers. While Centers, through their Protocol Review and Monitoring System (PRMS), have the authority to close trials for poor accrual, exceptions should be made for trials involving rare diseases. It is not expected that any single Center will be able to meet minimum annual accrual requirements for these types of cancers. For this reason, these trials need many centers involved and a longer accrual period to have the greatest potential to
+                        meet their accrual targets.
+                        <a data-toggle="collapse" href="#" data-target="#collapseRareID" > More &raquo;</a>
+                    </p>
+                    <p class="collapse" id="collapseRareID">
+                        NCI staff in the Division of Cancer Treatment and Diagnosis are working with a group of international organizations on an “International Rare Cancers Initiative” (IRCI) and that initiative defines it as a cancer with an incidence of ≤ 3 newly diagnosed persons out of a population of 100,000 persons per year (≤ 3/100,000 per year). Other organizations and conference panels (e.g., ESMO Rare Cancers Conference 2012) have set the incidence rate for a rare cancer slightly higher at ≤6/100,000. Using definition or cut-off, virtually all pediatric cancer types would be considered “rare cancers.”
+                        As general guidance for PRMS deliberations on trial closures, it seems reasonable to consider as ‘rare cancers’ any cancer types with an incidence rate per 100,000 person population per year in the range of the figures cited above - including all pediatric cancers. The following international websites may be helpful as additional resources:</br>
+                        Additional resources: <a href="http://www.rarecancerseurope.org/?-Families-and-List-of-Rare-Cancers-" target="_blank">&nbsp;Rare Cancers Europe</a> and <a href="http://www.rarecare.eu/rarecancers/rarecancers.asp" target="_blank" >&nbsp;Rare Care</a><br />
+                        The CCSG program announcement includes explicit language recognizing the importance of center participation in trials of this nature and of providing accrual exceptions in both PRMS and CCSG peer review processes.
+                        <br />
+                        <br />
+                    </p>
+                </div>
+            </div>@*End First Div*@
+            <hr />
+            <div class="media">@*Begin Second Div*@
+                    <a class="pull-left">                  
+                        <img class="img-thumbnail" src="~/images/WG.jpg" alt="Working group" align="left" style="width:150px; height:135px; border-color:#FF8300; padding:0px; margin-right:3px;"/>
+                    </a>
+                    <div class="media-body">
+                        <span class="big">Cancer Centers Working Group's Report </span><span class="grayFont">Updated on June 23, 2014</span>
+                            <p>
+                                On June 23, 2014, the National Cancer Advisory Board <a href="http://deainfo.nci.nih.gov/advisory/ncab/ncab.htm" target="_blank" >(NCAB)</a>  voted to accept a report prepared by its cancer centers working group (wg). in 2012, the wg was tasked to examine funding patterns and policies related to the cancer center support grant award levels and, if appropriate, to recommend changes and alternative approaches.
+                                <br /><br />
+                                NCI will now consider the WG’s recommendations and develop an implementation plan, which will be presented when the plan is available, and only after thorough discussion and coordination with interested partners. View the <a href="http://deainfo.nci.nih.gov/advisory/ncab/workgroup/CancerCtrWG/report13may14.pdf" target="_blank" >full report</a>  and its recommendations.
+                                <br />
+                            </p>
+                    </div>
+            </div>@*End of Second Div*@
+        </div>@*row*@
+    </div>
+</body>
+</html>

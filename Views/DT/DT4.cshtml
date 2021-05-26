@@ -1,0 +1,658 @@
+﻿@{
+    ViewBag.Title = "DT4";
+}
+@*--------------------------------------------------------------------------------------------------------------------------------------
+        DATE            Developer   Desc
+        01/04/2015      Chi         Created.
+                                    NOTE, to hide the search box, see <style>
+                                    Use DataView to pass the data between the controller and the view
+                                    ViewData is a dictionary of objects that is derived from ViewDataDictionary class and accessible using strings as keys.
+                                    ViewData requires typecasting for complex data type and check for null values to avoid error. The data is not stronly typed.
+        01/06/2015      Chi         Completed Research Category, Phase, Primary Purpose tabs
+        01/11/2015      Chi         Added Title/tooltips
+        03/27/2015      Chi         Removed occHyperlink, added id="home" to the 1st <a> tag, added aria-hidden="true"
+        06/01/2017      Ch          Set the default FY value
+        06/27/2018      AM          modified table font and background colors to meet new 508 compliance standard
+        11/23/2020      Chi         Updated w/ data for FY14-16
+
+    ---------------------------------------------------------------------------------------------------------------------------------------*@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DT3</title>
+    <script type="text/javascript" charset="utf8" src="~/Scripts/jquery.dataTables.columnFilter.js"></script>
+
+    <style type="text/css">
+        table.dataTable tr.odd {
+            background-color: #EBF5FB!important;
+        }
+        /*light baby blue*/
+        table.dataTable tr.even {
+            background-color: white !important;
+        }
+
+        table.dataTable tr.highlighted {
+            background-color: #9fcee2 !important;
+            border-bottom-width: medium !important;
+            border-bottom-color: #003f59 !important;
+        }
+        /* baby blue, deeper blue:94c0d2*/
+
+        @*hide the search box, cant disable it b/c of the FY filter column *@ .dataTables_filter {
+            display: none;
+        }
+
+        @*hide the sort icon*@ .dataTables_sort {
+            background-image: none !important;
+        }
+
+             }
+            table.dataTable tr.bottom {
+                color: white;
+                background-color: #1A5276 !important;
+                border-bottom-width: medium !important;
+                border-bottom-color: #1A5276 !important;
+                
+            }
+
+    </style>
+</head>
+
+<body>
+    <div class="container" id="pageCenterID">
+        <h2 style="color:#005C83;">&nbsp;Data Table 4</h2>
+        <h4 style="color:#005C83;">&nbsp;Clinical Research Studies</h4>
+        <hr style="margin-bottom:0em;" />
+        <ul class="breadcrumb" style="float:left;">
+            <li><a href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></li>
+            <li><a href="~/Center/CancerCenters">Cancer Centers</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></li>
+            <li><a href="~/DT/DT">Benchmark Data</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></li>
+            <li class="active grayFont">Data Table 4</li>
+        </ul>
+        <p class="pull-right" style="color:#202020"><small>Press F5 to reset the data table</small></p>
+        @*<div class=" centerContent pull-left">*@
+            <div class="centerContent  col-sm-12 pull-left" style="color:#202020;">
+                <p style="color:#202020"><small>Note: All values are from data submitted annually by Centers starting from 2010 to recent year.</small></>
+                <p style="color:#202020"><small>The following table compares the number of open trials and number of patients accrued to open trials for all NCI-designated Cancer Centers combined.</small></p>
+            </div>
+
+            <ul class="nav nav-tabs" style="font-size:small;">
+                <li class="active" style="color:#005C83;"><a data-toggle="tab" href="#Study" title="Click here to see benchmark data by Study Source">Study Source</a></li>
+                <li><a data-toggle="tab" href="#Research" title="Click here to see benchmark data by Research Category">Research Category</a></li>
+                <li><a data-toggle="tab" href="#Phase" title="Click here to see benchmark data by Phase">Phase</a></li>
+                <li><a data-toggle="tab" href="#Primary" title="Click here to see benchmark data by Primary Purpose">Primary Purpose</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="Study" class="tab-pane fade in active">
+                    <div class="col-sm-12 pull-left" style="font-size:small; color:#005C83;">
+                        <h5>Number of Trials and Patients Accrued categozied by Fiscal Year and Study Source</h5>                    
+                        <table id="example" style="width:60%;">
+                            <thead style="color:#005C83;">
+                                <tr style="background-color:#1A5276; color:white">
+                                    <th id="fiscalyear" title="Click here to filter by Fiscal Year">FY</th>
+                                    <th></th>
+                                    <th title="Prior to 2013, this was known as Protocol Sponsor">Study Source</th>
+                                    <th align="right" colspan="2">Open Trials</th>
+                                    <th align="right" colspan="2">Patient Accrued</th>
+                                </tr>
+                                <tr>
+                                    <th aria-labelledby="fiscal year">FY</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th align="right">Total Number</th>
+                                    <th>Median</th>
+                                    <th align="right">Total Number</th>
+                                    <th>Median</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @{
+                                if (ViewData["vwDT4StudySourceBenchmark"] != null)
+                                {
+                                    foreach (var item in ViewData["vwDT4StudySourceBenchmark"]
+                                                 as List<OCCSolution.Models.vwDT4StudySourceBenchmark>)
+                                    {
+                                        <tr style="font-size:small;">
+                                            <td aria-label="fiscal year">@item.FY</td>
+                                            <td></td>
+                                            <td><b>@item.StudySource</b></td>
+                                            <td style="text-align:right">@String.Format("{0:#,##0}", item.OpenTrialTotal)</td>
+                                            <td style="text-align:right">@String.Format("{0:#,##0}", item.OpenTrialMedian)</td>
+                                            <td style="text-align:right">@String.Format("{0:#,##0}", item.AccruedTotal)</td>
+                                            <td style="text-align:right">@String.Format("{0:#,##0}", item.AccruedMedian)</td>
+                                        </tr>                                                                           
+                                   }
+                                 }
+                            }
+                            </tbody>
+                            <tfoot>                               
+                                <tr style="background-color:#1A5276; color:white !important;">
+                                    <th>FY</th>
+                                    <th title="Click on the drop down list to filter by Fiscal Year">FY</th>
+                                    <th>Total</th>
+                                    <th style="text-align:right; padding-left:20px;">Total of Open Trials</th>
+                                    <th></th>
+                                    <th style="text-align:right; padding-left:15px;">Total of Accrued Patients</th>
+                                    <th></th>
+                                </tr> 
+                              
+                            </tfoot>                               
+                       </table>   
+                        <p style="padding-left:150px; color:#202020; font-size:12px; margin-top:10px">It is important to note that these are not necessarily unique trials; the same trial may be open at multiple centers.</p>                                                                                     
+                    </div>
+                    <br />
+                </div> <!--end of tab Study Source-------------------------------------------------------------------------------------------------->
+                <div id="Research" class="tab-pane fade">
+                    <div class="col-sm-12 pull-left" style="font-size:small; color:#005C83;">
+                        <h5>Number of Trials and Patients Accrued by Clinical Research Category categorized by Fiscal Year and Clinical Research Category</h5>
+                        <table id="example2" style="width:55%;">
+                            <thead>
+                                <tr style="background-color:#1A5276; color:white">
+                                    <th title="Click here to filter by Fiscal Year">FY</th>
+                                    <th></th>
+                                    <th>Research Category</th>
+                                    <th align="right" colspan="2">Open Trials</th>
+                                    <th align="right" colspan="2">Patient Accrued</th>
+                                </tr>
+                                <tr>
+                                    <th>FY</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th align="right">Total Number</th>
+                                    <th>Median</th>
+                                    <th align="right">Total Number</th>
+                                    <th>Median</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @{
+                                if (ViewData["vwDT4ResearchCatBenchmark"] != null)
+                                {
+                                    foreach (var cat in ViewData["vwDT4ResearchCatBenchmark"]
+                                    as List<OCCSolution.Models.vwDT4ResearchCatBenchmark>)
+                                    {
+                                        <tr style="font-size:small;">
+                                            <td>@cat.FY</td>
+                                            <td></td>
+                                            <td><b>@cat.ClinicalResearchCat</b></td>
+                                            <td style="text-align:right">@String.Format("{0:#,##0}", cat.OpenTrialTotal)</td>
+                                            <td style="text-align:right">@String.Format("{0:#,##0}", cat.OpenTrialMedian)</td>
+                                            <td style="text-align:right">@String.Format("{0:#,##0}", cat.AccruedTotal)</td>
+                                            <td style="text-align:right">@String.Format("{0:#,##0}", cat.AccruedMedian)</td>
+                                        </tr>
+                                    }
+                                }
+                            }
+                            </tbody>
+                            <tfoot>
+                                <tr style="background-color:#1A5276; color:white !important;">
+                                    <th>FY</th>
+                                    <th title="Click on the drop down list to filter by Fiscal Year">FY</th>
+                                    <th>Total</th>
+                                    <th style="text-align:right; padding-left:7px;">Total of Open Trials</th>
+                                    <th></th>
+                                    <th align="right">Total of Accrued Patients</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <p style="padding-left:150px; color:#202020; font-size:12px; margin-top:10px">It is important to note that these are not necessarily unique trials; the same trial may be open at multiple centers.</p>           
+                    </div>
+                </div> <!--end of tab2 Research Cateogry--------------------------------------------------------------------------------------------------->
+                <div id="Phase" class="tab-pane fade">
+                    <div class="col-sm-12 pull-left" style="font-size:small; color:#005C83;">
+                        <h5>Number of Trials and Patients Accrued categorized by Fiscal Year and Phase</h5>                       
+                        <table id="example3" style="width:55%;">
+                            <thead>
+                                <tr style="background-color:#1A5276; color:white">
+                                    <th title="Click here to filter by Fiscal Year">FY</th>
+                                    <th></th>
+                                    <th>Phase</th>
+                                    <th align="right" colspan="2">Open Trials</th>
+                                    <th align="right" colspan="2">Patient Accrued</th>
+                                </tr>
+                                <tr>
+                                    <th>FY</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th align="right">Total Number</th>
+                                    <th>Median</th>
+                                    <th align="right">Total Number</th>
+                                    <th>Median</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    if (ViewData["vwDT4PhaseBenchmark"] != null)
+                                    {
+                                        foreach (var phase in ViewData["vwDT4PhaseBenchmark"]
+                                        as List<OCCSolution.Models.vwDT4PhaseBenchmark>)
+                                        {
+                                            <tr style="font-size:small;">
+                                                <td>@phase.FY</td>
+                                                <td></td>
+                                                <td><b>@phase.Phase</b></td>
+                                                <td style="text-align:right">@String.Format("{0:#,##0}", phase.OpenTrialTotal)</td>
+                                                <td style="text-align:right">@String.Format("{0:#,##0}", phase.OpenTrialMedian)</td>
+                                                <td style="text-align:right">@String.Format("{0:#,##0}", phase.AccruedTotal)</td>
+                                                <td style="text-align:right">@String.Format("{0:#,##0}", phase.AccruedMedian)</td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr style="background-color:#1A5276; color:white !important;">
+                                    <th>FY</th>
+                                    <th title="Click on the drop down list to filter by Fiscal Year">FY</th>
+                                    <th>Total</th>
+                                    <th style="text-align:right; padding-left:6px;">Total of Open Trials</th>
+                                    <th></th>
+                                    <th align="right">Total of Accrued Patients</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <p style="padding-left:150px; color:#202020; font-size:12px; margin-top:10px">It is important to note that these are not necessarily unique trials; the same trial may be open at multiple centers.</p>
+</div>
+                </div> <!--end of tab3 Phase--------------------------------------------------------------------------------------------------------->
+                <div id="Primary" class="tab-pane fade">
+                    <div class="col-sm-12 pull-left" style="font-size:small; color:#005C83;">
+                        <h5>Number of Trials and Patients Accrued categorize by Fiscal Year and Primary Purpose</h5>                      
+                        <table id="example4" style="width:55%;">
+                            <thead>
+                                <tr style="background-color:#1A5276; color:white">
+                                    <th title="Click here to filter by Fiscal Year">FY</th>
+                                    <th></th>
+                                    <th Title="Prior to 2013, this was known as Trial Type">Primary Purpose</th>
+                                    <th align="right" colspan="2">Open Trials</th>
+                                    <th align="right" colspan="2">Patient Accrued</th>
+                                </tr>
+                                <tr>
+                                    <th>FY</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th align="right">Total Number</th>
+                                    <th>Median</th>
+                                    <th align="right">Total Number</th>
+                                    <th>Median</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    if (ViewData["vwDT4PrimaryPurposeBenchmark"] != null)
+                                    {
+                                        foreach (var pri in ViewData["vwDT4PrimaryPurposeBenchmark"]
+                                        as List<OCCSolution.Models.vwDT4PrimaryPurposeBenchmark>)
+                                        {
+                                            <tr>
+                                                <td>@pri.FY</td>
+                                                <td></td>
+                                                <td><b>@pri.PrimaryPurpose</b></td>
+                                                <td style="text-align:right">@String.Format("{0:#,##0}", pri.OpenTrialTotal)</td>
+                                                <td style="text-align:right">@String.Format("{0:#,##0}", pri.OpenTrialMedian)</td>
+                                                <td style="text-align:right">@String.Format("{0:#,##0}", pri.AccruedTotal)</td>
+                                                <td style="text-align:right">@String.Format("{0:#,##0}", pri.AccruedMedian)</td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr style="background-color:#1A5276; color:white !important;">
+                                    <th></th>@*FY*@
+                                    <th title="Click on the drop down list to filter by Fiscal Year">FY</th>
+                                    <th>Total</th>
+                                    <th style="text-align:right; padding-left:12px;">Total of Open Trials</th>
+                                    <th></th>
+                                    <th align="right">Total of Accrued Patients</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <p style="padding-left:150px; color:#202020; font-size:12px; margin-top:10px">It is important to note that these are not necessarily unique trials; the same trial may be open at multiple centers.</p>
+
+                    </div>
+
+                </div> <!--end of tab4 Primary Purpose-->
+            </div> <!--end of tab-content-->
+        </div> <!--end of centerContent-->
+    @*</div>*@<!--end of container class-->
+
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {             
+                $('#example').DataTable({
+                    "bPaginate": true,
+                    'iDisplayLength': 5,
+                    'bLengthChange': false,
+                    "bInfo": false,
+                    "bSort": false,
+                    "aoColumnDefs": [
+                      { "bSortable": false, "aTargets": ["_all"] },   //disable sorting on all columns.
+                      { "aTargets": [0], "bVisible": false },  //don't show FY on the column                     
+                    ],
+                    "fnDrawCallback": function (oSettings) {
+                        $('.dataTables_paginate').hide();     //hide the page prev/next information.
+                    },
+                    "fnFormatNumber": function (iIn) {
+                        if (iIn < 1000) {
+                            return iIn;
+                        } else {
+                            var
+                              s = (iIn + ""),
+                              a = s.split(""), out = "",
+                              iLen = s.length;
+
+                            for (var i = 0 ; i < iLen ; i++) {
+                                if (i % 3 === 0 && i !== 0) {
+                                    out = "," + out;
+                                }
+                                out = a[iLen - i - 1] + out;
+                            }
+                        }
+                        return out;
+                    },
+                    "footerCallback": function (row, data, start, end, display) {
+                        var api = this.api(), data;
+
+                        // Remove the formatting to get integer data for summation
+                        var intVal = function (i) {
+                            return typeof i === 'string' ?
+                                i.replace(/[\$,]/g, '') * 1 :
+                                typeof i === 'number' ?
+                                i : 0;
+                        };
+
+                        // Total over all pages, NOT BEING USED Chi
+                        //total = api
+                        //    .column(3)
+                        //    .data()
+                        //    .reduce(function (a, b) {
+                        //        return intVal(a) + intVal(b);
+                        //    });
+
+                        // Total over this page
+                        pageTotal3 = api
+                            .column(3, { page: 'current' })
+                            .data()
+                            .reduce(function (a, b) {
+                                return intVal(a) + intVal(b);
+                            }, 0);
+
+                        pageTotal5 = api
+                            .column(5, { page: 'current' })
+                            .data()
+                            .reduce(function (a, b) {
+                                return intVal(a) + intVal(b);
+                            }, 0);
+
+
+                        //Update footer
+                        $(api.column(3).footer()).html(this.fnSettings().fnFormatNumber(pageTotal3));
+
+                        //$(api
+                        //    .column(5).footer()).html(
+                        //    pageTotal5
+                        //);
+                        $(api.column(5).footer()).html(this.fnSettings().fnFormatNumber(pageTotal5));
+                    }
+                });
+
+                var table = $('#example').DataTable();
+                $("#example thead th").each(function (i) {
+                    if (i == 0) { //Create just one SelectBox
+                        var select = $('<select id="home" class=' + i + '><option value=""></option></select>')
+                            .appendTo($(this).empty())
+                            .on('change', function () {
+                                var val = $(this).val();
+                                table.column(0) //Only the first column
+                                    .search(val ? '^' + $(this).val() + '$' : val, true, false)
+                                    .draw();
+                            });
+                        table.column(0).data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')     //populate the FY ddl
+                            .val("2013");                                                     //set default the value
+                        });
+                    }
+                });
+                ///////////////////////////////////////////////////// example2 for Research Cat ////////////////////////////////////////////////////////////////////
+                $('#example2').DataTable({
+                    "bPaginate": true,
+                    'iDisplayLength': 5,
+                    'bLengthChange': false,
+                    "bInfo": false,
+                    "bSort": false,
+                    "aoColumnDefs": [
+                      { "bSortable": false, "aTargets": ["_all"] },   //disable sorting on all columns.
+                      { "aTargets": [0], "bVisible": false},  //don't show FY on the column
+                    ],
+                    "fnDrawCallback": function (oSettings) {
+                        $('.dataTables_paginate').hide();     //hide the page prev/next information.
+                    },
+                    "fnFormatNumber": function (iIn) {
+                    if (iIn < 1000) {
+                        return iIn;
+                    } else {
+                        var
+                          s = (iIn + ""),
+                          a = s.split(""), out = "",
+                          iLen = s.length;
+
+                        for (var i = 0 ; i < iLen ; i++) {
+                            if (i % 3 === 0 && i !== 0) {
+                                out = "," + out;
+                            }
+                            out = a[iLen - i - 1] + out;
+                        }
+                    }
+                    return out;
+                },
+                "footerCallback": function (row, data, start, end, display) {
+                    var api = this.api(), data;
+
+                    // Remove the formatting to get integer data for summation
+                    var intVal = function (i) {
+                        return typeof i === 'string' ?
+                            i.replace(/[\$,]/g, '') * 1 :
+                            typeof i === 'number' ?
+                            i : 0;
+                    };
+                    // Total over this page
+                    pageTotal3 = api
+                        .column(3, { page: 'current' })
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+                    pageTotal5 = api
+                        .column(5, { page: 'current' })
+                        .data()
+                        .reduce(function (a, b) {
+                            return intVal(a) + intVal(b);
+                        }, 0);
+                    //Update footer
+                    $(api.column(3).footer()).html(this.fnSettings().fnFormatNumber(pageTotal3));
+                    $(api.column(5).footer()).html(this.fnSettings().fnFormatNumber(pageTotal5));
+                }
+                });
+                var table2 = $('#example2').DataTable();
+                $("#example2 thead th").each(function (i) {
+                    if (i == 0) { //Create just one SelectBox
+                        var select = $('<select id="home" class=' + i + '><option value=""></option></select>')
+                            .appendTo($(this).empty())
+                            .on('change', function () {
+                                var val = $(this).val();
+                                table2.column(0) //Only the first column
+                                    .search(val ? '^' + $(this).val() + '$' : val, true, false)
+                                    .draw();
+                            });
+                        table2.column(0).data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')      //populate the FY ddl
+                            .val("2013");                                                      //set default the value
+
+                        });
+                    }
+                });
+                ////////////////////////////////// Example 3 for PHASE ////////////////////////////////////////////////////
+                $('#example3').DataTable({
+                    "bPaginate": true,
+                    'iDisplayLength': 12,
+                    'bLengthChange': false,
+                    "bInfo": false,
+                    "bSort": false,
+                    "aoColumnDefs": [
+                      { "bSortable": false, "aTargets": ["_all"] },   //disable sorting on all columns.
+                      { "aTargets": [0], "bVisible": false },  //don't show FY on the column
+                    ],
+                    "fnDrawCallback": function (oSettings) {
+                        $('.dataTables_paginate').hide();     //hide the page prev/next information.
+                    },
+                    "fnFormatNumber": function (iIn) {
+                        if (iIn < 1000) {
+                            return iIn;
+                        } else {
+                            var
+                              s = (iIn + ""),
+                              a = s.split(""), out = "",
+                              iLen = s.length;
+
+                            for (var i = 0 ; i < iLen ; i++) {
+                                if (i % 3 === 0 && i !== 0) {
+                                    out = "," + out;
+                                }
+                                out = a[iLen - i - 1] + out;
+                            }
+                        }
+                        return out;
+                    },
+                    "footerCallback": function (row, data, start, end, display) {
+                        var api = this.api(), data;
+
+                        // Remove the formatting to get integer data for summation
+                        var intVal = function (i) {
+                            return typeof i === 'string' ?
+                                i.replace(/[\$,]/g, '') * 1 :
+                                typeof i === 'number' ?
+                                i : 0;
+                        };
+                        // Total over this page
+                        pageTotal3 = api
+                            .column(3, { page: 'current' })
+                            .data()
+                            .reduce(function (a, b) {
+                                return intVal(a) + intVal(b);
+                            }, 0);
+                        pageTotal5 = api
+                            .column(5, { page: 'current' })
+                            .data()
+                            .reduce(function (a, b) {
+                                return intVal(a) + intVal(b);
+                            }, 0);
+                        //Update footer
+                        $(api.column(3).footer()).html(this.fnSettings().fnFormatNumber(pageTotal3));
+                        $(api.column(5).footer()).html(this.fnSettings().fnFormatNumber(pageTotal5));
+                    }
+                });
+
+                var table3 = $('#example3').DataTable();
+                $("#example3 thead th").each(function (i) {
+                    if (i == 0) { //Create just one SelectBox
+                        var select = $('<select id="home" class=' + i + '><option value=""></option></select>')
+                            .appendTo($(this).empty())
+                            .on('change', function () {
+                                var val = $(this).val();
+                                table3.column(0) //Only the first column
+                                    .search(val ? '^' + $(this).val() + '$' : val, true, false)
+                                    .draw();
+                            });
+                        table3.column(0).data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')      //populate the FY ddl
+                            .val("2013");                                                      //set default the value
+
+                        });
+                    }
+                });
+                ////////////////////////////////// Example 4 for PRIMARY PURPOSE ////////////////////////////////////////////////////
+                $('#example4').DataTable({
+                    "bPaginate": true,
+                    'iDisplayLength': 7,
+                    'bLengthChange': false,
+                    "bInfo": false,
+                    "bSort": false,
+                    "aoColumnDefs": [
+                      { "bSortable": false, "aTargets": ["_all"] },   //disable sorting on all columns.
+                      { "aTargets": [0], "bVisible": false },  //don't show FY on the column
+                    ],
+                    "fnDrawCallback": function (oSettings) {
+                        $('.dataTables_paginate').hide();     //hide the page prev/next information.
+                    },
+                    "fnFormatNumber": function (iIn) {
+                        if (iIn < 1000) {
+                            return iIn;
+                        } else {
+                            var
+                              s = (iIn + ""),
+                              a = s.split(""), out = "",
+                              iLen = s.length;
+
+                            for (var i = 0 ; i < iLen ; i++) {
+                                if (i % 3 === 0 && i !== 0) {
+                                    out = "," + out;
+                                }
+                                out = a[iLen - i - 1] + out;
+                            }
+                        }
+                        return out;
+                    },
+                    "footerCallback": function (row, data, start, end, display) {
+                        var api = this.api(), data;
+
+                        // Remove the formatting to get integer data for summation
+                        var intVal = function (i) {
+                            return typeof i === 'string' ?
+                                i.replace(/[\$,]/g, '') * 1 :
+                                typeof i === 'number' ?
+                                i : 0;
+                        };
+                        // Total over this page
+                        pageTotal3 = api
+                            .column(3, { page: 'current' })
+                            .data()
+                            .reduce(function (a, b) {
+                                return intVal(a) + intVal(b);
+                            }, 0);
+                        pageTotal5 = api
+                            .column(5, { page: 'current' })
+                            .data()
+                            .reduce(function (a, b) {
+                                return intVal(a) + intVal(b);
+                            }, 0);
+                        //Update footer
+                        $(api.column(3).footer()).html(this.fnSettings().fnFormatNumber(pageTotal3));
+                        $(api.column(5).footer()).html(this.fnSettings().fnFormatNumber(pageTotal5));
+                    }
+                });
+
+                var table4 = $('#example4').DataTable();
+                $("#example4 thead th").each(function (i) {
+                    if (i == 0) { //Create just one SelectBox
+                        var select = $('<select id="home" class=' + i + '><option value=""></option></select>')
+                            .appendTo($(this).empty())
+                            .on('change', function () {
+                                var val = $(this).val();
+                                table4.column(0) //Only the first column
+                                    .search(val ? '^' + $(this).val() + '$' : val, true, false)
+                                    .draw();
+                            });
+                        table4.column(0).data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')      //populate the FY ddl
+                            .val("2013");                                                      //set default the value
+
+                        });
+                    }
+                });
+            });
+    </script>
+</body>
+</html>
