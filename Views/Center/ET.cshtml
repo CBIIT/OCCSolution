@@ -2,7 +2,11 @@
 @{
     ViewBag.Title = "ET Leaders by Institution Name";
 }
+@*---COMMENTS-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    DATE            DEVELOPER       NOTES
+    6/3/21          AM              Removed extra <br /> under heading per Chi request
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*@
 <!DOCTYPE html>
 
 <html role="banner">
@@ -16,7 +20,6 @@
             <div class="row" id="centerContentID" style="margin-bottom:0em;" role="row" aria-label="pageCenterID, page heading, centerContentID">
                 <h2 style="color:#005C83;">&nbsp;Education & Training (ET) Leaders</h2>
                 <h4>&nbsp;The Cancer Research ET component demostrates the integration of ET of biomedical researchers and &nbsp;community health care professionals into programmatic efforts to enhance the scientific mission and potential of &nbsp;the Center.</h4>
-                <br />
                 <hr style="margin-bottom:0em;" />
                 <ul role="navigation" aria-label="breadcrumbs" class="breadcrumb" id="centerContentID" style="float:left;">
                     <li><a id="home" href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span aria-hidden="true" class="glyphicon glyphicon-circle-arrow-right"></span></li>

@@ -10,6 +10,8 @@
         10/30/2018         Chi          Added Min He, and eData 3.1.1 update 
         04/16/2019         Chi          Added changes to RPPR
         07/25/2019         CHi          added id = 38 for new Center Miami
+        06/03/2021          AM          added id = 39 for COE & ET and id=40n for SR and RP
+        06/04/2021         Chi          added link to COE and ET
     ----------------------------------------------------------------------------------------------------------------------------->*@
 <!DOCTYPE html>
 <html lang="en">
@@ -41,28 +43,45 @@
                             {
                                 foreach (var item in Model)
                                 {
+                                    //append RPs and SRs hyperlinks
+                                    if (item.OCCAnnouncementID == 40)
+                                    {
+                                        <tr class="occFontBody">
+                                            <td style="font-size:15px; font-weight:bold;">@Html.DisplayFor(modelItem => item.Title)<br><span class="grayFont">@Html.DisplayFor(modelItem => item.EffectiveDate)</span></td>
+                                            <td>@Html.DisplayFor(modelItem => item.Message)<a href="#">@Html.ActionLink("Research Programs", "RP", "Center")</a> and <a href="#">@Html.ActionLink("Shared Resources", "SharedResource", "Center")</a> respectively.</td>
+                                        </tr>
+                                    }
+                                    //append COE and ET hyperlinks
+                                    else if (item.OCCAnnouncementID == 39)
+                                    {
+                                        <tr class="occFontBody">
+                                            <td style="font-size:15px; font-weight:bold;">@Html.DisplayFor(modelItem => item.Title)<br><span class="grayFont">@Html.DisplayFor(modelItem => item.EffectiveDate)</span></td>
+                                            <td>@Html.DisplayFor(modelItem => item.Message)<a href="#">@Html.ActionLink("COE", "COE", "Center")</a> and <a href="#">@Html.ActionLink("ET", "ET", "Center")</a> respectively.</td>
+                                        </tr>
+                                    }
                                     //appends hyperlink to the Cancer Center page
-                                    if (item.OCCAnnouncementID == 34)
+                                    else if (item.OCCAnnouncementID == 34)
                                     {
                                         <tr class="occFontBody">
                                             <td style="font-size:15px; font-weight:bold;">@Html.DisplayFor(modelItem => item.Title)<br><span class="grayFont">@Html.DisplayFor(modelItem => item.EffectiveDate)</span></td>
                                             <td>@Html.DisplayFor(modelItem => item.Message)<a href="#">@Html.ActionLink("Cancer Centers", "CClist", "Center", null, new { @class = "occHyperlink" })</a></td>
                                         </tr>
                                     }
+
                                     //append GrantsFunding hyperlink
-                                    if (item.OCCAnnouncementID == 1 || item.OCCAnnouncementID == 6 || item.OCCAnnouncementID == 12 || item.OCCAnnouncementID == 14 || item.OCCAnnouncementID == 15 || item.OCCAnnouncementID == 24 || item.OCCAnnouncementID == 26 || item.OCCAnnouncementID == 28 || item.OCCAnnouncementID == 30
-                                        || item.OCCAnnouncementID == 31 || item.OCCAnnouncementID == 32 || item.OCCAnnouncementID == 36 || item.OCCAnnouncementID == 37)
+                                    else if (item.OCCAnnouncementID == 1 || item.OCCAnnouncementID == 6 || item.OCCAnnouncementID == 12 || item.OCCAnnouncementID == 14 || item.OCCAnnouncementID == 15 || item.OCCAnnouncementID == 24 || item.OCCAnnouncementID == 26 || item.OCCAnnouncementID == 28 || item.OCCAnnouncementID == 30
+                                                        || item.OCCAnnouncementID == 31 || item.OCCAnnouncementID == 32 || item.OCCAnnouncementID == 36 || item.OCCAnnouncementID == 37)
                                     {
                                         <tr class="occFontBody">
                                             <td style="font-size:15px; font-weight:bold;">@Html.DisplayFor(modelItem => item.Title)<br><span class="grayFont">@Html.DisplayFor(modelItem => item.EffectiveDate)</span></td>
                                             <td>@Html.DisplayFor(modelItem => item.Message)<a href="#">@Html.ActionLink("Grants & Funding", "GrantsFunding", "GrantsFunding")</a></td>
                                         </tr>
                                     }
-                                    if (item.OCCAnnouncementID == 8)
+                                    else if (item.OCCAnnouncementID == 8)
                                     {
                                         <tr class="occFontBody">
                                             <td style="font-size:15px; font-weight:bold;">@Html.DisplayFor(modelItem => item.Title)<br><span class="grayFont">@Html.DisplayFor(modelItem => item.EffectiveDate)</span></td>
-                                            <td>@Html.DisplayFor(modelItem => item.Message)<a href="#" >@Html.ActionLink("Data Guide", "DataGuide", "GrantsFunding", protocol: null, hostName: null, fragment: "sum", routeValues: null, htmlAttributes: null)</a></td>
+                                            <td>@Html.DisplayFor(modelItem => item.Message)<a href="#">@Html.ActionLink("Data Guide", "DataGuide", "GrantsFunding", protocol: null, hostName: null, fragment: "sum", routeValues: null, htmlAttributes: null)</a></td>
                                         </tr>
                                     }
                                     else if (item.OCCAnnouncementID == 3 || item.OCCAnnouncementID == 7 || item.OCCAnnouncementID == 9)
@@ -73,7 +92,7 @@
                                         </tr>
                                     }
                                     //no append hyperlink
-                                    else if (item.OCCAnnouncementID == 2 || item.OCCAnnouncementID == 4 || item.OCCAnnouncementID == 5 || item.OCCAnnouncementID == 16 || item.OCCAnnouncementID == 25 || item.OCCAnnouncementID == 27 || item.OCCAnnouncementID == 29 || item.OCCAnnouncementID == 33 || item.OCCAnnouncementID == 35 || item.OCCAnnouncementID == 38)
+                                    else if (item.OCCAnnouncementID == 2 || item.OCCAnnouncementID == 4 || item.OCCAnnouncementID == 5 || item.OCCAnnouncementID == 16 || item.OCCAnnouncementID == 25 || item.OCCAnnouncementID == 27 || item.OCCAnnouncementID == 29 || item.OCCAnnouncementID == 33 || item.OCCAnnouncementID == 35 || item.OCCAnnouncementID == 38 || item.OCCAnnouncementID == 40 || item.OCCAnnouncementID == 39)
                                     {
                                         <tr class="occFontBody">
                                             <td style="font-size:15px; font-weight:bold;">@Html.DisplayFor(modelItem => item.Title)<br><span class="grayFont">@Html.DisplayFor(modelItem => item.EffectiveDate)</span></td>
