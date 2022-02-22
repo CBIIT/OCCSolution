@@ -27,8 +27,6 @@ namespace OCCSolution.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Center> Centers { get; set; }
-        public virtual DbSet<vwDT1Benchmark> vwDT1Benchmark { get; set; }
         public virtual DbSet<vwDT2bBenchmark> vwDT2bBenchmark { get; set; }
         public virtual DbSet<vwDT3NewlyPatientBenchmark> vwDT3NewlyPatientBenchmark { get; set; }
         public virtual DbSet<vwDT3Top20EnrolledBenchmark> vwDT3Top20EnrolledBenchmark { get; set; }
@@ -45,6 +43,8 @@ namespace OCCSolution.Models
         public virtual DbSet<vwICD> vwICDs { get; set; }
         public virtual DbSet<vwDT4ResearchCatBenchmark> vwDT4ResearchCatBenchmark { get; set; }
         public virtual DbSet<vwCOE> vwCOEs { get; set; }
+        public virtual DbSet<vwDT1Benchmark> vwDT1Benchmark { get; set; }
+        public virtual DbSet<Center> Centers { get; set; }
         public virtual DbSet<vwET> vwETs { get; set; }
     
         public virtual ObjectResult<uspGetOCCStaffPOC_Result> uspGetOCCStaffPOC()

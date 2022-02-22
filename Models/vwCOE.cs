@@ -21,5 +21,6 @@ namespace OCCSolution.Models
         public string FullName { get; set; }
         public string Titles { get; set; }
         public string Emails { get; set; }
+        public Nullable<double> grantnumber { get; set; }
     }
 }

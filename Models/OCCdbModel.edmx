@@ -25,12 +25,9 @@
           <Property Name="StreetAddress2" Type="nvarchar" MaxLength="1024" />
           <Property Name="CenterTypeID" Type="int" />
           <Property Name="ProfileURL" Type="nvarchar(max)" />
-          <Property Name="DesignationDate" Type="datetime" />
-          <Property Name="ComprehensivenessDate" Type="datetime" />
-          <Property Name="PreAppDate1" Type="datetime" />
-          <Property Name="PreAppDate2" Type="datetime" />
-          <Property Name="PreAppDate3" Type="datetime" />
           <Property Name="CompeteCycle" Type="nvarchar" MaxLength="10" />
+          <Property Name="DesignationYear" Type="int" />
+          <Property Name="ComprehensivenessYear" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OCC.dbo.vwCCList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -61,11 +58,12 @@ warning 6002: The table/view 'OCC.dbo.vwCOE' does not have a primary key defined
           </Key>
           <Property Name="COEID" Type="int" Nullable="false" />
           <Property Name="fy" Type="int" />
+          <Property Name="grantnumber" Type="float" />
           <Property Name="CenterType" Type="varchar" MaxLength="8" />
           <Property Name="InstitutionName" Type="nvarchar" MaxLength="255" />
-          <Property Name="FullName" Type="varchar" MaxLength="105" Nullable="false" />
-          <Property Name="Titles" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Emails" Type="nvarchar" MaxLength="357" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="1025" Nullable="false" />
+          <Property Name="Titles" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="Emails" Type="nvarchar" MaxLength="512" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OCC.dbo.vwDT1Benchmark' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -380,11 +378,12 @@ warning 6002: The table/view 'OCC.dbo.vwET' does not have a primary key defined.
           </Key>
           <Property Name="ETID" Type="int" Nullable="false" />
           <Property Name="fy" Type="int" />
+          <Property Name="grantnumber" Type="float" />
           <Property Name="CenterType" Type="varchar" MaxLength="8" />
           <Property Name="InstitutionName" Type="nvarchar" MaxLength="255" />
-          <Property Name="FullName" Type="nvarchar" MaxLength="565" Nullable="false" />
-          <Property Name="Titles" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Emails" Type="nvarchar" MaxLength="357" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="1025" Nullable="false" />
+          <Property Name="Titles" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="Emails" Type="nvarchar" MaxLength="512" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OCC.dbo.vwICD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -445,6 +444,7 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
             <DefiningQuery>SELECT 
     [vwCOE].[COEID] AS [COEID], 
     [vwCOE].[fy] AS [fy], 
+    [vwCOE].[grantnumber] AS [grantnumber], 
     [vwCOE].[CenterType] AS [CenterType], 
     [vwCOE].[InstitutionName] AS [InstitutionName], 
     [vwCOE].[FullName] AS [FullName], 
@@ -707,6 +707,7 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
             <DefiningQuery>SELECT 
     [vwET].[ETID] AS [ETID], 
     [vwET].[fy] AS [fy], 
+    [vwET].[grantnumber] AS [grantnumber], 
     [vwET].[CenterType] AS [CenterType], 
     [vwET].[InstitutionName] AS [InstitutionName], 
     [vwET].[FullName] AS [FullName], 
@@ -747,37 +748,8 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="OCCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Center">
-          <Key>
-            <PropertyRef Name="CenterId" />
-          </Key>
-          <Property Name="CenterName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="InstitutionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="GrantNumber" Type="Int32" Nullable="false" />
-          <Property Name="MigrationSource" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="isActive" Type="Boolean" />
-          <Property Name="Comments" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
-          <Property Name="LastUpdatedUserName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="StreetAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="StateCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-          <Property Name="CenterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ZipCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-          <Property Name="StreetAddress2" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
-          <Property Name="CenterTypeID" Type="Int32" />
-          <Property Name="ProfileURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DesignationDate" Type="DateTime" Precision="3" />
-          <Property Name="ComprehensivenessDate" Type="DateTime" Precision="3" />
-          <Property Name="PreAppDate1" Type="DateTime" Precision="3" />
-          <Property Name="PreAppDate2" Type="DateTime" Precision="3" />
-          <Property Name="PreAppDate3" Type="DateTime" Precision="3" />
-          <Property Name="CompeteCycle" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityContainer Name="OCCEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Centers" EntityType="Self.Center" />
           <FunctionImport Name="uspGetOCCStaffPOC" ReturnType="Collection(OCCModel.uspGetOCCStaffPOC_Result)" />
-          <EntitySet Name="vwDT1Benchmark" EntityType="OCCModel.vwDT1Benchmark" />
           <EntitySet Name="vwDT2bBenchmark" EntityType="OCCModel.vwDT2bBenchmark" />
           <EntitySet Name="vwDT3NewlyPatientBenchmark" EntityType="OCCModel.vwDT3NewlyPatientBenchmark" />
           <EntitySet Name="vwDT3Top20EnrolledBenchmark" EntityType="OCCModel.vwDT3Top20EnrolledBenchmark" />
@@ -794,6 +766,8 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
           <EntitySet Name="vwICDs" EntityType="OCCModel.vwICD" />
           <EntitySet Name="vwDT4ResearchCatBenchmark" EntityType="OCCModel.vwDT4ResearchCatBenchmark" />
           <EntitySet Name="vwCOEs" EntityType="OCCModel.vwCOE" />
+          <EntitySet Name="vwDT1Benchmark" EntityType="OCCModel.vwDT1Benchmark" />
+          <EntitySet Name="Centers" EntityType="OCCModel.Center" />
           <EntitySet Name="vwETs" EntityType="OCCModel.vwET" />
         </EntityContainer>
         <ComplexType Name="uspGetOCCStaffPOC_Result">
@@ -809,80 +783,6 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
           <Property Type="String" Name="RelCell" Nullable="true" MaxLength="15" />
           <Property Type="String" Name="relEmail" Nullable="true" MaxLength="100" />
         </ComplexType>
-        <EntityType Name="vwDT1Benchmark">
-          <Key>
-            <PropertyRef Name="FY" />
-          </Key>
-          <Property Name="FY" Type="Int32" Nullable="false" />
-          <Property Name="BasicCount" Type="Int32" />
-          <Property Name="ClinicalCount" Type="Int32" />
-          <Property Name="CompCount" Type="Int32" />
-          <Property Name="BasicHighLeader" Type="Int32" />
-          <Property Name="BasicLowLeader" Type="Int32" />
-          <Property Name="BasicMedianLeader" Type="Int32" />
-          <Property Name="BasicSubLeader" Type="Int32" />
-          <Property Name="ClinicalHighLeader" Type="Int32" />
-          <Property Name="ClinicalLowLeader" Type="Int32" />
-          <Property Name="ClinicalMedianLeader" Type="Int32" />
-          <Property Name="ClinicalSubLeader" Type="Int32" />
-          <Property Name="CompHighLeader" Type="Int32" />
-          <Property Name="CompLowLeader" Type="Int32" />
-          <Property Name="CompMedianLeader" Type="Int32" />
-          <Property Name="CompSubLeader" Type="Int32" />
-          <Property Name="BasicHighProg" Type="Int32" />
-          <Property Name="BasicLowProg" Type="Int32" />
-          <Property Name="BasicMedianProg" Type="Int32" />
-          <Property Name="BasicSubProg" Type="Int32" />
-          <Property Name="ClinicalHighProg" Type="Int32" />
-          <Property Name="ClinicalLowProg" Type="Int32" />
-          <Property Name="ClinicalMedianProg" Type="Int32" />
-          <Property Name="ClinicalSubProg" Type="Int32" />
-          <Property Name="CompHighProg" Type="Int32" />
-          <Property Name="CompLowProg" Type="Int32" />
-          <Property Name="CompMedianProg" Type="Int32" />
-          <Property Name="CompSubProg" Type="Int32" />
-          <Property Name="BasicHighAlign" Type="Int32" />
-          <Property Name="BasicLowAlign" Type="Int32" />
-          <Property Name="BasicMedianAlign" Type="Int32" />
-          <Property Name="BasicSubAlign" Type="Int32" />
-          <Property Name="ClinicalHighAlign" Type="Int32" />
-          <Property Name="ClinicalLowAlign" Type="Int32" />
-          <Property Name="ClinicalMedianAlign" Type="Int32" />
-          <Property Name="ClinicalSubAlign" Type="Int32" />
-          <Property Name="CompHighAlign" Type="Int32" />
-          <Property Name="CompLowAlign" Type="Int32" />
-          <Property Name="CompMedianAlign" Type="Int32" />
-          <Property Name="CompSubAlign" Type="Int32" />
-          <Property Name="BasicHighNon" Type="Int32" />
-          <Property Name="BasicLowNon" Type="Int32" />
-          <Property Name="BasicMedianNon" Type="Int32" />
-          <Property Name="BasicSubNon" Type="Int32" />
-          <Property Name="ClinicalHighNon" Type="Int32" />
-          <Property Name="ClinicalLowNon" Type="Int32" />
-          <Property Name="ClinicalMedianNon" Type="Int32" />
-          <Property Name="ClinicalSubNon" Type="Int32" />
-          <Property Name="CompHighNon" Type="Int32" />
-          <Property Name="CompLowNon" Type="Int32" />
-          <Property Name="CompMedianNon" Type="Int32" />
-          <Property Name="CompSubNon" Type="Int32" />
-          <Property Name="BasicHighSR" Type="Int32" />
-          <Property Name="BasicLowSR" Type="Int32" />
-          <Property Name="BasicMedianSR" Type="Int32" />
-          <Property Name="BasicSubSR" Type="Int32" />
-          <Property Name="ClinicalHighSR" Type="Int32" />
-          <Property Name="ClinicalLowSR" Type="Int32" />
-          <Property Name="ClinicalMedianSR" Type="Int32" />
-          <Property Name="ClinicalSubSR" Type="Int32" />
-          <Property Name="CompHighSR" Type="Int32" />
-          <Property Name="CompLowSR" Type="Int32" />
-          <Property Name="CompMedianSR" Type="Int32" />
-          <Property Name="CompSubSR" Type="Int32" />
-          <Property Name="TotalLeader" Type="Int32" />
-          <Property Name="TotalProg" Type="Int32" />
-          <Property Name="TotalSR" Type="Int32" />
-          <Property Name="TotalAlign" Type="Int32" />
-          <Property Name="TotalNon" Type="Int32" />
-        </EntityType>
         <EntityType Name="vwDT2bBenchmark">
           <Key>
             <PropertyRef Name="FY" />
@@ -1145,9 +1045,108 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
           <Property Name="fy" Type="Int32" />
           <Property Name="CenterType" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
           <Property Name="InstitutionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="FullName" Type="String" Nullable="false" MaxLength="105" FixedLength="false" Unicode="false" />
-          <Property Name="Titles" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Emails" Type="String" Nullable="false" MaxLength="357" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="1025" FixedLength="false" Unicode="true" />
+          <Property Name="Titles" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Emails" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="grantnumber" Type="Double" />
+        </EntityType>
+        <EntityType Name="vwDT1Benchmark">
+          <Key>
+            <PropertyRef Name="FY" />
+          </Key>
+          <Property Name="FY" Type="Int32" Nullable="false" />
+          <Property Name="BasicCount" Type="Int32" />
+          <Property Name="ClinicalCount" Type="Int32" />
+          <Property Name="CompCount" Type="Int32" />
+          <Property Name="BasicHighLeader" Type="Int32" />
+          <Property Name="BasicLowLeader" Type="Int32" />
+          <Property Name="BasicMedianLeader" Type="Int32" />
+          <Property Name="BasicSubLeader" Type="Int32" />
+          <Property Name="ClinicalHighLeader" Type="Int32" />
+          <Property Name="ClinicalLowLeader" Type="Int32" />
+          <Property Name="ClinicalMedianLeader" Type="Int32" />
+          <Property Name="ClinicalSubLeader" Type="Int32" />
+          <Property Name="CompHighLeader" Type="Int32" />
+          <Property Name="CompLowLeader" Type="Int32" />
+          <Property Name="CompMedianLeader" Type="Int32" />
+          <Property Name="CompSubLeader" Type="Int32" />
+          <Property Name="TotalLeader" Type="Int32" />
+          <Property Name="BasicHighProg" Type="Int32" />
+          <Property Name="BasicLowProg" Type="Int32" />
+          <Property Name="BasicMedianProg" Type="Int32" />
+          <Property Name="BasicSubProg" Type="Int32" />
+          <Property Name="ClinicalHighProg" Type="Int32" />
+          <Property Name="ClinicalLowProg" Type="Int32" />
+          <Property Name="ClinicalMedianProg" Type="Int32" />
+          <Property Name="ClinicalSubProg" Type="Int32" />
+          <Property Name="CompHighProg" Type="Int32" />
+          <Property Name="CompLowProg" Type="Int32" />
+          <Property Name="CompMedianProg" Type="Int32" />
+          <Property Name="CompSubProg" Type="Int32" />
+          <Property Name="TotalProg" Type="Int32" />
+          <Property Name="BasicHighAlign" Type="Int32" />
+          <Property Name="BasicLowAlign" Type="Int32" />
+          <Property Name="BasicMedianAlign" Type="Int32" />
+          <Property Name="BasicSubAlign" Type="Int32" />
+          <Property Name="ClinicalHighAlign" Type="Int32" />
+          <Property Name="ClinicalLowAlign" Type="Int32" />
+          <Property Name="ClinicalMedianAlign" Type="Int32" />
+          <Property Name="ClinicalSubAlign" Type="Int32" />
+          <Property Name="CompHighAlign" Type="Int32" />
+          <Property Name="CompLowAlign" Type="Int32" />
+          <Property Name="CompMedianAlign" Type="Int32" />
+          <Property Name="CompSubAlign" Type="Int32" />
+          <Property Name="TotalAlign" Type="Int32" />
+          <Property Name="BasicHighNon" Type="Int32" />
+          <Property Name="BasicLowNon" Type="Int32" />
+          <Property Name="BasicMedianNon" Type="Int32" />
+          <Property Name="BasicSubNon" Type="Int32" />
+          <Property Name="ClinicalHighNon" Type="Int32" />
+          <Property Name="ClinicalLowNon" Type="Int32" />
+          <Property Name="ClinicalMedianNon" Type="Int32" />
+          <Property Name="ClinicalSubNon" Type="Int32" />
+          <Property Name="CompHighNon" Type="Int32" />
+          <Property Name="CompLowNon" Type="Int32" />
+          <Property Name="CompMedianNon" Type="Int32" />
+          <Property Name="CompSubNon" Type="Int32" />
+          <Property Name="TotalNon" Type="Int32" />
+          <Property Name="BasicHighSR" Type="Int32" />
+          <Property Name="BasicLowSR" Type="Int32" />
+          <Property Name="BasicMedianSR" Type="Int32" />
+          <Property Name="BasicSubSR" Type="Int32" />
+          <Property Name="ClinicalHighSR" Type="Int32" />
+          <Property Name="ClinicalLowSR" Type="Int32" />
+          <Property Name="ClinicalMedianSR" Type="Int32" />
+          <Property Name="ClinicalSubSR" Type="Int32" />
+          <Property Name="CompHighSR" Type="Int32" />
+          <Property Name="CompLowSR" Type="Int32" />
+          <Property Name="CompMedianSR" Type="Int32" />
+          <Property Name="CompSubSR" Type="Int32" />
+          <Property Name="TotalSR" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Center">
+          <Key>
+            <PropertyRef Name="CenterId" />
+          </Key>
+          <Property Name="CenterName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="InstitutionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="GrantNumber" Type="Int32" Nullable="false" />
+          <Property Name="MigrationSource" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="isActive" Type="Boolean" />
+          <Property Name="Comments" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdatedUserName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="StreetAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="StateCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="CenterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ZipCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="StreetAddress2" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="CenterTypeID" Type="Int32" />
+          <Property Name="ProfileURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompeteCycle" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DesignationYear" Type="Int32" />
+          <Property Name="ComprehensivenessYear" Type="Int32" />
         </EntityType>
         <EntityType Name="vwET">
           <Key>
@@ -1158,11 +1157,12 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
           </Key>
           <Property Name="ETID" Type="Int32" Nullable="false" />
           <Property Name="fy" Type="Int32" />
+          <Property Name="grantnumber" Type="Double" />
           <Property Name="CenterType" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
           <Property Name="InstitutionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="FullName" Type="String" Nullable="false" MaxLength="565" FixedLength="false" Unicode="true" />
-          <Property Name="Titles" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Emails" Type="String" Nullable="false" MaxLength="357" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="1025" FixedLength="false" Unicode="true" />
+          <Property Name="Titles" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Emails" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1170,109 +1170,6 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="OCCModelStoreContainer" CdmEntityContainer="OCCEntities">
-          <EntitySetMapping Name="Centers">
-            <EntityTypeMapping TypeName="OCCModel.Center">
-              <MappingFragment StoreEntitySet="Center">
-                <ScalarProperty Name="CompeteCycle" ColumnName="CompeteCycle" />
-                <ScalarProperty Name="PreAppDate3" ColumnName="PreAppDate3" />
-                <ScalarProperty Name="PreAppDate2" ColumnName="PreAppDate2" />
-                <ScalarProperty Name="PreAppDate1" ColumnName="PreAppDate1" />
-                <ScalarProperty Name="ComprehensivenessDate" ColumnName="ComprehensivenessDate" />
-                <ScalarProperty Name="DesignationDate" ColumnName="DesignationDate" />
-                <ScalarProperty Name="ProfileURL" ColumnName="ProfileURL" />
-                <ScalarProperty Name="CenterName" ColumnName="CenterName" />
-                <ScalarProperty Name="InstitutionName" ColumnName="InstitutionName" />
-                <ScalarProperty Name="GrantNumber" ColumnName="GrantNumber" />
-                <ScalarProperty Name="MigrationSource" ColumnName="MigrationSource" />
-                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
-                <ScalarProperty Name="isActive" ColumnName="isActive" />
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="LastUpdatedUserName" ColumnName="LastUpdatedUserName" />
-                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="StateCode" ColumnName="StateCode" />
-                <ScalarProperty Name="CenterId" ColumnName="CenterId" />
-                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
-                <ScalarProperty Name="StreetAddress2" ColumnName="StreetAddress2" />
-                <ScalarProperty Name="CenterTypeID" ColumnName="CenterTypeID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vwDT1Benchmark">
-            <EntityTypeMapping TypeName="OCCModel.vwDT1Benchmark">
-              <MappingFragment StoreEntitySet="vwDT1Benchmark">
-                <ScalarProperty Name="TotalNon" ColumnName="TotalNon" />
-                <ScalarProperty Name="TotalAlign" ColumnName="TotalAlign" />
-                <ScalarProperty Name="TotalSR" ColumnName="TotalSR" />
-                <ScalarProperty Name="TotalProg" ColumnName="TotalProg" />
-                <ScalarProperty Name="TotalLeader" ColumnName="TotalLeader" />
-                <ScalarProperty Name="CompSubSR" ColumnName="CompSubSR" />
-                <ScalarProperty Name="CompMedianSR" ColumnName="CompMedianSR" />
-                <ScalarProperty Name="CompLowSR" ColumnName="CompLowSR" />
-                <ScalarProperty Name="CompHighSR" ColumnName="CompHighSR" />
-                <ScalarProperty Name="ClinicalSubSR" ColumnName="ClinicalSubSR" />
-                <ScalarProperty Name="ClinicalMedianSR" ColumnName="ClinicalMedianSR" />
-                <ScalarProperty Name="ClinicalLowSR" ColumnName="ClinicalLowSR" />
-                <ScalarProperty Name="ClinicalHighSR" ColumnName="ClinicalHighSR" />
-                <ScalarProperty Name="BasicSubSR" ColumnName="BasicSubSR" />
-                <ScalarProperty Name="BasicMedianSR" ColumnName="BasicMedianSR" />
-                <ScalarProperty Name="BasicLowSR" ColumnName="BasicLowSR" />
-                <ScalarProperty Name="BasicHighSR" ColumnName="BasicHighSR" />
-                <ScalarProperty Name="CompSubNon" ColumnName="CompSubNon" />
-                <ScalarProperty Name="CompMedianNon" ColumnName="CompMedianNon" />
-                <ScalarProperty Name="CompLowNon" ColumnName="CompLowNon" />
-                <ScalarProperty Name="CompHighNon" ColumnName="CompHighNon" />
-                <ScalarProperty Name="ClinicalSubNon" ColumnName="ClinicalSubNon" />
-                <ScalarProperty Name="ClinicalMedianNon" ColumnName="ClinicalMedianNon" />
-                <ScalarProperty Name="ClinicalLowNon" ColumnName="ClinicalLowNon" />
-                <ScalarProperty Name="ClinicalHighNon" ColumnName="ClinicalHighNon" />
-                <ScalarProperty Name="BasicSubNon" ColumnName="BasicSubNon" />
-                <ScalarProperty Name="BasicMedianNon" ColumnName="BasicMedianNon" />
-                <ScalarProperty Name="BasicLowNon" ColumnName="BasicLowNon" />
-                <ScalarProperty Name="BasicHighNon" ColumnName="BasicHighNon" />
-                <ScalarProperty Name="CompSubAlign" ColumnName="CompSubAlign" />
-                <ScalarProperty Name="CompMedianAlign" ColumnName="CompMedianAlign" />
-                <ScalarProperty Name="CompLowAlign" ColumnName="CompLowAlign" />
-                <ScalarProperty Name="CompHighAlign" ColumnName="CompHighAlign" />
-                <ScalarProperty Name="ClinicalSubAlign" ColumnName="ClinicalSubAlign" />
-                <ScalarProperty Name="ClinicalMedianAlign" ColumnName="ClinicalMedianAlign" />
-                <ScalarProperty Name="ClinicalLowAlign" ColumnName="ClinicalLowAlign" />
-                <ScalarProperty Name="ClinicalHighAlign" ColumnName="ClinicalHighAlign" />
-                <ScalarProperty Name="BasicSubAlign" ColumnName="BasicSubAlign" />
-                <ScalarProperty Name="BasicMedianAlign" ColumnName="BasicMedianAlign" />
-                <ScalarProperty Name="BasicLowAlign" ColumnName="BasicLowAlign" />
-                <ScalarProperty Name="BasicHighAlign" ColumnName="BasicHighAlign" />
-                <ScalarProperty Name="CompSubProg" ColumnName="CompSubProg" />
-                <ScalarProperty Name="CompMedianProg" ColumnName="CompMedianProg" />
-                <ScalarProperty Name="CompLowProg" ColumnName="CompLowProg" />
-                <ScalarProperty Name="CompHighProg" ColumnName="CompHighProg" />
-                <ScalarProperty Name="ClinicalSubProg" ColumnName="ClinicalSubProg" />
-                <ScalarProperty Name="ClinicalMedianProg" ColumnName="ClinicalMedianProg" />
-                <ScalarProperty Name="ClinicalLowProg" ColumnName="ClinicalLowProg" />
-                <ScalarProperty Name="ClinicalHighProg" ColumnName="ClinicalHighProg" />
-                <ScalarProperty Name="BasicSubProg" ColumnName="BasicSubProg" />
-                <ScalarProperty Name="BasicMedianProg" ColumnName="BasicMedianProg" />
-                <ScalarProperty Name="BasicLowProg" ColumnName="BasicLowProg" />
-                <ScalarProperty Name="BasicHighProg" ColumnName="BasicHighProg" />
-                <ScalarProperty Name="CompSubLeader" ColumnName="CompSubLeader" />
-                <ScalarProperty Name="CompMedianLeader" ColumnName="CompMedianLeader" />
-                <ScalarProperty Name="CompLowLeader" ColumnName="CompLowLeader" />
-                <ScalarProperty Name="CompHighLeader" ColumnName="CompHighLeader" />
-                <ScalarProperty Name="ClinicalSubLeader" ColumnName="ClinicalSubLeader" />
-                <ScalarProperty Name="ClinicalMedianLeader" ColumnName="ClinicalMedianLeader" />
-                <ScalarProperty Name="ClinicalLowLeader" ColumnName="ClinicalLowLeader" />
-                <ScalarProperty Name="ClinicalHighLeader" ColumnName="ClinicalHighLeader" />
-                <ScalarProperty Name="BasicSubLeader" ColumnName="BasicSubLeader" />
-                <ScalarProperty Name="BasicMedianLeader" ColumnName="BasicMedianLeader" />
-                <ScalarProperty Name="BasicLowLeader" ColumnName="BasicLowLeader" />
-                <ScalarProperty Name="BasicHighLeader" ColumnName="BasicHighLeader" />
-                <ScalarProperty Name="CompCount" ColumnName="CompCount" />
-                <ScalarProperty Name="ClinicalCount" ColumnName="ClinicalCount" />
-                <ScalarProperty Name="BasicCount" ColumnName="BasicCount" />
-                <ScalarProperty Name="FY" ColumnName="FY" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vwDT2bBenchmark">
             <EntityTypeMapping TypeName="OCCModel.vwDT2bBenchmark">
               <MappingFragment StoreEntitySet="vwDT2bBenchmark">
@@ -1527,6 +1424,7 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
           <EntitySetMapping Name="vwCOEs">
             <EntityTypeMapping TypeName="OCCModel.vwCOE">
               <MappingFragment StoreEntitySet="vwCOE">
+                <ScalarProperty Name="grantnumber" ColumnName="grantnumber" />
                 <ScalarProperty Name="Emails" ColumnName="Emails" />
                 <ScalarProperty Name="Titles" ColumnName="Titles" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
@@ -1534,6 +1432,106 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
                 <ScalarProperty Name="CenterType" ColumnName="CenterType" />
                 <ScalarProperty Name="fy" ColumnName="fy" />
                 <ScalarProperty Name="COEID" ColumnName="COEID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwDT1Benchmark">
+            <EntityTypeMapping TypeName="OCCModel.vwDT1Benchmark">
+              <MappingFragment StoreEntitySet="vwDT1Benchmark">
+                <ScalarProperty Name="TotalSR" ColumnName="TotalSR" />
+                <ScalarProperty Name="CompSubSR" ColumnName="CompSubSR" />
+                <ScalarProperty Name="CompMedianSR" ColumnName="CompMedianSR" />
+                <ScalarProperty Name="CompLowSR" ColumnName="CompLowSR" />
+                <ScalarProperty Name="CompHighSR" ColumnName="CompHighSR" />
+                <ScalarProperty Name="ClinicalSubSR" ColumnName="ClinicalSubSR" />
+                <ScalarProperty Name="ClinicalMedianSR" ColumnName="ClinicalMedianSR" />
+                <ScalarProperty Name="ClinicalLowSR" ColumnName="ClinicalLowSR" />
+                <ScalarProperty Name="ClinicalHighSR" ColumnName="ClinicalHighSR" />
+                <ScalarProperty Name="BasicSubSR" ColumnName="BasicSubSR" />
+                <ScalarProperty Name="BasicMedianSR" ColumnName="BasicMedianSR" />
+                <ScalarProperty Name="BasicLowSR" ColumnName="BasicLowSR" />
+                <ScalarProperty Name="BasicHighSR" ColumnName="BasicHighSR" />
+                <ScalarProperty Name="TotalNon" ColumnName="TotalNon" />
+                <ScalarProperty Name="CompSubNon" ColumnName="CompSubNon" />
+                <ScalarProperty Name="CompMedianNon" ColumnName="CompMedianNon" />
+                <ScalarProperty Name="CompLowNon" ColumnName="CompLowNon" />
+                <ScalarProperty Name="CompHighNon" ColumnName="CompHighNon" />
+                <ScalarProperty Name="ClinicalSubNon" ColumnName="ClinicalSubNon" />
+                <ScalarProperty Name="ClinicalMedianNon" ColumnName="ClinicalMedianNon" />
+                <ScalarProperty Name="ClinicalLowNon" ColumnName="ClinicalLowNon" />
+                <ScalarProperty Name="ClinicalHighNon" ColumnName="ClinicalHighNon" />
+                <ScalarProperty Name="BasicSubNon" ColumnName="BasicSubNon" />
+                <ScalarProperty Name="BasicMedianNon" ColumnName="BasicMedianNon" />
+                <ScalarProperty Name="BasicLowNon" ColumnName="BasicLowNon" />
+                <ScalarProperty Name="BasicHighNon" ColumnName="BasicHighNon" />
+                <ScalarProperty Name="TotalAlign" ColumnName="TotalAlign" />
+                <ScalarProperty Name="CompSubAlign" ColumnName="CompSubAlign" />
+                <ScalarProperty Name="CompMedianAlign" ColumnName="CompMedianAlign" />
+                <ScalarProperty Name="CompLowAlign" ColumnName="CompLowAlign" />
+                <ScalarProperty Name="CompHighAlign" ColumnName="CompHighAlign" />
+                <ScalarProperty Name="ClinicalSubAlign" ColumnName="ClinicalSubAlign" />
+                <ScalarProperty Name="ClinicalMedianAlign" ColumnName="ClinicalMedianAlign" />
+                <ScalarProperty Name="ClinicalLowAlign" ColumnName="ClinicalLowAlign" />
+                <ScalarProperty Name="ClinicalHighAlign" ColumnName="ClinicalHighAlign" />
+                <ScalarProperty Name="BasicSubAlign" ColumnName="BasicSubAlign" />
+                <ScalarProperty Name="BasicMedianAlign" ColumnName="BasicMedianAlign" />
+                <ScalarProperty Name="BasicLowAlign" ColumnName="BasicLowAlign" />
+                <ScalarProperty Name="BasicHighAlign" ColumnName="BasicHighAlign" />
+                <ScalarProperty Name="TotalProg" ColumnName="TotalProg" />
+                <ScalarProperty Name="CompSubProg" ColumnName="CompSubProg" />
+                <ScalarProperty Name="CompMedianProg" ColumnName="CompMedianProg" />
+                <ScalarProperty Name="CompLowProg" ColumnName="CompLowProg" />
+                <ScalarProperty Name="CompHighProg" ColumnName="CompHighProg" />
+                <ScalarProperty Name="ClinicalSubProg" ColumnName="ClinicalSubProg" />
+                <ScalarProperty Name="ClinicalMedianProg" ColumnName="ClinicalMedianProg" />
+                <ScalarProperty Name="ClinicalLowProg" ColumnName="ClinicalLowProg" />
+                <ScalarProperty Name="ClinicalHighProg" ColumnName="ClinicalHighProg" />
+                <ScalarProperty Name="BasicSubProg" ColumnName="BasicSubProg" />
+                <ScalarProperty Name="BasicMedianProg" ColumnName="BasicMedianProg" />
+                <ScalarProperty Name="BasicLowProg" ColumnName="BasicLowProg" />
+                <ScalarProperty Name="BasicHighProg" ColumnName="BasicHighProg" />
+                <ScalarProperty Name="TotalLeader" ColumnName="TotalLeader" />
+                <ScalarProperty Name="CompSubLeader" ColumnName="CompSubLeader" />
+                <ScalarProperty Name="CompMedianLeader" ColumnName="CompMedianLeader" />
+                <ScalarProperty Name="CompLowLeader" ColumnName="CompLowLeader" />
+                <ScalarProperty Name="CompHighLeader" ColumnName="CompHighLeader" />
+                <ScalarProperty Name="ClinicalSubLeader" ColumnName="ClinicalSubLeader" />
+                <ScalarProperty Name="ClinicalMedianLeader" ColumnName="ClinicalMedianLeader" />
+                <ScalarProperty Name="ClinicalLowLeader" ColumnName="ClinicalLowLeader" />
+                <ScalarProperty Name="ClinicalHighLeader" ColumnName="ClinicalHighLeader" />
+                <ScalarProperty Name="BasicSubLeader" ColumnName="BasicSubLeader" />
+                <ScalarProperty Name="BasicMedianLeader" ColumnName="BasicMedianLeader" />
+                <ScalarProperty Name="BasicLowLeader" ColumnName="BasicLowLeader" />
+                <ScalarProperty Name="BasicHighLeader" ColumnName="BasicHighLeader" />
+                <ScalarProperty Name="CompCount" ColumnName="CompCount" />
+                <ScalarProperty Name="ClinicalCount" ColumnName="ClinicalCount" />
+                <ScalarProperty Name="BasicCount" ColumnName="BasicCount" />
+                <ScalarProperty Name="FY" ColumnName="FY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Centers">
+            <EntityTypeMapping TypeName="OCCModel.Center">
+              <MappingFragment StoreEntitySet="Center">
+                <ScalarProperty Name="ComprehensivenessYear" ColumnName="ComprehensivenessYear" />
+                <ScalarProperty Name="DesignationYear" ColumnName="DesignationYear" />
+                <ScalarProperty Name="CompeteCycle" ColumnName="CompeteCycle" />
+                <ScalarProperty Name="ProfileURL" ColumnName="ProfileURL" />
+                <ScalarProperty Name="CenterTypeID" ColumnName="CenterTypeID" />
+                <ScalarProperty Name="StreetAddress2" ColumnName="StreetAddress2" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="CenterId" ColumnName="CenterId" />
+                <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+                <ScalarProperty Name="LastUpdatedUserName" ColumnName="LastUpdatedUserName" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="MigrationSource" ColumnName="MigrationSource" />
+                <ScalarProperty Name="GrantNumber" ColumnName="GrantNumber" />
+                <ScalarProperty Name="InstitutionName" ColumnName="InstitutionName" />
+                <ScalarProperty Name="CenterName" ColumnName="CenterName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1545,6 +1543,7 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="InstitutionName" ColumnName="InstitutionName" />
                 <ScalarProperty Name="CenterType" ColumnName="CenterType" />
+                <ScalarProperty Name="grantnumber" ColumnName="grantnumber" />
                 <ScalarProperty Name="fy" ColumnName="fy" />
                 <ScalarProperty Name="ETID" ColumnName="ETID" />
               </MappingFragment>

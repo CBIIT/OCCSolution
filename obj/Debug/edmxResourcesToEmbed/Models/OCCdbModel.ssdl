@@ -20,12 +20,9 @@
     <Property Name="StreetAddress2" Type="nvarchar" MaxLength="1024" />
     <Property Name="CenterTypeID" Type="int" />
     <Property Name="ProfileURL" Type="nvarchar(max)" />
-    <Property Name="DesignationDate" Type="datetime" />
-    <Property Name="ComprehensivenessDate" Type="datetime" />
-    <Property Name="PreAppDate1" Type="datetime" />
-    <Property Name="PreAppDate2" Type="datetime" />
-    <Property Name="PreAppDate3" Type="datetime" />
     <Property Name="CompeteCycle" Type="nvarchar" MaxLength="10" />
+    <Property Name="DesignationYear" Type="int" />
+    <Property Name="ComprehensivenessYear" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'OCC.dbo.vwCCList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -56,11 +53,12 @@ warning 6002: The table/view 'OCC.dbo.vwCOE' does not have a primary key defined
     </Key>
     <Property Name="COEID" Type="int" Nullable="false" />
     <Property Name="fy" Type="int" />
+    <Property Name="grantnumber" Type="float" />
     <Property Name="CenterType" Type="varchar" MaxLength="8" />
     <Property Name="InstitutionName" Type="nvarchar" MaxLength="255" />
-    <Property Name="FullName" Type="varchar" MaxLength="105" Nullable="false" />
-    <Property Name="Titles" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Emails" Type="nvarchar" MaxLength="357" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="1025" Nullable="false" />
+    <Property Name="Titles" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="Emails" Type="nvarchar" MaxLength="512" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'OCC.dbo.vwDT1Benchmark' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -374,11 +372,12 @@ warning 6002: The table/view 'OCC.dbo.vwET' does not have a primary key defined.
     </Key>
     <Property Name="ETID" Type="int" Nullable="false" />
     <Property Name="fy" Type="int" />
+    <Property Name="grantnumber" Type="float" />
     <Property Name="CenterType" Type="varchar" MaxLength="8" />
     <Property Name="InstitutionName" Type="nvarchar" MaxLength="255" />
-    <Property Name="FullName" Type="nvarchar" MaxLength="565" Nullable="false" />
-    <Property Name="Titles" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Emails" Type="nvarchar" MaxLength="357" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="1025" Nullable="false" />
+    <Property Name="Titles" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="Emails" Type="nvarchar" MaxLength="512" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'OCC.dbo.vwICD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -439,6 +438,7 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
       <DefiningQuery>SELECT 
     [vwCOE].[COEID] AS [COEID], 
     [vwCOE].[fy] AS [fy], 
+    [vwCOE].[grantnumber] AS [grantnumber], 
     [vwCOE].[CenterType] AS [CenterType], 
     [vwCOE].[InstitutionName] AS [InstitutionName], 
     [vwCOE].[FullName] AS [FullName], 
@@ -701,6 +701,7 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
       <DefiningQuery>SELECT 
     [vwET].[ETID] AS [ETID], 
     [vwET].[fy] AS [fy], 
+    [vwET].[grantnumber] AS [grantnumber], 
     [vwET].[CenterType] AS [CenterType], 
     [vwET].[InstitutionName] AS [InstitutionName], 
     [vwET].[FullName] AS [FullName], 

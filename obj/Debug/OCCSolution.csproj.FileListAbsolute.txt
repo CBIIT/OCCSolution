@@ -1131,3 +1131,28 @@ C:\Users\dinhct\OneDrive - National Institutes of Health\OCCSolutionCur\OCCSolut
 C:\Users\dinhct\OneDrive - National Institutes of Health\OCCSolutionCur\OCCSolution\obj\Debug\OCCSolution.csproj.CopyComplete
 C:\Users\dinhct\OneDrive - National Institutes of Health\OCCSolutionCur\OCCSolution\obj\Debug\OCCSolution.dll
 C:\Users\dinhct\OneDrive - National Institutes of Health\OCCSolutionCur\OCCSolution\obj\Debug\OCCSolution.pdb
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\OCCSolution.dll.config
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\OCCSolution.dll
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\OCCSolution.pdb
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\GridMvc.dll
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\JQueryDataTablesForMVC.dll
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\Mvc.JQuery.Datatables.dll
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\Newtonsoft.Json.dll
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\System.Web.Helpers.dll
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\System.Web.Mvc.dll
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\System.Web.Razor.dll
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\System.Web.WebPages.Deployment.dll
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\System.Web.WebPages.dll
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\System.Web.WebPages.Razor.dll
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\Newtonsoft.Json.xml
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\System.Web.Helpers.xml
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\System.Web.Mvc.xml
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\System.Web.Razor.xml
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\System.Web.WebPages.xml
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\System.Web.WebPages.Deployment.xml
+C:\Users\dinhct\Desktop\OCCSolution-1\bin\System.Web.WebPages.Razor.xml
+C:\Users\dinhct\Desktop\OCCSolution-1\obj\Debug\OCCSolution.csproj.CoreCompileInputs.cache
+C:\Users\dinhct\Desktop\OCCSolution-1\obj\Debug\OCCSolution.csproj.CopyComplete
+C:\Users\dinhct\Desktop\OCCSolution-1\obj\Debug\OCCSolution.dll
+C:\Users\dinhct\Desktop\OCCSolution-1\obj\Debug\OCCSolution.pdb
+C:\Users\dinhct\Desktop\OCCSolution-1\obj\Debug\OCCSolution.csprojAssemblyReference.cache
