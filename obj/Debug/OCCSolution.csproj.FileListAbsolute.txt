@@ -1155,4 +1155,3 @@ C:\Users\dinhct\Desktop\OCCSolution-1\obj\Debug\OCCSolution.csproj.CoreCompileIn
 C:\Users\dinhct\Desktop\OCCSolution-1\obj\Debug\OCCSolution.csproj.CopyComplete
 C:\Users\dinhct\Desktop\OCCSolution-1\obj\Debug\OCCSolution.dll
 C:\Users\dinhct\Desktop\OCCSolution-1\obj\Debug\OCCSolution.pdb
-C:\Users\dinhct\Desktop\OCCSolution-1\obj\Debug\OCCSolution.csprojAssemblyReference.cache
