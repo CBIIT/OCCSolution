@@ -1,8 +1,8 @@
 ﻿@using OCCSolution;
-    @{
-        ViewBag.Title = "DT3";
-    }
-    @*--------------------------------------------------------------------------------------------------------------------------------------
+@{
+    ViewBag.Title = "DT3";
+}
+@*--------------------------------------------------------------------------------------------------------------------------------------
         DATE            Developer    Desc
         12/21/2014      Chi          Created.
         12/24/2014      Chi          Hide the prev, next, ect page info.
@@ -12,15 +12,15 @@
                                      Removed table footers
         06/01/2017      Chi          Set the dropdown value to 2015
         06/27/2018      AM          modified table font and background colors to meet new 508 compliance standard
-
+          2/22/22       Chi         Updated with FY20 data, added "After 2016 the Centers are no longer required to sumbit Enrolled Patient data."
     ---------------------------------------------------------------------------------------------------------------------------------------*@
-    <!DOCTYPE HTML>
-    <html>
-    <head>
-        <title>DT3</title>
-        <script type="text/javascript" charset="utf8" src="~/Scripts/jquery.dataTables.columnFilter.js"></script>
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>DT3</title>
+    <script type="text/javascript" charset="utf8" src="~/Scripts/jquery.dataTables.columnFilter.js"></script>
 
-        <style type="text/css">
+    <style type="text/css">
             table.dataTable tr.odd {
                 background-color: #EBF5FB !important;
             }
@@ -39,7 +39,7 @@
                 background-color: #1A5276 !important;
                 border-bottom-width: medium !important;
                 border-bottom-color: #1A5276 !important;
-                
+
             }
             /* baby blue, deeper blue:94c0d2*/
 
@@ -50,53 +50,54 @@
             @*hide the sort icon*@ .dataTables_sort {
                 background-image: none !important;
             }
-        </style>
-    </head>
-    <body>
-        <div class="container" id="pageCenterID">
-            <h2 style="color:#005C83;">&nbsp;Data Table 3</h2>
-            <h4 style="color:#005C83;">&nbsp;Reportable Patients/Participation in Therapeutic Studies</h4>
-            <hr style="margin-bottom:0em;" />
-            <ul class="breadcrumb" style="float:left;">
-                <li><a id="home" href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></li>
-                <li><a href="~/Center/CancerCenters">Cancer Centers</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></li>
-                <li><a href="~/DT/DT">Benchmark Data</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></li>
-                <li class="active grayFont">Data Table 3</li>
+    </style>
+</head>
+<body>
+    <div class="container" id="pageCenterID">
+        <h2 style="color:#005C83;">&nbsp;Data Table 3</h2>
+        <h4 style="color:#005C83;">&nbsp;Reportable Patients/Participation in Therapeutic Studies</h4>
+        <hr style="margin-bottom:0em;" />
+        <ul class="breadcrumb" style="float:left;">
+            <li><a id="home" href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></li>
+            <li><a href="~/Center/CancerCenters">Cancer Centers</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></li>
+            <li><a href="~/DT/DT">Benchmark Data</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></li>
+            <li class="active grayFont">Data Table 3</li>
+        </ul>
+        <p class="pull-right" style="color:#202020;"><small>Press F5 to reset the data table</small></p>
+        <div class="centerContent pull-left">
+            <div class="col-sm-12 pull-left" style="color:#003f59;">
+                <p style="color:#202020"><small><b>Note:</b> All values are from data submitted annually by Centers starting from 2010 to recent year.</small></p>
+            </div>
+
+            <ul class="nav nav-tabs" style="font-size:small;">
+                <li class="active" style="color:#005C83;"><a data-toggle="tab" href="#Patients">Newly Registered & Newly Enrolled </a></li>
+                <li><a data-toggle="tab" href="#RegSites">Top 20 Disease Sites for Newly Registered</a></li>
+                <li><a data-toggle="tab" href="#EnrollSites">Top 20 Disease Sites for Newly Enrolled</a></li>
             </ul>
-            <p class="pull-right" style="color:#202020;"><small>Press F5 to reset the data table</small></p>
-            <div class="centerContent pull-left">
-                <div class="col-sm-12 pull-left" style="color:#003f59;">
-                    <p style="color:#202020"><small>Note: All values are from data submitted annually by Centers starting from 2010 to recent year.</small></p>
-                </div>
 
-                <ul class="nav nav-tabs" style="font-size:small;">
-                    <li class="active" style="color:#005C83;"><a data-toggle="tab" href="#Patients">Newly Registered & Newly Enrolled </a></li>
-                    <li><a data-toggle="tab" href="#RegSites">Top 20 Disease Sites for Newly Registered</a></li>
-                    <li><a data-toggle="tab" href="#EnrollSites">Top 20 Disease Sites for Newly Enrolled</a></li>
-                </ul>
-
-                <div class="tab-content">
-                    <div id="Patients" class="tab-pane fade in active">
-                        <div class="col-sm-12 pull-left" style="font-size:small; color:#005C83;">
-                            <br />
-                            <p>The table below lists the high, low, median, total number of patients newly registered, and total number of patients newly enrolled on interventional therapeutic protocols at NCI-designated Clinical and Comprehensive Cancer Centers during the 12-month reporting period starting from 2010 to recent year.</p>
-                            <table id="example" style="width:60%;">
-                                <thead>
-                                    <tr style="font-size:small; color:white; background-color:#1A5276">
-                                        <th id="fiscalyear" title="Click here to filter by Fiscal Year">FY</th>
-                                        <th></th>
-                                        <th>Type of Center</th>
-                                        <th align="left">Range</th>
-                                        <th align="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Registered &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Patients</th>
-                                        <th align="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enrolled &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Patients</th>
-                                    </tr>
-                                </thead>
-                                <tbody style="font-size:small;">
-                                    @{                                      
-                                      if (ViewData["vwDT3NewlyPatientBenchmark"] != null)
-                                      {                                      
+            <div class="tab-content">
+                <div id="Patients" class="tab-pane fade in active">
+                    <div class="col-sm-12 pull-left" style="font-size:small; color:#005C83;">
+                        <br />
+                        <p>The table below lists the high, low, median, total number of patients newly registered, and total number of patients newly enrolled on interventional therapeutic protocols at NCI-designated Clinical and Comprehensive Cancer Centers during the 12-month reporting period starting from 2010 to recent year.</p>
+                        <p><b>Note:</b> After 2016 the Centers are no longer required to submit enrolled patients data.</p><br />
+                        <table id="example" style="width:60%;">
+                            <thead>
+                                <tr style="font-size:small; color:white; background-color:#1A5276">
+                                    <th id="fiscalyear" title="Click here to filter by Fiscal Year">FY</th>
+                                    <th></th>
+                                    <th>Type of Center</th>
+                                    <th align="left">Range</th>
+                                    <th align="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Registered &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Patients</th>
+                                    <th align="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enrolled &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Patients</th>
+                                </tr>
+                            </thead>
+                            <tbody style="font-size:small;">
+                                @{
+                                    if (ViewData["vwDT3NewlyPatientBenchmark"] != null)
+                                    {
                                         foreach (var item in ViewData["vwDT3NewlyPatientBenchmark"]
-                                            as List<OCCSolution.Models.vwDT3NewlyPatientBenchmark>)                              
+                                            as List<OCCSolution.Models.vwDT3NewlyPatientBenchmark>)
                                         {
                                             <tr>
                                                 <td aria-labelledby="">@item.FY</td>
@@ -163,7 +164,7 @@
                                                 <td align="right">@item.CompRegSubtotal</td>
                                                 <td align="right">@item.CompEnrollSubtotal</td>
                                             </tr>
-                                            <tr style="background-color:#1A5276;!important;"class="bottom">
+                                            <tr style="background-color:#1A5276;!important;" class="bottom">
                                                 <td>@item.FY</td>
                                                 <td></td>
                                                 <td></td>
@@ -172,193 +173,194 @@
                                                 <td align="right">@item.TotalEnroll</td>
                                             </tr>
                                         }
-                                        }
                                     }
-                                </tbody>
-                            </table>
-                        </div>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <br />
+                </div> <!--end of tab1-->
+                <div id="RegSites" class="tab-pane fade">
+                    <div class="col-sm-12 pull-left" style="font-size:small; color:#005C83;">
                         <br />
-                    </div> <!--end of tab1-->
-                    <div id="RegSites" class="tab-pane fade">
-                        <div class="col-sm-12 pull-left" style="font-size:small; color:#005C83;">
-                            <br />
-                            <p>The table below lists the top 20 anatomic cancer sites for newly registered patients in the 12-month reporting period starting from 2010 to recent year at NCI-designated Clinical and Comprehensive Cancer Centers.</p>
-                            <table id="example2" style="width:55%;">
-                                <thead>
-                                    <tr style="font-size:small; text-align:left; color:white; background-color:#1A5276"; padding-right:5px;">
-                                        <th title="Click here to filter by Fiscal Year">FY</th>
-                                        <th title="Click here to filter by Fiscal Year">FY</th>
-                                        <th align="left">Primary Site</th>
-                                        <th align="left">Registered Patients</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                   @{ if (ViewData["vwDT3Top20RegisteredBenchmark"] != null)
-                                      {
-                                           foreach (var row in ViewData["vwDT3Top20RegisteredBenchmark"]
-                                                         as List<OCCSolution.Models.vwDT3Top20RegisteredBenchmark>)
-                                           {
+                        <p>The table below lists the top 20 anatomic cancer sites for newly registered patients in the 12-month reporting period starting from 2010 to recent year at NCI-designated Clinical and Comprehensive Cancer Centers.</p>
+                        <table id="example2" style="width:55%;">
+                            <thead>
+                                <tr style="font-size:small; text-align:left; color:white; background-color:#1A5276" ; padding-right:5px;">
+                                    <th title="Click here to filter by Fiscal Year">FY</th>
+                                    <th title="Click here to filter by Fiscal Year">FY</th>
+                                    <th align="left">Primary Site</th>
+                                    <th align="left">Registered Patients</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ if (ViewData["vwDT3Top20RegisteredBenchmark"] != null)
+                                    {
+                                        foreach (var row in ViewData["vwDT3Top20RegisteredBenchmark"]
+                                                      as List<OCCSolution.Models.vwDT3Top20RegisteredBenchmark>)
+                                        {
                                             <tr style="font-size:small;">
                                                 <td>@row.FY</td>
                                                 <td></td>
                                                 <td>@row.PrimarySite</td>
                                                 <td align="center">@String.Format("{0:#,##0}", row.RegisteredPatient)</td>
                                             </tr>
-                                           } 
-                                    }
-                                   }                                  
-                                </tbody>
-                            </table>
-                        </div>
-                    </div> <!--end of tab2-->
-                    <div id="EnrollSites" class="tab-pane fade">
-                        <div class="col-sm-12 pull-left" style="font-size:small; color:#005C83;">
-                            <br />
-                            <p>The table below lists the top 20 anatomic cancer sites for newly enrolled patients in the 12-month reporting period starting from 2010 to recent year at NCI-designated Clinical and Comprehensive Cancer Centerss.</p>
-                            <table id="example3" style="width:55%;">
-                                <thead>
-                                    <tr style="font-size:small; text-align:left; color:white; background-color:#1A5276"; padding-right:5px;">
-                                        <th title="Click here to filter by Fiscal Year">FY</th>
-                                        <th></th>
-                                        <th align="left">Primary Site</th>
-                                        <th align="center">Enrolled Patients</th>
-                                    </tr>
-                                </thead>
-                                <tbody style="font-size:small;">
-                                    @{ if (ViewData["vwDT3Top20EnrolledBenchmark"] != null)
-                                       {
-                                           foreach (var x in ViewData["vwDT3Top20EnrolledBenchmark"]
-                                                         as List<OCCSolution.Models.vwDT3Top20EnrolledBenchmark>)
-                                                {
-                                                    <tr>
-                                                        <td>@x.FY</td>
-                                                        <td></td>
-                                                        <td align="left">@x.PrimarySite</td>
-                                                        <td align="center">@String.Format("{0:#,##0}", x.EnrolledPatient)</td>
-                                                    </tr>
-                                                }
                                         }
                                     }
-                                </tbody>
-                            </table>
-                        </div>
-                    </div> <!--end of tab3-->
-                </div> <!--end of tab-content-->
-            </div> <!--end of centerContent-->
-        </div><!--end of container class-->
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <!--end of tab2-->
+                <div id="EnrollSites" class="tab-pane fade">
+                    <div class="col-sm-12 pull-left" style="font-size:small; color:#005C83;">
+                        <br />
+                        <p>The table below lists the top 20 anatomic cancer sites for newly enrolled patients in the 12-month reporting period starting from 2010 to recent year at NCI-designated Clinical and Comprehensive Cancer Centerss.</p>
+                        <p><b>Note:</b> After 2016 the Centers are no longer required to submit enrolled patients data.</p><br />
+                        <table id="example3" style="width:55%;">
+                            <thead>
+                                <tr style="font-size:small; text-align:left; color:white; background-color:#1A5276" ; padding-right:5px;">
+                                    <th title="Click here to filter by Fiscal Year">FY</th>
+                                    <th></th>
+                                    <th align="left">Primary Site</th>
+                                    <th align="center">Enrolled Patients</th>
+                                </tr>
+                            </thead>
+                            <tbody style="font-size:small;">
+                                @{ if (ViewData["vwDT3Top20EnrolledBenchmark"] != null)
+                                    {
+                                        foreach (var x in ViewData["vwDT3Top20EnrolledBenchmark"]
+                                                      as List<OCCSolution.Models.vwDT3Top20EnrolledBenchmark>)
+                                        {
+                                            <tr>
+                                                <td>@x.FY</td>
+                                                <td></td>
+                                                <td align="left">@x.PrimarySite</td>
+                                                <td align="center">@String.Format("{0:#,##0}", x.EnrolledPatient)</td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div> <!--end of tab3-->
+            </div> <!--end of tab-content-->
+        </div> <!--end of centerContent-->
+    </div><!--end of container class-->
 
-        <script type="text/javascript" charset="utf-8">
-            $(document).ready(function () {
-                $('#example').DataTable({
-                    "bPaginate": true,
-                    'iDisplayLength': 9,
-                    'bLengthChange': false,
-                    "bInfo": false,
-                    "bSort": false,
-                    "aoColumnDefs": [
-                      { "bSortable": false, "aTargets": ["_all"] },   //disable sorting on all columns.
-                      { "aTargets": [0], "bVisible": false },  //don't show FY on the column 
-                      {
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "bPaginate": true,
+                'iDisplayLength': 9,
+                'bLengthChange': false,
+                "bInfo": false,
+                "bSort": false,
+                "aoColumnDefs": [
+                    { "bSortable": false, "aTargets": ["_all"] },   //disable sorting on all columns.
+                    { "aTargets": [0], "bVisible": false },  //don't show FY on the column
+                    {
                         "aTargets": [2], //make the 2nd column (CenterType) hyperlink to Find a Cancer Center list
                         "mRender": function (data, type, full) {
                             // 'full' is the row's data object, and 'data' is this column's data
                             // e.g. 'full' is not being use , and 'data' is the CenterType
                             return '<a href="../Center/CClist">' + data + '</a>';
                         }
-                       }
-                    ],
-                    "fnDrawCallback": function (oSettings) {
-                        $('.dataTables_paginate').hide();     //hide the page prev/next information.
                     }
-                });
-
-                var table = $('#example').DataTable();
-                $("#example thead th").each(function (i) {
-                    if (i == 0) { //Create just one SelectBox
-                        var select = $('<select id="home" class=' + i + '><option value=""></option></select>')
-                            .appendTo($(this).empty())
-                            .on('change', function () {
-                                var val = $(this).val();
-                                table.column(0) //Only the first column
-                                    .search(val ? '^' + $(this).val() + '$' : val, true, false)
-                                    .draw();
-                            });
-                        table.column(0).data().unique().sort().each(function (d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>')    //populate the FY ddl
-                            .val("2015");                                                      //set default the value
-
-                        });
-                    }
-                });
-                ///////////////////////////////////////////////////// example2 ////////////////////////////////////////////////////////////////////
-                $('#example2').DataTable({
-                    "bPaginate": true,
-                    'iDisplayLength': 20,
-                    'bLengthChange': false,
-                    "bInfo": false,
-                    "bSort": false,
-                    "aoColumnDefs": [
-                      { "bSortable": false, "aTargets": ["_all"] },   //disable sorting on all columns.
-                      { "aTargets": [0], "bVisible": false},  //don't show FY on the column
-                    ],
-                    "fnDrawCallback": function (oSettings) {
-                        $('.dataTables_paginate').hide();     //hide the page prev/next information.
-                    }
-                });
-
-                var table2 = $('#example2').DataTable();
-                $("#example2 thead th").each(function (i) {
-                    if (i == 0) { //Create just one SelectBox
-                        var select = $('<select id="home" class=' + i + '><option value=""></option></select>')
-                            .appendTo($(this).empty())
-                            .on('change', function () {
-                                var val = $(this).val();
-                                table2.column(0) //Only the first column
-                                    .search(val ? '^' + $(this).val() + '$' : val, true, false)
-                                    .draw();
-                            });
-                        table2.column(0).data().unique().sort().each(function (d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>')      //populate the FY ddl
-                            .val("2015");                                                      //set default the value
-
-                        });
-                    }
-                });
-                ////////////////////////////////// Example 3 ////////////////////////////////////////////////////
-                $('#example3').DataTable({
-                    "bPaginate": true,
-                    'iDisplayLength': 20,
-                    'bLengthChange': false,
-                    "bInfo": false,
-                    "bSort": false,
-                    "aoColumnDefs": [
-                      { "bSortable": false, "aTargets": ["_all"] },   //disable sorting on all columns.
-                      { "aTargets": [0], "bVisible": false },  //don't show FY on the column
-                    ],
-                    "fnDrawCallback": function (oSettings) {
-                        $('.dataTables_paginate').hide();     //hide the page prev/next information.
-                    }
-                });
-
-                var table3 = $('#example3').DataTable();
-                $("#example3 thead th").each(function (i) {
-                    if (i == 0) { //Create just one SelectBox
-                        var select = $('<select id="home" class=' + i + '><option value=""></option></select>')
-                            .appendTo($(this).empty())
-                            .on('change', function () {
-                                var val = $(this).val();
-                                table3.column(0) //Only the first column
-                                    .search(val ? '^' + $(this).val() + '$' : val, true, false)
-                                    .draw();
-                            });
-                        table3.column(0).data().unique().sort().each(function (d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>')      //populate the FY ddl
-                            .val("2015");                                                      //set default the value
-                        });
-                    }
-                });
-
+                ],
+                "fnDrawCallback": function (oSettings) {
+                    $('.dataTables_paginate').hide();     //hide the page prev/next information.
+                }
             });
-        </script>
-    </body>
+
+            var table = $('#example').DataTable();
+            $("#example thead th").each(function (i) {
+                if (i == 0) { //Create just one SelectBox
+                    var select = $('<select id="home" class=' + i + '><option value=""></option></select>')
+                        .appendTo($(this).empty())
+                        .on('change', function () {
+                            var val = $(this).val();
+                            table.column(0) //Only the first column
+                                .search(val ? '^' + $(this).val() + '$' : val, true, false)
+                                .draw();
+                        });
+                    table.column(0).data().unique().sort().each(function (d, j) {
+                        select.append('<option value="' + d + '">' + d + '</option>')    //populate the FY ddl
+                            .val("2015");                                                      //set default the value
+
+                    });
+                }
+            });
+            ///////////////////////////////////////////////////// example2 ////////////////////////////////////////////////////////////////////
+            $('#example2').DataTable({
+                "bPaginate": true,
+                'iDisplayLength': 20,
+                'bLengthChange': false,
+                "bInfo": false,
+                "bSort": false,
+                "aoColumnDefs": [
+                    { "bSortable": false, "aTargets": ["_all"] },   //disable sorting on all columns.
+                    { "aTargets": [0], "bVisible": false },  //don't show FY on the column
+                ],
+                "fnDrawCallback": function (oSettings) {
+                    $('.dataTables_paginate').hide();     //hide the page prev/next information.
+                }
+            });
+
+            var table2 = $('#example2').DataTable();
+            $("#example2 thead th").each(function (i) {
+                if (i == 0) { //Create just one SelectBox
+                    var select = $('<select id="home" class=' + i + '><option value=""></option></select>')
+                        .appendTo($(this).empty())
+                        .on('change', function () {
+                            var val = $(this).val();
+                            table2.column(0) //Only the first column
+                                .search(val ? '^' + $(this).val() + '$' : val, true, false)
+                                .draw();
+                        });
+                    table2.column(0).data().unique().sort().each(function (d, j) {
+                        select.append('<option value="' + d + '">' + d + '</option>')      //populate the FY ddl
+                            .val("2015");                                                      //set default the value
+
+                    });
+                }
+            });
+            ////////////////////////////////// Example 3 ////////////////////////////////////////////////////
+            $('#example3').DataTable({
+                "bPaginate": true,
+                'iDisplayLength': 20,
+                'bLengthChange': false,
+                "bInfo": false,
+                "bSort": false,
+                "aoColumnDefs": [
+                    { "bSortable": false, "aTargets": ["_all"] },   //disable sorting on all columns.
+                    { "aTargets": [0], "bVisible": false },  //don't show FY on the column
+                ],
+                "fnDrawCallback": function (oSettings) {
+                    $('.dataTables_paginate').hide();     //hide the page prev/next information.
+                }
+            });
+
+            var table3 = $('#example3').DataTable();
+            $("#example3 thead th").each(function (i) {
+                if (i == 0) { //Create just one SelectBox
+                    var select = $('<select id="home" class=' + i + '><option value=""></option></select>')
+                        .appendTo($(this).empty())
+                        .on('change', function () {
+                            var val = $(this).val();
+                            table3.column(0) //Only the first column
+                                .search(val ? '^' + $(this).val() + '$' : val, true, false)
+                                .draw();
+                        });
+                    table3.column(0).data().unique().sort().each(function (d, j) {
+                        select.append('<option value="' + d + '">' + d + '</option>')      //populate the FY ddl
+                            .val("2015");                                                      //set default the value
+                    });
+                }
+            });
+
+        });
+    </script>
+</body>
 </html>

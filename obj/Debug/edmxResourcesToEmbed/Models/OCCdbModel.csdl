@@ -1,36 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="OCCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Center">
-    <Key>
-      <PropertyRef Name="CenterId" />
-    </Key>
-    <Property Name="CenterName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="InstitutionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="GrantNumber" Type="Int32" Nullable="false" />
-    <Property Name="MigrationSource" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
-    <Property Name="isActive" Type="Boolean" />
-    <Property Name="Comments" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
-    <Property Name="LastUpdatedUserName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-    <Property Name="StreetAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="StateCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
-    <Property Name="CenterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ZipCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
-    <Property Name="StreetAddress2" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
-    <Property Name="CenterTypeID" Type="Int32" />
-    <Property Name="ProfileURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="DesignationDate" Type="DateTime" Precision="3" />
-    <Property Name="ComprehensivenessDate" Type="DateTime" Precision="3" />
-    <Property Name="PreAppDate1" Type="DateTime" Precision="3" />
-    <Property Name="PreAppDate2" Type="DateTime" Precision="3" />
-    <Property Name="PreAppDate3" Type="DateTime" Precision="3" />
-    <Property Name="CompeteCycle" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityContainer Name="OCCEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Centers" EntityType="Self.Center" />
     <FunctionImport Name="uspGetOCCStaffPOC" ReturnType="Collection(OCCModel.uspGetOCCStaffPOC_Result)" />
-    <EntitySet Name="vwDT1Benchmark" EntityType="OCCModel.vwDT1Benchmark" />
     <EntitySet Name="vwDT2bBenchmark" EntityType="OCCModel.vwDT2bBenchmark" />
     <EntitySet Name="vwDT3NewlyPatientBenchmark" EntityType="OCCModel.vwDT3NewlyPatientBenchmark" />
     <EntitySet Name="vwDT3Top20EnrolledBenchmark" EntityType="OCCModel.vwDT3Top20EnrolledBenchmark" />
@@ -47,6 +18,8 @@
     <EntitySet Name="vwICDs" EntityType="OCCModel.vwICD" />
     <EntitySet Name="vwDT4ResearchCatBenchmark" EntityType="OCCModel.vwDT4ResearchCatBenchmark" />
     <EntitySet Name="vwCOEs" EntityType="OCCModel.vwCOE" />
+    <EntitySet Name="vwDT1Benchmark" EntityType="OCCModel.vwDT1Benchmark" />
+    <EntitySet Name="Centers" EntityType="OCCModel.Center" />
     <EntitySet Name="vwETs" EntityType="OCCModel.vwET" />
   </EntityContainer>
   <ComplexType Name="uspGetOCCStaffPOC_Result">
@@ -62,80 +35,6 @@
     <Property Type="String" Name="RelCell" Nullable="true" MaxLength="15" />
     <Property Type="String" Name="relEmail" Nullable="true" MaxLength="100" />
   </ComplexType>
-  <EntityType Name="vwDT1Benchmark">
-    <Key>
-      <PropertyRef Name="FY" />
-    </Key>
-    <Property Name="FY" Type="Int32" Nullable="false" />
-    <Property Name="BasicCount" Type="Int32" />
-    <Property Name="ClinicalCount" Type="Int32" />
-    <Property Name="CompCount" Type="Int32" />
-    <Property Name="BasicHighLeader" Type="Int32" />
-    <Property Name="BasicLowLeader" Type="Int32" />
-    <Property Name="BasicMedianLeader" Type="Int32" />
-    <Property Name="BasicSubLeader" Type="Int32" />
-    <Property Name="ClinicalHighLeader" Type="Int32" />
-    <Property Name="ClinicalLowLeader" Type="Int32" />
-    <Property Name="ClinicalMedianLeader" Type="Int32" />
-    <Property Name="ClinicalSubLeader" Type="Int32" />
-    <Property Name="CompHighLeader" Type="Int32" />
-    <Property Name="CompLowLeader" Type="Int32" />
-    <Property Name="CompMedianLeader" Type="Int32" />
-    <Property Name="CompSubLeader" Type="Int32" />
-    <Property Name="BasicHighProg" Type="Int32" />
-    <Property Name="BasicLowProg" Type="Int32" />
-    <Property Name="BasicMedianProg" Type="Int32" />
-    <Property Name="BasicSubProg" Type="Int32" />
-    <Property Name="ClinicalHighProg" Type="Int32" />
-    <Property Name="ClinicalLowProg" Type="Int32" />
-    <Property Name="ClinicalMedianProg" Type="Int32" />
-    <Property Name="ClinicalSubProg" Type="Int32" />
-    <Property Name="CompHighProg" Type="Int32" />
-    <Property Name="CompLowProg" Type="Int32" />
-    <Property Name="CompMedianProg" Type="Int32" />
-    <Property Name="CompSubProg" Type="Int32" />
-    <Property Name="BasicHighAlign" Type="Int32" />
-    <Property Name="BasicLowAlign" Type="Int32" />
-    <Property Name="BasicMedianAlign" Type="Int32" />
-    <Property Name="BasicSubAlign" Type="Int32" />
-    <Property Name="ClinicalHighAlign" Type="Int32" />
-    <Property Name="ClinicalLowAlign" Type="Int32" />
-    <Property Name="ClinicalMedianAlign" Type="Int32" />
-    <Property Name="ClinicalSubAlign" Type="Int32" />
-    <Property Name="CompHighAlign" Type="Int32" />
-    <Property Name="CompLowAlign" Type="Int32" />
-    <Property Name="CompMedianAlign" Type="Int32" />
-    <Property Name="CompSubAlign" Type="Int32" />
-    <Property Name="BasicHighNon" Type="Int32" />
-    <Property Name="BasicLowNon" Type="Int32" />
-    <Property Name="BasicMedianNon" Type="Int32" />
-    <Property Name="BasicSubNon" Type="Int32" />
-    <Property Name="ClinicalHighNon" Type="Int32" />
-    <Property Name="ClinicalLowNon" Type="Int32" />
-    <Property Name="ClinicalMedianNon" Type="Int32" />
-    <Property Name="ClinicalSubNon" Type="Int32" />
-    <Property Name="CompHighNon" Type="Int32" />
-    <Property Name="CompLowNon" Type="Int32" />
-    <Property Name="CompMedianNon" Type="Int32" />
-    <Property Name="CompSubNon" Type="Int32" />
-    <Property Name="BasicHighSR" Type="Int32" />
-    <Property Name="BasicLowSR" Type="Int32" />
-    <Property Name="BasicMedianSR" Type="Int32" />
-    <Property Name="BasicSubSR" Type="Int32" />
-    <Property Name="ClinicalHighSR" Type="Int32" />
-    <Property Name="ClinicalLowSR" Type="Int32" />
-    <Property Name="ClinicalMedianSR" Type="Int32" />
-    <Property Name="ClinicalSubSR" Type="Int32" />
-    <Property Name="CompHighSR" Type="Int32" />
-    <Property Name="CompLowSR" Type="Int32" />
-    <Property Name="CompMedianSR" Type="Int32" />
-    <Property Name="CompSubSR" Type="Int32" />
-    <Property Name="TotalLeader" Type="Int32" />
-    <Property Name="TotalProg" Type="Int32" />
-    <Property Name="TotalSR" Type="Int32" />
-    <Property Name="TotalAlign" Type="Int32" />
-    <Property Name="TotalNon" Type="Int32" />
-  </EntityType>
   <EntityType Name="vwDT2bBenchmark">
     <Key>
       <PropertyRef Name="FY" />
@@ -398,9 +297,108 @@
     <Property Name="fy" Type="Int32" />
     <Property Name="CenterType" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
     <Property Name="InstitutionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="FullName" Type="String" Nullable="false" MaxLength="105" FixedLength="false" Unicode="false" />
-    <Property Name="Titles" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Emails" Type="String" Nullable="false" MaxLength="357" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="1025" FixedLength="false" Unicode="true" />
+    <Property Name="Titles" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="Emails" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="grantnumber" Type="Double" />
+  </EntityType>
+  <EntityType Name="vwDT1Benchmark">
+    <Key>
+      <PropertyRef Name="FY" />
+    </Key>
+    <Property Name="FY" Type="Int32" Nullable="false" />
+    <Property Name="BasicCount" Type="Int32" />
+    <Property Name="ClinicalCount" Type="Int32" />
+    <Property Name="CompCount" Type="Int32" />
+    <Property Name="BasicHighLeader" Type="Int32" />
+    <Property Name="BasicLowLeader" Type="Int32" />
+    <Property Name="BasicMedianLeader" Type="Int32" />
+    <Property Name="BasicSubLeader" Type="Int32" />
+    <Property Name="ClinicalHighLeader" Type="Int32" />
+    <Property Name="ClinicalLowLeader" Type="Int32" />
+    <Property Name="ClinicalMedianLeader" Type="Int32" />
+    <Property Name="ClinicalSubLeader" Type="Int32" />
+    <Property Name="CompHighLeader" Type="Int32" />
+    <Property Name="CompLowLeader" Type="Int32" />
+    <Property Name="CompMedianLeader" Type="Int32" />
+    <Property Name="CompSubLeader" Type="Int32" />
+    <Property Name="TotalLeader" Type="Int32" />
+    <Property Name="BasicHighProg" Type="Int32" />
+    <Property Name="BasicLowProg" Type="Int32" />
+    <Property Name="BasicMedianProg" Type="Int32" />
+    <Property Name="BasicSubProg" Type="Int32" />
+    <Property Name="ClinicalHighProg" Type="Int32" />
+    <Property Name="ClinicalLowProg" Type="Int32" />
+    <Property Name="ClinicalMedianProg" Type="Int32" />
+    <Property Name="ClinicalSubProg" Type="Int32" />
+    <Property Name="CompHighProg" Type="Int32" />
+    <Property Name="CompLowProg" Type="Int32" />
+    <Property Name="CompMedianProg" Type="Int32" />
+    <Property Name="CompSubProg" Type="Int32" />
+    <Property Name="TotalProg" Type="Int32" />
+    <Property Name="BasicHighAlign" Type="Int32" />
+    <Property Name="BasicLowAlign" Type="Int32" />
+    <Property Name="BasicMedianAlign" Type="Int32" />
+    <Property Name="BasicSubAlign" Type="Int32" />
+    <Property Name="ClinicalHighAlign" Type="Int32" />
+    <Property Name="ClinicalLowAlign" Type="Int32" />
+    <Property Name="ClinicalMedianAlign" Type="Int32" />
+    <Property Name="ClinicalSubAlign" Type="Int32" />
+    <Property Name="CompHighAlign" Type="Int32" />
+    <Property Name="CompLowAlign" Type="Int32" />
+    <Property Name="CompMedianAlign" Type="Int32" />
+    <Property Name="CompSubAlign" Type="Int32" />
+    <Property Name="TotalAlign" Type="Int32" />
+    <Property Name="BasicHighNon" Type="Int32" />
+    <Property Name="BasicLowNon" Type="Int32" />
+    <Property Name="BasicMedianNon" Type="Int32" />
+    <Property Name="BasicSubNon" Type="Int32" />
+    <Property Name="ClinicalHighNon" Type="Int32" />
+    <Property Name="ClinicalLowNon" Type="Int32" />
+    <Property Name="ClinicalMedianNon" Type="Int32" />
+    <Property Name="ClinicalSubNon" Type="Int32" />
+    <Property Name="CompHighNon" Type="Int32" />
+    <Property Name="CompLowNon" Type="Int32" />
+    <Property Name="CompMedianNon" Type="Int32" />
+    <Property Name="CompSubNon" Type="Int32" />
+    <Property Name="TotalNon" Type="Int32" />
+    <Property Name="BasicHighSR" Type="Int32" />
+    <Property Name="BasicLowSR" Type="Int32" />
+    <Property Name="BasicMedianSR" Type="Int32" />
+    <Property Name="BasicSubSR" Type="Int32" />
+    <Property Name="ClinicalHighSR" Type="Int32" />
+    <Property Name="ClinicalLowSR" Type="Int32" />
+    <Property Name="ClinicalMedianSR" Type="Int32" />
+    <Property Name="ClinicalSubSR" Type="Int32" />
+    <Property Name="CompHighSR" Type="Int32" />
+    <Property Name="CompLowSR" Type="Int32" />
+    <Property Name="CompMedianSR" Type="Int32" />
+    <Property Name="CompSubSR" Type="Int32" />
+    <Property Name="TotalSR" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Center">
+    <Key>
+      <PropertyRef Name="CenterId" />
+    </Key>
+    <Property Name="CenterName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="InstitutionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="GrantNumber" Type="Int32" Nullable="false" />
+    <Property Name="MigrationSource" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="Comments" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="LastUpdatedUserName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="StreetAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StateCode" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="CenterId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ZipCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="StreetAddress2" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="CenterTypeID" Type="Int32" />
+    <Property Name="ProfileURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompeteCycle" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DesignationYear" Type="Int32" />
+    <Property Name="ComprehensivenessYear" Type="Int32" />
   </EntityType>
   <EntityType Name="vwET">
     <Key>
@@ -411,10 +409,11 @@
     </Key>
     <Property Name="ETID" Type="Int32" Nullable="false" />
     <Property Name="fy" Type="Int32" />
+    <Property Name="grantnumber" Type="Double" />
     <Property Name="CenterType" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
     <Property Name="InstitutionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Name="FullName" Type="String" Nullable="false" MaxLength="565" FixedLength="false" Unicode="true" />
-    <Property Name="Titles" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Emails" Type="String" Nullable="false" MaxLength="357" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="1025" FixedLength="false" Unicode="true" />
+    <Property Name="Titles" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="Emails" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

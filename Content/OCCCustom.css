@@ -19,6 +19,100 @@
                         header column or sorted column #9fcee2 deeper blue
     09/05/18    AM      Removed .grayfont coding
 ******************************************************************************************************************************************************/
+
+/*=================BEGIN SEARCH using this font and font awesome ==================================================*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap');
+
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.occHeader {
+    /*font-family: Helvetica Neue,Helvetica,Arial,sans-serif;*/
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+/*.header p{
+    font-size: 45px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #fff;
+}*/
+
+.containter .input{
+    border:0;
+    outline: none;
+    color: #8b7d77;
+}
+
+.search_wrap{
+    width:560px;
+    margin:5px auto; /* 10px is not badchanged from 30px*/ 
+}
+.search_wrap .search_box{
+    position: relative;
+    width:560px; 
+    height: 40px; 
+}
+.search_wrap .search_box .input{
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%; 
+    padding: 10px 20px;
+    font-size: 18px;
+}
+/*placement of the search btn, not search box, z-index means default layer
+*/
+/*.search_wrap .search_box .btn{*/
+.search_btn {
+    position: absolute;
+    top: 0;
+    right: 50%; /*instead of right: 0*/
+    width: 45px;
+    height: 100%;
+    background: #285E8E;  /*  #7690da; */
+    z-index: 1;
+    cursor: pointer;
+}
+/*.search_wrap .search_box .search_btn:hover*/
+.search_btn:hover {
+    background: #708bd2;
+}
+/*place the search icon in the middle of the seartch btn*/
+
+.search_btn.btn_common .fas {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+    }
+/*================END SEARCH  =====================================================================*/
+    .canvas {
+        background: #f2fafe;
+        display: block;
+        max-width: 100%;
+        top: 0;
+        z-index: auto;
+        overflow-y: scroll !important;
+        min-height: 0;
+    }
+
+.navbar navbar-default {
+    top: 0;
+    z-index: 1030;
+    overflow-y: scroll !important;
+}
+
+
 a[title]:hover:after  {
     border-color: #f0c36d;
     background-color: #f9edbe;
@@ -198,8 +292,8 @@ a[title]:hover:after  {
         box-shadow: 1px 1px 3px #ccc;     
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daecf4', endColorstr='#f9f9f9',GradientType=0 );
     }
-        /* search button 'f'*/
-        input, input[type="password" i], input[type="search" i] {
+        /* Chi  4/8/2022 commetned out search button 'f'*/
+       /* input, input[type="password" i], input[type="search" i] {
         -webkit-appearance: textfield;
         padding: 1px;
         background-color: white;
@@ -214,7 +308,7 @@ a[title]:hover:after  {
         -webkit-rtl-ordering: logical;
         -webkit-user-select: text;
         cursor: auto;
-        }
+        }*/
 
         /*show n entries 'l'*/
         keygen, select, select[size="0"], select[size="1"] {
@@ -237,11 +331,6 @@ a[title]:hover:after  {
 /* change the nav icon color */
 .dropdown-submenu:hover>a:after{border-left-color:#428BCA;}
 
-.navbar navbar-default {
-  top: 0;
-  z-index: 1030;
-  overflow-y:scroll !important;
-}
 
 .DTimage img{
     float:left; width:70px; height:65px; padding-right:.5em;
@@ -262,12 +351,6 @@ a[title]:hover:after  {
 }
 
 
-.occHeader{
-    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    font-weight:bold;
-    color:white;
-}
 
 
 /* Centering the web page */
@@ -422,12 +505,13 @@ img {
 
 .main { margin-top: 50px }
 
-input {
+/* Chi 4/8/2022 input {
     font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 13px;
     color: #555860;
-}
+}*/
 
+/*
 .search {
     position: relative;
     margin: 0 auto;
@@ -579,6 +663,7 @@ input {
 
 .lt-ie9 .search input { line-height: 26px; }
 
+*/
 
 /*Breadcrumb arrow*/
 .breadcrumb .glyphicon-circle-arrow-right    {color:#ff8300}
@@ -670,6 +755,7 @@ body {
 
 }
 
+/*#FFFFFF is light grey*/
 .containerBackground{
     background-color:#FFFFFF;
 
@@ -680,9 +766,9 @@ html {
     font-size: 14px !important;
 }
 
-/*changed from 157.5 to 160 */
+/*changed from 157.5 to 160, 4/6/2022 from 180px to 220px */
 .ddlWidth{
-    width:180px !important;
+    width:220px !important;
 }
 
 /*body font*/

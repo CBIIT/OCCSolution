@@ -30,11 +30,8 @@ namespace OCCSolution.Models
         public string StreetAddress2 { get; set; }
         public Nullable<int> CenterTypeID { get; set; }
         public string ProfileURL { get; set; }
-        public Nullable<System.DateTime> DesignationDate { get; set; }
-        public Nullable<System.DateTime> ComprehensivenessDate { get; set; }
-        public Nullable<System.DateTime> PreAppDate1 { get; set; }
-        public Nullable<System.DateTime> PreAppDate2 { get; set; }
-        public Nullable<System.DateTime> PreAppDate3 { get; set; }
         public string CompeteCycle { get; set; }
+        public Nullable<int> DesignationYear { get; set; }
+        public Nullable<int> ComprehensivenessYear { get; set; }
     }
 }

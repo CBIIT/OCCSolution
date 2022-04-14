@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Views",
+    "\\Views\\Shared"
   ],
-  "SelectedNode": "\\OCCSolution.sln",
   "PreviewInSolutionExplorer": false
 }

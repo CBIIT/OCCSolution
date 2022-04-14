@@ -30,6 +30,7 @@ namespace OCCSolution.Models
         public Nullable<int> CompLowLeader { get; set; }
         public Nullable<int> CompMedianLeader { get; set; }
         public Nullable<int> CompSubLeader { get; set; }
+        public Nullable<int> TotalLeader { get; set; }
         public Nullable<int> BasicHighProg { get; set; }
         public Nullable<int> BasicLowProg { get; set; }
         public Nullable<int> BasicMedianProg { get; set; }
@@ -42,6 +43,7 @@ namespace OCCSolution.Models
         public Nullable<int> CompLowProg { get; set; }
         public Nullable<int> CompMedianProg { get; set; }
         public Nullable<int> CompSubProg { get; set; }
+        public Nullable<int> TotalProg { get; set; }
         public Nullable<int> BasicHighAlign { get; set; }
         public Nullable<int> BasicLowAlign { get; set; }
         public Nullable<int> BasicMedianAlign { get; set; }
@@ -54,6 +56,7 @@ namespace OCCSolution.Models
         public Nullable<int> CompLowAlign { get; set; }
         public Nullable<int> CompMedianAlign { get; set; }
         public Nullable<int> CompSubAlign { get; set; }
+        public Nullable<int> TotalAlign { get; set; }
         public Nullable<int> BasicHighNon { get; set; }
         public Nullable<int> BasicLowNon { get; set; }
         public Nullable<int> BasicMedianNon { get; set; }
@@ -66,6 +69,7 @@ namespace OCCSolution.Models
         public Nullable<int> CompLowNon { get; set; }
         public Nullable<int> CompMedianNon { get; set; }
         public Nullable<int> CompSubNon { get; set; }
+        public Nullable<int> TotalNon { get; set; }
         public Nullable<int> BasicHighSR { get; set; }
         public Nullable<int> BasicLowSR { get; set; }
         public Nullable<int> BasicMedianSR { get; set; }
@@ -78,10 +82,6 @@ namespace OCCSolution.Models
         public Nullable<int> CompLowSR { get; set; }
         public Nullable<int> CompMedianSR { get; set; }
         public Nullable<int> CompSubSR { get; set; }
-        public Nullable<int> TotalLeader { get; set; }
-        public Nullable<int> TotalProg { get; set; }
         public Nullable<int> TotalSR { get; set; }
-        public Nullable<int> TotalAlign { get; set; }
-        public Nullable<int> TotalNon { get; set; }
     }
 }

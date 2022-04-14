@@ -125,6 +125,7 @@
             <hr />
             <div class="media">@*Begin 2nd Div*@
                 <a href="~/PoliciesResources/LogoUsagePolicy" class="pull-left" >
+                    @*@Html.Raw(File.ReadAllText(Server.MapPath("~/images/CCIdentityBadgeThumb.svg")))*@
                     <img src="~/images/CCIdentityBadgeThumb.png" alt="NCI-designated Cancer Center Badge" style="border-color:#e5cccc;" class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click to go to Cancer Center Identity Badges Page" title="">
                 </a>
                 <a href="~/PoliciesResources/LogoUsagePolicy" class="pull-right">

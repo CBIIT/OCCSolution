@@ -5,7 +5,8 @@ using System.Web.Optimization;
 ///    Date        Developer     Desc
 ///    11/21/2014  Chi           Rebundled
 ///    03/12/2015  Chi           Replaced   "~/Scripts/jquery-{version}.js" with "~/Scripts/jquery-1.11.1.min.js" is needed for the jquery-accessibleMegaMenu.js                    
-///    
+///    04/13/2022  Chi           As of Feb 15, 2022, the latest Modernizr is v3.12.0, it's wise to use Modernizr. 
+///                              Modernizr is a JavaScript library that detects which HTML5 and CSS3 features your visitor's browser supports
 ///    
 ///------------------------------------------------------------------------------------------------------------------->
 
@@ -16,6 +17,9 @@ namespace OCCSolution
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
+            //            "~/Scripts/modernizr-*"));
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                        "~/Scripts/jquery-1.11.1.js")); 
 
@@ -53,8 +57,7 @@ namespace OCCSolution
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             //commented out 5/21/2021
-            //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-            //            "~/Scripts/modernizr-*"));
+           
 
             //NOTE when include this //"~/Scripts/bootstrap.min.js", the drop-down menu won't work!!!
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(                 
@@ -71,8 +74,8 @@ namespace OCCSolution
                       "~/Content/bootstrap-social.css"
                       )); 
 
-             bundles.Add(new StyleBundle("~/Content/themes/base/jquery").Include(
-                    "~/Content/themes/base/jquery.dataTables.css"));
+             //bundles.Add(new StyleBundle("~/Content/themes/base/jquery").Include(
+             //       "~/Content/themes/base/jquery.dataTables.css"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                        "~/Content/themes/base/jquery.ui.core.css",
@@ -88,18 +91,18 @@ namespace OCCSolution
                        "~/Content/themes/base/jquery.ui.progressbar.css"
                        ));
 
-              bundles.Add(new StyleBundle("~/Content/styles/kendo").Include(
-                   "~/Content/styles/kendo.common.min.css",
-                   "~/Content/styles/kendo.default.min.css",
-                    "~/Content/styles/kendo.dataviz.min.css",
-                    "~/Content/styles/kendo.dataviz.default.min.css",
-                    "~/Content/styles/kendo.blueopal.min.css"
-                    ));
+              //bundles.Add(new StyleBundle("~/Content/styles/kendo").Include(
+              //     "~/Content/styles/kendo.common.min.css",
+              //     "~/Content/styles/kendo.default.min.css",
+              //      "~/Content/styles/kendo.dataviz.min.css",
+              //      "~/Content/styles/kendo.dataviz.default.min.css",
+              //      "~/Content/styles/kendo.blueopal.min.css"
+              //      ));
 
-                bundles.Add(new ScriptBundle("~/Scripts/js/kendo").Include(
-                   "~/Scripts/js/angular.min.js",
-                   "~/Scripts/js/kendo.all.min.js",
-                   "~/Scripts/js/kendo.aspnetmvc.min.js"));
+              //  bundles.Add(new ScriptBundle("~/Scripts/js/kendo").Include(
+              //     "~/Scripts/js/angular.min.js",
+              //     "~/Scripts/js/kendo.all.min.js",
+              //     "~/Scripts/js/kendo.aspnetmvc.min.js"));
 
 
             // Set EnableOptimizations to false for debugging. For more information,

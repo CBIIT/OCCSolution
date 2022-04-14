@@ -16,6 +16,7 @@ namespace OCCSolution.Models
     {
         public int ETID { get; set; }
         public Nullable<int> fy { get; set; }
+        public Nullable<double> grantnumber { get; set; }
         public string CenterType { get; set; }
         public string InstitutionName { get; set; }
         public string FullName { get; set; }
