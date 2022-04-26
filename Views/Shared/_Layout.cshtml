@@ -329,69 +329,45 @@
         <div class="container" id="pageCenterID">
             @*NCI home page: *@
             @*<div class="col-sm-12 btn-sm containerBackground" style="border-radius:3px;" role="banner">
-                    <a style="font-size:14px; color:#990000;" href="http://www.cancer.gov" target="_blank" class="tip-bottom tooltipColor" data-toggle="tooltip" title="Click here to go to Cancer.gov">National Cancer Institute</a>
-                    <span style="font-size:10px; line-height:5%; color:#990000;" class="containerBackground" accesskey="i"><br /> at the National Institutes of Health</span>
-                </div>*@
+            <a style="font-size:14px; color:#990000;" href="http://www.cancer.gov" target="_blank" class="tip-bottom tooltipColor" data-toggle="tooltip" title="Click here to go to Cancer.gov">National Cancer Institute</a>
+            <span style="font-size:10px; line-height:5%; color:#990000;" class="containerBackground" accesskey="i"><br /> at the National Institutes of Health</span>
+        </div>*@
             @*OCC Logo/FAQs|Site Map/Search: *@
 
             @*<div class="row centerContent containerBackground">
-                <div class="col-sm-12 btn-sm containerBackground">*@
+        <div class="col-sm-12 btn-sm containerBackground">*@
 
             <div class="row">
                 <div class="col-lg-12">
-                    @* OCC Logo:*@
-                    <div class="col-lg-6">
-                        <a href="~/Home">
-                            <img src="~/images/OCC36LogoColor.png"
-                                 alt="Office of Cancer Centers logo"
-                                 style="background-color:white"
-                                 class="tip-bottom tooltipColor"
-                                 data-toggle="tooltip" title="Click here or press Alt/Ctrl + h to skip to OCC Home page" accesskey="h" tabindex="-1">
-                        </a>
+                @* OCC Logo:*@
+                <div class="col-lg-6">
+                    <a href="~/Home">
+                        <img src="~/images/OCC36LogoColor.png"
+                         alt="Office of Cancer Centers logo"
+                        style="background-color:white"
+                        class="tip-bottom tooltipColor"
+                        data-toggle="tooltip" title="Click here or press Alt/Ctrl + h to skip to OCC Home page" accesskey="h" tabindex="-1">
+                    </a>
+                </div>          
+                @* SEARCH Textbox, background-color: #285E8E" *@
+                <div class="col-lg-2"></div> @*for formating purposes*@ 
+                <div class="col-lg-4" style="margin-top:25px">
+                <div class="search_wrap">
+                    <div class="search_box">
+                        @using (Html.BeginForm("SearchResult", "Home", FormMethod.Post))
+                        {
+                            <input type="text" id="searchParam" name="searchParam" maxlength="120" class="input" placeholder="Search OCC..." alt="search input" />
+                            <button class="search_btn btn_common" name="searchBtn" alt="search button">
+                            <i class="fas fa-search"></i>
+                            </button>
+                        }
                     </div>
-                    @* Hide Keyboard Shortcut Page *@
-                    <a accesskey="b" style="display:none" href="~/Home/Keyboard"></a>
+                </div>
+            </div>
 
-                    @* FAQs|Site Map: *@
-                    @*<div class="col-sm-2" style="margin-top:1px">
-                            <p style="font-size:14px;">
-                                <a href="~/Home/FAQs" accesskey="q" class="tip-bottom tooltipColor" data-toggle="tooltip" title="Click here to go to the FAQs page">
-                                    FAQs
-                                </a><span class="occPipe">|</span>
-                                <a href="@Url.Action("SiteMap", "Home")" accesskey="m" class="tip-bottom tooltipColor" data-toggle="tooltip" title="Click here to view the Site Map">Site Map</a>
-                            </p>
-                        </div>*@
-                    @* SEARCH Textbox, background-color: #285E8E" *@
-                    <div class="col-lg-2"></div> @*for formating purposes *@
-                    <div class="col-lg-4" style="margin-top:25px">
-                        <div class="search_wrap">
-                            <div class="search_box">
-                                @using (Html.BeginForm("SearchResult", "Home", FormMethod.Post))
-                                    {
-                                        
-                                    <input type = "text" id = "searchParam" name = "searchParam" maxlength = "120" class="input" placeholder="Search OCC..." alt="search" />
-                                    <input type = "submit" id="SearchResult" value="SearchResult" />
-                                    <div class="search_btn btn_common"  >
-                                        <i class="fas fa-search"></i>
-                                    </div>
+        </div> @*col-sm-12*@
 
-                                @*<div class="search_wrap">
-                                    <div class="search_box">
-                                        <input type="text" id="searchParam" name="searchParam" maxlength="120" class="input" placeholder="Search OCC..." alt="search" />
-                                        <div class="search_btn btn_common"> 
-                                            <input type="button" style="width:45px; height:100%;" id="searchBtn" onclick="callHomeController()" />
-                                            <i class="fas fa-search"></i>
-                                        </div>
-                                    </div>
-                                </div>*@
-
-                                }
-
-                            </div>
-                        </div>
-                    </div>
-                </div><!--col-sm-12-->
-            </div><!--row-->
+        </div><!--row-->
             @***DROP DOWN MENU(DDM):***@
             <div class="col-sm-12 centerContent containerBackground">
                 <nav id="occdrops">
@@ -400,7 +376,13 @@
                             <a class="btn btn-primary ddlWidth occWhite tip-top tooltipColor" title="Click here or press Alt/Ctrl + 1 to skip to Cancer Centers page" accesskey="1" href="~/Center/CancerCenters">Cancer Centers&nbsp;&nbsp;<span class="caret"></span></a>
                             <div class="sub-nav" style="width:180px;">
                                 <ul class="sub-nav-group">
-                                    <li title="Find a Cancer Center"><a href="@Url.Action("CCList", "Center")"><span class="fa fa-search" aria-hidden="true" aria-label="a drop down list to find a Cancer Center"></span><span> a Cancer Center</span></a></li>
+                                    <li title="Find a Cancer Center"> <a href="~/Home">
+                            <img src="~/images/OCC36LogoColor.png"
+                                 alt="Office of Cancer Centers logo"
+                                 style="background-color:white"
+                                 class="tip-bottom tooltipColor"
+                                 data-toggle="tooltip" title="Click here or press Alt/Ctrl + h to skip to OCC Home page" accesskey="h" tabindex="-1">
+                        </a><span class="fa fa-search" aria-hidden="true" aria-label="a drop down list to find a Cancer Center"></span><span> a Cancer Center</span></a></li>
                                     <li title="Find a Research Program"><a href="@Url.Action("RP", "Center")"><span class="fa fa-search" aria-hidden="true" aria-label="a drop down list to find a research program"></span><span> a Research Program</span></a></li>
                                     <li title="Find a Shared Resource"><a href="@Url.Action("SharedResource", "Center")"><span class="fa fa-search" aria-hidden="true" aria-label="a drop down list to find a Shared Resource"></span><span> a Shared Resource</span></a></li>
                                     <li title="Find a COE Leader"><a href="@Url.Action("COE", "Center")"><span class="fa fa-search" aria-hidden="true" aria-label="a drop down list to find a COE Leader"></span><span> a COE Leader</span></a></li>
