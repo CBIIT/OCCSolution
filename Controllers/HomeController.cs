@@ -20,6 +20,7 @@ using System.Web.Mvc;
  *                              TO PROTECT AGAINST SCRIPT or URL EXPLOITS in webApp, apply encoding (HttpUtility.UrlPathEncode) to strings:
  *                              Used the UrlPathEncode method when you encode the path portion of a URL in order to guarantee a consistent decoded URL.  The UrlPathEncode method converts each space character into the string "%20", which represents a space in hexadecimal notation. 
  *                              you can also use WebUtility.UrlDecode for the searchParams. 
+ *             NOTE - to see console.wrteline, Tools|options|Debug|General| check redirect output text to the immediate window. 
  */
 namespace OCCSolution.Controllers
 {
@@ -47,8 +48,8 @@ namespace OCCSolution.Controllers
 
             //DEBUG purposes:
             //searchParam = "Data Tables";
-            //Console.WriteLine("***On Console ***THE CURRENT baseURL IS" + baseURL);                
-            System.Diagnostics.Debug.WriteLine("**Debug**::The current baseURL is: " + baseURL);   //can see this on the Output window
+            //Console.WriteLine("***Debug On Console ***THE CURRENT baseURL IS" + baseURL);                
+            System.Diagnostics.Debug.WriteLine("**System.Diagnostics.Debug**::The current baseURL is: " + baseURL);   //can see this on the Output window
             System.Diagnostics.Debug.WriteLine("**Debugging**: The search param is: " + searchParam);
 
             List<SearchModelClass> SearchInfo = new List<SearchModelClass>();
