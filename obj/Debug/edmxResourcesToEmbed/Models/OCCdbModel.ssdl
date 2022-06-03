@@ -1,0 +1,741 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OCCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Center">
+    <Key>
+      <PropertyRef Name="CenterId" />
+    </Key>
+    <Property Name="CenterName" Type="nvarchar" MaxLength="255" />
+    <Property Name="InstitutionName" Type="nvarchar" MaxLength="255" />
+    <Property Name="GrantNumber" Type="int" Nullable="false" />
+    <Property Name="MigrationSource" Type="nvarchar" MaxLength="255" />
+    <Property Name="LastUpdatedDate" Type="datetime" />
+    <Property Name="isActive" Type="bit" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="4000" />
+    <Property Name="LastUpdatedUserName" Type="nvarchar" MaxLength="25" />
+    <Property Name="StreetAddress" Type="nvarchar" MaxLength="255" />
+    <Property Name="City" Type="nvarchar" MaxLength="255" />
+    <Property Name="StateCode" Type="char" MaxLength="2" />
+    <Property Name="CenterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="25" />
+    <Property Name="StreetAddress2" Type="nvarchar" MaxLength="1024" />
+    <Property Name="CenterTypeID" Type="int" />
+    <Property Name="ProfileURL" Type="nvarchar(max)" />
+    <Property Name="CompeteCycle" Type="nvarchar" MaxLength="10" />
+    <Property Name="DesignationYear" Type="int" />
+    <Property Name="ComprehensivenessYear" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwCCList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwCCList">
+    <Key>
+      <PropertyRef Name="CenterId" />
+    </Key>
+    <Property Name="CenterType" Type="varchar" MaxLength="8" />
+    <Property Name="profileURL" Type="nvarchar(max)" />
+    <Property Name="InstitutionName" Type="nvarchar" MaxLength="255" />
+    <Property Name="CenterName" Type="nvarchar" MaxLength="255" />
+    <Property Name="FullName" Type="varchar" MaxLength="77" />
+    <Property Name="PIDegree" Type="nvarchar" MaxLength="500" />
+    <Property Name="PITitle" Type="nvarchar" MaxLength="255" />
+    <Property Name="StateCode" Type="char" MaxLength="2" />
+    <Property Name="Address" Type="nvarchar" MaxLength="1566" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="255" />
+    <Property Name="CenterId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwCOE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwCOE">
+    <Key>
+      <PropertyRef Name="COEID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="Titles" />
+      <PropertyRef Name="Emails" />
+    </Key>
+    <Property Name="COEID" Type="int" Nullable="false" />
+    <Property Name="fy" Type="int" />
+    <Property Name="grantnumber" Type="float" />
+    <Property Name="CenterType" Type="varchar" MaxLength="8" />
+    <Property Name="InstitutionName" Type="nvarchar" MaxLength="255" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="1025" Nullable="false" />
+    <Property Name="Titles" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="Emails" Type="nvarchar" MaxLength="512" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwDT1Benchmark' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwDT1Benchmark">
+    <Key>
+      <PropertyRef Name="FY" />
+    </Key>
+    <Property Name="FY" Type="int" Nullable="false" />
+    <Property Name="BasicCount" Type="int" />
+    <Property Name="ClinicalCount" Type="int" />
+    <Property Name="CompCount" Type="int" />
+    <Property Name="BasicHighLeader" Type="int" />
+    <Property Name="BasicLowLeader" Type="int" />
+    <Property Name="BasicMedianLeader" Type="int" />
+    <Property Name="BasicSubLeader" Type="int" />
+    <Property Name="ClinicalHighLeader" Type="int" />
+    <Property Name="ClinicalLowLeader" Type="int" />
+    <Property Name="ClinicalMedianLeader" Type="int" />
+    <Property Name="ClinicalSubLeader" Type="int" />
+    <Property Name="CompHighLeader" Type="int" />
+    <Property Name="CompLowLeader" Type="int" />
+    <Property Name="CompMedianLeader" Type="int" />
+    <Property Name="CompSubLeader" Type="int" />
+    <Property Name="TotalLeader" Type="int" />
+    <Property Name="BasicHighProg" Type="int" />
+    <Property Name="BasicLowProg" Type="int" />
+    <Property Name="BasicMedianProg" Type="int" />
+    <Property Name="BasicSubProg" Type="int" />
+    <Property Name="ClinicalHighProg" Type="int" />
+    <Property Name="ClinicalLowProg" Type="int" />
+    <Property Name="ClinicalMedianProg" Type="int" />
+    <Property Name="ClinicalSubProg" Type="int" />
+    <Property Name="CompHighProg" Type="int" />
+    <Property Name="CompLowProg" Type="int" />
+    <Property Name="CompMedianProg" Type="int" />
+    <Property Name="CompSubProg" Type="int" />
+    <Property Name="TotalProg" Type="int" />
+    <Property Name="BasicHighAlign" Type="int" />
+    <Property Name="BasicLowAlign" Type="int" />
+    <Property Name="BasicMedianAlign" Type="int" />
+    <Property Name="BasicSubAlign" Type="int" />
+    <Property Name="ClinicalHighAlign" Type="int" />
+    <Property Name="ClinicalLowAlign" Type="int" />
+    <Property Name="ClinicalMedianAlign" Type="int" />
+    <Property Name="ClinicalSubAlign" Type="int" />
+    <Property Name="CompHighAlign" Type="int" />
+    <Property Name="CompLowAlign" Type="int" />
+    <Property Name="CompMedianAlign" Type="int" />
+    <Property Name="CompSubAlign" Type="int" />
+    <Property Name="TotalAlign" Type="int" />
+    <Property Name="BasicHighNon" Type="int" />
+    <Property Name="BasicLowNon" Type="int" />
+    <Property Name="BasicMedianNon" Type="int" />
+    <Property Name="BasicSubNon" Type="int" />
+    <Property Name="ClinicalHighNon" Type="int" />
+    <Property Name="ClinicalLowNon" Type="int" />
+    <Property Name="ClinicalMedianNon" Type="int" />
+    <Property Name="ClinicalSubNon" Type="int" />
+    <Property Name="CompHighNon" Type="int" />
+    <Property Name="CompLowNon" Type="int" />
+    <Property Name="CompMedianNon" Type="int" />
+    <Property Name="CompSubNon" Type="int" />
+    <Property Name="TotalNon" Type="int" />
+    <Property Name="BasicHighSR" Type="int" />
+    <Property Name="BasicLowSR" Type="int" />
+    <Property Name="BasicMedianSR" Type="int" />
+    <Property Name="BasicSubSR" Type="int" />
+    <Property Name="ClinicalHighSR" Type="int" />
+    <Property Name="ClinicalLowSR" Type="int" />
+    <Property Name="ClinicalMedianSR" Type="int" />
+    <Property Name="ClinicalSubSR" Type="int" />
+    <Property Name="CompHighSR" Type="int" />
+    <Property Name="CompLowSR" Type="int" />
+    <Property Name="CompMedianSR" Type="int" />
+    <Property Name="CompSubSR" Type="int" />
+    <Property Name="TotalSR" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwDT1cMember' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwDT1cMember">
+    <Key>
+      <PropertyRef Name="dt1cFY" />
+    </Key>
+    <Property Name="dt1cFY" Type="int" Nullable="false" />
+    <Property Name="dt1cGrantNumber" Type="int" />
+    <Property Name="dt1cInstitutionName" Type="nvarchar" MaxLength="255" />
+    <Property Name="AlignedNumber" Type="int" />
+    <Property Name="NonAlignedNumber" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwDT1dSR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwDT1dSR">
+    <Key>
+      <PropertyRef Name="SRCat" />
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="InstitutionName" Type="nvarchar" MaxLength="255" />
+    <Property Name="SRCat" Type="varchar" MaxLength="35" Nullable="false" />
+    <Property Name="SRName" Type="nvarchar" MaxLength="255" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="2564" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwDT2bBenchmark' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwDT2bBenchmark">
+    <Key>
+      <PropertyRef Name="FY" />
+    </Key>
+    <Property Name="FY" Type="int" Nullable="false" />
+    <Property Name="BasicNCIHigh" Type="int" />
+    <Property Name="BasicNCILow" Type="int" />
+    <Property Name="BasicNCIAvg" Type="int" />
+    <Property Name="BasicNCIMedian" Type="int" />
+    <Property Name="ClinicalNCIHigh" Type="int" />
+    <Property Name="ClinicalNCILow" Type="int" />
+    <Property Name="ClinicalNCIAvg" Type="int" />
+    <Property Name="ClinicalNCIMedian" Type="int" />
+    <Property Name="CompNCIHigh" Type="int" />
+    <Property Name="CompNCILow" Type="int" />
+    <Property Name="CompNCIAvg" Type="int" />
+    <Property Name="CompNCIMedian" Type="int" />
+    <Property Name="BasicCount" Type="int" />
+    <Property Name="BasicNIHHigh" Type="int" />
+    <Property Name="BasicNIHLow" Type="int" />
+    <Property Name="BasicNIHAvg" Type="int" />
+    <Property Name="BasicNIHMedian" Type="int" />
+    <Property Name="ClinicalCount" Type="int" />
+    <Property Name="ClinicalNIHHigh" Type="int" />
+    <Property Name="ClinicalNIHLow" Type="int" />
+    <Property Name="ClinicalNIHAvg" Type="int" />
+    <Property Name="ClinicalNIHMedian" Type="int" />
+    <Property Name="CompCount" Type="int" />
+    <Property Name="CompNIHHigh" Type="int" />
+    <Property Name="CompNIHLow" Type="int" />
+    <Property Name="CompNIHAvg" Type="int" />
+    <Property Name="CompNIHMedian" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwDT3NewlyPatientBenchmark' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwDT3NewlyPatientBenchmark">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FY" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FY" Type="int" Nullable="false" />
+    <Property Name="ClinicalCount" Type="int" />
+    <Property Name="ClinicalRegHigh" Type="varchar" MaxLength="8000" />
+    <Property Name="ClinicalRegLow" Type="varchar" MaxLength="8000" />
+    <Property Name="ClinicalRegMedian" Type="varchar" MaxLength="8000" />
+    <Property Name="ClinicalRegSubtotal" Type="varchar" MaxLength="8000" />
+    <Property Name="CompCount" Type="int" />
+    <Property Name="CompRegHigh" Type="varchar" MaxLength="8000" />
+    <Property Name="CompRegLow" Type="varchar" MaxLength="8000" />
+    <Property Name="CompRegMedian" Type="varchar" MaxLength="8000" />
+    <Property Name="CompRegSubtotal" Type="varchar" MaxLength="8000" />
+    <Property Name="ClinicalEnrollHigh" Type="varchar" MaxLength="8000" />
+    <Property Name="ClinicalEnrollLow" Type="varchar" MaxLength="8000" />
+    <Property Name="ClinicalEnrollMedian" Type="varchar" MaxLength="8000" />
+    <Property Name="ClinicalEnrollSubtotal" Type="varchar" MaxLength="8000" />
+    <Property Name="CompEnrollHigh" Type="varchar" MaxLength="8000" />
+    <Property Name="CompEnrollLow" Type="varchar" MaxLength="8000" />
+    <Property Name="CompEnrollMedian" Type="varchar" MaxLength="8000" />
+    <Property Name="CompEnrollSubtotal" Type="varchar" MaxLength="8000" />
+    <Property Name="TotalReg" Type="varchar" MaxLength="8000" />
+    <Property Name="TotalEnroll" Type="varchar" MaxLength="8000" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwDT3Top20EnrolledBenchmark' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwDT3Top20EnrolledBenchmark">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FY" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FY" Type="int" Nullable="false" />
+    <Property Name="PrimarySite" Type="nvarchar" MaxLength="255" />
+    <Property Name="EnrolledPatient" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwDT3Top20RegisteredBenchmark' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwDT3Top20RegisteredBenchmark">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FY" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FY" Type="int" Nullable="false" />
+    <Property Name="PrimarySite" Type="nvarchar" MaxLength="255" />
+    <Property Name="RegisteredPatient" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwDT4PhaseBenchmark' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwDT4PhaseBenchmark">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FY" />
+      <PropertyRef Name="SortOrder" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="FY" Type="int" Nullable="false" />
+    <Property Name="Phase" Type="varchar" MaxLength="25" />
+    <Property Name="SortOrder" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="OpenTrialTotal" Type="int" />
+    <Property Name="OpenTrialMedian" Type="int" />
+    <Property Name="AccruedTotal" Type="int" />
+    <Property Name="AccruedMedian" Type="int" />
+    <Property Name="OpenTrialCumTotal" Type="int" />
+    <Property Name="AccruCumTotal" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwDT4PrimaryPurposeBenchmark' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwDT4PrimaryPurposeBenchmark">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FY" />
+      <PropertyRef Name="SortOrder" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="FY" Type="int" Nullable="false" />
+    <Property Name="PrimaryPurpose" Type="varchar" MaxLength="255" />
+    <Property Name="SortOrder" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="OpenTrialTotal" Type="int" />
+    <Property Name="OpenTrialMedian" Type="int" />
+    <Property Name="AccruedTotal" Type="int" />
+    <Property Name="AccruedMedian" Type="int" />
+    <Property Name="OpenTrialCumTotal" Type="int" />
+    <Property Name="AccruCumTotal" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwDT4ResearchCatBenchmark' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwDT4ResearchCatBenchmark">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FY" />
+      <PropertyRef Name="SortOrder" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="FY" Type="int" Nullable="false" />
+    <Property Name="ClinicalResearchCat" Type="varchar" MaxLength="255" />
+    <Property Name="OpenTrialTotal" Type="int" />
+    <Property Name="OpenTrialMedian" Type="int" />
+    <Property Name="AccruedTotal" Type="int" />
+    <Property Name="AccruedMedian" Type="int" />
+    <Property Name="SortOrder" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwDT4StudySourceBenchmark' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwDT4StudySourceBenchmark">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="FY" />
+      <PropertyRef Name="StudySource" />
+      <PropertyRef Name="SortOrder" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="FY" Type="int" Nullable="false" />
+    <Property Name="StudySource" Type="varchar" MaxLength="26" Nullable="false" />
+    <Property Name="SortOrder" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="OpenTrialTotal" Type="int" />
+    <Property Name="OpenTrialMedian" Type="int" />
+    <Property Name="AccruedTotal" Type="int" />
+    <Property Name="AccruedMedian" Type="int" />
+    <Property Name="OpenTrialCumTotal" Type="int" />
+    <Property Name="AccruCumTotal" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwDView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwDView">
+    <Key>
+      <PropertyRef Name="GrantNumber" />
+      <PropertyRef Name="CenterId" />
+    </Key>
+    <Property Name="GrantNumber" Type="int" Nullable="false" />
+    <Property Name="InstitutionName" Type="nvarchar" MaxLength="255" />
+    <Property Name="CenterId" Type="int" Nullable="false" />
+    <Property Name="FY" Type="float" />
+    <Property Name="P30Partner" Type="nvarchar" MaxLength="255" />
+    <Property Name="FullProjNo" Type="varchar" MaxLength="50" />
+    <Property Name="ProjTitle" Type="varchar" MaxLength="8000" />
+    <Property Name="BudgetStartDate" Type="datetime" />
+    <Property Name="BudgetEndDate" Type="datetime" />
+    <Property Name="PIname" Type="varchar" MaxLength="27" />
+    <Property Name="TotalCost" Type="float" />
+    <Property Name="NCITotalNo" Type="int" />
+    <Property Name="NCIDC" Type="int" />
+    <Property Name="NCITC" Type="int" />
+    <Property Name="OthNIHTotalNo" Type="int" />
+    <Property Name="OthNIHDC" Type="int" />
+    <Property Name="OthNIHTC" Type="int" />
+    <Property Name="OthPRTotalNo" Type="int" />
+    <Property Name="OthPRDC" Type="int" />
+    <Property Name="OthPRTC" Type="int" />
+    <Property Name="IndNonPRTotalNo" Type="int" />
+    <Property Name="IndNonPRDC" Type="int" />
+    <Property Name="IndNonPRTC" Type="int" />
+    <Property Name="OthNonPRTotalNo" Type="int" />
+    <Property Name="OthNonPRDC" Type="int" />
+    <Property Name="OthNonPRTC" Type="int" />
+    <Property Name="AlignedNumber" Type="int" />
+    <Property Name="NonAlignedNumber" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwET' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwET">
+    <Key>
+      <PropertyRef Name="ETID" />
+      <PropertyRef Name="FullName" />
+      <PropertyRef Name="Titles" />
+      <PropertyRef Name="Emails" />
+    </Key>
+    <Property Name="ETID" Type="int" Nullable="false" />
+    <Property Name="fy" Type="int" />
+    <Property Name="grantnumber" Type="float" />
+    <Property Name="CenterType" Type="varchar" MaxLength="8" />
+    <Property Name="InstitutionName" Type="nvarchar" MaxLength="255" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="1025" Nullable="false" />
+    <Property Name="Titles" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="Emails" Type="nvarchar" MaxLength="512" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwICD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwICD">
+    <Key>
+      <PropertyRef Name="ICDCodeID" />
+    </Key>
+    <Property Name="ICDCodeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="index" Type="int" />
+    <Property Name="PrimarySite" Type="nvarchar" MaxLength="255" />
+    <Property Name="icd" Type="nvarchar(max)" />
+    <Property Name="icdo3" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwOCCAnnouncement' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwOCCAnnouncement">
+    <Key>
+      <PropertyRef Name="OCCAnnouncementID" />
+    </Key>
+    <Property Name="OCCAnnouncementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="255" />
+    <Property Name="EffectiveDate" Type="varchar" MaxLength="30" />
+    <Property Name="Message" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwRP">
+    <Key>
+      <PropertyRef Name="FullNname" />
+      <PropertyRef Name="DT1BProgramID" />
+    </Key>
+    <Property Name="fy" Type="int" />
+    <Property Name="CenterType" Type="varchar" MaxLength="8" />
+    <Property Name="InstitutionName" Type="nvarchar" MaxLength="255" />
+    <Property Name="CenterName" Type="nvarchar" MaxLength="255" />
+    <Property Name="ProgName" Type="nvarchar" MaxLength="255" />
+    <Property Name="FullNname" Type="nvarchar" MaxLength="464" Nullable="false" />
+    <Property Name="DT1BProgramID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="OCCModelStoreContainer">
+    <EntitySet Name="Center" EntityType="Self.Center" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vwCCList" EntityType="Self.vwCCList" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwCCList].[CenterType] AS [CenterType], 
+    [vwCCList].[profileURL] AS [profileURL], 
+    [vwCCList].[InstitutionName] AS [InstitutionName], 
+    [vwCCList].[CenterName] AS [CenterName], 
+    [vwCCList].[FullName] AS [FullName], 
+    [vwCCList].[PIDegree] AS [PIDegree], 
+    [vwCCList].[PITitle] AS [PITitle], 
+    [vwCCList].[StateCode] AS [StateCode], 
+    [vwCCList].[Address] AS [Address], 
+    [vwCCList].[Phone] AS [Phone], 
+    [vwCCList].[CenterId] AS [CenterId]
+    FROM [dbo].[vwCCList] AS [vwCCList]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwCOE" EntityType="Self.vwCOE" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwCOE].[COEID] AS [COEID], 
+    [vwCOE].[fy] AS [fy], 
+    [vwCOE].[grantnumber] AS [grantnumber], 
+    [vwCOE].[CenterType] AS [CenterType], 
+    [vwCOE].[InstitutionName] AS [InstitutionName], 
+    [vwCOE].[FullName] AS [FullName], 
+    [vwCOE].[Titles] AS [Titles], 
+    [vwCOE].[Emails] AS [Emails]
+    FROM [dbo].[vwCOE] AS [vwCOE]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwDT1Benchmark" EntityType="Self.vwDT1Benchmark" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwDT1Benchmark].[FY] AS [FY], 
+    [vwDT1Benchmark].[BasicCount] AS [BasicCount], 
+    [vwDT1Benchmark].[ClinicalCount] AS [ClinicalCount], 
+    [vwDT1Benchmark].[CompCount] AS [CompCount], 
+    [vwDT1Benchmark].[BasicHighLeader] AS [BasicHighLeader], 
+    [vwDT1Benchmark].[BasicLowLeader] AS [BasicLowLeader], 
+    [vwDT1Benchmark].[BasicMedianLeader] AS [BasicMedianLeader], 
+    [vwDT1Benchmark].[BasicSubLeader] AS [BasicSubLeader], 
+    [vwDT1Benchmark].[ClinicalHighLeader] AS [ClinicalHighLeader], 
+    [vwDT1Benchmark].[ClinicalLowLeader] AS [ClinicalLowLeader], 
+    [vwDT1Benchmark].[ClinicalMedianLeader] AS [ClinicalMedianLeader], 
+    [vwDT1Benchmark].[ClinicalSubLeader] AS [ClinicalSubLeader], 
+    [vwDT1Benchmark].[CompHighLeader] AS [CompHighLeader], 
+    [vwDT1Benchmark].[CompLowLeader] AS [CompLowLeader], 
+    [vwDT1Benchmark].[CompMedianLeader] AS [CompMedianLeader], 
+    [vwDT1Benchmark].[CompSubLeader] AS [CompSubLeader], 
+    [vwDT1Benchmark].[TotalLeader] AS [TotalLeader], 
+    [vwDT1Benchmark].[BasicHighProg] AS [BasicHighProg], 
+    [vwDT1Benchmark].[BasicLowProg] AS [BasicLowProg], 
+    [vwDT1Benchmark].[BasicMedianProg] AS [BasicMedianProg], 
+    [vwDT1Benchmark].[BasicSubProg] AS [BasicSubProg], 
+    [vwDT1Benchmark].[ClinicalHighProg] AS [ClinicalHighProg], 
+    [vwDT1Benchmark].[ClinicalLowProg] AS [ClinicalLowProg], 
+    [vwDT1Benchmark].[ClinicalMedianProg] AS [ClinicalMedianProg], 
+    [vwDT1Benchmark].[ClinicalSubProg] AS [ClinicalSubProg], 
+    [vwDT1Benchmark].[CompHighProg] AS [CompHighProg], 
+    [vwDT1Benchmark].[CompLowProg] AS [CompLowProg], 
+    [vwDT1Benchmark].[CompMedianProg] AS [CompMedianProg], 
+    [vwDT1Benchmark].[CompSubProg] AS [CompSubProg], 
+    [vwDT1Benchmark].[TotalProg] AS [TotalProg], 
+    [vwDT1Benchmark].[BasicHighAlign] AS [BasicHighAlign], 
+    [vwDT1Benchmark].[BasicLowAlign] AS [BasicLowAlign], 
+    [vwDT1Benchmark].[BasicMedianAlign] AS [BasicMedianAlign], 
+    [vwDT1Benchmark].[BasicSubAlign] AS [BasicSubAlign], 
+    [vwDT1Benchmark].[ClinicalHighAlign] AS [ClinicalHighAlign], 
+    [vwDT1Benchmark].[ClinicalLowAlign] AS [ClinicalLowAlign], 
+    [vwDT1Benchmark].[ClinicalMedianAlign] AS [ClinicalMedianAlign], 
+    [vwDT1Benchmark].[ClinicalSubAlign] AS [ClinicalSubAlign], 
+    [vwDT1Benchmark].[CompHighAlign] AS [CompHighAlign], 
+    [vwDT1Benchmark].[CompLowAlign] AS [CompLowAlign], 
+    [vwDT1Benchmark].[CompMedianAlign] AS [CompMedianAlign], 
+    [vwDT1Benchmark].[CompSubAlign] AS [CompSubAlign], 
+    [vwDT1Benchmark].[TotalAlign] AS [TotalAlign], 
+    [vwDT1Benchmark].[BasicHighNon] AS [BasicHighNon], 
+    [vwDT1Benchmark].[BasicLowNon] AS [BasicLowNon], 
+    [vwDT1Benchmark].[BasicMedianNon] AS [BasicMedianNon], 
+    [vwDT1Benchmark].[BasicSubNon] AS [BasicSubNon], 
+    [vwDT1Benchmark].[ClinicalHighNon] AS [ClinicalHighNon], 
+    [vwDT1Benchmark].[ClinicalLowNon] AS [ClinicalLowNon], 
+    [vwDT1Benchmark].[ClinicalMedianNon] AS [ClinicalMedianNon], 
+    [vwDT1Benchmark].[ClinicalSubNon] AS [ClinicalSubNon], 
+    [vwDT1Benchmark].[CompHighNon] AS [CompHighNon], 
+    [vwDT1Benchmark].[CompLowNon] AS [CompLowNon], 
+    [vwDT1Benchmark].[CompMedianNon] AS [CompMedianNon], 
+    [vwDT1Benchmark].[CompSubNon] AS [CompSubNon], 
+    [vwDT1Benchmark].[TotalNon] AS [TotalNon], 
+    [vwDT1Benchmark].[BasicHighSR] AS [BasicHighSR], 
+    [vwDT1Benchmark].[BasicLowSR] AS [BasicLowSR], 
+    [vwDT1Benchmark].[BasicMedianSR] AS [BasicMedianSR], 
+    [vwDT1Benchmark].[BasicSubSR] AS [BasicSubSR], 
+    [vwDT1Benchmark].[ClinicalHighSR] AS [ClinicalHighSR], 
+    [vwDT1Benchmark].[ClinicalLowSR] AS [ClinicalLowSR], 
+    [vwDT1Benchmark].[ClinicalMedianSR] AS [ClinicalMedianSR], 
+    [vwDT1Benchmark].[ClinicalSubSR] AS [ClinicalSubSR], 
+    [vwDT1Benchmark].[CompHighSR] AS [CompHighSR], 
+    [vwDT1Benchmark].[CompLowSR] AS [CompLowSR], 
+    [vwDT1Benchmark].[CompMedianSR] AS [CompMedianSR], 
+    [vwDT1Benchmark].[CompSubSR] AS [CompSubSR], 
+    [vwDT1Benchmark].[TotalSR] AS [TotalSR]
+    FROM [dbo].[vwDT1Benchmark] AS [vwDT1Benchmark]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwDT1cMember" EntityType="Self.vwDT1cMember" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwDT1cMember].[dt1cFY] AS [dt1cFY], 
+    [vwDT1cMember].[dt1cGrantNumber] AS [dt1cGrantNumber], 
+    [vwDT1cMember].[dt1cInstitutionName] AS [dt1cInstitutionName], 
+    [vwDT1cMember].[AlignedNumber] AS [AlignedNumber], 
+    [vwDT1cMember].[NonAlignedNumber] AS [NonAlignedNumber]
+    FROM [dbo].[vwDT1cMember] AS [vwDT1cMember]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwDT1dSR" EntityType="Self.vwDT1dSR" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwDT1dSR].[ID] AS [ID], 
+    [vwDT1dSR].[InstitutionName] AS [InstitutionName], 
+    [vwDT1dSR].[SRCat] AS [SRCat], 
+    [vwDT1dSR].[SRName] AS [SRName], 
+    [vwDT1dSR].[FullName] AS [FullName]
+    FROM [dbo].[vwDT1dSR] AS [vwDT1dSR]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwDT2bBenchmark" EntityType="Self.vwDT2bBenchmark" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwDT2bBenchmark].[FY] AS [FY], 
+    [vwDT2bBenchmark].[BasicNCIHigh] AS [BasicNCIHigh], 
+    [vwDT2bBenchmark].[BasicNCILow] AS [BasicNCILow], 
+    [vwDT2bBenchmark].[BasicNCIAvg] AS [BasicNCIAvg], 
+    [vwDT2bBenchmark].[BasicNCIMedian] AS [BasicNCIMedian], 
+    [vwDT2bBenchmark].[ClinicalNCIHigh] AS [ClinicalNCIHigh], 
+    [vwDT2bBenchmark].[ClinicalNCILow] AS [ClinicalNCILow], 
+    [vwDT2bBenchmark].[ClinicalNCIAvg] AS [ClinicalNCIAvg], 
+    [vwDT2bBenchmark].[ClinicalNCIMedian] AS [ClinicalNCIMedian], 
+    [vwDT2bBenchmark].[CompNCIHigh] AS [CompNCIHigh], 
+    [vwDT2bBenchmark].[CompNCILow] AS [CompNCILow], 
+    [vwDT2bBenchmark].[CompNCIAvg] AS [CompNCIAvg], 
+    [vwDT2bBenchmark].[CompNCIMedian] AS [CompNCIMedian], 
+    [vwDT2bBenchmark].[BasicCount] AS [BasicCount], 
+    [vwDT2bBenchmark].[BasicNIHHigh] AS [BasicNIHHigh], 
+    [vwDT2bBenchmark].[BasicNIHLow] AS [BasicNIHLow], 
+    [vwDT2bBenchmark].[BasicNIHAvg] AS [BasicNIHAvg], 
+    [vwDT2bBenchmark].[BasicNIHMedian] AS [BasicNIHMedian], 
+    [vwDT2bBenchmark].[ClinicalCount] AS [ClinicalCount], 
+    [vwDT2bBenchmark].[ClinicalNIHHigh] AS [ClinicalNIHHigh], 
+    [vwDT2bBenchmark].[ClinicalNIHLow] AS [ClinicalNIHLow], 
+    [vwDT2bBenchmark].[ClinicalNIHAvg] AS [ClinicalNIHAvg], 
+    [vwDT2bBenchmark].[ClinicalNIHMedian] AS [ClinicalNIHMedian], 
+    [vwDT2bBenchmark].[CompCount] AS [CompCount], 
+    [vwDT2bBenchmark].[CompNIHHigh] AS [CompNIHHigh], 
+    [vwDT2bBenchmark].[CompNIHLow] AS [CompNIHLow], 
+    [vwDT2bBenchmark].[CompNIHAvg] AS [CompNIHAvg], 
+    [vwDT2bBenchmark].[CompNIHMedian] AS [CompNIHMedian]
+    FROM [dbo].[vwDT2bBenchmark] AS [vwDT2bBenchmark]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwDT3NewlyPatientBenchmark" EntityType="Self.vwDT3NewlyPatientBenchmark" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwDT3NewlyPatientBenchmark].[ID] AS [ID], 
+    [vwDT3NewlyPatientBenchmark].[FY] AS [FY], 
+    [vwDT3NewlyPatientBenchmark].[ClinicalCount] AS [ClinicalCount], 
+    [vwDT3NewlyPatientBenchmark].[ClinicalRegHigh] AS [ClinicalRegHigh], 
+    [vwDT3NewlyPatientBenchmark].[ClinicalRegLow] AS [ClinicalRegLow], 
+    [vwDT3NewlyPatientBenchmark].[ClinicalRegMedian] AS [ClinicalRegMedian], 
+    [vwDT3NewlyPatientBenchmark].[ClinicalRegSubtotal] AS [ClinicalRegSubtotal], 
+    [vwDT3NewlyPatientBenchmark].[CompCount] AS [CompCount], 
+    [vwDT3NewlyPatientBenchmark].[CompRegHigh] AS [CompRegHigh], 
+    [vwDT3NewlyPatientBenchmark].[CompRegLow] AS [CompRegLow], 
+    [vwDT3NewlyPatientBenchmark].[CompRegMedian] AS [CompRegMedian], 
+    [vwDT3NewlyPatientBenchmark].[CompRegSubtotal] AS [CompRegSubtotal], 
+    [vwDT3NewlyPatientBenchmark].[ClinicalEnrollHigh] AS [ClinicalEnrollHigh], 
+    [vwDT3NewlyPatientBenchmark].[ClinicalEnrollLow] AS [ClinicalEnrollLow], 
+    [vwDT3NewlyPatientBenchmark].[ClinicalEnrollMedian] AS [ClinicalEnrollMedian], 
+    [vwDT3NewlyPatientBenchmark].[ClinicalEnrollSubtotal] AS [ClinicalEnrollSubtotal], 
+    [vwDT3NewlyPatientBenchmark].[CompEnrollHigh] AS [CompEnrollHigh], 
+    [vwDT3NewlyPatientBenchmark].[CompEnrollLow] AS [CompEnrollLow], 
+    [vwDT3NewlyPatientBenchmark].[CompEnrollMedian] AS [CompEnrollMedian], 
+    [vwDT3NewlyPatientBenchmark].[CompEnrollSubtotal] AS [CompEnrollSubtotal], 
+    [vwDT3NewlyPatientBenchmark].[TotalReg] AS [TotalReg], 
+    [vwDT3NewlyPatientBenchmark].[TotalEnroll] AS [TotalEnroll]
+    FROM [dbo].[vwDT3NewlyPatientBenchmark] AS [vwDT3NewlyPatientBenchmark]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwDT3Top20EnrolledBenchmark" EntityType="Self.vwDT3Top20EnrolledBenchmark" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwDT3Top20EnrolledBenchmark].[ID] AS [ID], 
+    [vwDT3Top20EnrolledBenchmark].[FY] AS [FY], 
+    [vwDT3Top20EnrolledBenchmark].[PrimarySite] AS [PrimarySite], 
+    [vwDT3Top20EnrolledBenchmark].[EnrolledPatient] AS [EnrolledPatient]
+    FROM [dbo].[vwDT3Top20EnrolledBenchmark] AS [vwDT3Top20EnrolledBenchmark]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwDT3Top20RegisteredBenchmark" EntityType="Self.vwDT3Top20RegisteredBenchmark" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwDT3Top20RegisteredBenchmark].[ID] AS [ID], 
+    [vwDT3Top20RegisteredBenchmark].[FY] AS [FY], 
+    [vwDT3Top20RegisteredBenchmark].[PrimarySite] AS [PrimarySite], 
+    [vwDT3Top20RegisteredBenchmark].[RegisteredPatient] AS [RegisteredPatient]
+    FROM [dbo].[vwDT3Top20RegisteredBenchmark] AS [vwDT3Top20RegisteredBenchmark]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwDT4PhaseBenchmark" EntityType="Self.vwDT4PhaseBenchmark" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwDT4PhaseBenchmark].[ID] AS [ID], 
+    [vwDT4PhaseBenchmark].[FY] AS [FY], 
+    [vwDT4PhaseBenchmark].[Phase] AS [Phase], 
+    [vwDT4PhaseBenchmark].[SortOrder] AS [SortOrder], 
+    [vwDT4PhaseBenchmark].[OpenTrialTotal] AS [OpenTrialTotal], 
+    [vwDT4PhaseBenchmark].[OpenTrialMedian] AS [OpenTrialMedian], 
+    [vwDT4PhaseBenchmark].[AccruedTotal] AS [AccruedTotal], 
+    [vwDT4PhaseBenchmark].[AccruedMedian] AS [AccruedMedian], 
+    [vwDT4PhaseBenchmark].[OpenTrialCumTotal] AS [OpenTrialCumTotal], 
+    [vwDT4PhaseBenchmark].[AccruCumTotal] AS [AccruCumTotal]
+    FROM [dbo].[vwDT4PhaseBenchmark] AS [vwDT4PhaseBenchmark]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwDT4PrimaryPurposeBenchmark" EntityType="Self.vwDT4PrimaryPurposeBenchmark" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwDT4PrimaryPurposeBenchmark].[ID] AS [ID], 
+    [vwDT4PrimaryPurposeBenchmark].[FY] AS [FY], 
+    [vwDT4PrimaryPurposeBenchmark].[PrimaryPurpose] AS [PrimaryPurpose], 
+    [vwDT4PrimaryPurposeBenchmark].[SortOrder] AS [SortOrder], 
+    [vwDT4PrimaryPurposeBenchmark].[OpenTrialTotal] AS [OpenTrialTotal], 
+    [vwDT4PrimaryPurposeBenchmark].[OpenTrialMedian] AS [OpenTrialMedian], 
+    [vwDT4PrimaryPurposeBenchmark].[AccruedTotal] AS [AccruedTotal], 
+    [vwDT4PrimaryPurposeBenchmark].[AccruedMedian] AS [AccruedMedian], 
+    [vwDT4PrimaryPurposeBenchmark].[OpenTrialCumTotal] AS [OpenTrialCumTotal], 
+    [vwDT4PrimaryPurposeBenchmark].[AccruCumTotal] AS [AccruCumTotal]
+    FROM [dbo].[vwDT4PrimaryPurposeBenchmark] AS [vwDT4PrimaryPurposeBenchmark]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwDT4ResearchCatBenchmark" EntityType="Self.vwDT4ResearchCatBenchmark" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwDT4ResearchCatBenchmark].[ID] AS [ID], 
+    [vwDT4ResearchCatBenchmark].[FY] AS [FY], 
+    [vwDT4ResearchCatBenchmark].[ClinicalResearchCat] AS [ClinicalResearchCat], 
+    [vwDT4ResearchCatBenchmark].[OpenTrialTotal] AS [OpenTrialTotal], 
+    [vwDT4ResearchCatBenchmark].[OpenTrialMedian] AS [OpenTrialMedian], 
+    [vwDT4ResearchCatBenchmark].[AccruedTotal] AS [AccruedTotal], 
+    [vwDT4ResearchCatBenchmark].[AccruedMedian] AS [AccruedMedian], 
+    [vwDT4ResearchCatBenchmark].[SortOrder] AS [SortOrder]
+    FROM [dbo].[vwDT4ResearchCatBenchmark] AS [vwDT4ResearchCatBenchmark]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwDT4StudySourceBenchmark" EntityType="Self.vwDT4StudySourceBenchmark" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwDT4StudySourceBenchmark].[ID] AS [ID], 
+    [vwDT4StudySourceBenchmark].[FY] AS [FY], 
+    [vwDT4StudySourceBenchmark].[StudySource] AS [StudySource], 
+    [vwDT4StudySourceBenchmark].[SortOrder] AS [SortOrder], 
+    [vwDT4StudySourceBenchmark].[OpenTrialTotal] AS [OpenTrialTotal], 
+    [vwDT4StudySourceBenchmark].[OpenTrialMedian] AS [OpenTrialMedian], 
+    [vwDT4StudySourceBenchmark].[AccruedTotal] AS [AccruedTotal], 
+    [vwDT4StudySourceBenchmark].[AccruedMedian] AS [AccruedMedian], 
+    [vwDT4StudySourceBenchmark].[OpenTrialCumTotal] AS [OpenTrialCumTotal], 
+    [vwDT4StudySourceBenchmark].[AccruCumTotal] AS [AccruCumTotal]
+    FROM [dbo].[vwDT4StudySourceBenchmark] AS [vwDT4StudySourceBenchmark]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwDView" EntityType="Self.vwDView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwDView].[GrantNumber] AS [GrantNumber], 
+    [vwDView].[InstitutionName] AS [InstitutionName], 
+    [vwDView].[CenterId] AS [CenterId], 
+    [vwDView].[FY] AS [FY], 
+    [vwDView].[P30Partner] AS [P30Partner], 
+    [vwDView].[FullProjNo] AS [FullProjNo], 
+    [vwDView].[ProjTitle] AS [ProjTitle], 
+    [vwDView].[BudgetStartDate] AS [BudgetStartDate], 
+    [vwDView].[BudgetEndDate] AS [BudgetEndDate], 
+    [vwDView].[PIname] AS [PIname], 
+    [vwDView].[TotalCost] AS [TotalCost], 
+    [vwDView].[NCITotalNo] AS [NCITotalNo], 
+    [vwDView].[NCIDC] AS [NCIDC], 
+    [vwDView].[NCITC] AS [NCITC], 
+    [vwDView].[OthNIHTotalNo] AS [OthNIHTotalNo], 
+    [vwDView].[OthNIHDC] AS [OthNIHDC], 
+    [vwDView].[OthNIHTC] AS [OthNIHTC], 
+    [vwDView].[OthPRTotalNo] AS [OthPRTotalNo], 
+    [vwDView].[OthPRDC] AS [OthPRDC], 
+    [vwDView].[OthPRTC] AS [OthPRTC], 
+    [vwDView].[IndNonPRTotalNo] AS [IndNonPRTotalNo], 
+    [vwDView].[IndNonPRDC] AS [IndNonPRDC], 
+    [vwDView].[IndNonPRTC] AS [IndNonPRTC], 
+    [vwDView].[OthNonPRTotalNo] AS [OthNonPRTotalNo], 
+    [vwDView].[OthNonPRDC] AS [OthNonPRDC], 
+    [vwDView].[OthNonPRTC] AS [OthNonPRTC], 
+    [vwDView].[AlignedNumber] AS [AlignedNumber], 
+    [vwDView].[NonAlignedNumber] AS [NonAlignedNumber]
+    FROM [dbo].[vwDView] AS [vwDView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwET" EntityType="Self.vwET" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwET].[ETID] AS [ETID], 
+    [vwET].[fy] AS [fy], 
+    [vwET].[grantnumber] AS [grantnumber], 
+    [vwET].[CenterType] AS [CenterType], 
+    [vwET].[InstitutionName] AS [InstitutionName], 
+    [vwET].[FullName] AS [FullName], 
+    [vwET].[Titles] AS [Titles], 
+    [vwET].[Emails] AS [Emails]
+    FROM [dbo].[vwET] AS [vwET]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwICD" EntityType="Self.vwICD" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwICD].[ICDCodeID] AS [ICDCodeID], 
+    [vwICD].[index] AS [index], 
+    [vwICD].[PrimarySite] AS [PrimarySite], 
+    [vwICD].[icd] AS [icd], 
+    [vwICD].[icdo3] AS [icdo3]
+    FROM [dbo].[vwICD] AS [vwICD]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwOCCAnnouncement" EntityType="Self.vwOCCAnnouncement" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwOCCAnnouncement].[OCCAnnouncementID] AS [OCCAnnouncementID], 
+    [vwOCCAnnouncement].[Title] AS [Title], 
+    [vwOCCAnnouncement].[EffectiveDate] AS [EffectiveDate], 
+    [vwOCCAnnouncement].[Message] AS [Message]
+    FROM [dbo].[vwOCCAnnouncement] AS [vwOCCAnnouncement]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwRP" EntityType="Self.vwRP" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vwRP].[fy] AS [fy], 
+    [vwRP].[CenterType] AS [CenterType], 
+    [vwRP].[InstitutionName] AS [InstitutionName], 
+    [vwRP].[CenterName] AS [CenterName], 
+    [vwRP].[ProgName] AS [ProgName], 
+    [vwRP].[FullNname] AS [FullNname], 
+    [vwRP].[DT1BProgramID] AS [DT1BProgramID]
+    FROM [dbo].[vwRP] AS [vwRP]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
