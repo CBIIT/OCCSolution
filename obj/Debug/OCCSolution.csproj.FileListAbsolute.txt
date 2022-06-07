@@ -1223,8 +1223,15 @@ C:\Users\dinhct\Desktop\OCCSolution-1\bin\System.Web.Razor.xml
 C:\Users\dinhct\Desktop\OCCSolution-1\bin\System.Web.WebPages.xml
 C:\Users\dinhct\Desktop\OCCSolution-1\bin\System.Web.WebPages.Deployment.xml
 C:\Users\dinhct\Desktop\OCCSolution-1\bin\System.Web.WebPages.Razor.xml
+<<<<<<< HEAD
 C:\Users\dinhct\Desktop\OCCSolution-1\obj\Debug\OCCSolution.csproj.AssemblyReference.cache
+=======
+>>>>>>> 1e598d879b89d9cfb2b5627754262d2c38796301
 C:\Users\dinhct\Desktop\OCCSolution-1\obj\Debug\OCCSolution.csproj.CoreCompileInputs.cache
 C:\Users\dinhct\Desktop\OCCSolution-1\obj\Debug\OCCSolution.csproj.CopyComplete
 C:\Users\dinhct\Desktop\OCCSolution-1\obj\Debug\OCCSolution.dll
 C:\Users\dinhct\Desktop\OCCSolution-1\obj\Debug\OCCSolution.pdb
+<<<<<<< HEAD
+=======
+C:\Users\dinhct\Desktop\OCCSolution-1\obj\Debug\OCCSolution.csproj.AssemblyReference.cache
+>>>>>>> 1e598d879b89d9cfb2b5627754262d2c38796301
