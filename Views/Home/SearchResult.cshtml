@@ -6,6 +6,7 @@
       DATE           Coder     DESC
       4/12/2022      Chi       CAN NOT use @ tag twice in code block.
                                using the latest bootstrap DataTables 1.11.5  https://datatables.net/examples/advanced_init/column_render.html
+      6/8/2022       Chi       Remember the search is default to 25 search results. 
     *************************************************************************************************************************************** *@
 <!DOCTYPE html>
 <head>
@@ -115,7 +116,7 @@
                     "scrollCollapse": true,
                     "paging": true,
                     "bFilter": false,       /* hide the search box */
-                  /*  "lengthMenu": [50, "All"],*/ /* Show # of entries */
+                    "lengthMenu": [10,25], /* Show 10 or 25 entries only, since the search is default to 25 max */
                     columns: [
                         {
                             data: 'Title', width: '40%'
