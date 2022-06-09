@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "DT";
+}
+@*<!--COMMENTS---------------------------------------------------------------------------------------------------------------------------------------
+        DATE            Developer       NOTES
+        11/05/2014      AM              Made Icons Clickable
+        11/11/2014      Chi             Removed OCC Message Board
+        12/12/2014      AM              Disabled Links to DT1-Dt4 pages
+        12/16/2014      AM              fix 508 issues
+        12/17/2014      Chi             Enabled the links to DT1-4 pages
+        12/21/2014      Chi             Added the tooptip to DT1-4
+        01/06/2015      AM              Updated my title
+        02/04/2015      AM              Added Fancy Tooltips
+        03/27/2015      Chi             Removed occHyperlink, added id="home" to the 1st <a> tag, added aria-hidden="true"
+        04/01/2015      AM              Moved id="home" to home breadcrumb
+        04/02/2015      AM              Removed <i>, removed orange hyperlink
+        02/15/2022      Chi             Updated the vwDT1Benchmark in the db - have to refresh the OCCdbModel.edmx  
+    ------------------------------------------------------------------------------------------------------------------------------->*@
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div class="container" id="pageCenterID">
+        <h2 class="text-primary" style="color:#005C83">&nbsp;Centers Benchmark Data</h2>
+        <hr style="margin-bottom:0em;" />
+        <ul class="breadcrumb" style="float:left;">
+            <li><a title="Click here to go to Homepage" href="#" id="home">@Html.ActionLink("Home", "Index", "Home")</a> <span aria-hidden="true" class="glyphicon glyphicon-circle-arrow-right"></span></li>
+            <li><a href="~/Center/CancerCenters" title="Click here to go to Cancer Centers Overview page">Cancer Centers</a> <span aria-hidden="true" class="glyphicon glyphicon-circle-arrow-right"></span></li>
+            <li class="active grayFont" title="Center Benchmark Data page">Center Benchmark Data</li>
+        </ul>
+     
+        <div class="row" id="centerContentID" >
+            <div class="col-sm-12" style="float:left; margin:0px;">
+                <p style="font-family:Helvetica Neue,Helvetica,Arial,sans-serif;">
+                    This section provides compiled reports derived from the annual information submitted by each Cancer Center.<br /><br />
+                    Unless otherwise noted, these pages contain data that were submitted in Fiscal Year 2010 to recent year. Annual project periods differ from center to center, therefore the exact 12-month timeframe for reporting may vary as well. <br /><br />
+                    If you have questions about these reports, send an email to our <a href="mailto:ccsgdata@mail.nih.gov">Computer Systems Analyst</a>.<br><br>
+                </p>
+            </div>
+        </div>
+            @* DT 1 & 2 *@
+        <div class="row">
+            <div class="col-sm-6" style="float:left;">
+                <a href="~/DT/DT1" class="pull-left">
+                    <img data-toggle="tooltip" data-original-title="Click here to go to DT1 page" class="img-responsive DTimage tip-bottom tooltipColor" src="~/images/dt1BMIcon.jpg" alt="Data Table 1" style="float:left; width:70px; height:65px; padding-right:.5em;" />
+                </a>
+                <p style="text-justify:inter-word;">
+                    <a href="@Url.Action("DT1", "DT")" class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to go to DT1 page"><strong> Data Table 1 </strong></a>
+                    contains information reported by centers on the number of Research Programs, shared resources, and center members.
+                </p>
+            </div>
+            <div class="col-sm-6" style="float:left;">
+                <a href="~/DT/DT2" class="pull-left">
+                    <img data-toggle="tooltip" data-original-title="Click here to go to DT2 page" class="img-responsive DTimage tip-bottom tooltipColor" src="~/images/dt2BMIcon.jpg" alt="Data Table 2" style=" float:left; width:70px; height:65px; padding-right:.5em;" />
+                </a>
+                <p style="text-justify:inter-word;">
+                    <a class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to go to the DT2 page" href="@Url.Action("DT2", "DT")"><strong> Data Table 2 </strong></a>
+                    shows center-reported funding from NCI and other NIH institutes.
+                </p>
+            </div>
+        </div>
+        @* DT 3 & 4 *@
+        <div class="row">
+            <br />
+            <div class="col-sm-6" style="float:left; ">
+                <a href="~/DT/DT3" class="pull-left">
+                    <img data-toggle="tooltip" data-original-title="Click here to go to the DT3 page" class="img-responsive DTimage tip-bottom tooltipColor" src="~/images/dt3BMIcon.jpg" alt="Data Table 3" style="float:left; width:70px; height:65px; padding-right:.5em;" />
+                </a>
+                <p style="text-justify:inter-word;">
+                    <a class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to go to the DT3 page"href="@Url.Action("DT3", "DT")"><strong>Data Table 3 </strong></a>
+                    provides center-reported information on the number of new patients seen and the number of new patient newly enrolled on clinical studies, as well as the top 20 cancer types.
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <a href="~/DT/DT4" class="pull-left">
+                    <img data-toggle="tooltip" data-original-title="Click here to go to DT4 page" class="img-responsive DTimage tip-bottom tooltipColor" src="~/images/dt4BMIcon.jpg" alt="Data Table 4" style="float:left; width:70px; height:65px; padding-right:.5em;" />
+                </a>
+                <p style="text-justify:inter-word;">
+                    <a class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to go to DT4 page" href="@Url.Action("DT4", "DT")"><strong> Data Table 4 </strong></a>
+                    displays center-reported patient accrual to clinical research studies by study source, clinical research category, phase, and primary purpose.
+                </p>
+            </div>
+        </div>
+</div>
+</body>
+</html>

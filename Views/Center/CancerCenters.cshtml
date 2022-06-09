@@ -1,0 +1,115 @@
+﻿@{
+    ViewBag.Title = "CancerCenters";
+}
+
+<!DOCTYPE html>
+<div>
+    @***********************************************************************************************************************************************************************************************
+            DATE         DEVELOPER          DESC
+            12/09/2014  AM                  Replaced Map with Scaled version
+            12/14/2014  AM                  OCC Message board; Removed " View all messages"and added  glyphicon-collapse-down;
+            12/19/2014  Chi                 Made the basic/clinical/comp hyperlinkable to the cancer center list
+            12/30/2014  AM                  Included the number "buttons" in the <a> tag
+            01/07/2014  AM                  Update URLs for RP & SR
+            01/13/2015  Chi                 Corrected Comprehensive spelling
+            01/30/2015  AM                  Added Cancer Centers Benchmark Data Link
+            02/04/2015  AM                  Added Fancy Tooltips
+            03/27/2015  Chi                 Removed occHyperlink, added id="home" to the 1st <a> tag, added aria-hidden="true"
+            04/01/2015  AM                  Moved id="home" to home breadcrumbs
+            04/02/2015  AM                  Removed <a> tag from number of bas, clin, comp centers, added <a> tag to table heading, added style for btn to keep font white and increase font-size
+                                            removed <i>
+            07/16/2015  AM                  Updated Comp & Clin numbers Baylor, NM, Huntsman and UT SW achieved comprehensiveness
+            02/04/2016  AM                  Updated CC Map Image with New Comp ( Baylor, Utah, NM and UTSW) and added Clin Center (Mt. Sinai)
+                                            Updated Number of Clinical Centers (thank you LW)
+            06/07/2016  AM                  Temporaily updated link Research Program to open PDF
+            08/09/2016  AM                  Updated Center type count. University of MD and Stanford were clinical and now are comprehensive.
+            05/16/2017  Chi                 Updated 47 Comprehensive, 15 Cllinical to 48 Comprehensive, 14 Clinical
+            07/18/2017  AM                  Updated center count: 49 Comprehensive, 13 Clinical and 7 Basic.
+            06/28/2018  AM                  Updated center coutn: 50 comprehensive, 13 clinical and 7 basic for a total of 70 centers.
+            09/04/2018  AM                  Changed background color for btn-success to #2e6b2e for 508 compliance
+            10/16/2018  AM                  Updated URL for RP
+            10/31/2018  Chi                 for 508, added aria-label=""
+            04/16/2019  Chi                 Comp = 50, Clinical = 13, and basic = 7
+            05/23/2018  AM                  Replaced old iMap with updated Map from Cancer.gov
+            06/28/2018  AM                  Updated center count: 49 comprehensive, 14 clinical, and 7 basic for a total of 71 centers.
+            08/19/2018  AM                  Updated center count: 51 comprehensive, 13 clinical, and 7 basic for a total of 71 centers.
+            01/25/2022  AM                  Updated center count: 52 comprehensive, 12 clinical, and 7 basic for a total of 71 centers (UVA received comprehensive designation)
+            04/01/2022  Chi                 Tweaked w/ the btn-danger (dark red), btn-primary (blue), and btn-openid (yellow) and in !important,
+                                            commented out .btn declaration so the search icon would show up *CRAZY*
+ ***********************************************************************************************************************************************************************************************@
+</div>
+
+<style>
+    /* 4/1/2022 - commented out so the search icon would show up *CRAZY*
+    .btn {
+        color: #fff;
+        font-size: 14px
+    }*/
+    .btn-success {
+        background-color: #2e6b2e;
+        outline-color: #2e6b2e;*/
+        /*background-image: -webkit-linear-gradient(top, #2e6b2e 0,#2e6b2e 100%);*/
+    }
+   
+</style>
+
+<html lang="en">
+
+<body>
+    <div class="container" id="pageCenterID">
+        <div class="row" id="centerContentID" style="margin-bottom:0em;">
+            <h2 style="color:#632D63;">&nbsp;Cancer Centers</h2>
+            <hr style="margin-bottom:0em;" />
+            <ul class="breadcrumb" id="centerContentID" style="float:left;">
+                <li><a href="home" id="home">@Html.ActionLink("Home", "Index", "Home")</a> <span aria-hidden="true" class="glyphicon glyphicon-circle-arrow-right"></span></li>
+                <li class="active grayFont">Cancer Centers</li>
+            </ul>
+        </div>
+        <div class="row" style="margin-bottom:0em;">
+            <div class="col-sm-4" style="text-justify:inter-word;">
+                <br />
+
+                <div accesskey="s" class="btn btn-default btn-sm" style="width:280px; border-color:#D8CAD8; float:left;">
+                    <a href="@Url.Action("CCList", "Center")" class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to go to the Cancer Centers List" aria-label="a button to click to the cancer centers list"><strong>71 NCI-Designated Cancer Centers</strong></a>
+                </div>
+                <div class="inbar" style="width:280px;border-color:#D8CAD8;">
+                    <ul>
+                        <li><div class="btn btn-primary btn-sm" style="font-size: 14px !important;" aria-label="a button displays 49 comprehensive cancer centers">52</div>&nbsp;Comprehensive</li>
+                        <li><div class="btn btn-danger btn-sm" style="color: #fff; background-color:#c91515 !important; font-size:14px !important;" aria-label="a button displays 14 clinicial cancer centers">12</div>&nbsp;Clinical</li>
+                        <li><div class="btn btn-openid btn-sm" style="font-size: 14px !important;" aria-label="a button displays 7 basic cancer centers">07</div>&nbsp;Basic</li>
+                    </ul>
+                    <div style="clear:both"></div>
+                </div>
+                <br />
+
+                <p>NCI-designated Cancer Centers are characterized by scientific excellence and the capability to integrate a diversity of research approaches to focus on the problem of cancer.</p>
+                <p>They play a vital role in advancing towards our goal of reducing morbidity and mortality from cancer.</p>
+                <br />
+                <a href="~/DT/DT" aria-label="hyperlink to cancer centers benchmark data">Cancer Centers Benchmark Data</a>
+            </div>
+            <div class="col-sm-8">
+
+                <img src="~/images/findacancercentermap.jpg" alt="NCI-designated Cancer Centers Map" aria-label="An image of the NCI-designated Cancer Centers Map" style="float:left;width:580px; height:360px;" />
+            </div>
+        </div> <!--end of row-->
+
+        <div class="row">
+            <div class="col-sm-4" style="text-justify:inter-word;">
+                <h5><strong>Cancer Centers List</strong></h5>
+                <p>A comprehensive directory with contact information for all our cancer centers.</p>
+                <a href="~/Center/CCList" aria-label="hyperlink to find a cancer center"> Find a cancer center &raquo;</a>
+            </div>
+            <div class="col-sm-4" style="text-justify:inter-word;">
+                <h5><strong>Research Programs</strong></h5>
+                <p>Research programs promote collaborative research between basic laboratory, clinical, and population sciences.</p>
+                <a href="https://cancercenters.cancer.gov/Center/RP" target="_blank" aria-label="hyperlink to find a research program"> Find a research program &raquo;</a>
+            </div>
+            <div class="col-sm-4" style="text-justify:inter-word;">
+                <h5><strong>Shared Resources</strong></h5>
+                <p>Shared resources provide researchers access to cutting edge technologies and services that promote scientific interaction and productivity.</p>
+                <a href="~/Center/SharedResource" aria-label="hyperlink to find a shared resource"> Find a shared resource &raquo;</a>
+            </div>
+        </div> <!--end of row -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,222 @@
+﻿
+@{
+    ViewBag.Title = "HIVSupp";
+}
+
+
+@*COMMENTS---------------------------------------------------------------------------------
+        DATE        USER    NOTES
+
+        04/03/2015  AM      Page Created
+
+    ------------------------------------------------------------------------------------------*@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HIV Supp</title>
+
+    <style type="text/css">
+        /* Custom Styles */
+        ul.nav-tabs {
+            width: 140px;
+            margin-top: 20px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+        }
+
+            ul.nav-tabs li {
+                margin: 0;
+                border-top: 1px solid #ddd;
+            }
+
+                ul.nav-tabs li:first-child {
+                    border-top: none;
+                }
+
+                ul.nav-tabs li a {
+                    margin: 0;
+                    padding: 8px 16px;
+                    border-radius: 0;
+                }
+
+                ul.nav-tabs li.active a, ul.nav-tabs li.active a:hover {
+                    color: #fff;
+                    background: #005c83;
+                    border: 1px solid #274D9A;
+                }
+
+                ul.nav-tabs li:first-child a {
+                    border-radius: 4px 4px 0 0;
+                }
+
+                ul.nav-tabs li:last-child a {
+                    border-radius: 0 0 4px 4px;
+                }
+
+            ul.nav-tabs.affix {
+                top: 30px; /* Set the top position of pinned element */
+            }
+
+        h3 {
+            text-align: center;
+        }
+
+        .sectionHead {
+            font-size: large;
+            color:#005c83
+        }
+
+        .subHead {
+            font-size: medium;
+            color: #005c83;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target="#myScrollspy">
+    <div class="container" id="pageCenterID">
+        <div class="row" id="centerContentID">
+            <h2 style="color:#005c83">&nbsp;HIV-Global Supplement to P30 CCSGs</h2>
+            <p style="font-size:medium; padding-left:.5em;"><small>Posted April 03, 2015</small></p>
+            <hr style="margin-bottom:0em;" />
+            <ul class="breadcrumb" style="float:left; margin-bottom:2px;">
+                <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a href="#" id="home">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
+                <li><a href="~/GrantsFunding/GrantsFunding">Grants & Funding</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
+                <li class="active grayFont">HIV-Global Supplement to P30 CCSGs</li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-3" id="myScrollspy">
+                @*scrollspy*@
+            <ul class="nav nav-tabs nav-stacked affix-top" style="color:#428BCA;" data-spy="affix" data-offset-top="125">
+                <li style="color:#428BCA;" class="active"><a href="#Purpose">Purpose</a></li>
+                <li><a href="#Background">Background</a></li>
+                <li><a href="#Mech">Mechanism and Funds</a></li>
+                <li><a href="#Elig">Eligibility and Requirements</a></li>
+                <li><a href="#Proc">Application Procedure</a></li>
+                <li><a href="#Review">Application Review Process</a></li>
+
+
+                <li><a href="~/documents/HIV-GlobalSupplmenttoP30CCSGs508C.pdf" target="_blank">PDF Version</a></li>
+            </ul>
+        </div>
+
+        <div class="col-xs-9">
+
+            <h3> Administrative Supplements to P30 Cancer Centers Support Grants (CCSG) to Stimulate Collaborative HIV Malignancy Research in Low and Middle Income Countries (LMIC)</h3>
+
+            <p id="Purpose" class="sectionHead">Purpose</p>
+            <hr>
+
+            <p>The purpose of this initiative is to stimulate HIV malignancy research via support of collaborative pilot projects in NCI-designated Cancer Centers (CC) and low and middle income countries (LMICs), per World Bank classification. Findings from this collaboration could potentially improve cancer control, prevention and treatment strategies in the US and the LMIC. The supplements are intended to: (1) strengthen collaborations between CC and LMIC investigators in cancer and other disciplines, (2) lay the groundwork for larger-scale studies supported by other mechanisms, 3) promote the development of LMIC investigators and systematic tools/approaches for future inter-CC/LMIC research collaborations on HIV-associated cancers, and (4) encourage projects that address health disparities, including women, minorities, and other vulnerable groups affected by HIV.</p>
+
+            <p id="Background" class="sectionHead">Background</p>
+            <hr>
+
+            <p>More than two-thirds of HIV-infected persons live in sub-Saharan Africa and other LMICs, creating a global challenge.  Data on the incidence of HIV-associated malignancies in LMICs is often lacking, but the burden of cancer among persons with HIV is believed to have increased with the progression of the HIV epidemic in these countries.  Research to address questions of specific relevance to HIV-associated malignancies in these countries is warranted.</p>
+
+
+            <p id="Mech" class="sectionHead">Mechanism and Funds Available</p>
+            <hr>
+
+            <p>The NCI may allocate a total of $2.2 million dollars in total costs depending on funding availability.  It is expected that 10-12 awards of up to $200,000 total costs per year will be awarded by September, 2015 to successful applicants. Funding will be as a supplement to the Developmental Funds component of the P30 Cancer Center Support Grant, with funds restricted to support of pilot studies in HIV-associated malignancies.  </p>
+
+
+            <p id="Elig" class="sectionHead">Eligibility to Apply and Other Requirements</p>
+            <hr>
+
+            <p>All CCs are eligible to apply. Only one application per CC is permitted. A CC may request funding for one - two years and propose 1 pilot project per application. Any proposal that cannot be completed within the 1-2 year time frame will be viewed as non-responsive. Several examples of research topics are listed below, but these are by no means inclusive:</p>
+            <ul>
+                <li>Study of genome wide alterations among patients with HIV-associated malignancies </li>
+                <li>Role of oncogenic viruses and/or HIV in the induction of HIV-associated malignancies</li>
+                <li>Impact of prolonged immunosuppression on the development of HIV-associated malignancies</li>
+                <li>Impact of incomplete or failed responses to combination antiretroviral therapy on the development of HIV-associated malignancies </li>
+                <li>Host genetic susceptibility to HIV-associated malignancies in patients with HIV infection </li>
+                <li>Strategies for the prevention of cancer in the HIV-positive population</li>
+                <li>Predictors of survival in patients with AIDS-defining and non-AIDS defining cancer, nationally and internationally</li>
+                <li>Role of endemic infections in cancer development in HIV-infected patients</li>
+            </ul>
+
+            <p>CCs applying for these supplements should leverage existing research capacity supported by NIH/NCI in the LMIC.  In addition, these supplements are intended to strengthen collaboration between cancer researchers and researchers in other disciplines, expand upon relevant new knowledge that can be immediately applied to HIV-associated cancers, promote the development of systematic tools for future inter-CC/LMIC research collaborations on HIV-associated cancers, and encourage projects that address health disparities, including women, minorities, and other vulnerable groups affected by HIV. </p>
+
+            <p>Project leaders for the research projects ultimately selected for an award by the CC must be members of the CC. A  LMIC investigator must co-lead the project. Mentored projects by junior investigators are encouraged. Projects must address questions in HIV-associated malignancies of relevance to the LMIC.  At least fifty percent of funds must be directed to the LMIC.</p>
+
+            <p>Prior to expenditure of funds, awarded pilot projects must have all domestic and foreign IRB approvals, documentation of human subjects training for all key personnel, NIH clearance via a revised Notice of Award, evidence of OHRP required project assurance, and any other required approvals from the appropriate foreign government officials, per what is standard in that country. </p>
+
+            <p><b>NOTE: Studies involving clinical trials are not allowed.</b></p>
+
+            <p>Progress of research will be monitored by NCI staff.  Progress on the pilot projects must be provided separately in the annual Progress Report for the P30 parent award.</p>
+            <p>NCI-designated CC and LMIC institution awardees are encouraged to submit abstracts to future meetings of the International Conference on Malignancies in AIDS and Other Acquired Immunodeficiencies (ICMAOI), American Association for Cancer Research (AACR), Conference on Retroviruses and Opportunistic Infections (CROI) and other national and international conferences.  Abstracts should acknowledge the NCI P30 supplemental funding. </p>
+
+            <p><u>Receipt Date</u>: March 13, 2015</p>
+
+            <p>
+                <u>Allowable Cost</u>: MThis award is for pilot projects only and does not support the purchase of equipment. The general areas in which costs are allowable are as follows:<br />
+                <ol>
+                    <li>Salary for principal investigator(s), mentor(s) when applicable and other personnel necessary to conduct research in LMIC</li>
+                    <li>Limited travel for LMIC co-Leader to present at conferences</li>
+                    <li>Costs for procuring specialized materials/resources/reagents that cannot be accommodated by the Cancer Center shared resources</li>
+                </ol>
+            <p id="Proc" class="sectionHead">Application Procedure</p>
+            <hr>
+
+            <ol>
+                <li>Cover Letter:  A cover letter signed by the CC Director should accompany each application.</li>
+                <li>Format of the Application: Submit your pilot project with your application.</li>
+            </ol>
+            <ul>
+                <li>Requests submitted in response to this opportunity must use the <a href="http://grants1.nih.gov/grants/funding/phs398/phs398.html)">PHS 398 forms </a>(rev. 6 />2009</li>
+                <li>Use the standard face page of the PHS 398 including all institutional signatures.</li>
+                <li>Provide 3 -5 page narrative that includes (1) rationale, study design, project time line and methods  for each pilot project proposed; (2) a description of  the collaborative arrangement between the CC and LMIC, and  the current HIV/AIDS-related  malignancy research portfolio in the CC , including previous funding to CC to support HIV-associated malignancy research and ongoing collaborations/research in HIV-related and other cancers with the LMIC;  (3) facilities/resources at Cancer Center and LMIC that will be available to the project; (4) how the pilot project will strengthen existing, or develop new, collaborations and foster global cancer research at the CC.</li>
+                
+            </ul>
+            <ol start="3">
+                <li>Overall budget (including Cancer Center and foreign institution) and budget justifications. Clearly detailed costs (Direct and Indirect) along with a narrative justifying each requested cost must be provided. </li>
+                <li>Letters of commitment from the Cancer Center Director, LMIC co-leader and an appropriate institutional official supporting the collaborative project (both Cancer Center and foreign institution). If possible, this letter should include any specific allocations of space, facilities, and resources.</li>
+                <li>Statement assuring compliance with applicable NIH policies e.g., human subjects, animal welfare, data sharing, and understanding of the requirements for NIH approvals prior to any international study initiation, etc.</li>
+                <li>A biographical sketch for any key personnel and LMIC investigators.  </li>
+                <li>A completed application checklist, please check "REVISION” to grant number. (This application is for additional funds to supplement a currently funded grant.)  </li>
+            </ol>
+
+            <p><b>Where to send the Cover Letter and Application:</b></p>
+            <p>Do not send applications to the NIH Center for Scientific Review.  The cover letter and the application (Word or PDF file) can be e-mailed to: <br /><br />
+                <a mailto:nguyenn2@mail.nih.gov>Nga Nguyen</a><br /><br />
+                
+            If unable to send via email a hard copy can be sent to:<br />
+            
+            <p>
+                Nga Nguyen<br />
+                Office of Cancer Centers<br />
+                National Cancer Institute<br />
+                National Institutes of Health<br />
+                9609 Medical Center Drive<br />
+                Bethesda, MD 20814-9692<br />
+                Room: 2-W-216<br />
+            </p><p>
+
+            For questions, please contact the NCI program director for your P30 Cancer Center Support Grant.<br />
+
+            </p>
+
+
+            <p id="Review" class="sectionHead">Application Reveiew Process</p>
+            <hr />
+            <p>The applications will be administratively reviewed for responsiveness to the eligibility criteria above; relevance of the proposed pilot project to the LMIC and CC; and adequacy of the plan, approach and environment, particularly the CC’s commitment to support collaborative projects with LMIC investigators in HIV-associated malignancy. The review committee will include NCI staff with relevant expertise. Incomplete and/or non-responsive proposals will be returned without further consideration.</p>
+
+
+
+
+
+
+        </div>@*content*@
+
+    </div>@*row*@
+
+</div>@*container*@
+</body>
+</html>

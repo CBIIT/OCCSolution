@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "PRMSandCPDMGuidance";
+}
+
+
+@*COMMENTS---------------------------------------------------------------------------------
+        DATE        DEVELOPER   NOTES
+        11/12/2014  AM          Replaced Color names with HEX Codes
+                                Moved Print VS to bottom right
+        12/17/2014  AM          Updated URLs & target_blank
+        01/14/2014  AM          Updated Date
+        03/06/2015  AM          Modified page headers, hid comments, cleaned up code, added blockquote for Q&A,
+                                added tooltip for home, referenced occHyperLink and grayfont
+        04/01/2015  AM          Added id="home" to home bread crumb, removed OCChyperlink class
+        04/02/2015  AM          Removed <i> from page header, reduced date font size, added aria-hidden="true"
+    ------------------------------------------------------------------------------------------*@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>PRMSandCPDMGuidance</title>
+<style type="text/css">
+
+    blockquote {
+        background: #f9f9f9;
+        color: #424242;
+        border-color: #005c83;
+        /*border-radius: 3px;*/
+        border-width:2px;
+        padding-bottom: 0px;
+        padding-top: 0px;
+        padding-right: 0px;
+        /*quotes: "\201C""\201D""\2018""\2019";*/
+    }
+
+        blockquote p {
+            font-size: 14px;
+            font-weight: normal;
+            /*display: inline;*/
+        }
+    .aText {
+        color: #000000;
+        padding-left: 2em;
+    }
+</style>
+</head>
+<body>
+
+    <div class="container" id="pageCenterID">
+        <div class="row" id="centerContentID">
+            <h2 style="color:#005c83;">&nbsp;PRMS and CPDM Guidance</h2>
+            <p style="font-size:small; padding-left:.5em;">Updated November 03, 2014</p>
+            <hr style="margin-bottom:0em;" />
+            <ul class="breadcrumb" style="float:left; margin-bottom:2px;">
+                <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a href="#" id="home">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
+                <li><a href="~/GrantsFunding/GrantsFunding">Grants & Funding</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
+                <li class="active grayfont">PRMS and CPDM Guidance</li>
+            </ul>
+        </div>
+
+
+
+        <div class="col-xs-12">
+
+                <p style="text-align:center; font-size:x-large">Guidance Regarding the Protocol Review and Monitoring System and the Clinical Protocol and Data Management Components of the CCSG</p><hr />
+                    <blockquote>
+                        <p class="tip-top tooltipColor" data-toggle="collapse" data-target="#target1" title="Click to expand/collapse the answer">
+                            Question: Could you provide some guidance regarding the definition of, requirement for, and support of ‘auditing’ within the Protocol Review and Monitoring System (PRMS) and/or the Clinical Protocol and Data Management (i.e., clinical trials office or CPDM) component of the CCSG?
+                        </p>
+                    </blockquote>    
+            <div id="target1" class="aText collapse out ">
+                <p>Answer: As per CCSG guidance, auditing is not a function of the PRMS, which is focused on scientific review, prioritization, and monitoring.  The PRMS is responsible for oversight of the scientific quality of studies approved, the monitoring of over- and under-accrual (as relevant to the study type), and the continuing scientific relevance of active studies.</p>
+            </div>
+
+                <p>Data auditing for quality control purposes is the function of the CPDM.  The systematic checking of individual research subject files for accuracy of records and for meeting the conditions of the study is an expected and CCSG-supportable role for CPDM staff.  Reviewers will evaluate the merit of the applicant’s quality control system, making a judgment on the description of the quality control procedures, but they will not do audits of individual patient/subject files.  Quality control could be internal or external (e.g. Theradex), for example and reviewers should evaluate the appropriateness of the method.</p>
+                <p>Safety auditing is a Data and Safety Monitoring (DSM) function, which is now a sub-section of the CPDM component.  DSM and PRMS activities should be carried out by separate bodies, appropriate to the type, complexity and risks associated with the study.  Although there may be minor overlap of membership between the PRMS and DSM, the functions are distinct for each body.</p>
+                <p>In addition to other CCSG review criteria relevant to the PRMS, CPDM, and DSM, reviewers should particularly ensure that functions of the PRMS and the DSM - one focusing on science, one on safety – are distinct and separate.</p>
+                
+            <a href="~/documents/GuidanceRegardingPRMSandCPDMComponentsofCCSG508C.pdf" target="_blank" style="float:right">PDF Version</a><br />
+            </div>@*content*@
+        </div>@*container*@
+</body>
+</html>

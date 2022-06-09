@@ -1,0 +1,223 @@
+﻿@{
+    ViewBag.Title = "OCCStaff";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<div>
+    @*--COMMENTS---------------------------------------------------------------------------------------------------------------------------------
+            DATE            DEVELOPER   COMMENTS
+            11/07/2014      AM          Changed orange to darkorange (I think it will make the background less bright and I like it better)
+                                        Corrected email addresses
+            11/12/2014      AM          Made orange color consistent
+                                        Removed orange color from <hr/> (don't like it)
+            11/15/2p14     Chi          Replaced Sonya V. Roberson with Lastname, Firstanme for OCPL demo
+            11/23/2014     Chi          Added Sonya's photo.
+            11/24/2014     AM           Removed Telephone Icon
+            12/06/2014     AM           Add Alt Text to images
+                                        Enhanced Staff Photos
+                                        Added _Target to view our history
+            12/14/2014      AM          Updated HPC image file
+            12/14/2014      AM          Added tooltip to email icons
+            1/6/2015        AM          Updated my title
+            01/06/2014      Chi         Updated AM's title placement and update Chi's Title
+            01/13/2015      Chi         Added Sonya's email
+            02/03/2015      AM          Added Fancy Tooltip
+            02/11/2015      AM          Removed X from Joyce's name
+            03/04/2014      Chi         Fixed 508 color contrast issue, modified comment block, orange " to green font successFont and email icon
+            04/02/2015      AM          Modifed blankprofile photo and added "To Be Determined"
+            09/20/2016      Chi         Removed Nikeita Johnson's photo and profile
+            11/01/2016      AM          Made Henry Director and removed blank profile
+            01/23/2017      AM          Added Precilla Belin, updated Dr. Ptak's title
+            08/23/2017      AM          Added Precilla belin photo
+            09/11/2017      AM          Added Dr. Min He and changed the order of Program Directors and removed Dr. Marino
+            05/22/2021      Chi         removed joyce
+            04/06/2022      Chi         added B.S to Adriana's degree 
+        -----------------------------------------------------------------------------------------------------------------------------------------*@
+</div>
+<head>
+    <title>Meet Our Team</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap-social.css">
+
+    @* maroon: A3340D  orange: #ff8300 *@
+    <style>
+        .img-staff {
+            float: left;
+            border-radius: 25px;
+            border-color: #ff8300;
+        }
+
+        .formatStaff {
+            font-size: 15px;
+            line-height: 50% !important;
+            padding: 0 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="pageCenterID">
+        <div class="row" id="centerContentID">
+            <h2 style="color:#A3340D;" class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Meet Our Team page">&nbsp;Meet Our Team</h2>
+            <hr style="margin-bottom:.5em;" />
+            <ul class="breadcrumb" style="float:left;">
+                <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a id="home" href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
+                <li><a href="#">@Html.ActionLink("About Us", "About", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
+                <li class="active grayFont">Meet Our Team</li>
+            </ul>
+        </div>
+        <div class="row centerContent">
+            <div class="col-sm-2 avator">
+                @*-----------------------------------------------------------HENRY-----*@
+
+                <img class="img-thumbnail img-staff" src="~/images/HPC.jpg" alt="Photo of Henry P. Ciolino" />
+            </div>
+            <div class="col-sm-2 formatStaff">
+                <br /><br />
+                <p><b>Henry P. Ciolino</b></p>
+                <p><b>Ph.D.</b></p>
+                <p>Director</p>
+                <p><a href="mailto:henry.ciolino@nih.gov" class="glyphicon glyphicon-envelope tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to send an Email" style="color:#A3340D !important;"></a></p>
+            </div>
+            @*-----------------------------------------------------------KRZYSZTOF-----*@
+
+            <div class="col-sm-2">
+                <img class="img-thumbnail img-staff" src="~/images/KP.jpg" alt="Photo of Krzysztof Ptak" />
+            </div>
+            <div class="col-sm-2 formatStaff">
+                <br /><br />
+                <p><b>Krzysztof Ptak</b></p>
+                <p><b>Ph.D.</b></p>
+                <p>Associate Director</p>
+                <p><a href="mailto:Krzysztofptak@mail.nih.gov" class="glyphicon glyphicon-envelope  tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to send an Email" style="color:#A3340D !important;"></a></p>
+            </div>
+            @*-----------------------------------------------------------HASNAA-----*@
+            <div class="col-sm-2">
+                <img class="img-thumbnail img-staff" src="~/images/HS.jpg" alt="Photo of Hasnaa Shafik" />
+            </div>
+            <div class="col-sm-2 formatStaff">
+                <br /><br />
+                <p><b>Hasnaa Shafik</b></p>
+                <p><b>M.D., Ph.D.</b></p>
+                <p>Program Director</p>
+                <p><a href="mailto:shafikh@mail.nih.gov" class="glyphicon glyphicon-envelope emailIcon tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to send an Email" style="color:#A3340D !important;"></a></p>
+            </div>
+
+
+
+        </div> <!--row-->
+
+        <hr />
+
+        <div class="row centerContent">
+            @*-----------------------------------------------------------SONYA-----*@
+            <div class="col-sm-2">
+                <img class="img-thumbnail img-staff" src="~/images/SVR.jpg" alt="Photo of Sonya V. Roberson" />
+            </div>
+            <div class="col-sm-2 formatStaff">
+                <br /><br />
+                <p><b>Sonya V. Roberson</b></p>
+                <p><b>Ph.D.</b></p>
+                <p>Program Director</p>
+                <p><a href="mailto:robersos@mail.nih.gov" class="glyphicon glyphicon-envelope  tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to send an Email" style="color:#A3340D !important;"></a></p>
+            </div>
+            @*-----------------------------------------------------------PRECILLA-----*@
+            <div class="col-sm-2">
+                <img class="img-thumbnail img-staff" src="~/images/plb.jpg" alt="Photo of Precilla L. Belin Ph.D., M.A., M.C.H.E.S." />
+            </div>
+            <div class="col-sm-2 formatStaff">
+                <br /><br />
+                <p><b>Precilla L. Belin</b></p>
+                <p><b>Ph.D., M.A.,</b></p>
+                <p><b>M.C.H.E.S.</b></p>
+                <p>Program Director</p>
+                <p><a href="mailto:precilla.belin@nih.gov" class="glyphicon glyphicon-envelope  tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to send an Email" style="color:#A3340D !important;"></a></p>
+            </div>
+            @*-----------------------------------------------------------MIN-----*@
+            <div class="col-sm-2">
+                <img class="img-thumbnail img-staff" src="~/images/MH.jpg" alt="Photo of Min He" />
+            </div>
+            <div class="col-sm-2 formatStaff">
+                <br /><br />
+                <p><b>Min He</b></p>
+                <p><b>Ph.D.</b></p>
+                <p>Program Director</p>
+                <p><a href="mailto:min.he@nih.gov" class="glyphicon glyphicon-envelope  tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to send an Email" style="color:#A3340D !important;"></a></p>
+            </div>
+
+
+
+        </div><!--row-->
+        <hr />
+        <div class="row centerContent formatStaff">
+            @*-----------------------------------------------------------NGA-----*@
+
+
+            <div class="col-sm-2">
+                <img class="img-thumbnail img-staff" src="~/images/NHN.jpg" alt="Photo of Nga H. Nguyen" />
+            </div>
+            <div class="col-sm-2 formatStaff">
+                <br /><br />
+                <p><b>Nga H. Nguyen</b></p>
+                <p><b>M.S.</b></p>
+                <p>Program Analyst</p>
+                <p><a href="mailto:nga.nguyen2@nih.gov" class="glyphicon glyphicon-envelope  tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to send an Email" style="color:#A3340D !important;"></a></p>
+            </div>
+            @*-----------------------------------------------------------CHI-----*@
+
+            <div class="col-sm-2">
+                <img class="img-thumbnail img-staff" src="~/images/CTD.jpg" alt="Photo of Chi T. Dinh" />
+            </div>
+            <div class="col-sm-2 formatStaff">
+                <br /><br />
+                <p><b>Chi T. Dinh</b></p>
+                <p><b>M.S.</b></p>
+                <p>IT Specialist</p>
+                <p><a href="mailto:chi.dinh@nih.gov" class="glyphicon glyphicon-envelope  tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to send an Email" style="color:#A3340D !important;"></a></p>
+            </div>
+            @*-----------------------------------------------------------ADRIANA-----*@
+
+            <div class="col-sm-2">
+                <img class="img-thumbnail img-staff" src="~/images/AEM.jpg" alt="Photo of Adriana E. Martinez" />
+            </div>
+            <div class="col-sm-2 formatStaff">
+                <br /><br />
+                <p><b>Adriana E. Martinez</b></p>
+                <p><b>B.S.</b></p>
+                <p>Systems Analyst</p>
+                <p><a href="mailto:martinezad@mail.nih.gov" class="glyphicon glyphicon-envelope  tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to send an Email" style="color:#A3340D !important;"></a></p>
+            </div>
+        </div><!--row-->
+        <hr />
+        <!--<div class="row centerContent formatStaff">
+            <div class="col-sm-2">
+                <img class="img-thumbnail img-staff" src="~/images/JxL.jpg" alt="Photo of Joyce Linder" />
+            </div>
+            <div class="col-sm-2 formatStaff">
+                <br /><br />
+                <p><b>Joyce Linder</b></p>
+                <p>Administrative</p>
+                <p>Program Assistant</p>
+                <p><a href="mailto:linderj@mail.nih.gov" class="glyphicon glyphicon-envelope  tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to send an Email" style="color:#A3340D !important;"></a></p>
+            </div>
+        </div>--><!--row-->
+        <!--<hr />-->
+        <div class="row centerContent">
+            <div class="col-sm-2">
+                @*<img class="img-thumbnail img-staff" src="~/images/JxL.jpg" alt="Photo of Joyce Linder" />*@
+            </div>
+            <div class="col-sm-2 formatstaff" style="padding:0; line-height:50%;">
+                <br /><br />
+                @*<p><b>Joyce Linder</b></p>
+                    <p>Administrative</p>
+                    <p>Program Assistant</p>
+                    <p><a href="mailto:linderj@mail.nih.gov" class="glyphicon glyphicon-envelope  tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to send an Email" style="color:#A3340D !important;"></a></p>*@
+            </div>
+            <div class="col-sm-4" style="text-align:center; font-size:15px;">
+                <br /><a class="emailIcon" href="http://www.cancer.gov/researchandfunding/extramural/cancercenters/about/history" target="_blank" style="color:#A3340D !important;"><strong>View Our History</strong></a>
+                <br /><br /><a class="emailIcon" href="~/Home/Contact" style="color:#A3340D !important;"><strong>Contact Us</strong></a>
+            </div>
+        </div>
+    </div><!--end of Containter-->
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "About Us";
+}
+
+@*COMMENTS------------------------------------------------------------------------------------------------------------------------------------------------
+         DATE        DEVELOPER   NOTES
+         11/12/2014  AM          Replaced Color names with HEX Codes
+                                 Updated URLs
+         12/16/2014  AM          Added title to head - 508C
+         02/01/2015  Chi         Removed unncessary Div tag
+         02/11/2015  AM          View our history _blank
+         03/06/2015  AM          Added Home Breadcrumbs, referenced grayfont and occHyperLink
+         03/16/2015  AM          Added " About Cancer Centers Program " hyperlink (http://www.cancer.gov/researchandfunding/extramural/cancercenters/about) referenced OCCHyperLink
+         03/26/2015  Chi         For Skip Nav, added id="home" on <a> tag
+         08/06/2019  AM          Updated About our Program URL
+      ------------------------------------------------------------------------------------------------------------------------------------------------------*@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>About Us</title>
+    @*<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">*@
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container" id="pageCenterID">
+            <h2 class="tealFont"><i>&nbsp;About Us</i></h2>
+            <hr style="margin-bottom:0em;" />
+            <ul class="breadcrumb" id="centerContentID">
+                <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></li>
+                <li class="active grayFont">About Us</li>
+            </ul>
+            <div class="row" id="centerContentID">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-5" style="float:left;">
+                            <h3>The Office of Cancer Centers</h3>
+                            <p>supports a diverse, nationwide network of NCI-designated cancer centers performing basic laboratory, clinical, and population-based research in cancer.  Through the P30 Cancer Center Support Grant (CCSG), the OCC funds research infrastructure in centers that meet rigorous standards for transdisciplinary, state-of-the-art research programs focused on developing new and better approaches in cancer prevention, diagnosis, and treatment. Cancer centers earning the P30 CCSG award also receive the NCI ‘designation’ which recognizes their achievement of these standards and enhances their ability to leverage additional resources for cancer research, education, and care. </p>
+                        <p><a id="home" href="https://www.cancer.gov/research/nci-role/cancer-centers" target="_blank"> About the Cancer Centers Program</a></p>
+                        </div>
+                        <div class="col-sm-5">
+                            <br />
+                            <img class="img-thumbnail" src="~/images/NCIShadyGrove.jpg" alt="NCI Shady Grove center" style="float:right; width:450px; height:250px; border-color:#ff8300;" />
+                        </div>
+                        <div class="col-sm-2">
+                            <br /><br /><br /><br />
+                            <a href="~/Home/OurTeam" >Meet Our Team</a>
+                            <br /><br />
+                            <a href="http://www.cancer.gov/researchandfunding/extramural/cancercenters/about/history"  target="_blank">  View Our History</a>
+                            <br /><br />
+                            <a  href="~/Home/Contact">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+</body>
+</html>
