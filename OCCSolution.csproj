@@ -5360,7 +5360,7 @@
     <Content Include="Scripts\kendo.all.min.js" />
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\pbTable.js" />
     <Content Include="Scripts\pbTable.min.js" />
     <Content Include="Scripts\query.min.js" />
@@ -5528,6 +5528,7 @@
     <Content Include="Views\GrantsFunding\GuidelineChangesOutline.cshtml" />
     <Content Include="Views\Home\AboutOCCWebApp.cshtml" />
     <Content Include="Views\NewsEvents\OCCAnnouncement.cshtml" />
+    <Content Include="Scripts\DT1 - Copy.cshtml" />
     <Content Include="Views\Home\SiteMap.cshtml" />
     <Content Include="Views\Home\ExternalWebsitePolicy.cshtml" />
     <Content Include="Views\NewsEvents\NewsEvents.cshtml" />
