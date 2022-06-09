@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Keyboard Shortcuts";
+}
+@**************************************************************************************************************************************************************
+    DATE            DEVELOPER       DESC
+    03/23/2015      Chi             Created
+                                    Accessibility of web content requires semantic information about widgets, structures, and behaviors, 
+                                    in order to allow assistive technologies (AT) to convey appropriate information to persons with disabilities.
+                                    This includes mouse-free keyboard accessibility. Our website  has been mod to follow the 
+                                    Web Accessibility Initiative - Accessible Rich Internet Applications(WAI-ARIA) specification as well as 508 compliant.
+    03/26/2015     Chi              Fixed the <hr> displaying issue by adding a row class, re-arranged the definedkeys
+    03/27/2015     Chi             *for Skp Nav, added id="home" to the first <a> tag which home hyperlink
+    04/03/2014     Chi              Modified the introduction
+***************************************************************************************************************************************************************@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About OCC Web Application</title>
+    <script type="text/javascript">
+    </script>
+    <style>
+        p, li, li p {
+            color: #000;
+        }
+
+         .fixedLength{        
+            min-height: 200px;
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container " id="pageCenterID" accesskey="k">
+        <h2 style="color:#005C83;">&nbsp;Keyboard Shortcuts Definition</h2>
+        <hr style="margin-bottom:0em;" />
+        <ul class="breadcrumb" style="float:left; margin-bottom:0;">
+            <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a id="home" href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></li>
+            <li class="active grayFont">Keyboard Shortcuts Definition</li>
+        </ul>
+        <br /><br /><br />
+        <div class="col-sm-12 centerContent">
+            <p class="pull-left">The OCC WebApp is keyboard accessible, allowing the web users to quickly and efficiently navigate the website using the keyboard. By pressing ALT (PC) or CTRL (Mac) followed by the defined key on the keyboard, the users can skip to certain web pages or content.</p>
+            <p>Following is a list of the defined shortcut keys and their definitions.</p>
+        </div>
+        <div class="col-sm-7 centerContent fixedLength">
+            <h4 style="color:#005C83;">Main Navigation:</h4>
+            <div style="padding-left:1em;">
+                <p><b>Alt/Ctrl + H </b>skips to Homepage</p>
+                <p><b>Alt/Ctrl + B </b>skips to Keyboard Shortcut Definitions page</p>                            
+                <p><b>Alt/Ctrl + N </b>skips to NCI website (Cancer.gov)</p>
+                <p><b>Alt/Ctrl + M </b>skips to Sitemap page</p>
+                <p><b>Alt/Ctrl + Q </b>skips to FAQs</p>
+                <p><b>Alt/Ctrl + K </b>expands or collapses OCC Announcements on the Homepage</p>
+            </div>
+        </div>     
+        <div class="col-sm-5 centerContent fixedLength">
+            <h4 style="color:#005C83;">Five OCC Major Functional Areas:</h4>
+            <div style="padding-left:1em;">
+                <p><b>Alt/Ctrl + 1 </b>skips to Cancer Centers page</p>
+                <p><b>Alt/Ctrl + 2 </b>skips to Grants & Funding page</p>
+                <p><b>Alt/Ctrl + 3 </b>skips to News & Events page</p>
+                <p><b>Alt/Ctrl + 4 </b>skips to Policies & Resources page</p>
+                <p><b>Alt/Ctrl + 5 </b>skips to About Us page</p>
+            </div>
+        </div>
+
+        <div class="row"></div>
+        <hr />
+
+        <div class="col-sm-12 centerContent">
+            <h4 style="color:#005C83;">Menu:</h4>
+            <div style="padding-left:1em;">
+                <p>If a menu bar item has focus and the menu is not open, then:</p>
+                <ul>
+                    <li><b>Enter, Spacebar, and the up down arrow keys </b>opens the menu and places focus on the first menu item in the opened menu or child menu bar.</li>
+                    <li><b>Left or right arrow keys </b>move focus to the adjacent menu bar item.</li>
+                </ul>
+                <p>When a menu is open and focus is on a menu item in that open menu, then </p>
+                <ul>
+                    <li><b>Enter or Spacebar </b>invokes that menu action (which may be to open a submenu).</li>
+                    <li><b>Up or down arrow keys </b>cycles focus through the items in that menu.</li>
+                    <li><b>Escape </b>closes the open menu or submenu and returns focus to the parent menu item.</li>
+                </ul>
+                <p>If the menu item with focus has a submenu, pressing <b>Enter, Spacebar, or the right arrow key </b>opens the submenu and puts focus on the first submenu item.</p>
+                <p>When a submenu is open and focus is on a menu item in that submenu:</p>
+                <ul>
+                    <li><b>Up or down arrow keys </b>cycle through the submenu items (behaves the same as open menu).</li>
+                    <li><b>Escape or the left arrow key </b>closes the submenu and returns focus to the parent menu item.</li>
+                </ul>
+            </div>
+        </div>
+        <hr />
+        <div class="col-sm-12 centerContent">
+            <h4 style="color:#005C83;">Data Table Grid:</h4>
+            <div style="padding-left:1em;">
+                <h5><b>Tab</b></h5>
+                <ul>
+                    <li>The initial tab enters the grid with focus on the first cell of the first row, often a header.</li>
+                    <li>A second tab moves out of the grid to the next tab stop on the page.</li>
+                    <li>Once focus is established in the grid, a TAB into or a Shift Tab into the grid will return to the cell which last had focus.</li>
+                </ul>
+                <p><b>Home </b>moves focus to the first cell of the current row</p>
+                <p><b>End </b>moves focus to the last cell of the current row</p>
+                <p><b>Page Up </b>moves focus to the first cell in the current column</p>
+                <p><b>Page Down </b>moves focus to the last cell in the current column</p>
+                <p><b>Esc </b>exits Actionable Mode</p>
+            </div>
+        </div>
+    </div><!--Container-->
+</body>
+</html>
+

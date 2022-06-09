@@ -1,0 +1,5 @@
+.vs/*
+web.config
+*.csproj
+bin/*.dll
+obj/Debug/*

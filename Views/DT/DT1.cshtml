@@ -1,0 +1,320 @@
+﻿@model IEnumerable<OCCSolution.Models.vwDT1Benchmark>
+
+@*@using Kendo.Mvc.UI
+@using Kendo.Mvc.Extensions*@
+@{
+    ViewBag.Title = "DT1";
+}
+@*------------------------------------------------------------------------------------------------------------------------------
+        DATE            Developer    Desc
+        12/07/2014      Chi          Use this as example: http://www.htmlcodetutorial.com/tables/index_famsupp_30.html
+        12/14/2014      Chi          Displayed data based on the dropdown filter value, ref:http://www.datatables.net/release-datatables/examples/api/multi_filter_select.html
+                                    requires:
+                                    //code.jquery.com/jquery-1.11.1.min.js
+                                    //cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js
+                                    //cdn.datatables.net/1.10.4/css/jquery.dataTables.css
+        12/19/2014      Chi         Made the basic/clinical/comp hyperlinkable to the cancer center list
+        12/24/2014      Chi         Hide the prev, next, ect page info.
+        12/30/2014      Chi         Added 'All' to the total
+        01/03/2015      Chi         Format the amount by adding comma as thousands separator
+        03/27/2015      Chi         Removed occHyperlink, added id="home" to the 1st <a> tag, added aria-hidden="true"
+        04/02/2015      AM          changed all fontsize smaller to small
+        06/27/2018      AM          modified table font and background colors to meet new 508 compliance standard
+          2/22/22      Chi          Updated the data with FY2020 - fy2020 won't show up - WHY? check the connectingstring for dev OCCuser in web.config :-)
+                                    added, "From 2017 to present, we're no longer track member number."
+    ---------------------------------------------------------------------------------------------------------------------------------------*@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DT1</title>
+    @* Don't use this style, it would reset the style on whole page <link rel="stylesheet" type="text/css" href="~/Content/reset-min.css">*@
+
+    <style type="text/css" >
+
+        /*table.dataTable.hideMe td *:nth-child(Me) {
+               display: none;
+        }
+
+        table.dataTable tr.horizontalLine {
+            height: 1px;
+            width: 300px;
+            border-bottom: 5px solid #003f59 !important;
+        }*/
+
+        table.dataTable tr.odd { background-color: #EBF5FB   !important } /*light baby blue #daecf4*/
+        table.dataTable tr.even { background-color: white !important }
+
+        table.dataTable tr.highlighted { 
+            background-color: white   !important;  /* #9fcee2*/
+            border-bottom-width:medium !important; /**/*/
+            border-bottom-color:#003f59 !important;  /*#003f59*/
+        }  /* baby blue, deeper blue:94c0d2*/
+           
+
+        @*hide the search box, cant disable it b/c of the FY filter column *@
+        .dataTables_filter {
+            display: none;
+        }
+
+        @*hide the sort icon*@
+        .dataTables_sort{
+            background-image:none !important;
+        }
+
+        @*this works!*@
+        /*.rotate90 {
+          -webkit-transform: rotate(-90deg);
+          -moz-transform: rotate(-90deg);  
+          filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        }*/
+
+    </style> 
+</head>
+<body>
+    <div class="container" id="pageCenterID" style="font-size:small">
+        <h2 style="color:#005C83;">&nbsp;Data Table 1</h2>
+        <h4 style="color:#005C83;">&nbsp;Leadership, Programs, Membership, and Shared Resources</h4>
+        <hr style="margin-bottom:0em;" />
+        <ul class="breadcrumb" style="float:left; margin-bottom:0;">
+            <li><a href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span aria-hidden="true" class="glyphicon glyphicon-circle-arrow-right"></span></li>
+            <li><a href="~/Center/CancerCenters">Cancer Centers</a> <span aria-hidden="true" class="glyphicon glyphicon-circle-arrow-right"></span></li>
+            <li><a href="~/DT/DT">Benchmark Data</a> <span aria-hidden="true" class="glyphicon glyphicon-circle-arrow-right"></span></li>
+            <li class="active grayFont">Data Table 1</li>
+        </ul>
+        <p class="pull-right" style="color:#202020;"><small>Press F5 to reset the data table</small></p>
+        <div class="centerContent pull-left">
+            <div class="col-sm-12 pull-left" style="color:#003f59;">
+                <p style="color:#202020"><small>All values are from data submitted annually by Centers starting from 2010 to recent year.</small></p>
+                <p style="font-size:small;">The table below is the compilation of Data Tables 1A, 1B, 1D, and 1C data. It lists, by type of center,the current high, low, and median number of Senior Leaders, Peer-Reviewed Research Programs, Peer-Reviewed Shared Resources, and overall membership size for Aligned and Non-aligned Members. It also includes subtotals and a total for all centers.</p>
+                <p style="font-size:small;"><b>Note:</b> After 2016 the Centers are no longer required to submit membership data.</p><br />
+            </div>
+            <table id="example" style="width:45%;">
+                <thead>
+                    <tr style="font-size:small; text-align:left; color:#FFFFFF; background-color:#1A5276;padding-right:5px;">
+                        <th id="fiscalyear" title="Click here to filter by Fiscal Year">FY</th>
+                        <th></th>
+                        <th style="width:140px !important;">Type of Center</th>
+                        <th align="left">Range</th>
+                        <th align="left">No. of Sr. Leaders</th>
+                        <th align="left">No. of Research Programs</th>
+                        <th align="left">No. of Shared Resources</th>
+                        <th align="left">No. of Aligned Members</th>
+                        <th align="left">No. of Non-Aligned Members</th>
+                    </tr>
+                </thead>
+                <tbody style="font-size:small;">
+                    @{ if (Model != null)
+                        {
+                            foreach (var dt in Model)
+                            {
+                                <tr class="odd">
+                                    <td>@dt.FY</td>
+                                    <td></td>
+                                    <td style="font-size:small; width:140px;" title="Click here to go to the cancer center list"><b>@dt.BasicCount Basic Centers</b></td>
+                                    <td align="center">High</td>
+                                    <td align="center">@dt.BasicHighLeader</td>
+                                    <td align="center">@dt.BasicHighProg</td>
+                                    <td align="center">@dt.BasicHighSR</td>
+                                    <td align="center">@dt.BasicHighAlign</td>
+                                    <td align="center">@dt.BasicHighNon</td>
+                                </tr>
+                                <tr>
+                                    <td>@dt.FY</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td align="center">Low</td>
+                                    <td align="center">@dt.BasicLowLeader</td>
+                                    <td align="center">@dt.BasicLowProg</td>
+                                    <td align="center">@dt.BasicLowSR</td>
+                                    <td align="center">@dt.BasicLowAlign</td>
+                                    <td align="center">@dt.BasicLowNon</td>
+                                </tr>
+                                <tr class="odd">
+                                    <td>@dt.FY</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Median</td>
+                                    <td align="center">@dt.BasicMedianLeader</td>
+                                    <td align="center">@dt.BasicMedianProg</td>
+                                    <td align="center">@dt.BasicMedianSR</td>
+                                    <td align="center">@dt.BasicMedianAlign</td>
+                                    <td align="center">@dt.BasicMedianNon</td>
+                                </tr>
+                                <tr style="font-weight:bolder;" class="highlighted">
+                                    <td>@dt.FY</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td scope="row" align="center">Subtotal</td>
+                                    <td align="center">@dt.BasicSubLeader</td>
+                                    <td align="center">@dt.BasicSubProg</td>
+                                    <td align="center">@dt.BasicSubSR</td>
+                                    <td align="center">@dt.BasicSubAlign</td>
+                                    <td align="center">@dt.BasicSubNon</td>
+                                </tr>
+
+                                <tr>
+                                    <td>@dt.FY</td>
+                                    <td></td>
+                                    <td style="font-size:small; width:140px;" Title="Click here to go to the Cancer Centers list"><b>@dt.ClinicalCount Clinical Centers</b></td>
+                                    <td align="center">High</td>
+                                    <td align="center">@dt.ClinicalHighLeader</td>
+                                    <td align="center">@dt.ClinicalHighProg</td>
+                                    <td align="center">@dt.ClinicalHighSR</td>
+                                    <td align="center">@dt.ClinicalHighAlign</td>
+                                    <td align="center">@dt.ClinicalHighNon</td>
+                                </tr>
+                                <tr>
+                                    <td>@dt.FY</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td align="center">Low</td>
+                                    <td align="center">@dt.ClinicalLowLeader</td>
+                                    <td align="center">@dt.ClinicalLowProg</td>
+                                    <td align="center">@dt.ClinicalLowSR</td>
+                                    <td align="center">@dt.ClinicalLowAlign</td>
+                                    <td align="center">@dt.ClinicalLowNon</td>
+
+                                </tr>
+                                <tr class="odd">
+                                    <td>@dt.FY</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td align="center">Median</td>
+                                    <td align="center">@dt.ClinicalMedianLeader</td>
+                                    <td align="center">@dt.ClinicalMedianProg</td>
+                                    <td align="center">@dt.ClinicalMedianSR</td>
+                                    <td align="center">@dt.ClinicalMedianAlign</td>
+                                    <td align="center">@dt.ClinicalMedianNon</td>
+
+                                </tr>
+                                <tr style="font-weight:bolder;" class="highlighted">
+                                    <td>@dt.FY</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td scope="row" align="center">Subtotal</td>
+                                    <td align="center">@String.Format("{0:#,##0}", dt.ClinicalSubLeader)</td>
+                                    <td align="center">@String.Format("{0:#,##0}", dt.ClinicalSubProg)</td>
+                                    <td align="center">@String.Format("{0:#,##0}", dt.ClinicalSubSR)</td>
+                                    <td align="center">@String.Format("{0:#,##0}", dt.ClinicalSubAlign)</td>
+                                    <td align="center">@String.Format("{0:#,##0}", dt.ClinicalSubNon)</td>
+
+                                </tr>
+
+                                <tr class="odd">
+                                    <td>@dt.FY</td>
+                                    <td></td>
+                                    <td style="font-size:small; width:140px;" title="Click here to go to the Cancer Centers list"><b>@dt.CompCount Comp Centers</b></td>
+                                    <td align="center">High</td>
+                                    <td align="center">@String.Format("{0:#,##0}", dt.CompHighLeader)</td>
+                                    <td align="center">@String.Format("{0:#,##0}", dt.CompHighProg)</td>
+                                    <td align="center">@String.Format("{0:#,##0}", dt.CompHighSR)</td>
+                                    <td align="center">@String.Format("{0:#,##0}", dt.CompHighAlign)</td>
+                                    <td align="center">@String.Format("{0:#,##0}", dt.CompHighNon)</td>
+                                </tr>
+                                <tr>
+                                    <td>@dt.FY</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td align="center">Low</td>
+                                    <td align="center">@dt.CompLowLeader</td>
+                                    <td align="center">@dt.CompLowProg</td>
+                                    <td align="center">@dt.CompLowSR</td>
+                                    <td align="center">@dt.CompLowAlign</td>
+                                    <td align="center">@dt.CompLowNon</td>
+                                </tr>
+                                <tr class="odd">
+                                    <td>@dt.FY</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td align="center">Median</td>
+                                    <td align="center">@dt.CompMedianLeader</td>
+                                    <td align="center">@dt.CompMedianProg</td>
+                                    <td align="center">@dt.CompMedianSR</td>
+                                    <td align="center">@dt.CompMedianAlign</td>
+                                    <td align="center">@dt.CompMedianNon</td>
+                                </tr>
+                                <tr style="font-weight:bolder;" class="highlighted">
+                                    <td>@dt.FY</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td scope="row" align="center">Subtotal</td>
+                                    <td align="center">@String.Format("{0:#,##0}", dt.CompSubLeader)</td>
+                                    <td align="center">@String.Format("{0:#,##0}", dt.CompSubProg)</td>
+                                    <td align="center">@String.Format("{0:#,##0}", dt.CompSubSR)</td>
+                                    <td align="center">@String.Format("{0:#,##0}", dt.CompSubAlign)</td>
+                                    <td align="center">@String.Format("{0:#,##0}", dt.CompSubNon)</td>
+                                </tr>
+                                <tr style="color:white; background-color:#1A5276 !important">
+                                    <td>@dt.FY</td>
+                                    <td></td>
+                                    <td></td>
+                                    @*/*all*/*@
+                                    <td align="center">Total</td>
+                                    <td align="center">@dt.TotalLeader</td>
+                                    <td align="center">@dt.TotalProg</td>
+                                    <td align="center">@dt.TotalSR</td>
+                                    <td align="center">@String.Format("{0:#,##0}", dt.TotalAlign)</td>
+                                    <td align="center">@String.Format("{0:#,##0}", dt.TotalNon)</td>
+                                </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+       <script type="text/javascript" charset="utf-8">
+       $(document).ready(function () {         
+        $('#example').DataTable({
+            "bPaginate": true,
+            'iDisplayLength': 13,
+            'bLengthChange': false,
+            "bInfo": false,
+            "bSort": false,       
+            "aoColumnDefs": [
+              { "bSortable": false, "aTargets": ["_all"] },   //disable sorting on all columns.
+              { "aTargets": [0], "bVisible": false, "sTitle": "FY", "sToolTip": "Click here to filter by FY" },  //don't show FY on the column 
+              {
+                  "aTargets": [2], //make the 2nd column (CenterType) hyperlink to Find a Cancer Center list
+                  //"sToolTip": "Click to go to the Cancer Centers List",  THIS DOESN'T WORK!!!
+                  "mRender": function (data, type, full) {
+                      // 'full' is the row's data object, and 'data' is this column's data
+                      // e.g. 'full' is not being use , and 'data' is the CenterType
+                      return '<a href="../Center/CClist">' + data + '</a>';
+                  }
+              }
+            ],
+            "fnDrawCallback": function (oSettings) {
+                $('.dataTables_paginate').hide();     //hide the page prev/next information.          
+            }
+        });
+        //remove the inline-style 'width' from #exampleble
+        //$('#example').attr('style', $('#example').attr('style').replace(/width[^;]+;?/g, ''));
+
+        //retrieve the real width of #myTable and set it to the table header and its container
+        //$('#example').closest('.dataTables_scroll').find('.dataTables_scrollHeaderInner, .dataTables_scrollHeaderInner > table.dataTable').css('width', $('#example').innerWidth() + 'px');
+
+        var table = $('#example').DataTable();
+        $("#example thead th").each(function (i) {
+            if (i == 0) { //Create just one SelectBox
+                var select = $('<select id="home" class=' + i + '><option value=""></option></select>')
+                    .appendTo($(this).empty())
+                    .on('change', function () {
+                        var val = $(this).val();
+       
+                        table.column(0) //Only the first column
+                            .search(val ? '^' + $(this).val() + '$' : val, true, false)
+                            .draw();
+                    });
+                //populate the FY ddl
+                table.column(0).data().unique().sort().each(function (d, j) {
+                    select.append('<option value="' + d + '">' + d + '</option>')      //populate the ddl with FY
+                    .val("2015");                                                     //set the default FY valaue   
+                    
+                });
+            }         
+        });
+    });
+    </script>
+</div>
+</body>
+</html>

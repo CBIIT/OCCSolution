@@ -1,0 +1,133 @@
+﻿@using OCCSolution.Models
+@model IEnumerable<ICD>
+@{
+    ViewBag.Title = "ICD 10";
+}
+
+@*<!--COMMENTS-------------------------------------------------------------------------------------------------------
+        DATE        DEV    NOTES
+        11/09/2014  Chi    Created
+        11/10/2014  Chi    Changed the pagination to the latest version and chagne type for "full_numbers" to "full"
+        11/11/2014  Chi    Correct the page title to ICD 10 and gave it a lavender color
+        11/15/2014  Chi    Modified ICD 10 dataTables format and added in Copy CSV Excel PDF Print options.
+        12/05/2014  Chi    put the <T> Excel/PDF/Print before the filter
+        12/14/2014  Chi    Added tooptip
+        12/16/2014  AM     Added Title to page - 508C
+        02/07/2015  Chi    Changed the print tooltip & sDom to dom,
+                           Print does not work; disabled the print button for now
+        02/10/215   Chi    Modified to allow the users to export selected rows to PDF or Excel
+                           Added class="tableBody" to the <table> tag to make the column headers the same as CClist,
+                           Set font-size:small;
+                           set to 25 Number of rows to display on a single page : "iDisplayLength": 25,
+        02/16/2015  Chi    Modified "Export as Excel" to "Export to Excel"
+        04/01/2015  AM     Added id="home" to home bread crumb, removed OCChyperlink class
+        09/14/2014  Chi    on the data file ICDRepository.cs:
+                              Switched the Primary Disease Site Column: Non-Hodgkin Lymphoma and Hodgkin Lymphoma,
+                              Added Spleen codes: C260, C268, C269, C422 to ICD-O-3 column,
+                           Added Updated Date to the listing
+        09/21/2015 Chi     Attempted to deploy ICD 10 Updates
+                           Files: ICD.cs model, ICDView.cshtml view, and ICD10Repository.cs Data file.
+        03/31/2016 Chi     Incorrect displayment of item 34 & 35 of the Non/Hodgkin lymphoma on Stage :-(
+                           Debugging --> Modified the local variable icd to icd10
+    ------------------------------------------------------------------------------------------------------------------->*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ICD 10</title>
+    @*<link href="../Content/jquery-ui-themes-1.11.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />*@
+    <style>
+    </style>
+</head>
+<body>
+    <div class="container" id="pageCenterID">
+        <h2 style="color:#005C83">&nbsp;ICD 10</h2>
+        <p style="font-size:medium; padding-left:.5em;"><small>Updated September 21, 2015</small></p>
+        <hr style="margin-bottom:0em;" />
+        <ul class="breadcrumb" style="float:left;">
+            <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a href="#" id="home">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></li>
+            <li><a href="../GrantsFunding/GrantsFunding/">Grants & Funding</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></li>
+            <li class="active grayFont">ICD 10</li>
+        </ul>
+        <p class="pull-right" style="color:#D3D3D3;"><small>Press F5 to reset the data table</small></p>
+        @{
+            <table id="ICD10Table" class="tableBody">
+                <thead>
+                    <tr>
+                        <th style="width:30px;" title="Click to sort ascending or descending">ID</th>
+                        <th style="white-space:nowrap;" title="Click to sort ascending or descending">Primary Site</th>
+                        <th>ICD-10-CM</th>
+                        <th>ICD-O-3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var icd10 in Model)
+                    {
+                        <tr style="vertical-align:text-top; font-size:small;">
+                            <td style="width:50px;">@icd10.ICDID</td>
+                            <td>@icd10.PrimarySite</td>
+                            <td>@icd10.ICD10CM</td>
+                            <td>@icd10.ICDO3</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div id="DetailsDialog"></div>
+        }
+        .
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var i10Table = $('#ICD10Table').dataTable({
+                    //"bJQueryUI": "true",  //without this, we'll get nicer/purple sort icons YEAH!
+                    "sScrollX": "90%",
+                    "sScrollY": "100%",
+                    "sScrollXInner": "100%",
+                    "iDisplayLength": 25,  // set to 25 Number of rows to display on a single page
+                    //"iDisplayLength": 42,
+                    //"iTotalRecords": 42,
+                    //"iTotalDisplayRecords": 42,
+                    "aaSorting": [[0, 'asc']],
+                    "bSortable": true,
+                    "aoColumnDefs": [                      
+                        { "aTargets": [0], "bSortable": true },
+                        { "aTargets": [1], "bSortable": true }],
+                    "sPaginationType": "full_numbers",
+                    //"dom": '<lfrT>t<ip><"clear">',
+                    "dom": '<"fg-toolbar ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix"lfrT>t<"fg-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix"ip>',
+                    "tableTools": {
+                        "sSwfPath": "../Content/swf/copy_csv_xls_pdf.swf",
+                        "aButtons": [
+                           {
+                               "sExtends": "pdf",
+                               "sButtonText": "Export to PDF",  //label the button
+                               "sToolTip": "Export to PDF",
+                               "sPdfOrientation": "landscape",     // change to landscapte orientation 
+                               "mColumns": "visible",               //show only the visible fields
+                               "oSelectorOpts": { filter: 'applied', order: 'current' },
+                               "sFileName": "*.pdf"           // add the date to the filename
+                           },
+                           {
+                               "sExtends": "xls",
+                               "sButtonText": "Export to Excel",
+                               "sToolTip": "Export to Excel",
+                               "oSelectorOpts": { filter: 'applied', order: 'current' },
+                               "sFileName": "*.xls"
+                           },
+                           //{
+                           //    "sExtends": "print",
+                           //    "sMessage": "Feature under construction.  Please check back with us at a later time.",
+                           //    //"sToolTip": "Please use your browser's print function to print this table. Press escape when finished"
+                           //    "sToolTip": "Feature under construction.  Please check back with us at a later time."
+                           //}
+                        ]
+                    },
+                });
+
+                //var tt = new $.fn.dataTable.TableTools(i10Table);
+                //$(tt.fnContainer()).insertBefore('div.dataTables_filter');
+
+            });
+        </script>
+</div>
+</body>
+</html>
