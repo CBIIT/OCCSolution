@@ -23,12 +23,15 @@
                                     Fixed typo in 2B section
         12/15/2016      AM          Corrected Typo in 1B section
         01/2017         AM          Updated content with eData Guide v 3.0 content
-        11/28/2017      AM          Removed " EFFECTIVE FY2018" 
+        11/28/2017      AM          Removed " EFFECTIVE FY2018"
         02/17/2018     Chi          Updated from 3.0 to 3.1 and use generick name eData508.pdf (no version, no code change in the future if pdf changes.)
         10/30/2018     Chi          Updated eData from 3.1 to 3.11
         06/18/2019      AM          Removed UL from Entire Study Accrual to Date
         11/05/2020      AM          Updated DT example format urls to reflect proper page and document
         03/16/2021      AM          Removed duplicate Comments comment in DT1C
+        08/24/2022     Chi          Fixed a broken link https://www.facs.org/cancer/coc/fords/fords_for_2011_01012011.pdf/ (page 91 and 92);
+                                    to https://www.facs.org/media/r5rl5scw/fords-2016.pdf, 
+                                    Fixed each header formt from center to left justified. 
     ---------------------------------------------------------------------------------------------------------------------------------------------------------*@
 
 <!DOCTYPE html>
@@ -38,7 +41,7 @@
     <title></title>
     <style type="text/css">
         /* Custom Styles */
- ul.nav-tabs {
+        ul.nav-tabs {
             width: 140px;
             margin-top: 20px;
             border-radius: 4px;
@@ -79,28 +82,38 @@
                 top: 30px; /* Set the top position of pinned element */
             }
 
-                .tableHeader{
-                text-align:center; 
-                background-color:#400040; 
-                color:#FFFFFF;
-            }
-                tr th {text-align:center;}
-               
-                .subHead{ font-size:x-large; 
-                              /*font-weight:bold;*/
-                              text-align:center
-                }
-                .tableTitle{font-weight:bold; text-align:center}
+        .tableHeader {
+            text-align: center;
+            background-color: #400040;
+            color: #FFFFFF;
+        }
 
-            /*h3 {font-weight:bold}*/
-            
+        tr th {
+            text-align: center;
+        }
+
+        .subHead {
+            font-size: x-large;
+            /*font-weight:bold;*/
+            text-align: center
+        }
+
+        .tableTitle {
+            font-weight: bold;
+            text-align: center
+        }
+
+        .liIndent {
+            margin-left: 40px;
+        }
+
     </style>
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
     <div class="container" id="pageCenterID">
         <div class="row" id="centerContentID">
             <h2 style="color:#400040">&nbsp;CCSG Electronic Data Guide</h2>
-            <p style="font-size:medium; padding-left:.5em;"><small>Updated October 30, 2018</small></p>
+            <p style="font-size:medium; padding-left:.5em;"><small>Updated August 24, 2022</small></p>
             <hr style="margin-bottom:0em;" />
             <ul class="breadcrumb" style="float:left; margin-bottom:2px;">
                 <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a href="#" id="home">@Html.ActionLink("Home", "Index", "Home")</a> <span aria-hidden="true" class="glyphicon glyphicon-circle-arrow-right"></span></li>
@@ -111,7 +124,8 @@
 
         <div class="row">
 
-            <div class="col-xs-3" id="myScrollspy">@*Begin ScrollSpy*@
+            <div class="col-xs-3" id="myScrollspy">
+                @*Begin ScrollSpy*@
                 <ul class="nav nav-tabs nav-stacked affix-top" style="color:#0066CD;" data-spy="affix" data-offset-top="125">
                     <li style="color:#0066CD" class="active"><a href="#back">Background</a></li>
                     <li><a href="#purpose">Purpose</a></li>
@@ -119,1196 +133,1215 @@
                     <li><a href="#dt1a">Data Table 1A</a></li>
                     <li><a href="#dt1b">Data Table 1B</a></li>
                     <li><a href="#dt1c">Data Table 1C</a></li>
-                    @*<li><a href="#dt1d">Data Table 1D</a></li>*@ 
+                    @*<li><a href="#dt1d">Data Table 1D</a></li>*@
                     <li><a href="#dt2a">Data Table 2A</a></li>
                     <li><a href="#dt2b">Data Table 2B</a></li>
-                    <li><a href="#dt3">Data Table 3
-                    </a></li>
-                    <li><a href="#dt4">Data Table 4
-                    </a></li>
-                    <li><a href="#AppendixB">Summary of eData Changes
-                    </a></li>
+                    <li>
+                        <a href="#dt3">
+                            Data Table 3
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#dt4">
+                            Data Table 4
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#AppendixB">
+                            Summary of eData Changes
+                        </a>
+                    </li>
                     <li><a href="~/Documents/eData508.pdf" target="_blank" style="text-align:center">PDF Version</a></li>
                 </ul>
             </div>@*--End Scroll Spy*@
 
-            <div class="col-xs-9">
-                <p style="text-align:center; margin-top:20px">
-                    @*<h5 style="text-align:center; color:red; font-weight:bold">EFFECTIVE FY2018</h5>*@
-                    <h2 style="text-align:center;">P30 Cancer Center Support Grant</h2>
-                    <h3 style="text-align:center;">Electronic Data (eData) Guide v3.1.1</h3><br />
-                    
-                    <h4 style="text-align:center">
-                        National Institutes of Health / DHHS <br />
-                        National Cancer Institute<br />
-                        Office of Cancer Centers<br /><br />
-                        9609 Medical Center Drive<br />
-                        Rockville, MD 20850<br />
-                        <a href="http://cancercenters.cancer.gov">http://cancercenters.cancer.gov</a><br /><br />
-                    </h4>
+        <div class="col-xs-9">
+            <p style="text-align:center; margin-top:20px">
+                @*<h5 style="text-align:center; color:red; font-weight:bold">EFFECTIVE FY2018</h5>*@
+                <h2 style="text-align:center;">P30 Cancer Center Support Grant</h2>
+                <h3 style="text-align:center;">Electronic Data (eData) Guide v3.1.1</h3><br />
 
-                <p style="text-align:center"><b>Note:  eData Submissions should be e-mailed to: <a href="mailto:ccsgdata@mail.nih.gov">ccsgdata@mail.nih.gov</a></b></p>
+                <h4 style="text-align:center">
+                    National Institutes of Health / DHHS <br />
+                    National Cancer Institute<br />
+                    Office of Cancer Centers<br /><br />
+                    9609 Medical Center Drive<br />
+                    Rockville, MD 20850<br />
+                    <br /><a href="http://cancercenters.cancer.gov">http://cancercenters.cancer.gov</a><br /><br />
+                </h4>
 
-
-                    <h3>Introduction</h3><br />
-
-                <p id="back" class="subHead">Background</p>
-                <hr />
-                <p>The Office of Cancer Centers (OCC) of the National Cancer Institute (NCI) is responsible for overseeing a portfolio of Cancer Center Support Grants (CCSG) that support cancer research at NCI-designated Cancer Centers across the U.S. The Centers program was established by the 1971 National Cancer Act and serves as a major platform for advancing NCI initiatives. </p>
-                <p>The CCSG Data Tables itemize the Center’s formal Research Programs, Shared Resources, base of funded research projects, patient information, clin¬ical research protocols, and current and requested budgets. The primary reason for standardized Data Tables is to ensure consistency and thoroughness during the peer review of competing applications. Additionally, the Data Tables are used to assess center progress, generate reports, and produce benchmark data on the Centers program.</p>
-                <p><b>Each year, 60 days prior to the award anniversary date, the Centers are required to send an electronic copy of the Data Tables (1-4) in Excel format directly to the <a href="mailto:ccsgdata@mail.nih.gov" title="ccsgdata@mail.nih.gov">OCC</a>.</b> Per NIH policy, T2 applications serve as the progress report for the fiscal year in which the application is newly funded. Although no separate RPPR need be submitted 60 days prior to the start date of the newly funded award, eData 1-4 must still be submitted at that time.</p>
-                <p>The data submitted by all NCI-designated Cancer Centers are verified for consistency and imported into the OCC SQL-Server database.  In addition, the aggregate Data Tables, detailed data and reports are presented on the <a href="http://cancercenters.cancer.gov" title="http://cancercenters.cancer.gov">OCC website</a>, and the OCC intranet OCCiNet.gov respectively. The figure 1-1 shows the overview of the input and output (I/O) of the Data tables:</p>
-
-                <img style="padding-bottom:10px" src="~/images/eDatadiagram.jpg" alt="Data Tables Data Flow Diagram"  />
-                <p class="tableTitle">Figure 1: The Data Tables Data Flow Diagram</p><br /><br />
-
-            
-            
-            <p id="purpose" class="subHead">Purpose</p><hr />
-                <p>The purpose of the CCSG Electronic Data Guide, herein referred to as eData Guide, is to present a description and standard format for the submission of electronic data. This format will allow Centers’ data to be processed and shared in a uniform and consistent matter. The eData Guide seeks to accomplish the following:</p>
-                <ul>
-                    <li>Facilitate data standardization</li>
-                    <li>Streamline the data importing process</li>
-                    <li>Improve data quality and analysis</li>
-                    <li>Simplify data management and reporting</li>
-                </ul>
-                <p>This eData Guide is meant as a specific guide for the eData submission, and describes each of the data table’s field columns at a granular level with significant technical detail. It identifies each data column, definition, type and its usage; it also includes example(s) for each of the data tables. The CCSG Data Guide should be consulted in order to derive background information regarding the purpose of each Data Table and to prepare the Data Tables that accompany Type 1 and Type 2 competitive applications.</p>
-                <p>Data Table 5 is not required to be submitted electronically; therefore, it is excluded from this document.</p><br />
-
-                <p id="database" class="subHead">OCC Database</p><hr />
-                <p>As a step toward improving web interactivity, the existing OCC website has been redesigned to a more dynamic or database-driven website. The centralized database that supports this enhanced website application is where all the tables, views, stored procedures, user defined functions, and triggers are created.</p>
-                <p>Tables are commonly referred to as entities in the database. Data columns (fields) are commonly referred to as attributes for a particular table. In OCC the underscore character will not be used in a table name or column name. Furthermore, all tables in the OCC databases will begin with an uppercase letter followed by a series of upper and lowercase letters. Meaningful table names have been chosen to identify the overall purpose of the database tables (e.g., P30Partner).</p>
-                <p>Each data column in the table has a data type, which defines what kind of data can be stored in a column.</p>
-                <p><b>Note</b> the distinction between a blank space and a NULL value. A blank space is a character string while a NULL is an unknown value. If the data is not available or applicable, use NULL by leaving the column empty.</p>
-                
-                <p class="tableTitle">Table 1-1 provides an overview of data types that are used in the OCC database.</p>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr class="tableHeader">
-                            <th style="width:15%">Data Type</th>
-                            <th style="width:10%;">Abbr</th>
-                            <th style="width:15%;">Syntax</th>
-                            <th style="width:20%;">Valid Entry</th>
-                            <th style="width:40%;">Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Character</td>
-                            <td>Char</td>
-                            <td>-</td>
-                            <td>A character or NULL value</td>
-                            <td>Fixed-length, non-Unicode string data. n defines the string length and must be a value from 1 through 8,000.  It is used for data that are a mixture of numbers and letters (alphanumeric data).</td>
-                        </tr>
-
-                        <tr>
-                            <td>Datetime</td>
-                            <td>-</td>
-                            <td>DateTime</td>
-                            <td>Date/time or NULL value</td>
-                            <td>Stores exact date/time values</td>
-                        </tr>
-                        <tr>
-                            <td>Varchar<br />[ ( n | max ) ]</td>
-                            <td>-</td>
-                            <td>Varchar(n), or Varchar (max)</td>
-                            <td></td>
-                            <td>Variable-length, standard character string data. n defines the string length and can be a value from 1 through 8,000. </td>
-                        </tr>
-                        <tr>
-                            <td>Float </td>
-                            <td>-</td>
-                            <td>Float</td>
-                            <td>Numeric , zero, or NULL value</td>
-                            <td>Uses the floating-point numbers with 16 or fewer significant digits </td>
-                        </tr>
-                        <tr>
-                            <td>Integer</td>
-                            <td>Int</td>
-                            <td>Int</td>
-                            <td>Numeric , zero, or NULL value</td>
-                            <td>Stores whole numbers (no decimal point) </td>
-                        </tr>
-                        <tr>
-                            <td>NVarchar<br />[ ( n | max ) ]</td>
-                            <td>-</td>
-                            <td>NVarchar(n) or NVarchar(max)</td>
-                            <td>A character string, blank space (s) or NULL value</td>
-                            <td>Variable-length Unicode character data. N can be a value from 1 through 4,000. </td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p class="subHead">References</p>
-                <hr />
-                <p>The primary references related to this document are located on the following website: <a href="http://cancercenters.cancer.gov/grants_funding/index.html ">Grants & Funding</a> page references:</p>
-                <ul>
-                    <li>Data Guide</li>
-                    <li>eData</li>
-                    <li>Download eData Templates</li>
-                    <li>ICD10</li>
-                    <li>FAQ</li>
-                </ul>
-                <br />
+            <p style="text-align:center"><b>Note:  eData Submissions should be e-mailed to: <a href="mailto:ccsgdata@mail.nih.gov">ccsgdata@mail.nih.gov</a></b></p>
 
 
-                <h3 id="Section1">SECTION 1. DATA TABLES 1A, 1B, AND, DT1C</h3><br />
+            <h3>Introduction</h3><br />
 
-                @*--Table 1A--*@
+            <h3>Background</h3>
+            <hr />
+            <p>The Office of Cancer Centers (OCC) of the National Cancer Institute (NCI) is responsible for overseeing a portfolio of Cancer Center Support Grants (CCSG) that support cancer research at NCI-designated Cancer Centers across the U.S. The Centers program was established by the 1971 National Cancer Act and serves as a major platform for advancing NCI initiatives. </p>
+            <p>The CCSG Data Tables itemize the Center’s formal Research Programs, Shared Resources, base of funded research projects, patient information, clin¬ical research protocols, and current and requested budgets. The primary reason for standardized Data Tables is to ensure consistency and thoroughness during the peer review of competing applications. Additionally, the Data Tables are used to assess center progress, generate reports, and produce benchmark data on the Centers program.</p>
+            <p><b>Each year, 60 days prior to the award anniversary date, the Centers are required to send an electronic copy of the Data Tables (1-4) in Excel format directly to the <a href="mailto:ccsgdata@mail.nih.gov" title="ccsgdata@mail.nih.gov">OCC</a>.</b> Per NIH policy, T2 applications serve as the progress report for the fiscal year in which the application is newly funded. Although no separate RPPR need be submitted 60 days prior to the start date of the newly funded award, eData 1-4 must still be submitted at that time.</p>
+            <p>The data submitted by all NCI-designated Cancer Centers are verified for consistency and imported into the OCC SQL-Server database.  In addition, the aggregate Data Tables, detailed data and reports are presented on the <a href="http://cancercenters.cancer.gov" title="http://cancercenters.cancer.gov">OCC website</a>, and the OCC intranet OCCiNet.gov respectively. The figure 1-1 shows the overview of the input and output (I/O) of the Data tables:</p>
 
-
-                <p id="dt1a" class="subHead">1.1  Data Table 1A - Senior Leadership</p>
-                <hr />
-                <p>Create one record for each individual senior leader and use the following column name and definitions for clarity and uniformity.</p>
-                <p class="tableTitle">Table 1-1: Data Table 1A Column Definitions</p>
-                
-                <table class="table table-bordered">
-                    <thead>
-                        <tr class="tableHeader">
-                            <th style="width:20%;">Column Name</th>
-                            <th style="width:20%;">SQL-Server<br />Data Type</th>
-                            <th style="width:60%;">Definition</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>FY</td>
-                            <td>Int<br />YYYY</td>
-                            <td>The fiscal year for which the Data Tables are being submitted; it can be from October 1 of the prior year through September 30 of the year being funded. (e.g., 2018)</td>
-                        </tr>
-                        <tr>
-                            <td>GrantNumber</td>
-                            <td>Varchar(25)</td>
-                            <td>The grant application identification number (e.g., 123456)</td>
-                        </tr>
-                        <tr>
-                            <td>ReportingDate</td>
-                            <td>DateTime<br />MM/DD/YYYY</td>
-                            <td>Center-defined reporting date</td>
-                        </tr>
-                        <tr>
-                            <td>LastName</td>
-                            <td>Varchar(25)</td>
-                            <td>The last name of the senior leader</td>
-                        </tr>
-                        <tr>
-                            <td>FirstName</td>
-                            <td>Varchar(25)</td>
-                            <td>The first name of the senior leader</td>
-                        </tr>
-                        <tr>
-                            <td>MiddleName</td>
-                            <td>Varchar(25)</td>
-                            <td>The middle name or initial of the senior leader</td>
-                        </tr>
-                        <tr>
-                            <td>IsNew</td>
-                            <td>Char(1)</td>
-                            <td>Indicate whether this is a new leader since the last application was submitted; use “Y” for yes and “N” for no.</td>
-                        </tr>
-                        <tr>
-                            <td>Title</td>
-                            <td>Varchar(100)</td>
-                            <td>The title of the senior leader</td>
-                        </tr>
-                        <tr>
-                            <td>Degree1</td>
-                            <td>Varchar(15)</td>
-                            <td>First academic degree acronym or abbreviation of the senior leader (e.g., PhD)</td>
-                        </tr>
-                        <tr>
-                            <td>Degree2</td>
-                            <td>Varchar(15)</td>
-                            <td>Second academic degree acronym or abbreviation of the senior leader (e.g., MD)</td>
-                        </tr>
-                        <tr>
-                            <td>Degree3</td>
-                            <td>Varchar(15)</td>
-                            <td>Third academic degree acronym or abbreviation of the senior leader (e.g., MS)</td>
-                        </tr>
-                        <tr>
-                            <td>Comments</td>
-                            <td>Varchar(8000)</td>
-                            <td>Optional free text field that allows user to enter notes or remarks on the current record.</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-                <p class="tableTitle">Note:  Data Table 1A example format can be found <a href="~/Documents/edata508.pdf#page=28" target="_blank">here</a>.</p><br />
-
-                @*--1-B--*@
-
-                <p id="dt1b" class="subHead">1.2  Data Table 1B - Research Programs</p>
-                <hr />
-                <p>Create one record for each research program; use the following column names and definitions for clarity and uniformity.</p>
-                <p><i>For research program with multiple leaders, please add seven additional fields per additional leader, for instance, LastNameN, FirstNameN, MiddleNameN, DegreeN1, DegreeN2, DegreeN3, isNewN.  N is a numeric value that is great than 1. </i></p>
-                <p class="tableTitle">Table 1-2: Data Table 1B Column Definitions</p>
-
-                <table class="table table-bordered">
-                    <thead>
-                        <tr class="tableHeader">
-                            <th style="width:20%;">Column Name</th>
-                            <th style="width:20%;">SQL-Server<br />Data Type</th>
-                            <th style="width:60%;">Definition</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr>
-                            <td>FY</td>
-                            <td>Int<br />YYYY</td>
-                            <td>The annual period for which the Data Tables are being submitted; it can be from October 1 of the prior year through September 30 of the year being described. (e.g., 2017)</td>
-                        </tr>
-                        <tr>
-                            <td>GrantNumber</td>
-                            <td>Varchar(25)</td>
-                            <td>The grant application identification number (e.g., 123456)</td>
-                        </tr>
-                        <tr>
-                            <td>ReportingDate</td>
-                            <td>DateTime<br />MM/DD/YYYY</td>
-                            <td>Center-defined reporting date</td>
-                        </tr>
-
-                        <tr>
-                            <td>ProgCode</td>
-                            <td>Varchar(5)</td>
-                            <td>The alphanumeric code that identifies the clinical research program.  This code is also defined in Data Tables 2 and 4 (e.g., 01, 02, XT, or BC)</td>
-                        </tr>
-                        <tr>
-                            <td>ProgName</td>
-                            <td>Varchar(255)</td>
-                            <td>The name of the research program</td>
-                        </tr>
-                        <tr>
-                            <td>IsNewProg</td>
-                            <td>Char(1)</td>
-                            <td>
-                                Indicate whether this is a new research program since the last application was submitted; use ‘Y’ for yes and ‘N’ for no.<br />
-                                <i>Note</i> that Research Programs are peer-reviewed components of the CCSG. Therefore, they cannot be added or deleted during a non-competing (Type 5) year without prior approval from the NCI’s Office of Cancer Centers (OCC). If your Center is considering a change in Programs during a non-competing year, please contact your Program Officer.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>IsDevProg</td>
-                            <td>Char(1)</td>
-                            <td>Indicate whether if the research program listed is supported by developmental funds; use ‘Y’ for yes and ‘N’ for no</td>
-                        </tr>
-                        <tr>
-                            <td>IsMultiLeader</td>
-                            <td>Char(1)</td>
-                            <td>Indicate whether if this is a multiple leader program; use ‘Y’ for yes and ‘N’ for no</td>
-                        </tr>
-                        <tr>
-                            <td>LastName</td>
-                            <td>Varchar(25)</td>
-                            <td>The last name of the primary research program leader</td>
-                        </tr>
-                        <tr>
-                            <td>FirstName</td>
-                            <td>Varchar(25)</td>
-                            <td>The first name of the primary research program leader</td>
-                        </tr>
-                        <tr>
-                            <td>MiddleName</td>
-                            <td>Varchar(25)</td>
-                            <td>The middle name or initial of the primary research program leader</td>
-                        </tr>
-
-                        <tr>
-                            <td>Degree1</td>
-                            <td>Varchar(15)</td>
-                            <td>First academic degree acronym or abbreviation of the leader (e.g., PhD)</td>
-                        </tr>
-                        <tr>
-                            <td>Degree2</td>
-                            <td>Varchar(15)</td>
-                            <td>Second academic degree acronym or abbreviation of the leader (e.g., MD)</td>
-                        </tr>
-                        <tr>
-                            <td>Degree3</td>
-                            <td>Varchar(15)</td>
-                            <td>Third academic degree acronym or abbreviation of the leader (e.g., MS)</td>
-                        </tr>
-                        <tr>
-                            <td>IsNewLeader</td>
-                            <td>Char(1)</td>
-                            <td>Indicate whether this is a new leader since the last application was submitted; use ‘Y’ for yes and ‘N’ for no</td>
-                        </tr>
-                        <tr>
-                            <td>LastName2</td>
-                            <td>Varchar(25)</td>
-                            <td>The last name of the secondary research program leader</td>
-                        </tr>
-                        <tr>
-                            <td>FirstName2</td>
-                            <td>Varchar(25)</td>
-                            <td>The first name of the secondary research program leader</td>
-                        </tr>
-                        <tr>
-                            <td>MiddleName2</td>
-                            <td>Varchar(25)</td>
-                            <td>The middle name or initial of the secondary research program leader</td>
-                        </tr>
-
-                        <tr>
-                            <td>Degree21</td>
-                            <td>Varchar(15)</td>
-                            <td>First academic degree acronym or abbreviation of the secondary leader (e.g., PhD)</td>
-                        </tr>
-                        <tr>
-                            <td>Degree22</td>
-                            <td>Varchar(15)</td>
-                            <td>Second academic degree acronym or abbreviation of the secondary leader (e.g., MD)</td>
-                        </tr>
-                        <tr>
-                            <td>Degree23</td>
-                            <td>Varchar(15)</td>
-                            <td>Third academic degree acronym or abbreviation of the secondary leader (e.g., MS)</td>
-                        </tr>
-                        <tr>
-                            <td>IsNewLeader2</td>
-                            <td>Char(1)</td>
-                            <td>Indicate whether this is a new leader since the last application was submitted; use ‘Y’ for yes and ‘N’ for no</td>
-                        </tr>
-                        <tr>
-                            <td>NoOfMember</td>
-                            <td>Int</td>
-                            <td>The number of members assigned to the research program including Program Leader(s). Members in more than one program should be counted once</td>
-                        </tr>
-                        <tr>
-                            <td>Comments</td>
-                            <td>Varchar(8000)</td>
-                            <td>Optional free text field that allows user to enter notes or remarks on the current record.</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-                <p style="text-align:center; font-weight:bold">Note:  Please include the total number of Cancer Center Members (Individuals) at the bottom of Data Table 1B</p><br />
-
-                <p style="text-align:center; font-weight:bold">Note:  Data Table 1B example format can be found <a href="~/Documents/edata508.pdf#page=29" target="_blank">here</a>.</p><br />
+            <img style="padding-bottom:10px" src="~/images/eDatadiagram.jpg" alt="Data Tables Data Flow Diagram" />
+            <p class="tableTitle">Figure 1: The Data Tables Data Flow Diagram</p><br /><br />
 
 
-    @*@*--1C--*@
+            <h3>Purpose</h3><hr />
+            <p>The purpose of the CCSG Electronic Data Guide, herein referred to as eData Guide, is to present a description and standard format for the submission of electronic data. This format will allow Centers’ data to be processed and shared in a uniform and consistent matter. The eData Guide seeks to accomplish the following:</p>
+            <ul class="liIndent">
+                <li>Facilitate data standardization</li>
+                <li>Streamline the data importing process</li>
+                <li>Improve data quality and analysis</li>
+                <li>Simplify data management and reporting</li>
+            </ul>
+            <p>This eData Guide is meant as a specific guide for the eData submission, and describes each of the data table’s field columns at a granular level with significant technical detail. It identifies each data column, definition, type and its usage; it also includes example(s) for each of the data tables. The CCSG Data Guide should be consulted in order to derive background information regarding the purpose of each Data Table and to prepare the Data Tables that accompany Type 1 and Type 2 competitive applications.</p>
+            <p>Data Table 5 is not required to be submitted electronically; therefore, it is excluded from this document.</p><br />
+
+            <h3>OCC Database</h3><hr />
+            <p>As a step toward improving web interactivity, the existing OCC website has been redesigned to a more dynamic or database-driven website. The centralized database that supports this enhanced website application is where all the tables, views, stored procedures, user defined functions, and triggers are created.</p>
+            <p>Tables are commonly referred to as entities in the database. Data columns (fields) are commonly referred to as attributes for a particular table. In OCC the underscore character will not be used in a table name or column name. Furthermore, all tables in the OCC databases will begin with an uppercase letter followed by a series of upper and lowercase letters. Meaningful table names have been chosen to identify the overall purpose of the database tables (e.g., P30Partner).</p>
+            <p>Each data column in the table has a data type, which defines what kind of data can be stored in a column.</p>
+            <p><b>Note</b> the distinction between a blank space and a NULL value. A blank space is a character string while a NULL is an unknown value. If the data is not available or applicable, use NULL by leaving the column empty.</p>
+
+            <p class="tableTitle">Table 1-1 provides an overview of data types that are used in the OCC database.</p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="tableHeader">
+                        <th style="width:15%">Data Type</th>
+                        <th style="width:10%;">Abbr</th>
+                        <th style="width:15%;">Syntax</th>
+                        <th style="width:20%;">Valid Entry</th>
+                        <th style="width:40%;">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Character</td>
+                        <td>Char</td>
+                        <td>-</td>
+                        <td>A character or NULL value</td>
+                        <td>Fixed-length, non-Unicode string data. n defines the string length and must be a value from 1 through 8,000.  It is used for data that are a mixture of numbers and letters (alphanumeric data).</td>
+                    </tr>
+
+                    <tr>
+                        <td>Datetime</td>
+                        <td>-</td>
+                        <td>DateTime</td>
+                        <td>Date/time or NULL value</td>
+                        <td>Stores exact date/time values</td>
+                    </tr>
+                    <tr>
+                        <td>Varchar<br />[ ( n | max ) ]</td>
+                        <td>-</td>
+                        <td>Varchar(n), or Varchar (max)</td>
+                        <td></td>
+                        <td>Variable-length, standard character string data. n defines the string length and can be a value from 1 through 8,000. </td>
+                    </tr>
+                    <tr>
+                        <td>Float </td>
+                        <td>-</td>
+                        <td>Float</td>
+                        <td>Numeric , zero, or NULL value</td>
+                        <td>Uses the floating-point numbers with 16 or fewer significant digits </td>
+                    </tr>
+                    <tr>
+                        <td>Integer</td>
+                        <td>Int</td>
+                        <td>Int</td>
+                        <td>Numeric , zero, or NULL value</td>
+                        <td>Stores whole numbers (no decimal point) </td>
+                    </tr>
+                    <tr>
+                        <td>NVarchar<br />[ ( n | max ) ]</td>
+                        <td>-</td>
+                        <td>NVarchar(n) or NVarchar(max)</td>
+                        <td>A character string, blank space (s) or NULL value</td>
+                        <td>Variable-length Unicode character data. N can be a value from 1 through 4,000. </td>
+                    </tr>
+                </tbody>
+            </table>
 
 
-                <p id="dt1c" class="subHead">1.3  Data Table 1C - Shared Resources</p>
-                <hr />
-                <p>Create one record for each shared resource and use the following column names and definitions for clarity and uniformity.</p>
-                <p><i>For shared resources with multiple leaders, please add seven additional fields per additional leader, for instance, LastNameN, FirstNameN, MiddleNameN, DegreeN1, DegreeN2, DegreeN3, isNewN.  N is a numeric value that is great than 1. </i></p>
-
-                <p class="tableTitle">Table 1-3: Data Table 1C Column Definitions</p>
-
-                <table class="table table-bordered">
-                    <thead>
-                        <tr class="tableHeader">
-                            <th style="width:20%;">Column Name</th>
-                            <th style="width:20%;">SQL-Server<br />Data Type</th>
-                            <th style="width:60%;">Definition</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-
-                        <tr>
-                            <td>FY</td>
-                            <td>Int<br />YYYY</td>
-                            <td>The annual period for which the Data Tables are being submitted; it can be from October 1 of the prior year through September 30 of the year being described. (e.g., 2017)</td>
-                        </tr>
-
-                        <tr>
-                            <td>GrantNumber</td>
-                            <td>Varchar(25)</td>
-                            <td>The grant application identification number (e.g., 123456)</td>
-                        </tr>
-
-                        <tr>
-                            <td>ReportingDate</td>
-                            <td>DateTime<br />MM/DD/YYYY</td>
-                            <td>Center-defined reporting date</td>
-                        </tr>
-
-                        <tr>
-                            <td>SRName</td>
-                            <td>Varcchar(255)</td>
-                            <td>The name of the shared resource</td>
-                        </tr>
-
-                        <tr>
-                            <td>SRSubCat1</td>
-                            <td>Float</td>
-                            <td>A 3-digit codes to indicate the shared resource subcategory (e.g., 1.37)</td>
-                        </tr>
-                        <tr>
-                            <td>SRSubCat2</td>
-                            <td>Float</td>
-                            <td>A 3-digit codes to indicate the shared resource subcategory (e.g., 2.10)</td>
-                        </tr>
-                        <tr>
-                            <td>SRSubCat3</td>
-                            <td>Float</td>
-                            <td>A 3-digit codes to indicate the shared resource subcategory (e.g., 7.04)</td>
-                        </tr>
-
-                        <tr>
-                            <td>IsNewSR</td>
-                            <td>Char(1)</td>
-                            <td>Indicate whether this is a new Shared Resource since the last application was submitted; use ‘Y’ for yes, and ‘N’ for no.<br />Note that Shared Resources are peer-reviewed components of the CCSG.  Therefore, they cannot be added or deleted during a non-competing (Type 5) year without prior approval from the NCI’s Office of Cancer Centers (OCC). If your Center is considering a change in Shared Resources during a non-competing year, please contact your Program Officer.</td>
-                        </tr>
-
-                        <tr>
-                            <td>isDevSR</td>
-                            <td>Char(1)</td>
-                            <td>Indicate whether if the shared resource listed is supported by developmental funds; use ‘Y’ for yes and ‘N’ for no</td>
-                        </tr>
-
-                        <tr>
-                            <td>isMultiDirector</td>
-                            <td>Char(1)</td>
-                            <td>Indicate whether this shared resource is managed by multiple directors.  Use ‘Y’ for yes and ‘N’ for no</td>
-                        </tr>
-
-                        <tr>
-                            <td>LastName</td>
-                            <td>Varchar(25)</td>
-                            <td>The last name of the primary shared resource director</td>
-                        </tr>
-                        <tr>
-                            <td>FirstName</td>
-                            <td>Varchar(25)</td>
-                            <td>The first name of the primary shared resource director</td>
-                        </tr>
-                        <tr>
-                            <td>MiddleName</td>
-                            <td>Varchar(25)</td>
-                            <td>The middle name or initial of the primary shared resource director</td>
-                        </tr>
-
-                        <tr>
-                            <td>Degree1</td>
-                            <td>Varchar(15)</td>
-                            <td>First academic degree acronym or abbreviation of the primary director (e.g., PhD)</td>
-                        </tr>
-                        <tr>
-                            <td>Degree2</td>
-                            <td>Varchar(15)</td>
-                            <td>Second academic degree acronym or abbreviation of the primary director (e.g., MD)</td>
-                        </tr>
-                        <tr>
-                            <td>Degree3</td>
-                            <td>Varchar(15)</td>
-                            <td>Third academic degree acronym or abbreviation of the primary director (e.g., MS)</td>
-                        </tr>
-                        <tr>
-                            <td>isNewDirector</td>
-                            <td>Char(1)</td>
-                            <td>Indicate whether this is a new director since the last application was submitted; use ‘Y’ for yes and ‘N’ for no</td>
-                        </tr>
-
-                        @*<tr>
-                            <td>Comments</td>
-                            <td>Varchar(8000)</td>
-                            <td>Optional free text field that allows user to enter notes or remarks on the current record.</td>
-                        </tr>*@
-
-                        <tr>
-                            <td>LastName2</td>
-                            <td>Varchar(25)</td>
-                            <td>The last name of the secondary shared resource director</td>
-                        </tr>
-                        <tr>
-                            <td>FirstName2</td>
-                            <td>Varchar(25)</td>
-                            <td>The first name of the secondary shared resource director</td>
-                        </tr>
-                        <tr>
-                            <td>MiddleName2</td>
-                            <td>Varchar(25)</td>
-                            <td>The middle name or initial of the secondary shared resource director</td>
-                        </tr>
-
-                        <tr>
-                            <td>Degree21</td>
-                            <td>Varchar(15)</td>
-                            <td>First academic degree acronym or abbreviation of the secondary director (e.g., PhD)</td>
-                        </tr>
-                        <tr>
-                            <td>Degree22</td>
-                            <td>Varchar(15)</td>
-                            <td>Second academic degree acronym or abbreviation of the secondary director (e.g., MD)</td>
-                        </tr>
-                        <tr>
-                            <td>Degree23</td>
-                            <td>Varchar(15)</td>
-                            <td>Third academic degree acronym or abbreviation of the secondary director (e.g., MS)</td>
-                        </tr>
-                        <tr>
-                            <td>isNewDirector2</td>
-                            <td>Char(1)</td>
-                            <td>Indicate whether this is a new director since the last application was submitted; use ‘Y’ for yes and ‘N’ for no</td>
-                        </tr>
-
-                        <tr>
-                            <td>Comments</td>
-                            <td>Varchar(8000)</td>
-                            <td>Optional free text field that allows user to enter notes or remarks on the current record.</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-                <p class="tableTitle">Note:  Data Table 1C example format can be found <a href="~/Documents/edata508.pdf#page=30" target="_blank"> here</a>.</p><br />
-
-                <h3 id="Section2">
-                    SECTION 2. DATA TABLES 2A AND 2B - ACTIVE FUNDED
-                    <span style="margin-left:140px">PROJECTS</span>
-                </h3><br />
-
-                <p id="dt2a" class="subHead">2.1 Data Table 2A - Active Funded Projects</p>
-                <hr />
-                <p>For a center-defined reporting date, create one record for each funded project and use the following column names and definitions.</p>
-                <p><i>For multi-PI or multi-investigator grants, please add three additional fields per additional leader, for instance, LastNameN, FirstNameN, MiddleNameN.  N is a numeric value that is great than 1. </i></p>
-                <p class="tableTitle">Table 2-1: Data Table 2A Column Definitions</p>
-
-                @*2-1*@
-                <table class="table table-bordered">
-                    <thead>
-                        <tr class="tableHeader">
-                            <th style="width:20%;">Column Name</th>
-                            <th style="width:20%;">SQL-Server<br />Data Type</th>
-                            <th style="width:60%;">Definition</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>FY</td>
-                            <td>Int YYYY</td>
-                            <td>The annual period for which the Data Tables are being submitted; it can be from October 1 of the prior year through September 30 of the year being described. (e.g., 2017)</td>
-                        </tr>
-
-                        <tr>
-                            <td>GrantNumber</td>
-                            <td>Varchar(25)</td>
-                            <td>The P30 grant application identification number (e.g., 123456)</td>
-                        </tr>
-                        <tr>
-                            <td>ReportingDate</td>
-                            <td>
-                                DateTime
-                                MM/DD/YYYY
-                            </td>
-                            <td>Center-defined reporting date</td>
-                        </tr>
-                        <tr>
-                            <td>LastName</td>
-                            <td>Varchar(25)</td>
-                            <td>The last name of the PI from your Center who is responsible for this project </td>
-                        </tr>
-                        <tr>
-                            <td>FirstName</td>
-                            <td>Varchar(25)</td>
-                            <td>The first name or initial of the PI from your Center who is responsible for this project</td>
-                        </tr>
-                        <tr>
-                            <td>MiddleName</td>
-                            <td>Varchar(25)</td>
-                            <td>The middle name or initial of the PI from your Center who is responsible for this project</td>
-                        </tr>
-                        <tr>
-                            <td>IsMultiPI</td>
-                            <td>Char(1)</td>
-                            <td>
-                                Indicate whether it is a multi-PI grant; use “Y” for yes and “N” for no.<br />
-                                According to NIH’s definition (<a href="http://grants.nih.gov/grants/multi_pi/faq.htm#a1" target="_blank">Multiple Principal Investitgators FAQ page</a>) multiple PIs have equal authority for the grant or contract and are jointly responsible for the scientific and technical direction of the project.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>isMultiInvst</td>
-                            <td>Char(1)</td>
-                            <td>
-                                Indicate whether it is a multi-investigator grant; use “Y” for yes and “N” for no.<br />
-                                For the purpose of Data Table 2A (DT2A), multiple investigators refer to the investigators of the sub-projects for grants such as SPORE, P50, P01 and so on.  These investigators may not be recognized in the NIH grants system as PIs; however we’re still identifying them in DT2A.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>isPeerRev</td>
-                            <td>Char(1)</td>
-                            <td>Indicate whether the Projects that are awarded by NCI, NIH, or organizations with peer-review funding systems as listed on the OCC website;  use “Y” for  yes and “N” for no.</td>
-                        </tr>
-                        <tr>
-                            <td>isSubContract</td>
-                            <td>Char(1)</td>
-                            <td>
-                                Indicate whether the project is a subcontract; use “Y” for yes and “N” for no.<br /><i>
-                                    Note that # is used in the CCSG Data Guide
-                                </i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>FundingSource</td>
-                            <td>Varchar(100)</td>
-                            <td>The specific name of the financial sponsor for the project (e.g., NCI, ACS)</td>
-                        </tr>
-                        <tr>
-                            <td>ProjNo</td>
-                            <td>Varchar(100)</td>
-                            <td>Commonly referred to as the application number or grant number. This unique identification number for the grant is composed of the type code, activity code, Institute code, serial number, support year, and/or suffix code  (e.g., 1R01CA059736-01)</td>
-                        </tr>
-
-                        <tr>
-                            <td>ProjStartDate</td>
-                            <td>
-                                DateTime
-                                MM/DD/YYYY
-                            </td>
-                            <td>Official date a grant award begins; same as the first day of the first budget period (e.g., 6/1/2010) </td>
-                        </tr>
-
-                        <tr>
-                            <td>ProjEndDate</td>
-                            <td>
-                                DateTime
-                                MM/DD/YYYY
-                            </td>
-                            <td>Official date a grant award ends; same as the last day of the final budget period. (e.g., 5/30/2015)</td>
-                        </tr>
-                        <tr>
-                            <td>ProjTitle</td>
-                            <td>Varchar(8000)</td>
-                            <td>The official title of the research project being carried out at your institution (e.g., Regulation of mitochondrial inheritance in yeast) </td>
-                        </tr>
-                        <tr>
-                            <td>AnnualProjDC</td>
-                            <td>Int</td>
-                            <td>
-                                Annual Costs that can be identified specifically with a particular sponsored project, other institutional activity, or that can be directly assigned to such activities relatively easily with a high degree of accuracy (e.g., 1560000)
-                                <i>Do not include a comma (,) or a dollar sign ($) in the figure.</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>CARelevantAnnualDC</td>
-                            <td>Int</td>
-                            <td>
-                                Estimate, using a method of the Centers devising, the cancer relevant portion of a project and report the funding. Be prepared to defend this estimate in peer-review. For grants that are 100% cancer-relevant (such as all NCI grants), this will be identical with the Annual Project Direct Costs.                                <i>Do not include a comma (,) or a dollar sign ($) in the figure.</i>
-                            </td>
-                        </tr>
+            <h3>References</h3><hr />
+            <p>The primary references related to this document are located on the following website: <a href="http://cancercenters.cancer.gov/grants_funding/index.html ">Grants & Funding</a> page references:</p>
+            <ul class="liIndent">
+                <li>Data Guide</li>
+                <li>eData</li>
+                <li>Download eData Templates</li>
+                <li>ICD10</li>
+                <li>FAQ</li>
+            </ul>
+            <br />
 
 
-                        <tr>
-                            <td>ProgCode</td>
-                            <td>Varchar(15)</td>
-                            <td>
-                                An alphanumeric code that identifies Research Program affiliated with the clinical research study as defined by the Center in Data Table 1B (e.g., 42, XY)<br />
-                                Identify all training grants, including the F, K and T series NIH grants, with the program code “T”.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>ProgPercent</td>
-                            <td>Int</td>
-                            <td>
-                                The proportion of research attributable to the identified Research Program (e.g., 20, 100).<br />
-                                <i>Do not include the percent sign (%) in the figure.</i>
-                            </td>
-                        </tr>
+            <h3 id="Section1">SECTION 1. DATA TABLES 1A, 1B, AND, DT1C</h3><br />
 
-                        <tr>
-                            <td>AnnualProgDC</td>
-                            <td>Int</td>
-                            <td>
-                                Annual Direct Costs that support research carried out in the Center’s Research Programs (e.g., 1560000)<br />
-                                <i>Do not include a comma (,) or a dollar sign ($) in the figure.</i>
-                            </td>
-                        </tr>
+            @****************************************************************--DT1A--**********************************************************@
 
-                        @*<tr>
-                            <td>AnnualProgTC</td>
-                            <td>Int</td>
-                            <td>
-                                Annual Total Costs that support research carried out in the Center’s Research Programs (e.g., 1560000)<br />
-                                <i>Do not include a comma (,) or a dollar sign ($) in the figure.</i>
-                            </td>
-                        </tr>*@
-                        <tr>
-                            <td>Comments</td>
-                            <td>Varchar(8000)</td>
-                            <td>Optional free text field that allows user to enter notes or remarks on the current record.</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p class="tableTitle">Note:  Data Table 2A example format can be found <a href="~/Documents/edata508.pdf#page=31" target="_blank">here</a>.</p><br />
 
-                <p id="dt2b" class="subHead">2.2 Data Table 2B - Active Funded Projects</p>
-                <hr />
+            <h3>1.1  Data Table 1A - Senior Leadership</h3>
+            <hr />
+            <p>Create one record for each individual senior leader and use the following column name and definitions for clarity and uniformity.</p>
+            <p class="tableTitle">Table 1-1: Data Table 1A Column Definitions</p>
 
-                <p>List the total number of projects and the sum of direct and total costs for each major funding agency category as follows: NCI, other NIH, other Peer and Non Peer-Reviewed (Industry-sponsored and Other). </p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="tableHeader">
+                        <th style="width:20%;">Column Name</th>
+                        <th style="width:20%;">SQL-Server<br />Data Type</th>
+                        <th style="width:60%;">Definition</th>
+                    </tr>
+                </thead>
 
-                <p class="tableTitle">Table 2-2: Data Table 2B Column Definitions</p>
+                <tbody>
+                    <tr>
+                        <td>FY</td>
+                        <td>Int<br />YYYY</td>
+                        <td>The fiscal year for which the Data Tables are being submitted; it can be from October 1 of the prior year through September 30 of the year being funded. (e.g., 2018)</td>
+                    </tr>
+                    <tr>
+                        <td>GrantNumber</td>
+                        <td>Varchar(25)</td>
+                        <td>The grant application identification number (e.g., 123456)</td>
+                    </tr>
+                    <tr>
+                        <td>ReportingDate</td>
+                        <td>DateTime<br />MM/DD/YYYY</td>
+                        <td>Center-defined reporting date</td>
+                    </tr>
+                    <tr>
+                        <td>LastName</td>
+                        <td>Varchar(25)</td>
+                        <td>The last name of the senior leader</td>
+                    </tr>
+                    <tr>
+                        <td>FirstName</td>
+                        <td>Varchar(25)</td>
+                        <td>The first name of the senior leader</td>
+                    </tr>
+                    <tr>
+                        <td>MiddleName</td>
+                        <td>Varchar(25)</td>
+                        <td>The middle name or initial of the senior leader</td>
+                    </tr>
+                    <tr>
+                        <td>IsNew</td>
+                        <td>Char(1)</td>
+                        <td>Indicate whether this is a new leader since the last application was submitted; use “Y” for yes and “N” for no.</td>
+                    </tr>
+                    <tr>
+                        <td>Title</td>
+                        <td>Varchar(100)</td>
+                        <td>The title of the senior leader</td>
+                    </tr>
+                    <tr>
+                        <td>Degree1</td>
+                        <td>Varchar(15)</td>
+                        <td>First academic degree acronym or abbreviation of the senior leader (e.g., PhD)</td>
+                    </tr>
+                    <tr>
+                        <td>Degree2</td>
+                        <td>Varchar(15)</td>
+                        <td>Second academic degree acronym or abbreviation of the senior leader (e.g., MD)</td>
+                    </tr>
+                    <tr>
+                        <td>Degree3</td>
+                        <td>Varchar(15)</td>
+                        <td>Third academic degree acronym or abbreviation of the senior leader (e.g., MS)</td>
+                    </tr>
+                    <tr>
+                        <td>Comments</td>
+                        <td>Varchar(8000)</td>
+                        <td>Optional free text field that allows user to enter notes or remarks on the current record.</td>
+                    </tr>
 
-                @*2-2*@
-                <table class="table table-bordered">
-                    <thead>
-                        <tr class="tableHeader">
-                            <th style="width:20%;">Column Name</th>
-                            <th style="width:20%;">SQL-Server<br />Data Type</th>
-                            <th style="width:60%;">Definition</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>FY</td>
-                            <td>
-                                Int
-                                YYYY
-                            </td>
-                            <td>The annual period for which the Data Tables are being submitted; it can be from October 1 of the prior year through September 30 of the year being described. (e.g., 2017)</td>
-                        </tr>
-                        <tr>
-                            <td>P30GrantNumber</td>
-                            <td>Varchar(25)</td>
-                            <td>The full P30 grant application identification number (e.g., 5-P30-CA123456-38)</td>
-                        </tr>
-                        <tr>
-                            <td>ReportingDate</td>
-                            <td>DateTime MM/DD/YYYY</td>
-                            <td>Center-defined reporting date</td>
-                        </tr>
-                        <tr>
-                            <td>NCIPRTotalNo</td>
-                            <td>Int</td>
-                            <td>The total number of NCI Peer-Reviewed projects</td>
-                        </tr>
-                        <tr>
-                            <td>NCIPRDC</td>
-                            <td>Int</td>
-                            <td>The direct cost amount of the NCI Peer-Reviewed projects</td>
-                        </tr>
-                        <tr>
-                            <td>OthNIHPRTotalNo</td>
-                            <td>Int</td>
-                            <td>The total number of NIH Peer-Reviewed projects</td>
-                        </tr>
-                        <tr>
-                            <td>OthNIHPRDC</td>
-                            <td>Int</td>
-                            <td>The direct cost amount of the NIH Peer-Reviewed projects</td>
-                        </tr>
-                        <tr>
-                            <td>OthPRTotalNo</td>
-                            <td>Int</td>
-                            <td>Total number of the Other Peer-Reviewed projects</td>
-                        </tr>
-                        <tr>
-                            <td>OthPRDC</td>
-                            <td>Int</td>
-                            <td>The direct cost amount of the Other Peer-Reviewed projects</td>
-                        </tr>
-                        <tr>
-                            <td>IndustryNonPRTotalNo</td>
-                            <td>Int</td>
-                            <td>The total number of Industry Non Peer-Reviewed projects</td>
-                        </tr>
-                        <tr>
-                            <td>IndustryNonPRDC</td>
-                            <td>Int</td>
-                            <td>The direct cost amount of the Industry Non Peer-Reviewed projects</td>
-                        </tr>
-                        <tr>
-                            <td>OthNonPRTotalNo</td>
-                            <td>Int</td>
-                            <td>The total number of the Other Non Peer-Reviewed projects</td>
-                        </tr>
-                        <tr>
-                            <td>OthNonPRDC</td>
-                            <td>Int</td>
-                            <td>The direct cost amount of the Other Non Peer-Reviewed projects</td>
-                        </tr>
-                        <tr>
-                            <td>Comments</td>
-                            <td>Int</td>
-                            <td>Optional free text field that allows the user to enter any remark about the current record or row of data. </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p style="text-align:center; font-weight:bold">Note:  Data Table 2B example format can be found <a href="~/Documents/edata508.pdf#page=35" target="_blank">here</a>.</p><br />
-                
-                <h3 id="dt3">
-                    SECTION 3. DATA TABLE 3 - NEWLY REGISTERED
-                    <p style="margin-left:140px">
-                        PATIENTS / PARTICIPATION OF PATIENTS IN
-                        INTERVENTIONAL TREATMENT TRIALS BY
-                        ANATOMIC CANCER SITE</p>
-                </h3><hr />
+                </tbody>
+            </table>
 
-                <p>For the 12-month period as defined by the Cancer Center, create one record for reportable cancers and use the following column names and definitions for clarity and uniformity.</p>
-                <p><b>Note to Consortium Cancer Centers and Cancer Centers with affiliated institutions: </b><br />Submit separate Data Table 3 tables for each consortium partner and/or affiliated institution (<i>e.g.,</i> pediatric hospital) that is a formal component of the Cancer Center but maintains a separate cancer registry. Do not include loosely affiliated community partners. </p>
-                <p class="tableTitle">Table 3-1: Data Table 3 Column Definitions</p>
-                @*--Table 3--*@
-                <table class="table table-bordered">
-                    <thead>
-                        <tr class="tableHeader">
-                            <th style="width:20%;">Column Name</th>
-                            <th style="width:20%;">SQL-Server<br />Data Type</th>
-                            <th style="width:60%;">Definition</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>FY</td>
-                            <td>Int YYYY</td>
-                            <td>The annual period for which the Data Tables are being submitted; it can be from October 1 of the prior year through September 30 of the year being described. (e.g., 2017)</td>
-                        </tr>
-                        <tr>
-                            <td>GrantNumber</td>
-                            <td>Varchar(255)</td>
-                            <td>The P30 grant application identification number (e.g., 123456)</td>
-                        </tr>
-                        <tr>
-                            <td>ReportingSource</td>
-                            <td>Varchar(255)</td>
-                            <td>Name of Reporting Source.  For consortium centers or those with affiliated institutions, indicate the specific name of the reporting institution.</td>
-                        </tr>
-                        <tr>
-                            <td>ReportingStartDate</td>
-                            <td>DateTime MM/DD/YYYY</td>
-                            <td>The date on which the center-defined 12-month reporting period started</td>
-                        </tr>
-                        <tr>
-                            <td>ReportingEndDate</td>
-                            <td>DateTime MM/DD/YYYY</td>
-                            <td>The date on which the center-defined 12-month reporting period ended</td>
-                        </tr>
-                        <tr>
-                            <td>PrimarySite </td>
-                            <td>Varchar(255)</td>
-                            <td>Reportable Cancers.  Malignancies with an International Classification of Diseases for Oncology (ICD) behavior code of 2 or 3 should be reported, in accordance with the established requirements of registry standard setting organizations. Please refer to the ICD Codes on the OCC website: <a href="http://cancercenters-stage.cancer.gov/GrantsFunding/GrantsFunding"> Grants & Funding page</a>.</td>
-                        </tr>
-                        <tr>
-                            <td>NewlyRegisteredPatient</td>
-                            <td>Int</td>
-                            <td>Newly registered patients are those patients seen face-to-face and recorded in the Cancer Center’s Cancer Registry for the first time for that diagnosis during the reporting period. They include inpatients and outpatients who:<br />
+            <p class="tableTitle">Note:  Data Table 1A example format can be found <a href="~/Documents/edata508.pdf#page=28" target="_blank">here</a>.</p><br />
+
+            @*********************************************************--DT1B--***********************************************************************************@
+
+            <h3 id="dt1b">1.2  Data Table 1B - Research Programs</h3>
+            <hr />
+            <p>Create one record for each research program; use the following column names and definitions for clarity and uniformity.</p>
+            <p><i>For research program with multiple leaders, please add seven additional fields per additional leader, for instance, LastNameN, FirstNameN, MiddleNameN, DegreeN1, DegreeN2, DegreeN3, isNewN.  N is a numeric value that is great than 1. </i></p>
+            <p class="tableTitle">Table 1-2: Data Table 1B Column Definitions</p>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="tableHeader">
+                        <th style="width:20%;">Column Name</th>
+                        <th style="width:20%;">SQL-Server<br />Data Type</th>
+                        <th style="width:60%;">Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>FY</td>
+                        <td>Int<br />YYYY</td>
+                        <td>The annual period for which the Data Tables are being submitted; it can be from October 1 of the prior year through September 30 of the year being described. (e.g., 2017)</td>
+                    </tr>
+                    <tr>
+                        <td>GrantNumber</td>
+                        <td>Varchar(25)</td>
+                        <td>The grant application identification number (e.g., 123456)</td>
+                    </tr>
+                    <tr>
+                        <td>ReportingDate</td>
+                        <td>DateTime<br />MM/DD/YYYY</td>
+                        <td>Center-defined reporting date</td>
+                    </tr>
+
+                    <tr>
+                        <td>ProgCode</td>
+                        <td>Varchar(5)</td>
+                        <td>The alphanumeric code that identifies the clinical research program.  This code is also defined in Data Tables 2 and 4 (e.g., 01, 02, XT, or BC)</td>
+                    </tr>
+                    <tr>
+                        <td>ProgName</td>
+                        <td>Varchar(255)</td>
+                        <td>The name of the research program</td>
+                    </tr>
+                    <tr>
+                        <td>IsNewProg</td>
+                        <td>Char(1)</td>
+                        <td>
+                            Indicate whether this is a new research program since the last application was submitted; use ‘Y’ for yes and ‘N’ for no.<br />
+                            <i>Note</i> that Research Programs are peer-reviewed components of the CCSG. Therefore, they cannot be added or deleted during a non-competing (Type 5) year without prior approval from the NCI’s Office of Cancer Centers (OCC). If your Center is considering a change in Programs during a non-competing year, please contact your Program Officer.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>IsDevProg</td>
+                        <td>Char(1)</td>
+                        <td>Indicate whether if the research program listed is supported by developmental funds; use ‘Y’ for yes and ‘N’ for no</td>
+                    </tr>
+                    <tr>
+                        <td>IsMultiLeader</td>
+                        <td>Char(1)</td>
+                        <td>Indicate whether if this is a multiple leader program; use ‘Y’ for yes and ‘N’ for no</td>
+                    </tr>
+                    <tr>
+                        <td>LastName</td>
+                        <td>Varchar(25)</td>
+                        <td>The last name of the primary research program leader</td>
+                    </tr>
+                    <tr>
+                        <td>FirstName</td>
+                        <td>Varchar(25)</td>
+                        <td>The first name of the primary research program leader</td>
+                    </tr>
+                    <tr>
+                        <td>MiddleName</td>
+                        <td>Varchar(25)</td>
+                        <td>The middle name or initial of the primary research program leader</td>
+                    </tr>
+
+                    <tr>
+                        <td>Degree1</td>
+                        <td>Varchar(15)</td>
+                        <td>First academic degree acronym or abbreviation of the leader (e.g., PhD)</td>
+                    </tr>
+                    <tr>
+                        <td>Degree2</td>
+                        <td>Varchar(15)</td>
+                        <td>Second academic degree acronym or abbreviation of the leader (e.g., MD)</td>
+                    </tr>
+                    <tr>
+                        <td>Degree3</td>
+                        <td>Varchar(15)</td>
+                        <td>Third academic degree acronym or abbreviation of the leader (e.g., MS)</td>
+                    </tr>
+                    <tr>
+                        <td>IsNewLeader</td>
+                        <td>Char(1)</td>
+                        <td>Indicate whether this is a new leader since the last application was submitted; use ‘Y’ for yes and ‘N’ for no</td>
+                    </tr>
+                    <tr>
+                        <td>LastName2</td>
+                        <td>Varchar(25)</td>
+                        <td>The last name of the secondary research program leader</td>
+                    </tr>
+                    <tr>
+                        <td>FirstName2</td>
+                        <td>Varchar(25)</td>
+                        <td>The first name of the secondary research program leader</td>
+                    </tr>
+                    <tr>
+                        <td>MiddleName2</td>
+                        <td>Varchar(25)</td>
+                        <td>The middle name or initial of the secondary research program leader</td>
+                    </tr>
+
+                    <tr>
+                        <td>Degree21</td>
+                        <td>Varchar(15)</td>
+                        <td>First academic degree acronym or abbreviation of the secondary leader (e.g., PhD)</td>
+                    </tr>
+                    <tr>
+                        <td>Degree22</td>
+                        <td>Varchar(15)</td>
+                        <td>Second academic degree acronym or abbreviation of the secondary leader (e.g., MD)</td>
+                    </tr>
+                    <tr>
+                        <td>Degree23</td>
+                        <td>Varchar(15)</td>
+                        <td>Third academic degree acronym or abbreviation of the secondary leader (e.g., MS)</td>
+                    </tr>
+                    <tr>
+                        <td>IsNewLeader2</td>
+                        <td>Char(1)</td>
+                        <td>Indicate whether this is a new leader since the last application was submitted; use ‘Y’ for yes and ‘N’ for no</td>
+                    </tr>
+                    <tr>
+                        <td>NoOfMember</td>
+                        <td>Int</td>
+                        <td>The number of members assigned to the research program including Program Leader(s). Members in more than one program should be counted once</td>
+                    </tr>
+                    <tr>
+                        <td>Comments</td>
+                        <td>Varchar(8000)</td>
+                        <td>Optional free text field that allows user to enter notes or remarks on the current record.</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <p style="text-align:center; font-weight:bold">Note:  Please include the total number of Cancer Center Members (Individuals) at the bottom of Data Table 1B</p><br />
+
+            <p style="text-align:center; font-weight:bold">Note:  Data Table 1B example format can be found <a href="~/Documents/edata508.pdf#page=29" target="_blank">here</a>.</p><br />
+
+            @************************************************************--DT1C--****************************************************************@
+            <h3 id="dt1c" >1.3  Data Table 1C - Shared Resources</h3>
+            <hr />
+            <p>Create one record for each shared resource and use the following column names and definitions for clarity and uniformity.</p>
+            <p><i>For shared resources with multiple leaders, please add seven additional fields per additional leader, for instance, LastNameN, FirstNameN, MiddleNameN, DegreeN1, DegreeN2, DegreeN3, isNewN.  N is a numeric value that is great than 1. </i></p>
+
+            <p class="tableTitle">Table 1-3: Data Table 1C Column Definitions</p>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="tableHeader">
+                        <th style="width:20%;">Column Name</th>
+                        <th style="width:20%;">SQL-Server<br />Data Type</th>
+                        <th style="width:60%;">Definition</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>FY</td>
+                        <td>Int<br />YYYY</td>
+                        <td>The annual period for which the Data Tables are being submitted; it can be from October 1 of the prior year through September 30 of the year being described. (e.g., 2017)</td>
+                    </tr>
+
+                    <tr>
+                        <td>GrantNumber</td>
+                        <td>Varchar(25)</td>
+                        <td>The grant application identification number (e.g., 123456)</td>
+                    </tr>
+
+                    <tr>
+                        <td>ReportingDate</td>
+                        <td>DateTime<br />MM/DD/YYYY</td>
+                        <td>Center-defined reporting date</td>
+                    </tr>
+
+                    <tr>
+                        <td>SRName</td>
+                        <td>Varcchar(255)</td>
+                        <td>The name of the shared resource</td>
+                    </tr>
+
+                    <tr>
+                        <td>SRSubCat1</td>
+                        <td>Float</td>
+                        <td>A 3-digit codes to indicate the shared resource subcategory (e.g., 1.37)</td>
+                    </tr>
+                    <tr>
+                        <td>SRSubCat2</td>
+                        <td>Float</td>
+                        <td>A 3-digit codes to indicate the shared resource subcategory (e.g., 2.10)</td>
+                    </tr>
+                    <tr>
+                        <td>SRSubCat3</td>
+                        <td>Float</td>
+                        <td>A 3-digit codes to indicate the shared resource subcategory (e.g., 7.04)</td>
+                    </tr>
+
+                    <tr>
+                        <td>IsNewSR</td>
+                        <td>Char(1)</td>
+                        <td>Indicate whether this is a new Shared Resource since the last application was submitted; use ‘Y’ for yes, and ‘N’ for no.<br />Note that Shared Resources are peer-reviewed components of the CCSG.  Therefore, they cannot be added or deleted during a non-competing (Type 5) year without prior approval from the NCI’s Office of Cancer Centers (OCC). If your Center is considering a change in Shared Resources during a non-competing year, please contact your Program Officer.</td>
+                    </tr>
+
+                    <tr>
+                        <td>isDevSR</td>
+                        <td>Char(1)</td>
+                        <td>Indicate whether if the shared resource listed is supported by developmental funds; use ‘Y’ for yes and ‘N’ for no</td>
+                    </tr>
+
+                    <tr>
+                        <td>isMultiDirector</td>
+                        <td>Char(1)</td>
+                        <td>Indicate whether this shared resource is managed by multiple directors.  Use ‘Y’ for yes and ‘N’ for no</td>
+                    </tr>
+
+                    <tr>
+                        <td>LastName</td>
+                        <td>Varchar(25)</td>
+                        <td>The last name of the primary shared resource director</td>
+                    </tr>
+                    <tr>
+                        <td>FirstName</td>
+                        <td>Varchar(25)</td>
+                        <td>The first name of the primary shared resource director</td>
+                    </tr>
+                    <tr>
+                        <td>MiddleName</td>
+                        <td>Varchar(25)</td>
+                        <td>The middle name or initial of the primary shared resource director</td>
+                    </tr>
+
+                    <tr>
+                        <td>Degree1</td>
+                        <td>Varchar(15)</td>
+                        <td>First academic degree acronym or abbreviation of the primary director (e.g., PhD)</td>
+                    </tr>
+                    <tr>
+                        <td>Degree2</td>
+                        <td>Varchar(15)</td>
+                        <td>Second academic degree acronym or abbreviation of the primary director (e.g., MD)</td>
+                    </tr>
+                    <tr>
+                        <td>Degree3</td>
+                        <td>Varchar(15)</td>
+                        <td>Third academic degree acronym or abbreviation of the primary director (e.g., MS)</td>
+                    </tr>
+                    <tr>
+                        <td>isNewDirector</td>
+                        <td>Char(1)</td>
+                        <td>Indicate whether this is a new director since the last application was submitted; use ‘Y’ for yes and ‘N’ for no</td>
+                    </tr>
+
+                    @*<tr>
+                    <td>Comments</td>
+                    <td>Varchar(8000)</td>
+                    <td>Optional free text field that allows user to enter notes or remarks on the current record.</td>
+                </tr>*@
+
+                    <tr>
+                        <td>LastName2</td>
+                        <td>Varchar(25)</td>
+                        <td>The last name of the secondary shared resource director</td>
+                    </tr>
+                    <tr>
+                        <td>FirstName2</td>
+                        <td>Varchar(25)</td>
+                        <td>The first name of the secondary shared resource director</td>
+                    </tr>
+                    <tr>
+                        <td>MiddleName2</td>
+                        <td>Varchar(25)</td>
+                        <td>The middle name or initial of the secondary shared resource director</td>
+                    </tr>
+
+                    <tr>
+                        <td>Degree21</td>
+                        <td>Varchar(15)</td>
+                        <td>First academic degree acronym or abbreviation of the secondary director (e.g., PhD)</td>
+                    </tr>
+                    <tr>
+                        <td>Degree22</td>
+                        <td>Varchar(15)</td>
+                        <td>Second academic degree acronym or abbreviation of the secondary director (e.g., MD)</td>
+                    </tr>
+                    <tr>
+                        <td>Degree23</td>
+                        <td>Varchar(15)</td>
+                        <td>Third academic degree acronym or abbreviation of the secondary director (e.g., MS)</td>
+                    </tr>
+                    <tr>
+                        <td>isNewDirector2</td>
+                        <td>Char(1)</td>
+                        <td>Indicate whether this is a new director since the last application was submitted; use ‘Y’ for yes and ‘N’ for no</td>
+                    </tr>
+
+                    <tr>
+                        <td>Comments</td>
+                        <td>Varchar(8000)</td>
+                        <td>Optional free text field that allows user to enter notes or remarks on the current record.</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <p class="tableTitle">Note:  Data Table 1C example format can be found <a href="~/Documents/edata508.pdf#page=30" target="_blank"> here</a>.</p><br />
+
+            <h3 id="Section2">
+                SECTION 2. DATA TABLES 2A AND 2B - ACTIVE FUNDED
+                <span style="margin-left:140px">PROJECTS</span>
+            </h3><br />
+
+            <h3 id="dt2a">2.1 Data Table 2A - Active Funded Projects</h3>
+            <hr />
+            <p>For a center-defined reporting date, create one record for each funded project and use the following column names and definitions.</p>
+            <p><i>For multi-PI or multi-investigator grants, please add three additional fields per additional leader, for instance, LastNameN, FirstNameN, MiddleNameN.  N is a numeric value that is great than 1. </i></p>
+            <p class="tableTitle">Table 2-1: Data Table 2A Column Definitions</p>
+
+            @*2-1*@
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="tableHeader">
+                        <th style="width:20%;">Column Name</th>
+                        <th style="width:20%;">SQL-Server<br />Data Type</th>
+                        <th style="width:60%;">Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>FY</td>
+                        <td>Int YYYY</td>
+                        <td>The annual period for which the Data Tables are being submitted; it can be from October 1 of the prior year through September 30 of the year being described. (e.g., 2017)</td>
+                    </tr>
+
+                    <tr>
+                        <td>GrantNumber</td>
+                        <td>Varchar(25)</td>
+                        <td>The P30 grant application identification number (e.g., 123456)</td>
+                    </tr>
+                    <tr>
+                        <td>ReportingDate</td>
+                        <td>
+                            DateTime
+                            MM/DD/YYYY
+                        </td>
+                        <td>Center-defined reporting date</td>
+                    </tr>
+                    <tr>
+                        <td>LastName</td>
+                        <td>Varchar(25)</td>
+                        <td>The last name of the PI from your Center who is responsible for this project </td>
+                    </tr>
+                    <tr>
+                        <td>FirstName</td>
+                        <td>Varchar(25)</td>
+                        <td>The first name or initial of the PI from your Center who is responsible for this project</td>
+                    </tr>
+                    <tr>
+                        <td>MiddleName</td>
+                        <td>Varchar(25)</td>
+                        <td>The middle name or initial of the PI from your Center who is responsible for this project</td>
+                    </tr>
+                    <tr>
+                        <td>IsMultiPI</td>
+                        <td>Char(1)</td>
+                        <td>
+                            Indicate whether it is a multi-PI grant; use “Y” for yes and “N” for no.<br />
+                            According to NIH’s definition (<a href="http://grants.nih.gov/grants/multi_pi/faq.htm#a1" target="_blank">Multiple Principal Investitgators FAQ page</a>) multiple PIs have equal authority for the grant or contract and are jointly responsible for the scientific and technical direction of the project.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>isMultiInvst</td>
+                        <td>Char(1)</td>
+                        <td>
+                            Indicate whether it is a multi-investigator grant; use “Y” for yes and “N” for no.<br />
+                            For the purpose of Data Table 2A (DT2A), multiple investigators refer to the investigators of the sub-projects for grants such as SPORE, P50, P01 and so on.  These investigators may not be recognized in the NIH grants system as PIs; however we’re still identifying them in DT2A.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>isPeerRev</td>
+                        <td>Char(1)</td>
+                        <td>Indicate whether the Projects that are awarded by NCI, NIH, or organizations with peer-review funding systems as listed on the OCC website;  use “Y” for  yes and “N” for no.</td>
+                    </tr>
+                    <tr>
+                        <td>isSubContract</td>
+                        <td>Char(1)</td>
+                        <td>
+                            Indicate whether the project is a subcontract; use “Y” for yes and “N” for no.<br /><i>
+                                Note that # is used in the CCSG Data Guide
+                            </i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>FundingSource</td>
+                        <td>Varchar(100)</td>
+                        <td>The specific name of the financial sponsor for the project (e.g., NCI, ACS)</td>
+                    </tr>
+                    <tr>
+                        <td>ProjNo</td>
+                        <td>Varchar(100)</td>
+                        <td>Commonly referred to as the application number or grant number. This unique identification number for the grant is composed of the type code, activity code, Institute code, serial number, support year, and/or suffix code  (e.g., 1R01CA059736-01)</td>
+                    </tr>
+
+                    <tr>
+                        <td>ProjStartDate</td>
+                        <td>
+                            DateTime
+                            MM/DD/YYYY
+                        </td>
+                        <td>Official date a grant award begins; same as the first day of the first budget period (e.g., 6/1/2010) </td>
+                    </tr>
+
+                    <tr>
+                        <td>ProjEndDate</td>
+                        <td>
+                            DateTime
+                            MM/DD/YYYY
+                        </td>
+                        <td>Official date a grant award ends; same as the last day of the final budget period. (e.g., 5/30/2015)</td>
+                    </tr>
+                    <tr>
+                        <td>ProjTitle</td>
+                        <td>Varchar(8000)</td>
+                        <td>The official title of the research project being carried out at your institution (e.g., Regulation of mitochondrial inheritance in yeast) </td>
+                    </tr>
+                    <tr>
+                        <td>AnnualProjDC</td>
+                        <td>Int</td>
+                        <td>
+                            Annual Costs that can be identified specifically with a particular sponsored project, other institutional activity, or that can be directly assigned to such activities relatively easily with a high degree of accuracy (e.g., 1560000)
+                            <i>Do not include a comma (,) or a dollar sign ($) in the figure.</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CARelevantAnnualDC</td>
+                        <td>Int</td>
+                        <td>
+                            Estimate, using a method of the Centers devising, the cancer relevant portion of a project and report the funding. Be prepared to defend this estimate in peer-review. For grants that are 100% cancer-relevant (such as all NCI grants), this will be identical with the Annual Project Direct Costs.                                <i>Do not include a comma (,) or a dollar sign ($) in the figure.</i>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>ProgCode</td>
+                        <td>Varchar(15)</td>
+                        <td>
+                            An alphanumeric code that identifies Research Program affiliated with the clinical research study as defined by the Center in Data Table 1B (e.g., 42, XY)<br />
+                            Identify all training grants, including the F, K and T series NIH grants, with the program code “T”.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ProgPercent</td>
+                        <td>Int</td>
+                        <td>
+                            The proportion of research attributable to the identified Research Program (e.g., 20, 100).<br />
+                            <i>Do not include the percent sign (%) in the figure.</i>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>AnnualProgDC</td>
+                        <td>Int</td>
+                        <td>
+                            Annual Direct Costs that support research carried out in the Center’s Research Programs (e.g., 1560000)<br />
+                            <i>Do not include a comma (,) or a dollar sign ($) in the figure.</i>
+                        </td>
+                    </tr>
+
+                    @*<tr>
+                    <td>AnnualProgTC</td>
+                    <td>Int</td>
+                    <td>
+                        Annual Total Costs that support research carried out in the Center’s Research Programs (e.g., 1560000)<br />
+                        <i>Do not include a comma (,) or a dollar sign ($) in the figure.</i>
+                    </td>
+                </tr>*@
+                    <tr>
+                        <td>Comments</td>
+                        <td>Varchar(8000)</td>
+                        <td>Optional free text field that allows user to enter notes or remarks on the current record.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="tableTitle">Note:  Data Table 2A example format can be found <a href="~/Documents/edata508.pdf#page=31" target="_blank">here</a>.</p><br />
+
+            <h3 id="dt2b">2.2 Data Table 2B - Active Funded Projects</h3>
+            <hr />
+
+            <p>List the total number of projects and the sum of direct and total costs for each major funding agency category as follows: NCI, other NIH, other Peer and Non Peer-Reviewed (Industry-sponsored and Other). </p>
+
+            <p class="tableTitle">Table 2-2: Data Table 2B Column Definitions</p>
+
+            @*2-2*@
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="tableHeader">
+                        <th style="width:20%;">Column Name</th>
+                        <th style="width:20%;">SQL-Server<br />Data Type</th>
+                        <th style="width:60%;">Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>FY</td>
+                        <td>
+                            Int
+                            YYYY
+                        </td>
+                        <td>The annual period for which the Data Tables are being submitted; it can be from October 1 of the prior year through September 30 of the year being described. (e.g., 2017)</td>
+                    </tr>
+                    <tr>
+                        <td>P30GrantNumber</td>
+                        <td>Varchar(25)</td>
+                        <td>The full P30 grant application identification number (e.g., 5-P30-CA123456-38)</td>
+                    </tr>
+                    <tr>
+                        <td>ReportingDate</td>
+                        <td>DateTime MM/DD/YYYY</td>
+                        <td>Center-defined reporting date</td>
+                    </tr>
+                    <tr>
+                        <td>NCIPRTotalNo</td>
+                        <td>Int</td>
+                        <td>The total number of NCI Peer-Reviewed projects</td>
+                    </tr>
+                    <tr>
+                        <td>NCIPRDC</td>
+                        <td>Int</td>
+                        <td>The direct cost amount of the NCI Peer-Reviewed projects</td>
+                    </tr>
+                    <tr>
+                        <td>OthNIHPRTotalNo</td>
+                        <td>Int</td>
+                        <td>The total number of NIH Peer-Reviewed projects</td>
+                    </tr>
+                    <tr>
+                        <td>OthNIHPRDC</td>
+                        <td>Int</td>
+                        <td>The direct cost amount of the NIH Peer-Reviewed projects</td>
+                    </tr>
+                    <tr>
+                        <td>OthPRTotalNo</td>
+                        <td>Int</td>
+                        <td>Total number of the Other Peer-Reviewed projects</td>
+                    </tr>
+                    <tr>
+                        <td>OthPRDC</td>
+                        <td>Int</td>
+                        <td>The direct cost amount of the Other Peer-Reviewed projects</td>
+                    </tr>
+                    <tr>
+                        <td>IndustryNonPRTotalNo</td>
+                        <td>Int</td>
+                        <td>The total number of Industry Non Peer-Reviewed projects</td>
+                    </tr>
+                    <tr>
+                        <td>IndustryNonPRDC</td>
+                        <td>Int</td>
+                        <td>The direct cost amount of the Industry Non Peer-Reviewed projects</td>
+                    </tr>
+                    <tr>
+                        <td>OthNonPRTotalNo</td>
+                        <td>Int</td>
+                        <td>The total number of the Other Non Peer-Reviewed projects</td>
+                    </tr>
+                    <tr>
+                        <td>OthNonPRDC</td>
+                        <td>Int</td>
+                        <td>The direct cost amount of the Other Non Peer-Reviewed projects</td>
+                    </tr>
+                    <tr>
+                        <td>Comments</td>
+                        <td>Int</td>
+                        <td>Optional free text field that allows the user to enter any remark about the current record or row of data. </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="text-align:center; font-weight:bold">Note:  Data Table 2B example format can be found <a href="~/Documents/edata508.pdf#page=35" target="_blank">here</a>.</p><br />
+
+            <h3 id="dt3">
+                SECTION 3. DATA TABLE 3 - NEWLY REGISTERED
+                <p style="margin-left:140px">
+                    PATIENTS / PARTICIPATION OF PATIENTS IN
+                    INTERVENTIONAL TREATMENT TRIALS BY
+                    ANATOMIC CANCER SITE
+                </p>
+            </h3><hr />
+
+            <p>For the 12-month period as defined by the Cancer Center, create one record for reportable cancers and use the following column names and definitions for clarity and uniformity.</p>
+            <p><b>Note to Consortium Cancer Centers and Cancer Centers with affiliated institutions: </b><br />Submit separate Data Table 3 tables for each consortium partner and/or affiliated institution (<i>e.g.,</i> pediatric hospital) that is a formal component of the Cancer Center but maintains a separate cancer registry. Do not include loosely affiliated community partners. </p>
+            <p class="tableTitle">Table 3-1: Data Table 3 Column Definitions</p>
+            @*--Table 3--*@
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="tableHeader">
+                        <th style="width:20%;">Column Name</th>
+                        <th style="width:20%;">SQL-Server<br />Data Type</th>
+                        <th style="width:60%;">Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>FY</td>
+                        <td>Int YYYY</td>
+                        <td>The annual period for which the Data Tables are being submitted; it can be from October 1 of the prior year through September 30 of the year being described. (e.g., 2017)</td>
+                    </tr>
+                    <tr>
+                        <td>GrantNumber</td>
+                        <td>Varchar(255)</td>
+                        <td>The P30 grant application identification number (e.g., 123456)</td>
+                    </tr>
+                    <tr>
+                        <td>ReportingSource</td>
+                        <td>Varchar(255)</td>
+                        <td>Name of Reporting Source.  For consortium centers or those with affiliated institutions, indicate the specific name of the reporting institution.</td>
+                    </tr>
+                    <tr>
+                        <td>ReportingStartDate</td>
+                        <td>DateTime MM/DD/YYYY</td>
+                        <td>The date on which the center-defined 12-month reporting period started</td>
+                    </tr>
+                    <tr>
+                        <td>ReportingEndDate</td>
+                        <td>DateTime MM/DD/YYYY</td>
+                        <td>The date on which the center-defined 12-month reporting period ended</td>
+                    </tr>
+                    <tr>
+                        <td>PrimarySite </td>
+                        <td>Varchar(255)</td>
+                        <td>Reportable Cancers.  Malignancies with an International Classification of Diseases for Oncology (ICD) behavior code of 2 or 3 should be reported, in accordance with the established requirements of registry standard setting organizations. Please refer to the ICD Codes on the OCC website: <a href="http://cancercenters-stage.cancer.gov/GrantsFunding/GrantsFunding"> Grants & Funding page</a>.</td>
+                    </tr>
+                    <tr>
+                        <td>NewlyRegisteredPatient</td>
+                        <td>Int</td>
+                        <td>
+                            Newly registered patients are those patients seen face-to-face and recorded in the Cancer Center’s Cancer Registry for the first time for that diagnosis during the reporting period. They include inpatients and outpatients who:<br />
                             <ol>
-                                <li>are newly diagnosed and/or receiving first course of treatment at the Cancer Center, i.e.,      equivalent to American College of Surgeons-defined analytic case codes 00 – 22
-                                    <a href="http://www.facs.org/cancer/coc/fords/FORDS_for_2011_01012011.pdf" target="_blank">FORDS for 2011</a> (pages 91 and 92);</li>
-                            <li>have recurrent or persistent disease and are referred to the Cancer Center for evaluation and treatment, i.e., equivalent to American College of Surgeons-defined non-analytic code 32.</li>
-                            </ol> 
-                        </tr>
-                        <tr>
-                            <td>Comments</td>
-                            <td>Varchar(8000)</td>
-                            <td>Optional free text field that allows user to enter notes or remarks on the current record.</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p>* Please use these predefined Primary Site categories as listed. Altering this list will make processing the data less efficient.</p>
-                <p style="text-align:center; font-weight:bold">Note:  Data Table 3 example format can be found<a href="~/Documents/edata508.pdf#page=20" target="_blank"> here</a>.</p><br />
+                                <li>
+                                    are newly diagnosed and/or receiving first course of treatment at the Cancer Center, i.e.,equivalent to American College of Surgeons-defined analytic case codes 00 – 22
+                                    <a href="https://www.facs.org/media/r5rl5scw/fords-2016.pdf" target="_blank">FORDS-2016</a>
+                                </li>
+                                <li>have recurrent or persistent disease and are referred to the Cancer Center for evaluation and treatment, i.e., equivalent to American College of Surgeons-defined non-analytic code 32.</li>
+                            </ol>
+                    </tr>
+                    <tr>
+                        <td>Comments</td>
+                        <td>Varchar(8000)</td>
+                        <td>Optional free text field that allows user to enter notes or remarks on the current record.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>* Please use these predefined Primary Site categories as listed. Altering this list will make processing the data less efficient.</p>
+            <p style="text-align:center; font-weight:bold">Note:  Data Table 3 example format can be found<a href="~/Documents/edata508.pdf#page=20" target="_blank"> here</a>.</p><br />
 
-                <h3 id="dt4">
-                    SECTION 4.	DATA TABLE 4 - INFORMATION ON CLINICAL
-                    <span style="margin-left:140px">RESEARCH STUDIES</span>
-</h3> <hr />
-                <p>Create one record for each clinical research study and use the following column names and definitions for clarity and uniformity.</p>
-                @*--Table 4--*@
+            <h3 id="dt4">
+                SECTION 4.	DATA TABLE 4 - INFORMATION ON CLINICAL
+                <span style="margin-left:140px">RESEARCH STUDIES</span>
+            </h3> <hr />
+            <p>Create one record for each clinical research study and use the following column names and definitions for clarity and uniformity.</p>
+            @*--Table 4--*@
 
-                <p style="text-align:center; font-weight:bold">Table 4-1: Data Table 4 Column Definitions</p><br />
+            <p style="text-align:center; font-weight:bold">Table 4-1: Data Table 4 Column Definitions</p><br />
 
 
-                <table class="table table-bordered">
-                    <thead>
-                        <tr class="tableHeader">
-                            <th style="width:20%;">Column Name</th>
-                            <th style="width:20%;">SQL-Server<br />Data Type</th>
-                            <th style="width:60%;">Definition</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>FY</td>
-                            <td>
-                                Int
-                                YYYY
-                            </td>
-                            <td>The annual period for which the Data Tables are being submitted; it can be from October 1 of the prior year through September 30 of the year being described. (e.g., 2017)</td>
-                        </tr>
-                        <tr>
-                            <td>GrantNumber</td>
-                            <td>Varchar(25)</td>
-                            <td>The P30 grant application identification number (e.g., 123456)</td>
-                        </tr>
-                        <tr>
-                            <td>ReportingStartDate</td>
-                            <td>DateTime MM/DD/YYYY</td>
-                            <td>The date on which the center-defined 12-month reporting period started</td>
-                        </tr>
-                        <tr>
-                            <td>ReportingEndDate</td>
-                            <td>DateTime MM/DD/YYYY</td>
-                            <td>The date on which the center-defined 12-month reporting period ended</td>
-                        </tr>
-                        <tr>
-                            <td>ClinicalResearchCat</td>
-                            <td>Varchar(15)</td>
-                            <td>
-                                The Clinical Research Category in which the clinical research or protocol is listed<br />
-                                Valid entry: INT, OBS,  or ANC/COR<br />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>StudySource</td>
-                            <td>Char(1)</td>
-                            <td>
-                                The category of the trial sponsor or Study Source<br />
-                                Valid entry: N, E, I, or D<br />
-                                N - National Cooperative group<br />
-                                E - Externally Peer-Reviewed<br />
-                                I – Institutional<br />
-                                D – Industry<br />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>FundingSource</td>
-                            <td>Varchar(100)</td>
-                            <td>
-                                The specific name of the financial sponsor for the clinical research study. For institutionally sponsored trials or studies, list the name of the applicable funding agencies, (<i>e.g.,</i> NCI, NYU)
-                                <i>Note: this column is previously known as Sponsor.</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>PrimarySite</td>
-                            <td>Varchar(255)</td>
-                            <td>The primary anatomic cancer site(s) (<i>i.e.,</i> breast, ovary) the clinical research study focuses on. If the clinical research study is broadly applicable to a number of potential anatomic sites, enter the term “multiple” in this column.</td>
-                        </tr>
-                        <tr>
-                            <td>NCTID</td>
-                            <td>Varchar(50)</td>
-                            <td>The unique ID assigned to the trial by the National Clinical Trial program (ClinicalTrials.gov) for trials that have been submitted to ClinicalTrials.gov Protocol Registration System (PRS) previously. This ClinicalTrials.gov ID appears as "NCT" followed by 8 numeric characters (such as NCT12345678). (i.e., NCT00009876); If it is not applicable, use the ProtocolID.</td>
-                        </tr>
-                        <tr>
-                            <td>ProtocolID</td>
-                            <td>Varchar(50)</td>
-                            <td>The unique identifier for the study. List the common protocol number that the trial is known under nationally, if one exists. For other trials that do not have an NCT number or a common protocol number that the trial is known under nationally, use an internal protocol identification or IRB number.</td>
-                        </tr>
-						<tr>
-                            <td>OthProtocolID</td>
-                            <td>Varchar(50)</td>
-                            <td>Additional IDs assigned to the trial, including the following: NCI, Cancer Therapy Evaluation Program (CTEP) or Division of Cancer Prevention (DCP), unique IDs from other  registries, Protocol numbers assigned by the review board, other IDs.</td>
-                        </tr>
-						<tr>
-                            <td>LocalTrialID</td>
-                            <td>Varchar(50)</td>
-                            <td>The unique ID assigned at the Cancer Center level and used at the sites level to identify a trial.</td>
-                        </tr>
-						<tr>
-                            <td>NCIID</td>
-                            <td>Varchar(50)</td>
-                            <td>The unique ID assigned to the trial by the NCI’s Clinical Trials Reporting Program (CTRP).</td>
-                        </tr>
-                        <tr>
-                            <td>IsMultiInst</td>
-                            <td>Char(1)</td>
-                            <td>Indicate whether the study is a multiple institutions; use “Y” for yes and “N” for no.</td>
-                        </tr>
-                        <tr>
-                            <td>LastName</td>
-                            <td>Varchar(25)</td>
-                            <td>The last name of the Principal Investigator from your Center who is responsible for this Clinical Research Study</td>
-                        </tr>
-                        <tr>
-                            <td>FirstName</td>
-                            <td>Varchar(25)</td>
-                            <td>
-                                The first name or  initial of the Principal Investigator from your Center who is responsible for this Clinical Research Study<br /><i>
-                                    Do not include a period (.)
-                                </i>
-                            </td>
-                        </tr>
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="tableHeader">
+                        <th style="width:20%;">Column Name</th>
+                        <th style="width:20%;">SQL-Server<br />Data Type</th>
+                        <th style="width:60%;">Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>FY</td>
+                        <td>
+                            Int
+                            YYYY
+                        </td>
+                        <td>The annual period for which the Data Tables are being submitted; it can be from October 1 of the prior year through September 30 of the year being described. (e.g., 2017)</td>
+                    </tr>
+                    <tr>
+                        <td>GrantNumber</td>
+                        <td>Varchar(25)</td>
+                        <td>The P30 grant application identification number (e.g., 123456)</td>
+                    </tr>
+                    <tr>
+                        <td>ReportingStartDate</td>
+                        <td>DateTime MM/DD/YYYY</td>
+                        <td>The date on which the center-defined 12-month reporting period started</td>
+                    </tr>
+                    <tr>
+                        <td>ReportingEndDate</td>
+                        <td>DateTime MM/DD/YYYY</td>
+                        <td>The date on which the center-defined 12-month reporting period ended</td>
+                    </tr>
+                    <tr>
+                        <td>ClinicalResearchCat</td>
+                        <td>Varchar(15)</td>
+                        <td>
+                            The Clinical Research Category in which the clinical research or protocol is listed<br />
+                            Valid entry: INT, OBS,  or ANC/COR<br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>StudySource</td>
+                        <td>Char(1)</td>
+                        <td>
+                            The category of the trial sponsor or Study Source<br />
+                            Valid entry: N, E, I, or D<br />
+                            N - National Cooperative group<br />
+                            E - Externally Peer-Reviewed<br />
+                            I – Institutional<br />
+                            D – Industry<br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>FundingSource</td>
+                        <td>Varchar(100)</td>
+                        <td>
+                            The specific name of the financial sponsor for the clinical research study. For institutionally sponsored trials or studies, list the name of the applicable funding agencies, (<i>e.g.,</i> NCI, NYU)
+                            <i>Note: this column is previously known as Sponsor.</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>PrimarySite</td>
+                        <td>Varchar(255)</td>
+                        <td>The primary anatomic cancer site(s) (<i>i.e.,</i> breast, ovary) the clinical research study focuses on. If the clinical research study is broadly applicable to a number of potential anatomic sites, enter the term “multiple” in this column.</td>
+                    </tr>
+                    <tr>
+                        <td>NCTID</td>
+                        <td>Varchar(50)</td>
+                        <td>The unique ID assigned to the trial by the National Clinical Trial program (ClinicalTrials.gov) for trials that have been submitted to ClinicalTrials.gov Protocol Registration System (PRS) previously. This ClinicalTrials.gov ID appears as "NCT" followed by 8 numeric characters (such as NCT12345678). (i.e., NCT00009876); If it is not applicable, use the ProtocolID.</td>
+                    </tr>
+                    <tr>
+                        <td>ProtocolID</td>
+                        <td>Varchar(50)</td>
+                        <td>The unique identifier for the study. List the common protocol number that the trial is known under nationally, if one exists. For other trials that do not have an NCT number or a common protocol number that the trial is known under nationally, use an internal protocol identification or IRB number.</td>
+                    </tr>
+                    <tr>
+                        <td>OthProtocolID</td>
+                        <td>Varchar(50)</td>
+                        <td>Additional IDs assigned to the trial, including the following: NCI, Cancer Therapy Evaluation Program (CTEP) or Division of Cancer Prevention (DCP), unique IDs from other  registries, Protocol numbers assigned by the review board, other IDs.</td>
+                    </tr>
+                    <tr>
+                        <td>LocalTrialID</td>
+                        <td>Varchar(50)</td>
+                        <td>The unique ID assigned at the Cancer Center level and used at the sites level to identify a trial.</td>
+                    </tr>
+                    <tr>
+                        <td>NCIID</td>
+                        <td>Varchar(50)</td>
+                        <td>The unique ID assigned to the trial by the NCI’s Clinical Trials Reporting Program (CTRP).</td>
+                    </tr>
+                    <tr>
+                        <td>IsMultiInst</td>
+                        <td>Char(1)</td>
+                        <td>Indicate whether the study is a multiple institutions; use “Y” for yes and “N” for no.</td>
+                    </tr>
+                    <tr>
+                        <td>LastName</td>
+                        <td>Varchar(25)</td>
+                        <td>The last name of the Principal Investigator from your Center who is responsible for this Clinical Research Study</td>
+                    </tr>
+                    <tr>
+                        <td>FirstName</td>
+                        <td>Varchar(25)</td>
+                        <td>
+                            The first name or  initial of the Principal Investigator from your Center who is responsible for this Clinical Research Study<br /><i>
+                                Do not include a period (.)
+                            </i>
+                        </td>
+                    </tr>
 
-                        <tr>
-                            <td>MiddleName</td>
-                            <td>Varchar(25)</td>
-                            <td>
-                                The middle name or  initial of the Principal Investigator from your Center who is responsible for this Clinical Research Study
-                                <i>Do not include a period (.)</i>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td>MiddleName</td>
+                        <td>Varchar(25)</td>
+                        <td>
+                            The middle name or  initial of the Principal Investigator from your Center who is responsible for this Clinical Research Study
+                            <i>Do not include a period (.)</i>
+                        </td>
+                    </tr>
 
-                        <tr>
-                            <td>ProgCode</td>
-                            <td>Varchar(5)</td>
-                            <td>
-                                An alphanumeric Program Code that identifies the Research Program affiliated with the clinical research study as defined by the Center in Data Tables 1B and 2A.  For clinical research studies that span more than one Research Program, include both Program Codes in this column.
-                                <br />Refer to the Falls, R. example in the CCSG Data Guide
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>OpenDate</td>
-                            <td>DateTime MM/DD/YYYY</td>
-                            <td>The official start date of a trial at your Center determined by 1) the date of activation noted in an official clinical trial activation announcement or 2) date of first patient accrual if the trial in question did not have a formal activation announcement.
-                                <br />This value on CTRP DT4 is determined by the earliest “open” status date at any site associated with the center on the trial. The following trial statuses reflect an “open” status in CTRP:  Active, Enrolling by Invitation, Available, Temporarily Closed to Accrual or Temporarily Closed to Accrual and Intervention.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>CloseDate</td>
-                            <td>DateTime MM/DD/YYYY</td>
-                            <td>The date the clinical research study closed to accrual. This does not include patient follow-up. If the study is still open, this field will be blank/null.
-                                <br />This value on the CTRP-generated DT4 is determined by the latest “closed” date at any site associated with the cancer center on the trial. The following statuses reflect a “closed” status in CTRP: Closed to Accrual, Closed to Accrual and Intervention, Complete, Administratively Complete or Withdrawn.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Phase</td>
-                            <td>Varchar(255)</td>
-                            <td>
-                                Acceptable phases include Early Phase I, I, I/II, II, II/III, III, IV, N/A. 
-                                <i>Note: do not include blank spaces</i>
-                            </td>
-                        </tr>
-						 <tr>
-                            <td>IsPilot</td>
-                            <td>Char(1)</td>
-                            <td>Pilot attribute can be assigned to any phase. Indicate whether the study is a pilot phase; use “Y” for yes and “N” for no.</td>
-                        </tr>
-                        <tr>
-                            <td>PrimaryPurpose</td>
-                            <td>Varchar(3)</td>
-                            <td>
-                                The type or primary purpose of clinical trial<br />
-                                Valid entry: Tre, Pre, Sup, Scr, Dev, Dia, Hsr, Bas, or Oth<br />             
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>OfficialTitle</td>
-                            <td>Varchar(8000)</td>
-                            <td>Official name of the protocol provided by the study principal investigator or sponsor (Limit: 600 characters or fewer). </td>
-                        </tr>
-                        <tr>
-                            <td>EntireStudy</td>
-                            <td>Int</td>
-                            <td>
-                                The total targeted accrual for the entire study. For both single-site and multi-site trials initiated at your Center, indicate the total number of participants needed for the entire study. For multi-site trials that your Center participates in but did not initiate, leave this column empty.
-                                <i>Do not submit a targeted range, such as “10 – 100.”</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>YourCenterTotal</td>
-                            <td>Int</td>
-                            <td>
-                                The targeted accrual for your Center.  For single-site and multi-site trials initiated at your Center, indicate the total number of participants your Center is expected to accrue for the study.
-                                <i>Do not submit a targeted range, such as “10 – 100.”</i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Center12Mos</td>
-                            <td>Int</td>
-                            <td>Provide the number of participants accrued to this clinical research study during the identified 12-month reporting period study your Cancer Center and its formal Consortium Partners. </td>
-                        </tr>
-                        <tr>
-                            <td>CenterToDate</td>
-                            <td>Int</td>
-                            <td>Provide the number of participants accrued to this clinical research study to date at your Cancer Center and its formal Consortium Partners.  This number is a cumulative figure, not an annual total.</td>
-                        </tr>
-                        <tr>
-                            <td>Other12Mos</td>
-                            <td>Int</td>
-                            <td>Provide the number of participants accrued to this clinical research study during the identified 12-month reporting period at all hospitals, treatment facilities, and/or research facilities that are a formal part of the Cancer Center (e.g., nearby community hospitals).</td>
-                        </tr>
-                        <tr>
-                            <td>OtherToDate</td>
-                            <td>Int</td>
-                            <td>
-                               Provide the number of participants accrued in the clinical research study to date at all hospitals, treatment facilities, and/or research facilities that are a formal part of the Cancer Center (e.g., nearby community hospitals). 
-							   </br>This number is a cumulative figure, not an annual total.
-                            </td>
-                        </tr>                      
-                        <tr>
-                            <td>EntireStudyAccrualToDate</td>
-                            <td>Int</td>
-                            <td>
-                                
-                                    If the Lead Organization, column is populated with a summary of accrual for all participating sites on the trial through the last day of the reporting period (directly and not directly connected to the Lead Organization CTRP Family).
-                                    <br>If a Participating Site, column is blank.
-                               
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Comments</td>
-                            <td>Varchar(8000)</td>
-                            <td>Optional free text field that allows user to enter notes or remarks on the current record.</td>
-                        </tr>                        
-                    </tbody>
-                </table>
+                    <tr>
+                        <td>ProgCode</td>
+                        <td>Varchar(5)</td>
+                        <td>
+                            An alphanumeric Program Code that identifies the Research Program affiliated with the clinical research study as defined by the Center in Data Tables 1B and 2A.  For clinical research studies that span more than one Research Program, include both Program Codes in this column.
+                            <br />Refer to the Falls, R. example in the CCSG Data Guide
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>OpenDate</td>
+                        <td>DateTime MM/DD/YYYY</td>
+                        <td>
+                            The official start date of a trial at your Center determined by 1) the date of activation noted in an official clinical trial activation announcement or 2) date of first patient accrual if the trial in question did not have a formal activation announcement.
+                            <br />This value on CTRP DT4 is determined by the earliest “open” status date at any site associated with the center on the trial. The following trial statuses reflect an “open” status in CTRP:  Active, Enrolling by Invitation, Available, Temporarily Closed to Accrual or Temporarily Closed to Accrual and Intervention.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CloseDate</td>
+                        <td>DateTime MM/DD/YYYY</td>
+                        <td>
+                            The date the clinical research study closed to accrual. This does not include patient follow-up. If the study is still open, this field will be blank/null.
+                            <br />This value on the CTRP-generated DT4 is determined by the latest “closed” date at any site associated with the cancer center on the trial. The following statuses reflect a “closed” status in CTRP: Closed to Accrual, Closed to Accrual and Intervention, Complete, Administratively Complete or Withdrawn.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phase</td>
+                        <td>Varchar(255)</td>
+                        <td>
+                            Acceptable phases include Early Phase I, I, I/II, II, II/III, III, IV, N/A.
+                            <i>Note: do not include blank spaces</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>IsPilot</td>
+                        <td>Char(1)</td>
+                        <td>Pilot attribute can be assigned to any phase. Indicate whether the study is a pilot phase; use “Y” for yes and “N” for no.</td>
+                    </tr>
+                    <tr>
+                        <td>PrimaryPurpose</td>
+                        <td>Varchar(3)</td>
+                        <td>
+                            The type or primary purpose of clinical trial<br />
+                            Valid entry: Tre, Pre, Sup, Scr, Dev, Dia, Hsr, Bas, or Oth<br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>OfficialTitle</td>
+                        <td>Varchar(8000)</td>
+                        <td>Official name of the protocol provided by the study principal investigator or sponsor (Limit: 600 characters or fewer). </td>
+                    </tr>
+                    <tr>
+                        <td>EntireStudy</td>
+                        <td>Int</td>
+                        <td>
+                            The total targeted accrual for the entire study. For both single-site and multi-site trials initiated at your Center, indicate the total number of participants needed for the entire study. For multi-site trials that your Center participates in but did not initiate, leave this column empty.
+                            <i>Do not submit a targeted range, such as “10 – 100.”</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>YourCenterTotal</td>
+                        <td>Int</td>
+                        <td>
+                            The targeted accrual for your Center.  For single-site and multi-site trials initiated at your Center, indicate the total number of participants your Center is expected to accrue for the study.
+                            <i>Do not submit a targeted range, such as “10 – 100.”</i>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Center12Mos</td>
+                        <td>Int</td>
+                        <td>Provide the number of participants accrued to this clinical research study during the identified 12-month reporting period study your Cancer Center and its formal Consortium Partners. </td>
+                    </tr>
+                    <tr>
+                        <td>CenterToDate</td>
+                        <td>Int</td>
+                        <td>Provide the number of participants accrued to this clinical research study to date at your Cancer Center and its formal Consortium Partners.  This number is a cumulative figure, not an annual total.</td>
+                    </tr>
+                    <tr>
+                        <td>Other12Mos</td>
+                        <td>Int</td>
+                        <td>Provide the number of participants accrued to this clinical research study during the identified 12-month reporting period at all hospitals, treatment facilities, and/or research facilities that are a formal part of the Cancer Center (e.g., nearby community hospitals).</td>
+                    </tr>
+                    <tr>
+                        <td>OtherToDate</td>
+                        <td>Int</td>
+                        <td>
+                            Provide the number of participants accrued in the clinical research study to date at all hospitals, treatment facilities, and/or research facilities that are a formal part of the Cancer Center (e.g., nearby community hospitals).
+                            </br>This number is a cumulative figure, not an annual total.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EntireStudyAccrualToDate</td>
+                        <td>Int</td>
+                        <td>
 
-                <p style="text-align:center; font-weight:bold">Note:  Data Table 4 example format can be found <a href="~/Documents/edata508.pdf#page=36" target="_blank">here</a>.</p><br />
-                
-                
-                <p id="AppendixB" class="subHead">SUMMARY OF CHANGES TO eDATA</p><hr />
+                            If the Lead Organization, column is populated with a summary of accrual for all participating sites on the trial through the last day of the reporting period (directly and not directly connected to the Lead Organization CTRP Family).
+                            <br>If a Participating Site, column is blank.
 
-                <table class="table table-bordered">
-                    <thead>
-                        <tr class="tableHeader">
-                            <th style="width:20%;">Updated Date</th>
-                            <th style="width:20%;">Effected<br />Data Table(s)</th>
-                            <th style="width:60%;">Description of Changes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>10/30/2018</td>
-                            <td>Introduction</td>
-                            <td>
-                                Modified Figure 1: The Data Tables Data Flow Diagram
-                            </td>
-                         </tr>
-                         <tr>
-                            <td></td>
-                            <td>DT 4</td>
-                            <td>
-                                Modified the definition of the OpenDate and CloseDate, <br />
-                                added EntireStudyAccrualToDate fields, and <br />
-                                modified DT4 Example Format in the Appendix A, page A9-A13.
-                                <br /><br />
-                                <font color="Maroon">Note: These changes went into effect on October 1, 2018 (FY2019) and applied to competing Centers only.</font>
-                            </td>
-                        </tr>
-						<tr>
-                            <td>02/14/2018</td>
-                            <td>DT 4</td>
-                            <td>To further harmonize fields and definitions with the ClinincalTrials.gov and CTRP: </br>
-								Renamed NCINumber to NCIID and modified the definition, </br>
-								modified Phase eliminating phase “0”, “Pilot”, and “Feasibility” options, </br>
-								modified the definition of the ProtocolID, Other12Mos, and OtherToDate, </br>  
-								added “Dev” option to the Primary Purpose,  </br>
-								added IsPilot, OtherProtocolID , NCIID, and Local Trial ID fields. 
-								</td>
-                        </tr>
-                        <tr>
-                            <td>01/24/2017</td>
-                            <td>DT 1</td>
-                            <td>Revised 1B “NoOfMember” column definition;<br />Eliminated 1C – Program Members;<br />1D is now labeled 1C;</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>DT2</td>
-                            <td>Eliminated total cost</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>DT2 A and B</td>
-                            <td>Moved all training projects to Cancer Research Career Enhancement and Related Activities</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>DT3</td>
-                            <td>Eliminated “Patients newly accrued to treatment trials”,<br />Combined “Female Breast” and “Male Breast” to “Breast”.</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>DT4</td>
-                            <td>No changes – CTRP will generate DT4 in the future (2018 or later)</td>
-                        </tr>
-                    </tbody>
-                   </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Comments</td>
+                        <td>Varchar(8000)</td>
+                        <td>Optional free text field that allows user to enter notes or remarks on the current record.</td>
+                    </tr>
+                </tbody>
+            </table>
 
-                </div>@*content*@
-            </div>@*row*@
-        </div>@*container*@
+            <p style="text-align:center; font-weight:bold">Note:  Data Table 4 example format can be found <a href="~/Documents/edata508.pdf#page=36" target="_blank">here</a>.</p><br />
+
+
+            <h3 id="AppendixB">SUMMARY OF CHANGES TO eDATA</h3><hr />
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="tableHeader">
+                        <th style="width:20%;">Updated Date</th>
+                        <th style="width:20%;">Effected<br />Data Table(s)</th>
+                        <th style="width:60%;">Description of Changes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>08/24/2022</td>
+                        <td>DT3</td>
+                        <td>
+                            Fixed broken links to ICD10 and FORDS-2016 in DT3.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10/30/2018</td>
+                        <td>Introduction</td>
+                        <td>
+                            Modified Figure 1: The Data Tables Data Flow Diagram
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>DT 4</td>
+                        <td>
+                            Modified the definition of the OpenDate and CloseDate, <br />
+                            added EntireStudyAccrualToDate fields, and <br />
+                            modified DT4 Example Format in the Appendix A, page A9-A13.
+                            <br /><br />
+                            <font color="Maroon">Note: These changes went into effect on October 1, 2018 (FY2019) and applied to competing Centers only.</font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>02/14/2018</td>
+                        <td>DT 4</td>
+                        <td>
+                            To further harmonize fields and definitions with the ClinincalTrials.gov and CTRP: </br>
+                            Renamed NCINumber to NCIID and modified the definition, </br>
+                            modified Phase eliminating phase “0”, “Pilot”, and “Feasibility” options, </br>
+                            modified the definition of the ProtocolID, Other12Mos, and OtherToDate, </br>
+                            added “Dev” option to the Primary Purpose,  </br>
+                            added IsPilot, OtherProtocolID , NCIID, and Local Trial ID fields.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>01/24/2017</td>
+                        <td>DT 1</td>
+                        <td>Revised 1B “NoOfMember” column definition;<br />Eliminated 1C – Program Members;<br />1D is now labeled 1C;</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>DT2</td>
+                        <td>Eliminated total cost</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>DT2 A and B</td>
+                        <td>Moved all training projects to Cancer Research Career Enhancement and Related Activities</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>DT3</td>
+                        <td>Eliminated “Patients newly accrued to treatment trials”,<br />Combined “Female Breast” and “Male Breast” to “Breast”.</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>DT4</td>
+                        <td>No changes – CTRP will generate DT4 in the future (2018 or later)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>@*content*@
+        </div>@*row*@
+    </div>@*container*@
 </body>
 </html>
