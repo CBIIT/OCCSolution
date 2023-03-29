@@ -28,7 +28,7 @@
                                     Updated broken links to Accrual defn in clinicaltrials.gov, PRFundinigOrgs508.pdf (notice the naming convention) 
                                     Added indentation to 2nd level of bullet in DT4, 
                                     Updated from v3.1 to v3.1.1
-                                    
+       03/28/2023     Chi           Added Prag field, and changed "Yes" to "Y" and "No" to "N"                  
                              
     ------------------------------------------------------------------------------------------------------------------------------*@
 <!DOCTYPE html>
@@ -95,7 +95,7 @@
     <div class="container" id="pageCenterID">
         <div class="row" id="centerContentID">
             <h2 class="tealFont">&nbsp;CCSG Data Guide</h2>
-            <p style="font-size:medium; padding-left:.5em;"><small>Revised August 24, 2022</small></p>
+            <p style="font-size:medium; padding-left:.5em;"><small>Revised April 1, 2023</small></p>
             <hr style="margin-bottom:0em;" />
             <ul class="breadcrumb" style="float:left; margin-bottom:2px;">
                 <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
@@ -124,7 +124,7 @@
             <div class="col-xs-9">
                 @*<h5 style="text-align:center; color: red; font-weight:bold">FOR COMPETING APPLICATIONS ONLY</h5>*@
                 <h2 style="text-align:center">P30 Cancer Center Support Grant</h2>
-                <h3 style="text-align:center">Data Table Guide v3.1.1</h3><br />
+                <h3 style="text-align:center">Data Table Guide v3.1.2</h3><br />
 
                 <h4 style="text-align:center">
                     National Institutes of Health / DHHS<br />
@@ -917,7 +917,7 @@
 
                 <p><b>N/A:</b>Trials without phases (for example, studies of devices or behavioral interventions).</p>
 
-                <p><b>Pilot:</b>Pilot attribute can be assigned to any phase.  Indicate whether the study is a pilot phase by inserting “Yes” to the “Pilot” column.</p>
+                <p><b>Pilot:</b>Pilot attribute can be assigned to any phase.  Indicate whether the study is a pilot phase by inserting “Y” for yes and "N" or (leave blank) for no.</p>
 
                 <br />
                 <h4 id="primarypurposeID"><u>Primary Purpose</u></h4>
@@ -939,11 +939,29 @@
                 <p><b>Supportive Care (SUP): </b>Protocol designed to evaluate one or more interventions where 	the 	primary intent is to maximize comfort, minimize side effects, or mitigate against a decline in the participant’s health or function. In general, supportive care interventions 	are not intended to cure a disease.</p>
                 <p><b>Treatment (TRE): </b>Protocol designed to evaluate one or more interventions for treating a 	disease, syndrome, or condition. <b>Note:</b> This equates to therapeutic trials in previous versions of the guidelines.</p>
                 <p><b>Other (OTH): </b>Not in other categories</p>
-
                 <br />
 
+                <p><b>Pragmatic Clinical Trail: </b>A clinical trial that is designed to study a health intervention in a real-world setting that is similar or identical to the one in which the intervention will be implemented.</p>
+                <p>
+                    Trails with the following characteristics can be classified as pragmatic:
+                </p>
+                <ul class="liIndent">
+                    <li>Unit of randomization may be other than an individual participant (e.g., the clinic, the healthcare system, or a neighborhood if a community setting)</li></br>
+                    <li>Intervention may be multi-level involving changes to:</li></br>
+                    <ul class="liIndent">
+                        <li>Participant behavior (e.g., completing a symptom report measures online), and</li></br>
+                        <li>Provider behavior (e.g., receiving the participant’s symptom report and having to act on it)</li></br>
+                    </ul>
+                    <li>Data are often obtained directly from medical records and, are likely collected on a large number of participants</li></br>
+                    <ul class="liIndent">
+                        <li>Data may be collected during a pre-intervention period and again during a post-intervention period in each clinic that is randomized</li></br>
+                        <li>Participants for whom data are collected in the pre-intervention period may not be the same ones for whom data are collected in the post-intervention period.</li>
+                    </ul>
+                </ul>
+                <p>Indicate whether the trail is pragmatic by entering “Y” for yes and “N” or (leave blank) for no in the “Prag” column.</p></br>
+
                 <p><b>Official Title: </b>Official name of the protocol provided by the study PI or sponsor (Limit: 8000 characters or fewer).</p>
-                <p><b>Multi-institutional Clinical Research Study: </b>Indicate if the trial is multi-institutional by 	inserting ‘Yes’ in the 	“Multi-inst study” column (see definition above).</p>
+                <p><b>Multi-institutional Clinical Research Study: </b>Indicate if the trial is multi-institutional by 	inserting "Y" for yes and "N" or (leave blank) for no in the “Multi-inst” column (see definition above).</p>
                 <p><b>Total Targeted Accrual:</b>For both single-institution and multi-institutional trials initiated at 	your Center, indicate the total number of participants needed for the entire study. For 	multi-Institutional trials that your Center participates in but did not initiate, leave “Entire 	study”	column empty. Do not submit a targeted range, such as “10 – 100.” </p>
                 <p><b>Targeted Accrual for your Center:</b>For single-institution and multi-institutional trials initiated 	at your Center, indicate the total number of participants your Center is expected to accrue 	for the study. For single-institution trials the “Total Accrual for your Center” and the “Total Targeted Accrual” numbers will be the same. Do not submit a targeted range, such as “10 – 100.”</p>
                 <p><b>Accrual Institutions:</b></p>
@@ -1109,6 +1127,15 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                        <tr>
+                            <td>04/01/2023</td>
+                            <td>DT4</td>
+                            <td>
+                                Added a new column "Prag", </br>
+                                Modified the "Pilot" and "Multi-Inst" entry "Y" for yes and "N" for no or leave it blank. 
+                            </td>
+                        </tr>
 
                         <tr>
                             <td>08/24/2022</td>
