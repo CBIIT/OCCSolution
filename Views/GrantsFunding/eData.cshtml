@@ -421,7 +421,7 @@
                     <tr>
                         <td>IsMultiLeader</td>
                         <td>Char(1)</td>
-                        <td>Indicate whether if this is a multiple leader program; use ‘Y’ for yes and ‘N’ for no</td>
+                        <td>Indicate whether if this is a multiple leader program; use ‘Y’ for yes and ‘N’ or (leave blank) for no</td>
                     </tr>
                     <tr>
                         <td>LastName</td>
@@ -1190,7 +1190,7 @@
                     <tr>
                         <td>IsPilot</td>
                         <td>Char(1)</td>
-                        <td>Pilot attribute can be assigned to any phase. Indicate whether the study is a pilot phase; use “Y” for yes and “N” for no.</td>
+                        <td>Pilot attribute can be assigned to any phase. Indicate whether the study is a pilot phase; use “Y” for yes and “N” or (leave blank) for no.</td>
                     </tr>
                     <tr>
                         <td>PrimaryPurpose</td>
@@ -1198,6 +1198,14 @@
                         <td>
                             The type or primary purpose of clinical trial<br />
                             Valid entry: Tre, Pre, Sup, Scr, Dev, Dia, Hsr, Bas, or Oth<br />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Prag</td>
+                        <td>Char(1)</td>
+                        <td>
+                            Indicate whether the trial is pramatic; use “Y” for yes and “N” or (leave blank) for no.<br />
+                            <i>See CCSG Data Guide for the definition</i> <br />
                         </td>
                     </tr>
                     <tr>
@@ -1276,6 +1284,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td>04/01/2023</td>
+                        <td>DT4</td>
+                        <td>
+                            Added a new column "Prag".
+                        </td>
+                    </tr>
                     <tr>
                         <td>08/24/2022</td>
                         <td>DT3</td>
