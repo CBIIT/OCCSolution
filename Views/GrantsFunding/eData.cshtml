@@ -32,7 +32,8 @@
         08/24/2022     Chi          Fixed a broken link https://www.facs.org/cancer/coc/fords/fords_for_2011_01012011.pdf/ (page 91 and 92);
                                     to https://www.facs.org/media/r5rl5scw/fords-2016.pdf, 
                                     Fixed each header formt from center to left justified. 
-        03/238/2023    Chi          Added a new field "Prag"
+        03/28/2023    Chi          Added a new field "Prag"
+        04/01/2023    Chi          Moved NCI-ID to be right of NCT-ID, updated the dt4Template.xls as well 
     ---------------------------------------------------------------------------------------------------------------------------------------------------------*@
 
 <!DOCTYPE html>
@@ -1107,6 +1108,11 @@
                         <td>The unique ID assigned to the trial by the National Clinical Trial program (ClinicalTrials.gov) for trials that have been submitted to ClinicalTrials.gov Protocol Registration System (PRS) previously. This ClinicalTrials.gov ID appears as "NCT" followed by 8 numeric characters (such as NCT12345678). (i.e., NCT00009876); If it is not applicable, use the ProtocolID.</td>
                     </tr>
                     <tr>
+                        <td>NCIID</td>
+                        <td>Varchar(50)</td>
+                        <td>The unique ID assigned to the trial by the NCI’s Clinical Trials Reporting Program (CTRP).</td>
+                    </tr>
+                    <tr>
                         <td>ProtocolID</td>
                         <td>Varchar(50)</td>
                         <td>The unique identifier for the study. List the common protocol number that the trial is known under nationally, if one exists. For other trials that do not have an NCT number or a common protocol number that the trial is known under nationally, use an internal protocol identification or IRB number.</td>
@@ -1120,11 +1126,6 @@
                         <td>LocalTrialID</td>
                         <td>Varchar(50)</td>
                         <td>The unique ID assigned at the Cancer Center level and used at the sites level to identify a trial.</td>
-                    </tr>
-                    <tr>
-                        <td>NCIID</td>
-                        <td>Varchar(50)</td>
-                        <td>The unique ID assigned to the trial by the NCI’s Clinical Trials Reporting Program (CTRP).</td>
                     </tr>
                     <tr>
                         <td>IsMultiInst</td>

@@ -95,7 +95,7 @@
     <div class="container" id="pageCenterID">
         <div class="row" id="centerContentID">
             <h2 class="tealFont">&nbsp;CCSG Data Guide</h2>
-            <p style="font-size:medium; padding-left:.5em;"><small>Revised April 1, 2023</small></p>
+            <p style="font-size:medium; padding-left:.5em;"><small>Revised May 1, 2023</small></p>
             <hr style="margin-bottom:0em;" />
             <ul class="breadcrumb" style="float:left; margin-bottom:2px;">
                 <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
@@ -892,10 +892,10 @@
                 <p><b>Primary Site: </b>The primary cancer site(s) (i.e. breast, ovary) the clinical research study focuses on. If the clinical research study is broadly applicable to a number of potential primary sites, enter the term “multiple” in this column.</p>
                 <p><b>Protocol ID/IRB Number (Proto ID): </b>Provide the unique identifier for this study. Where available, list the NCT number, as well as the common protocol number that the trial is known under nationally, if one exists. For other trials that do not have an NCT number or a common protocol number that the trial is known under nationally, use an internal protocol identification or IRB number.</p>
                 <p><b>NCT ID:</b>The unique ID assigned to the trial by the National Clinical Trial program (ClinicalTrials.gov) for trials that have been submitted to ClinicalTrials.gov Protocol Registration System (PRS) previously. This ClinicalTrials.gov ID appears as "NCT" followed by 8 numeric characters (such as NCT12345678). (i.e., NCT00009876); If it is not applicable, use the ProtocolID.
+                <p><b>NCI ID:</b> The unique ID assigned to the trial by the NCI's Clinical Trials Reporting Program (CTRP).</p>
                 <p><b>Protocol ID/IRB Number (Proto ID):</b> The unique identifier for the study. List the common protocol number that the trial is known under nationally, if one exists. For other trials that do not have an NCT number or a common protocol number that the trial is known under nationally, use an internal protocol identification or IRB number.</p>
                 <p><b>Other Protocol ID (Other Proto ID):</b> Additional IDs assigned to the trial, including the following: NCI, Cancer Therapy Evaluation Program (CTEP) or Division of Cancer Prevention (DCP), unique IDs from other  registries, Protocol numbers assigned by the review board, other IDs.</p>
                 <p><b>Local Trial ID:</b> The unique ID assigned at the Cancer Center level and used at the sites level to identify a trial.</p>
-                <p><b>NCI ID:</b> The unique ID assigned to the trial by the NCI's Clinical Trials Reporting Program (CTRP).</p>
                 <p><b>PI:</b>The last name and first initial of the PI from the Center who is responsible for this Clinical Research Study.</p>
                 <p><b>Program (Prog) Code: </b>Use the Research Program code defined by the center in DT 1B. For clinical research studies that span more than one Research Program, include both Program Codes in this column. </p>
                 <p><b>Date Opened (activation): </b>The official start date of a trial determined by 1) the date of activation noted in an official clinical trial activation announcement or 2) date of first patient accrual if the trial in question did not have a formal activation announcement.</p>
@@ -989,7 +989,7 @@
                 <hr />
                 <p>DT5 reports the Cancer Center’s current budget (Type 2) and its requested budget (Types 1 and 2).</p>
                 <ul class="liIndent">
-                    <li>Provide the direct cost CCSG budget of the last full year of funding (for Type 2), and the requested budget for the first year of the new competitive project period (Types 1 and 2) for each major budget category listed below. List non-salary funds for Research Programs separately, and list the shared resources individually. List only the total for Developmental Funds.  Sum all the direct costs at the bottom of the chart.</li></br>
+                    <li>Provide the direct cost CCSG budget of the last full year of funding (for Type 2), and the requested budget for the first year of the new competitive project period (Types 1 and 2) for each major budget category listed below. List non-salary funds for Research Programs separately, and list the shared resources as a single combined figure that includes salaries and operating costs/activities. List only the total for Developmental Funds.  Sum all the direct costs at the bottom of the chart.</li></br>
                     <li>The current budget, if applicable, should reflect the last full year of the current competitive project period as submitted in the type 5 application and/or as detailed in the notice of award for that period, exclusive of carryover funds and supplements. The direct cost figures should include any third party indirect costs, since these are charged as direct costs to the CCSG.</li>
                 </ul>
                 <br />
@@ -1136,7 +1136,8 @@
                             <td>05/01/2023</td>
                             <td>DT5</td>
                             <td>
-                                Added Plan to Enhance Diversity (PED).</br>
+                                <li>Added Plan to Enhance Diversity (PED), <li /> </br>
+                                <li>Modified "...and list the shared resources individually." to "... and list the shared resources as a single combined figure that includes salaries and operating costs/activities."</li>
                             </td>
                         </tr>
 
