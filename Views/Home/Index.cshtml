@@ -3,27 +3,29 @@
     ViewBag.Title = "OCC Homepage";
 }
 @*************************************************************************************************************************************************************
-                DATE             Developer      DESC
-                10/17/2014       Chi Dinh       Created homepage/Landing Page
-                02/02/2017       AM             || item.OCCAnnouncementID == 26
-                02/21/2018       CHi            updated to display the 3 latest annoucements.
-                09/11/2018       AM             added || (item.OCCAnnouncementID == 35) (Dr. Min He welcome)
-                10/31/2018       Chi            added eData 3.1.1 update annoucment and aria-label=" "
-                04/11/2019       Chi            Showed the most recent 4 announcements
-                04/16/2019       Chi            Showed the most recent 2 annoucements including changes to RPPR
-                04/17/2019       Chi            removed the entire OCC Annoucement and updated the News & Events section
-                04/30/2019       AM             modified language
-                05/22/2019       AM             Updated RPPR document date per SR
-                07/24/2019       Chi            Updated the landing page to welcome 71st NCI-designiated CC: Miami
-                07/25/2019       AM             Modified language ^^^
-                07/25/2019       AM             Modified Miami's name to match cancer.gov
-                06/03/2021       AM             Updated OCC Announcement with COE & ET listings
-                10/19/2021      Chi             Per Krzysztof, 1.	On the landing page, under Grants&Funding (attached)
-                                                Change to 2021 P30 The link: https://grants.nih.gov/grants/guide/pa-files/PAR-21-321.html
-                                                2.	In the Grants$Funding drop menu, link to a revised FOA https://grants.nih.gov/grants/guide/pa-files/PAR-21-321.html
-                02/17/2022      AM              Added OCC Announcement section and included new PAR
-                04/06/2022     Chi              Commented out tag <hr />
-            ***********************************************************************************************************************************************************@
+        DATE             Developer      DESC
+        10/17/2014       Chi Dinh       Created homepage/Landing Page
+        02/02/2017       AM             || item.OCCAnnouncementID == 26
+        02/21/2018       CHi            updated to display the 3 latest annoucements.
+        09/11/2018       AM             added || (item.OCCAnnouncementID == 35) (Dr. Min He welcome)
+        10/31/2018       Chi            added eData 3.1.1 update annoucment and aria-label=" "
+        04/11/2019       Chi            Showed the most recent 4 announcements
+        04/16/2019       Chi            Showed the most recent 2 annoucements including changes to RPPR
+        04/17/2019       Chi            removed the entire OCC Annoucement and updated the News & Events section
+        04/30/2019       AM             modified language
+        05/22/2019       AM             Updated RPPR document date per SR
+        07/24/2019       Chi            Updated the landing page to welcome 71st NCI-designiated CC: Miami
+        07/25/2019       AM             Modified language ^^^
+        07/25/2019       AM             Modified Miami's name to match cancer.gov
+        06/03/2021       AM             Updated OCC Announcement with COE & ET listings
+        10/19/2021      Chi             Per Krzysztof, 1.	On the landing page, under Grants&Funding (attached)
+                                        Change to 2021 P30 The link: https://grants.nih.gov/grants/guide/pa-files/PAR-21-321.html
+                                        2.	In the Grants$Funding drop menu, link to a revised FOA https://grants.nih.gov/grants/guide/pa-files/PAR-21-321.html
+        02/17/2022      AM              Added OCC Announcement section and included new PAR
+        04/06/2022     Chi              Commented out tag <hr />
+        05/10/2023     Chi              Updated FOA to notice of funding opportunity (NOFO) per OER Policy Announcement 2023-02, https://extramural-intranet.nih.gov/policy-and-guidance/oer-policy-announcement-202302. 
+
+    ***********************************************************************************************************************************************************@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,7 +81,7 @@
 <html lang="en">
 <body>
 
-   
+
     <div class="container" id="pageCenterID">
 
         @* Carousel starts *@
@@ -142,7 +144,7 @@
             @*<hr />*@
             <p style="padding-top:5px; padding-bottom:5px; padding-left:5px; background-color:firebrick; font-size:18px; color:white" ;>OCC Announcements</p>
 
-            <p style="font-weight:bold">New Funding Opportunity Announment (FOA)</p>
+            <p style="font-weight:bold">New Notices of Funding Opportunities (NOFOs)</p>
             <p style="text-justify: inter-word; border-bottom: thick double #F5F5F5; " class="occFontBody">
                 Information regarding the Issuance of the PAR-21-321 can be found <a href="https://cancercenters.cancer.gov/GrantsFunding/GrantsFunding">here</a>.<br /></br>
             </p>
@@ -154,9 +156,6 @@
 
             @*<hr />*@
         </div>
-
-
-
 
         <div class="col-sm-4">
             <a href="~/NewsEvents/NewsEvents">
@@ -187,7 +186,7 @@
             <p style="padding-top:10px;" class="occHbold">2021 P30 Funding Opportunity Announcement</p>
             <p style="text-justify:inter-word; text-align:left;" class="occFontBody">
                 <img class="img-thumbnail border" src="~/images/occGrantAppMoneyJar.png" alt="Grants and funding" align="right" style="border-color:#bfbfbf; border-width:1px; height:95px; width:110px" />
-                This Funding Opportunity Announcement (FOA) invites new and renewal applications for P30 Cancer Center Support Grants (CCSGs) to support NCI-designated Cancer Centers.
+                This notices of funding opportunity (NOFO) invites new and renewal applications for P30 Cancer Center Support Grants (CCSGs) to support NCI-designated Cancer Centers.
                 <a href="https://grants.nih.gov/grants/guide/pa-files/PAR-21-321.html" target="_blank"><span>Read more</span></a>
             </p>
         </div>
