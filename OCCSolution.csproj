@@ -4086,12 +4086,10 @@
     </Content>
     <Content Include="Documents\CURESupplementsforClinicalandPatientOrientedResearch.pdf" />
     <Content Include="Documents\DataGuideFAQs508C.pdf" />
-    <Content Include="Documents\DFHCCDSMP508.pdf" />
     <Content Include="Documents\DSMPReviewCriteria508.pdf" />
     <Content Include="Documents\DT1ATemplate.xls" />
     <Content Include="Documents\DT1BTemplate.xls" />
     <Content Include="Documents\DT1CTemplate.xls" />
-    <Content Include="Documents\DT1DTemplate.xls" />
     <Content Include="Documents\DT2ATemplate.xls" />
     <Content Include="Documents\DT2BTemplate.xls" />
     <Content Include="Documents\DT3Template.xls" />
@@ -4099,20 +4097,15 @@
     <Content Include="Documents\FOASpecificFAQs508C.pdf" />
     <Content Include="Documents\GuidanceRegardingPRMSandCPDMComponentsofCCSG508C.pdf" />
     <Content Include="Documents\CC-CCCLogoPolicyRev2012508.pdf" />
-    <Content Include="Documents\CCSGFAQs508C.pdf" />
-    <Content Include="Documents\InstructionsforCCSGNonCompetingProgressReportsUsingRPPR508C.pdf" />
-    <Content Include="Documents\OHSUDSMP508.pdf" />
     <Content Include="Documents\Outlineof2013GuidelinesChanges508.pdf" />
     <Content Include="Documents\Outlineof2014FOAChanges508.pdf" />
     <Content Include="Documents\PeerReviewProcessRelevantTOCCSG508C.pdf" />
     <Content Include="Documents\PolicyforDSMPReview508.pdf" />
-    <Content Include="Documents\UWCCCDSMPPolicyProcudures508.pdf" />
     <Content Include="Documents\ClinicalTranslationalScienceAwardsFY15-508.pdf" />
     <Content Include="Content\KendoUI.Mvc.VSPackage.vsix" />
     <Content Include="Documents\ResearchProgramsReported2014-508C.pdf" />
     <Content Include="Documents\FOATableOfChanges-508C.pdf" />
     <Content Include="Documents\InstructionsforCCSGNonCompetingProgressReportsUsingRPPR2016508C.pdf" />
-    <Content Include="Documents\InstructionsforCCSGNonCompetingProgressReportsUsingRPPR2019508C.pdf" />
     <Content Include="Documents\MSKCCDSMP508C.pdf" />
     <Content Include="Documents\AbramsonDSMP508C.pdf" />
     <Content Include="Documents\CaseDSMP508C.pdf" />
@@ -4168,9 +4161,10 @@
     <Content Include="Content\Content2\fontawesome-free-6.1.1-web\webfonts\fa-solid-900.woff2" />
     <Content Include="Content\Content2\fontawesome-free-6.1.1-web\webfonts\fa-v4compatibility.ttf" />
     <Content Include="Content\Content2\fontawesome-free-6.1.1-web\webfonts\fa-v4compatibility.woff2" />
-    <Content Include="Documents\PRFundingOrgs508C.pdf" />
     <Content Include="Documents\CCSGDataGuide508.pdf" />
     <Content Include="Documents\eData508.pdf" />
+    <Content Include="Documents\CCSGFAQs508.pdf" />
+    <Content Include="Documents\PEDFAQs508.pdf" />
     <None Include="Properties\PublishProfiles\OCCSolution2.pubxml" />
     <None Include="Scripts\jquery-1.11.1.intellisense.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
