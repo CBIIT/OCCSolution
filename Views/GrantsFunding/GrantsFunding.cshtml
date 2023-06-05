@@ -90,10 +90,10 @@
             03/28/2023  Chi         Updated Data Guide and eData v3.1.1 to v3.1.2, added Code Updates Comments region.
             05/10/2023  Chi         Updated FOA to notice of funding opportunity (NOFO) per OER Policy Announcement 2023-02, https://extramural-intranet.nih.gov/policy-and-guidance/oer-policy-announcement-202302.
             05/30/2023  Chi         Updated FAQs to CCSG, PED, and Data Guide - PDF only
-            05/31/2023  Chi         Updated Peer Review Processed by Sonya 
-            06/01/2023  Chi         Updated Information on RPPR by Sonya, 
+            05/31/2023  Chi         Updated Peer Review Processed by Sonya
+            06/01/2023  Chi         Updated Information on RPPR by Sonya,
                                     Added the subheader: Documents Updated as of May 2033
-            
+            06/05/2023  Chi         changed <a> to <p> tage on "Documents Updated as of May 2023:"
         <!-- #endregion -->
         ---------------------------------------------------------------------------------------------------------------------------------------------------------*@
 </td>
@@ -145,7 +145,7 @@
             </div>
         </div>
         <div class="row centerContent">
-            <hr style="margin-bottom:0em;" />
+            @*<hr style="margin-bottom:0em;" />*@
             <ul class="breadcrumb" id="centerContentID">
                 @* ActionLink ("Label", "View Name", "Controller Name" *@
                 <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a href="#" id="home">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "occHyperLink" })</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></li>
@@ -181,8 +181,8 @@
 
                     <a href="~/grantsfunding/dsmppolicy" class="occHyperLink">Policy on Peer Review of DSMP in CCSG</a><br />
                     <a href="~/grantsfunding/dsmprevcriteria" class="occHyperLink">DSMP Review by NCI Staff</a><br /><br />
-                    Samples:</font><br />
-                    <ol>
+                    <b>Samples:</b><br />
+                    <ol style="padding-left:17px;">
                         <li><a href="~/Documents/AbramsonDSMP508C.pdf" target="_blank">Abramson Cancer Center DSMP</a></li>
                         <li><a href="~/Documents/CaseDSMP508C.pdf" target="_blank">Case Comprehensive Cancer Center DSMP</a></li>
                         <li><a href="~/Documents/MSKCCDSMP508C.pdf" target="_blank">Memorial Sloan Kettering Cancer Center DSMP</a></li>
@@ -199,8 +199,8 @@
                 </div>
                 <div class="panel-body panelHeight1" style="background-color:#FFFFFF; border-radius:5px;">
                     @*<a href="~/GrantsFunding/GuidelineChangesOutline">Outline of 2013 Guideline Changes</a><br />*@
-                    <a href="~/GrantsFunding/PRMSandCPDMGuidance">Guidance Regarding the PRMS and the CPDM Components of the CCSG</a><br />
-                    <a style="color: tomato"><small><b>Documents Updated as of May 2023</b></small></a></br>
+                    <a href="~/GrantsFunding/PRMSandCPDMGuidance">Guidance Regarding the PRMS and the CPDM Components of the CCSG</a><br /><br />
+                    <p style="color: tomato; font-size: 12px; margin-bottom: 0;"><b>Documents Updated as of May 2023:</b></p>
                     <a href="~/Documents/PeerReviewProcessRelevantTOCCSG508C.pdf">Peer Review Process Relevant to the CCSG</a><br />
                     <a href="~/Documents/FAQsCCSG508.pdf">FAQs Related to CCSG Applications </a><br />
                     <a href="~/Documents/FAQsPED508.pdf">FAQs Related to Plan to Enhance Diversity (PED) </a><br />
@@ -217,8 +217,8 @@
                 <div class="panel-body panelHeight2">
                     @*<a href="~/GrantsFunding/ICD9View">ICD9</a><br />*@
                     @*<a href="~/Documents/ICD10-508.pdf">ICD10</a><small><i>&nbsp;Effective October 1, 2015</i></small><br />*@
-                    <a href="~/GrantsFunding/ICD10">ICD10</a><br />
-                    <a style="color: tomato"><small><b>Documents Updated as of May 2023</b></small></a></br>
+                    <a href="~/GrantsFunding/ICD10">ICD10</a><br /><br />
+                    <p style="color: tomato; font-size: 12px; margin-bottom: 0;"><b>Documents Updated as of May 2023:</b></p>
                     <a href="~/Documents/InformationForCCSGNonCompetingProgressReports508.pdf">Information for CCSG Non-Competing Progress Reports Using RPPR </a><br />
                     <a href="~/GrantsFunding/DataGuide">CCSG Data Guide v3.1.2 </a><br />
                     <a href="~/GrantsFunding/eData">CCSG Electronic Data Guide (eData) v3.1.2 </a><br />
