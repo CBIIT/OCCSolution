@@ -93,7 +93,9 @@
             05/31/2023  Chi         Updated Peer Review Processed by Sonya
             06/01/2023  Chi         Updated Information on RPPR by Sonya,
                                     Added the subheader: Documents Updated as of May 2033
-            06/05/2023  Chi         changed <a> to <p> tage on "Documents Updated as of May 2023:"
+            06/05/2023  Chi         changed <a> to <p> tage on "Documents Updated as of May 2023:",
+                                    Increased panelHeight1 from 130px to 150px, 
+                                    Moved the breadcrump to the right by adding padding-left
         <!-- #endregion -->
         ---------------------------------------------------------------------------------------------------------------------------------------------------------*@
 </td>
@@ -120,8 +122,8 @@
             }
 
         .panelHeight1 {
-            min-height: 130px;
-            max-height: 130px;
+            min-height: 150px;
+            max-height: 150px;
         }
 
         .panelHeight2 {
@@ -145,8 +147,8 @@
             </div>
         </div>
         <div class="row centerContent">
-            @*<hr style="margin-bottom:0em;" />*@
-            <ul class="breadcrumb" id="centerContentID">
+            <hr style="margin-bottom:0em;" />
+            <ul class="breadcrumb" id="centerContentID" style="padding-left:20px;">
                 @* ActionLink ("Label", "View Name", "Controller Name" *@
                 <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a href="#" id="home">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "occHyperLink" })</a> <span class="glyphicon glyphicon-circle-arrow-right"></span></li>
                 <li class="active grayFont">Grants & Funding</li>
