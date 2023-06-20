@@ -2,96 +2,97 @@
 <html>
 <div>
     <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-             DATE         	DEVELOPER       DESC
-             09/22/2014   	Chi Dinh        Created.
-             12/17/2014  	Chi             Changed the OCCFavIcon.ico
-             12/18/2014  	Chi             Updated the URLs to access file in Documents foder,
-                                              the Search with the code Jacob Mensah provided
-                                                 <form method="get" action="https://google3.nci.nih.gov/search">
-                                                 <input type="text" name="q" size="32" maxlength="255" value="" />
-                                                 <input type="submit" name="btnG" value="Search" />
-                                                 <input type="hidden" name="site" value="cancercenters_stage_collection" />
-                                                 <input type="hidden"name="client" value="cancercenters_frontend" />
-                                                 <input type="hidden" name="proxystylesheet" value="cancercenters_frontend" />
-                                                 <input type="hidden" name="output" value="xml_no_dtd" />
-                                                 </form>
-             12/29/2014 	Chi                  Included Site Map Module.
-             12/31/2014	 AM                   Made NIH Header font smaller
-                                             Added External Website Policy to drop down menu under External Links
-                                             Added Site Map to drop down menu under About Us
-             1/6/2015    	AM                  Removed DSM Elements links
-             01/07/2015  	Chi                 Changed OCC  MessageBoard to OCC Annoucements
-             01/13/2015  	Chi                 Corrected spelling of the word announcement
-             01/14/2015  	AM                  added CITLA to G&F P&A dropdown
-             01/30/2015  	Chi                 Modified the tooltip so that it would show up faster, don't use the Title attribute.
-             02/03/2015  	Chi                 Updated the tooltip, unable to include the tooltip to the Drop-down menu; it would cause the 'About Us' menu to move to the next line.
-             02/11/2015  	AM                  View our history _blank
-             02/13/2015  	AM                  Added 508 notice from HHS to footer
-             02/16/2015  	Chi                 Commented out the 508 notice
-             02/19/2015  	Chi                 Updated the Search feature  for Prod per Jacob Mensah
-                                             From name="site" value="cancercenters_stage_collection"
-                                             to name="site" value="cancercenters_collection"
-             03/03/2015  	Chi                 Fixed the color contrast for 508 compliant, added occHyperLink color to Header and Footer sections,
-                                             added Title/tooltip to search button, defined and referenced successBtn
-             03/04/2015  	Chi                 Redesigned the whole _layout page, assigned the occPipe a brighter orange,  ref containerBackground,
-                                             Added col-sm-# class to each section
-             03/05/2015  	Chi                *Modified DD Menus for Accessible Rich Internet Applications (ARIA) (http://terrillthompson.com/blog/202) this way
-                                             as assistive technology (AT) users interact with the menu, ARIA passes updated information to their AT, and their AT then communicates that information in meaningful ways.
-                                             tabindex="0", 0 indicates that the element should be placed in the default navigation order
-                                             abindex="-1", -1 value removes the element from the default navigation flow (i.e., a user cannot tab to it), but it allows it to receive programmatic focus, meaning focus can be set to it from a link or with scripting.
-                                             "sr-only" for screen readers - inlcude this class for every input.
-             03/09/2015 	Chi                  Added jquery-accessibleMegaMenu.js for Accessible Mega Menu using example from  http://terrillthompson.com/blog/474
-             03/17/2015 	AM                   Modified the Logo Usage Policy from PDF to view
-             03/26/2015 	Chi                 *To avoid unintended and confusing output in screen readers (particularly when icons are used purely for decoration), we hide them with the aria-hidden="true" attribute.
-                                             http://getbootstrap.com/components/
-             04/02/2015 	AM                   changed header column widths 5 2 5, made Grants & Funding drop down align correctly
-                                             Updated Website version to 2.1.0 per Chi, updated Logo Usage Policy hyperlink
-             09/24/2015 	AM                   Updated ICD 10 hyperlink to open pdf temporarily
-             10/14/2015 	AM                   added 2016 CCITLA url
-             10/19/2015 	AM                   Updated CURE Supplement URL
-             10/22/2015 	AM                   Made Notice of Correction to PAR open Grants & Funding page
-             01/13/2016 	AM                   Updated CURE Supplment URL
-             02/04/2016 	Chi                  Modified accesing ICD pdf to html view (    <a href="~/Documents/ICD10-508.pdf"> to <a href="~/GrantsFunding/ICDView">
-             06/07/2016   AM                  Temporaily updated link Research Program to open PDF
-             12/22/2016   AM                  Added PAR-17-095 to G&F dropdown, removed Outline of Guidelines Changes (2013), removed old PAR and notice to the correction of the par
-             01/23/2017  	AM                  Remove 2013 Guideline Changes Outline, CCSG PAR, Notice of Correction to PAR, ICD9  and update eData 3.0 and Data Guide 3.0
-             03/20/2017  	AM      	    Uploaded temporary ICD10 PDF
-             04/12/2017   Chi             In order to get monthly dashboard on CancerCenters.Cancer.gov site per Joe Welsh at OCPL, modified:
-                                          <script language="JavaScript" type="text/javascript" src="http://static.cancer.gov/webanalytics/WA_OCC_PageLoad.js"></script>
-                                          To this:
-                                          <script language="JavaScript" type="text/javascript" src="//static.cancer.gov/webanalytics/WA_OCC_PageLoad.js"></script>
-              05/31/2017  Chi             implemented ICD10 interactive page per admin request.
-              11/08/2017  AM              Added NIH RePORT Hyperlink URL under External Links in drop down
-              12/21/2017  AM              Added Frequently Asked Questions to drop down
-              02/17/2018  Chi             updated data gudie and edata from 3.0 to 3.1, hide the About OCC WebApp page
-              09/05/2018  AM              Added .grayfont code to change color of gray font in breadcrumbs
-                                          Modified Navigation Pane background color to white for compliance
-              09/26/2018  Chi             the Search's input element was flagged for 508 noncompliant
-                                          removed the instructions/tooltip class="input-sm tip-bottom tooltipColor" data-toggle="tooltip" title="Enter search criteria then press ENTER key or the Search button"
-                                          removed the tooltip (Title label) from the button element.
-              10/30/2018 Chi             Updated eData 3.1 to 3.11
-                                          for 508 compliance, programmatically associate labels to all form controls (such as input textbox, search button) and ensure there are no duplicate labels.
-                                                             You can do so by using an implicit <label>, explicit <label>, aria-label or aria-labelledby.
-              11/29/18    AM              Updated URL to FAQ PDF
-              11/05/2019  AM              Added new FOA to dropdown
-              04/02/2020  AM              Removed Search Feature
-              08/29/2020  AM              Updated Link to FAQs
-              04/23/2021  Chi             Added COE compoment
-              05/06/2021  Chi             Added COVID-19 website banners, included COVID19.css
-              06/28/2021  Chi             Updated the drop down list Data Guide V3.1.1
-              09/30/2021  Chi             added "In the event of the Government shutdown banner
-              03/15/2022  AM              Changed OCCPipe Color to #e03200 to meet Accessibility requirements
-              03/17/2022  AM              Removed COVID-19 website banner, added HHS Voluntary Disclosure Policy hyper link to footer
-              03/25/2022  CHi             added Search ddl, updated OCCWebApp v2.2, commented out Kendo libraries,
-              03/32/2022  Chi             added search criteria textbox and pass the Id to Home Controller
-              04/13/2022  Chi             re. search icon button, To trigger a click button on ENTER key, We can use any of the keyup(), keydown() and keypress() events of jQuery.
-                                          keyup(): This event occurs when a keyboard key is released. The method either triggers the keyup event, or to run a function when a keyup event occurs.
-              06/09/2022  AM              Fixed Typo in footer
-              03/28/2023  Chi             Updated Data Guide and eData from v3.1.1 to v3.1.2
-              05/30/2023  Chi             Updated FAQs to CCSG, PED, and Data Guide
-              05/31/2023  Chi             Updated Peer Review Process by Sonya
-              06/01/2023  Chi             Updated Information on RPPR by Sonya
-    ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+                 DATE         	DEVELOPER       DESC
+                 09/22/2014   	Chi Dinh        Created.
+                 12/17/2014  	Chi             Changed the OCCFavIcon.ico
+                 12/18/2014  	Chi             Updated the URLs to access file in Documents foder,
+                                                  the Search with the code Jacob Mensah provided
+                                                     <form method="get" action="https://google3.nci.nih.gov/search">
+                                                     <input type="text" name="q" size="32" maxlength="255" value="" />
+                                                     <input type="submit" name="btnG" value="Search" />
+                                                     <input type="hidden" name="site" value="cancercenters_stage_collection" />
+                                                     <input type="hidden"name="client" value="cancercenters_frontend" />
+                                                     <input type="hidden" name="proxystylesheet" value="cancercenters_frontend" />
+                                                     <input type="hidden" name="output" value="xml_no_dtd" />
+                                                     </form>
+                 12/29/2014 	Chi                  Included Site Map Module.
+                 12/31/2014	 AM                   Made NIH Header font smaller
+                                                 Added External Website Policy to drop down menu under External Links
+                                                 Added Site Map to drop down menu under About Us
+                 1/6/2015    	AM                  Removed DSM Elements links
+                 01/07/2015  	Chi                 Changed OCC  MessageBoard to OCC Annoucements
+                 01/13/2015  	Chi                 Corrected spelling of the word announcement
+                 01/14/2015  	AM                  added CITLA to G&F P&A dropdown
+                 01/30/2015  	Chi                 Modified the tooltip so that it would show up faster, don't use the Title attribute.
+                 02/03/2015  	Chi                 Updated the tooltip, unable to include the tooltip to the Drop-down menu; it would cause the 'About Us' menu to move to the next line.
+                 02/11/2015  	AM                  View our history _blank
+                 02/13/2015  	AM                  Added 508 notice from HHS to footer
+                 02/16/2015  	Chi                 Commented out the 508 notice
+                 02/19/2015  	Chi                 Updated the Search feature  for Prod per Jacob Mensah
+                                                 From name="site" value="cancercenters_stage_collection"
+                                                 to name="site" value="cancercenters_collection"
+                 03/03/2015  	Chi                 Fixed the color contrast for 508 compliant, added occHyperLink color to Header and Footer sections,
+                                                 added Title/tooltip to search button, defined and referenced successBtn
+                 03/04/2015  	Chi                 Redesigned the whole _layout page, assigned the occPipe a brighter orange,  ref containerBackground,
+                                                 Added col-sm-# class to each section
+                 03/05/2015  	Chi                *Modified DD Menus for Accessible Rich Internet Applications (ARIA) (http://terrillthompson.com/blog/202) this way
+                                                 as assistive technology (AT) users interact with the menu, ARIA passes updated information to their AT, and their AT then communicates that information in meaningful ways.
+                                                 tabindex="0", 0 indicates that the element should be placed in the default navigation order
+                                                 abindex="-1", -1 value removes the element from the default navigation flow (i.e., a user cannot tab to it), but it allows it to receive programmatic focus, meaning focus can be set to it from a link or with scripting.
+                                                 "sr-only" for screen readers - inlcude this class for every input.
+                 03/09/2015 	Chi                  Added jquery-accessibleMegaMenu.js for Accessible Mega Menu using example from  http://terrillthompson.com/blog/474
+                 03/17/2015 	AM                   Modified the Logo Usage Policy from PDF to view
+                 03/26/2015 	Chi                 *To avoid unintended and confusing output in screen readers (particularly when icons are used purely for decoration), we hide them with the aria-hidden="true" attribute.
+                                                 http://getbootstrap.com/components/
+                 04/02/2015 	AM                   changed header column widths 5 2 5, made Grants & Funding drop down align correctly
+                                                 Updated Website version to 2.1.0 per Chi, updated Logo Usage Policy hyperlink
+                 09/24/2015 	AM                   Updated ICD 10 hyperlink to open pdf temporarily
+                 10/14/2015 	AM                   added 2016 CCITLA url
+                 10/19/2015 	AM                   Updated CURE Supplement URL
+                 10/22/2015 	AM                   Made Notice of Correction to PAR open Grants & Funding page
+                 01/13/2016 	AM                   Updated CURE Supplment URL
+                 02/04/2016 	Chi                  Modified accesing ICD pdf to html view (    <a href="~/Documents/ICD10-508.pdf"> to <a href="~/GrantsFunding/ICDView">
+                 06/07/2016   AM                  Temporaily updated link Research Program to open PDF
+                 12/22/2016   AM                  Added PAR-17-095 to G&F dropdown, removed Outline of Guidelines Changes (2013), removed old PAR and notice to the correction of the par
+                 01/23/2017  	AM                  Remove 2013 Guideline Changes Outline, CCSG PAR, Notice of Correction to PAR, ICD9  and update eData 3.0 and Data Guide 3.0
+                 03/20/2017  	AM      	    Uploaded temporary ICD10 PDF
+                 04/12/2017   Chi             In order to get monthly dashboard on CancerCenters.Cancer.gov site per Joe Welsh at OCPL, modified:
+                                              <script language="JavaScript" type="text/javascript" src="http://static.cancer.gov/webanalytics/WA_OCC_PageLoad.js"></script>
+                                              To this:
+                                              <script language="JavaScript" type="text/javascript" src="//static.cancer.gov/webanalytics/WA_OCC_PageLoad.js"></script>
+                  05/31/2017  Chi             implemented ICD10 interactive page per admin request.
+                  11/08/2017  AM              Added NIH RePORT Hyperlink URL under External Links in drop down
+                  12/21/2017  AM              Added Frequently Asked Questions to drop down
+                  02/17/2018  Chi             updated data gudie and edata from 3.0 to 3.1, hide the About OCC WebApp page
+                  09/05/2018  AM              Added .grayfont code to change color of gray font in breadcrumbs
+                                              Modified Navigation Pane background color to white for compliance
+                  09/26/2018  Chi             the Search's input element was flagged for 508 noncompliant
+                                              removed the instructions/tooltip class="input-sm tip-bottom tooltipColor" data-toggle="tooltip" title="Enter search criteria then press ENTER key or the Search button"
+                                              removed the tooltip (Title label) from the button element.
+                  10/30/2018 Chi             Updated eData 3.1 to 3.11
+                                              for 508 compliance, programmatically associate labels to all form controls (such as input textbox, search button) and ensure there are no duplicate labels.
+                                                                 You can do so by using an implicit <label>, explicit <label>, aria-label or aria-labelledby.
+                  11/29/18    AM              Updated URL to FAQ PDF
+                  11/05/2019  AM              Added new FOA to dropdown
+                  04/02/2020  AM              Removed Search Feature
+                  08/29/2020  AM              Updated Link to FAQs
+                  04/23/2021  Chi             Added COE compoment
+                  05/06/2021  Chi             Added COVID-19 website banners, included COVID19.css
+                  06/28/2021  Chi             Updated the drop down list Data Guide V3.1.1
+                  09/30/2021  Chi             added "In the event of the Government shutdown banner
+                  03/15/2022  AM              Changed OCCPipe Color to #e03200 to meet Accessibility requirements
+                  03/17/2022  AM              Removed COVID-19 website banner, added HHS Voluntary Disclosure Policy hyper link to footer
+                  03/25/2022  CHi             added Search ddl, updated OCCWebApp v2.2, commented out Kendo libraries,
+                  03/32/2022  Chi             added search criteria textbox and pass the Id to Home Controller
+                  04/13/2022  Chi             re. search icon button, To trigger a click button on ENTER key, We can use any of the keyup(), keydown() and keypress() events of jQuery.
+                                              keyup(): This event occurs when a keyboard key is released. The method either triggers the keyup event, or to run a function when a keyup event occurs.
+                  06/09/2022  AM              Fixed Typo in footer
+                  03/28/2023  Chi             Updated Data Guide and eData from v3.1.1 to v3.1.2
+                  05/30/2023  Chi             Updated FAQs to CCSG, PED, and Data Guide
+                  05/31/2023  Chi             Updated Peer Review Process by Sonya
+                  06/01/2023  Chi             Updated Information on RPPR by Sonya
+                  06/20/2023  Chi             External drop down menu: replaced Cancer Control PLANET with the Evidence-Based Cancer Control Program (EBCCP) per Sarah Bruce Bernal at DCCPS, 
+        ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 </div>
 <head>
     <title>@ViewBag.Title - OCCWebApp 2.2</title>
@@ -457,13 +458,13 @@
                                     <a href="#home" class="skip2home">Skip to content</a>
                                     <legend aria-hidden="true" aria-label="a drop down list to external links"></legend>
                                     <li><b>External Links:</b></li>
+                                    <li><a href="https://gis.cancer.gov/ncicatchment/" target="_blank" aria-label="a drop down list to the NCI Catchment Areas">NCI Catchment Areas</a></li>
                                     <li><a href="https://projectreporter.nih.gov/reporter.cfm" target="_blank" aria-label="a drop down list to nih report">NIH RePORT</a></li>
-                                    <li><a href="http://cancercontrolplanet.cancer.gov/" target="_blank" aria-label="a drop down list to the cancer control planet">The Cancer Control Planet</a></li>
                                     <li><a href="http://obf.cancer.gov/" target="_blank" aria-label="a drop down list to nci fact book">NCI Fact Book</a></li>
                                     <li><a href="http://grants.nih.gov/grants/oer.htm" target="_blank" aria-label="a drop down list to office of extramural research">Office of Extramural Research</a></li>
                                     <li><a href="http://grants2.nih.gov/grants/funding/2590/2590.htm" target="_blank" aria-label="a drop down list to phs 2590">PHS 2590</a></li>
                                     <li><a href="http://grants.nih.gov/grants/funding/424/index.htm" target="_blank" aria-label="a drop down list to sf424">SF 424</a></li>
-                                    <li><a href="http://cancercontrolplanet.cancer.gov/" target="_blank" aria-label="a drop down list to the cancer control planet">The Cancer Control Planet</a></li>
+                                    <li><a href="https://ebccp.cancercontrol.cancer.gov/index.do" target="_blank" aria-label="a drop down list to The Evidence-Based Cancer Control Program"> The Evidence-Based Cancer Control Program (EBCCP)</a></li>
                                     <li><a href="~/Home/ExternalWebsitePolicy" aria-label="a drop down list to external website policy">External Website Policy</a></li>
                                 </ul>
                             </div>
