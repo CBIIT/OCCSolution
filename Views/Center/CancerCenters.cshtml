@@ -39,6 +39,8 @@
                   08/10/2022  Chi                  CONGRATS to KANSAS on becoming comprehension. we have 53 comp, 11, clinical and 7 basic centers.
                   05/30/2023  Chi                  Added 72th Center: University of Florida Health Cancer Center,
                                                    Updated  VCU from clinical to comprehensive. The NoA was just released.
+                  06/27/2023  Chi                  Updated a new map and made it clickable
+
         ***********************************************************************************************************************************************************************************************@
 </div>
 
@@ -63,56 +65,158 @@
         <div class="row" id="centerContentID" style="margin-bottom:0em;">
             <h2 style="color:#632D63;">&nbsp;Cancer Centers</h2>
             <hr style="margin-bottom:0em;" />
-            <ul class="breadcrumb" id="centerContentID" style="float:left;">
-                <li><a href="home" id="home">@Html.ActionLink("Home", "Index", "Home")</a> <span aria-hidden="true" class="glyphicon glyphicon-circle-arrow-right"></span></li>
-                <li class="active grayFont">Cancer Centers</li>
-            </ul>
-        </div>
-        <div class="row" style="margin-bottom:0em;">
-            <div class="col-sm-4" style="text-justify:inter-word;">
-                <br />
-
-                <div accesskey="s" class="btn btn-default btn-sm" style="width:280px; border-color:#D8CAD8; float:left;">
-                    <a href="@Url.Action("CCList", "Center")" class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to go to the Cancer Centers List" aria-label="a button to click to the cancer centers list" style="font-size:12px"><strong>72 NCI-Designated Cancer Centers</strong></a>
-                </div>
-                <div class="inbar" style="width:280px;border-color:#D8CAD8;">
-                    <ul>
-                        <li><div class="btn btn-primary btn-sm" style="font-size: 14px !important;" aria-label="a button displays 49 comprehensive cancer centers">54</div>&nbsp;Comprehensive</li>
-                        <li><div class="btn btn-danger btn-sm" style="color: #fff; background-color:#c91515 !important; font-size:14px !important;" aria-label="a button displays 14 clinicial cancer centers">11</div>&nbsp;Clinical</li>
-                        <li><div class="btn btn-openid btn-sm" style="font-size: 14px !important;" aria-label="a button displays 7 basic cancer centers">07</div>&nbsp;Basic</li>
+            <div class="row" style="margin-bottom:0em;">
+                <div class="col-sm-4">
+                    <ul class="breadcrumb" id="centerContentID" style="float:left;">
+                        <li><a href="home" id="home">@Html.ActionLink("Home", "Index", "Home")</a> <span aria-hidden="true" class="glyphicon glyphicon-circle-arrow-right"></span></li>
+                        <li class="active grayFont">Cancer Centers</li>
                     </ul>
-                    <div style="clear:both"></div>
                 </div>
-                <br />
+                <div class="col-sm-8">
+                    <img src="~/images/CenterTypeLabel.PNG" alt="NCI-designated Cancer Centers Map" aria-label="An image of the NCI-designated Cancer Centers Map"/>
+                </div>
+            </div>
 
-                <p>NCI-designated Cancer Centers are characterized by scientific excellence and the capability to integrate a diversity of research approaches to focus on the problem of cancer.</p>
-                <p>They play a vital role in advancing towards our goal of reducing morbidity and mortality from cancer.</p>
-                <br />
-                <a href="~/DT/DT" aria-label="hyperlink to cancer centers benchmark data">Cancer Centers Benchmark Data</a>
-            </div>
-            <div class="col-sm-8">
+            <div class="row" style="margin-bottom:0em;">
+                    <div class="col-sm-4" style="text-justify:inter-word;">
+                        <br />
 
-                <img src="~/images/findacancercentermap.jpg" alt="NCI-designated Cancer Centers Map" aria-label="An image of the NCI-designated Cancer Centers Map" style="float:left;width:580px; height:360px;" />
-            </div>
-        </div> <!--end of row-->
+                        <div accesskey="s" class="btn btn-default btn-sm" style="width:280px; border-color:#D8CAD8; float:left;">
+                            <a href="@Url.Action("CCList", "Center")" class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here to go to the Cancer Centers List" aria-label="a button to click to the cancer centers list" style="font-size:12px"><strong>72 NCI-Designated Cancer Centers</strong></a>
+                        </div>
+                        <div class="inbar" style="width:280px;border-color:#D8CAD8;">
+                            <ul>
+                                <li><div class="btn btn-primary btn-sm" style="font-size: 14px !important;" aria-label="a button displays 49 comprehensive cancer centers">54</div>&nbsp;Comprehensive</li>
+                                <li><div class="btn btn-danger btn-sm" style="color: #fff; background-color:#c91515 !important; font-size:14px !important;" aria-label="a button displays 14 clinicial cancer centers">11</div>&nbsp;Clinical</li>
+                                <li><div class="btn btn-openid btn-sm" style="font-size: 14px !important;" aria-label="a button displays 7 basic cancer centers">07</div>&nbsp;Basic</li>
+                            </ul>
+                            <div style="clear:both"></div>
+                        </div>
+                        <br />
 
-        <div class="row">
-            <div class="col-sm-4" style="text-justify:inter-word;">
-                <h5><strong>Cancer Centers List</strong></h5>
-                <p>A comprehensive directory with contact information for all our cancer centers.</p>
-                <a href="~/Center/CCList" aria-label="hyperlink to find a cancer center"> Find a cancer center &raquo;</a>
+                        <p>NCI-designated Cancer Centers are characterized by scientific excellence and the capability to integrate a diversity of research approaches to focus on the problem of cancer.</p>
+                        <p>They play a vital role in advancing towards our goal of reducing morbidity and mortality from cancer.</p>
+                        <br />
+                        <a href="~/DT/DT" aria-label="hyperlink to cancer centers benchmark data">Cancer Centers Benchmark Data</a>
+                    </div>
+                    <div class="col-sm-8">
+                        <img src="~/images/CCMap72v4.jpg" alt="NCI-designated Cancer Centers Map" aria-label="An image of the NCI-designated Cancer Centers Map" style="float:left;width:610px; height:375px;" usemap="#ccmap" />
+                        <map name="ccmap">
+                                    <!--7 BASIC -->
+                                    <area shape="circle" coords="562,46,4" alt="The Jackson Lab, ME" title="The Jackson Lab Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/jacksonlab" target="_blank" />
+                                    <area shape="circle" coords="552,80,3" alt="MIT, MA" title="MIT" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/mitkoch" />
+                                    <area shape="circle" coords="536,100,2" alt="Cold Spring Lab, NY" title="Cold Spring Lab" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/coldspringharbor" />
+                                    <area shape="circle" coords="519,116,3" alt="The Wistar Institute, PA" title="The Wistar Institute" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/wistar" />
+                                    <area shape="circle" coords="407,141,3" alt="Perdue U., IN" title="Perdue U." href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/purdueccr" />
+                                    <area shape="circle" coords="80,202,2" alt="Sanford Burnham Medical, CA" title="Sanford Burnham Medical" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/sanfordburnham" />
+                                    <area shape="circle" coords="72,199,3" alt="Salk Institute, CA" title="Salk Institute" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/salk" />
+                                    <!--11 CLINICAL -->
+                                    <area alt="lbert Einstein College of Medicine, NY" title="Albert Einstein College of Medicine" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/alberteinstein" coords="530,80,3" shape="circle">
+                                    <area alt="Mt. Sinai, NY" title="Mt. Sinai" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/tischmountsinai" coords="543,95,3" shape="circle">
+                                    <area alt="Thomas Jefferson U, PA" title="Thomas Jefferson U" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/jeffersonkimmel" coords="513,118,2" shape="circle">
+                                    <area alt="U. of Kentucky, KY" title="U. of Kentucky" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/ukmarkey" coords="436,169,5" shape="circle">
+                                    <area alt="Medical U. of South Carolina, SC" title="Medical U. of South Carolina" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/muschollings" coords="496,215,2" shape="circle">
+                                    <area alt="The U. of Florida Health CC, FL" title="The U. of Florida Health CC" href="https://cancer.ufl.edu/nci-designation/" coords="483,261,6" shape="circle">
+                                    <area alt="U. of Miami, FL" title="U. of Miami" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/sylvester-miami" coords="514,290,7" shape="circle">
+                                    <area alt="U. of Nebraska Medical Center, NE" title="U. of Nebraska Medical Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/nebraska" coords="315,131,4" shape="circle">
+                                    <area alt="U. of OK Health Science Center, OK" title="U. of OK Health Science Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/stephenson" coords="299,198,4" shape="circle">
+                                    <area alt="U. of Texas at San Antonio, TX" title="U. of Texas Health Science Center at San Antonio" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/utsanantonio" coords="297,275,4" shape="circle">
+                                    <area alt="U. of Hawaii at Manoa, HI" title="U. of Hawaii at Manoa" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/uhawaiicc" coords="43,235,3" shape="circle">
+                                    <!--54 COMP -->
+                                    <!--East of NY Cluster done -->
+                                    <area alt="Yale Comp Cancer Center, CT" title="Yale Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/yalecc" coords="542,99,3" shape="circle">
+                                    <area alt="Rutgers Comp Cancer Center, NJ" title="Rutgers Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/cinj" coords="532,117,3" shape="circle">
+                                    <area alt="Dartmouth Comp Cancer Center, NH" title="Dartmouth Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/dartmouthnorriscotton" coords="547,71,6" shape="circle">
+                                    <area alt="Dana-Farber/Harvard Comp Cancer Center, MA" title="ana-Farber/Harvard Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/dfharvard" coords="558,79,4" shape="circle">
+                                    <!--NY cluster done -->
+                                    <area alt="Roswell Park Comp Cancer Center, Buffalo, NY" title="Roswell Park Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/roswellpark" coords="476,97,5" shape="circle">
+                                    <area alt="Herbert Irving Comp Cancer Center, NY, NY" title="Herbert Irving Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/irvingcolumbia" coords="522,90,5" shape="circle">
+                                    <area alt="Memorial Sloan Kettering Comp Cancer Center, NY, NY" title="Memorial Sloan Kettering Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/memorialsloankettering" coords="538,89,4" shape="circle">
+                                    <area alt="Perlmutter Comp Cancer Center at NYU, NY, NY" title="Perlmutter Comp Cancer Center at NYU" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/nyuci" coords="533,93,4" shape="circle">
+                                    <!--PA, MD, DC cluster done -->
+                                    <area alt="Fox Chase Comp Cancer Canter, PA" title="Fox Chase Comp Cancer Canter" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/foxchase" coords="517,121,3" shape="circle">
+                                    <area alt="UPenn Abramson Comp Cancer Center, PA" title="UPenn Abramson Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/upennabramson" coords="521,127,4" shape="circle">
+                                    <area alt="UPMC Hillman Comp Cancer Center, Pittsburge, PA" title="UPMC Hillman Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/upci" coords="477,127,4" shape="circle">
+
+                                    <area alt="John Hopkins Sidney Kimmel Comp Cancer Center, Baltimore, MD" title="John Hopkins Sidney Kimmel Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/hopkinskimmel" coords="508,126,3" shape="circle">
+                                    <area alt="U. of Maryland Greenebaum Comp Cancer Center, MD" title="U. of Maryland Greenebaum Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/umdgreenebaum" coords="503,127,3" shape="circle">
+
+                                    <area alt="Georgetown Comp Cancer Center, DC" title="Georgetown Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/georgetownlombardi" coords="500,129,3" shape="circle">
+                                    <!--VA, NC cluster done -->
+                                    <area alt="UVA Comp Cancer Center, Charlottesville, VA" title="UVA Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/uvacc" coords="497,152,4" shape="circle">
+                                    <area alt="VCU Massey Comp Cancer Center, Richmond, VA" title="UVCU Massey Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/vcumassey" coords="507,155,4" shape="circle">
+                                    <area alt="Wake Forest Comp Cancer Center, Winston-Salem, NC" title="Wake Forest Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/wakeforest" coords="475,178,4" shape="circle">
+                                    <area alt="Duke U. Comp Cancer Center, Durham, NC" title="Duke U. Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/dukeci" coords="491,174,5" shape="circle">
+                                    <area alt="UNC Lineberger Comp Cancer Center, Chapel Hill, NC" title="UNC Lineberger Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/unclineberger" coords="488,181,4" shape="circle">
+
+                                    <!--MI & OH cluster done -->
+                                    <area alt="Wayne State U. Karmanos Comp Cancer Center, Detroit,MI" title="Wayne State U. Karmanos Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/waynestatekarmanos" coords="442,99,3" shape="circle">
+                                    <area alt="U. of Michigan Rogel Comp Cancer Center, Ann Arbor, MI" title="U. of Michigan Rogel Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/umichiganccc" coords="436,107,4" shape="circle">
+                                    <area alt="Case Western Comp Cancer Center, Cleveland, OH" title="Case Western Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/casewestern" coords="452,112,4" shape="circle">
+                                    <area alt="The Ohio State U. James Comp Cancer Center, Columbus, OH" title="The Ohio State U. James Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/osujames" coords="449,132,4" shape="circle">
+                                    <!--TN, GA, AL cluster done -->
+                                    <area alt="St Jude, TN" title="St. Jude" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/stjude" coords="422,185,3" shape="circle">
+                                    <area alt="Vanderbilt U. TN" title="Vanderbilt U." href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/vanderbiltingram" coords="384,199,3" shape="circle">
+                                    <area alt="Winship Cancer Institute of Emory U. GA" title="Winship Cancer Institute of Emory U." href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/emorywinship" coords="449,203,4" shape="circle">
+                                    <area alt="O'Neal Comp Cancer Center', AL" title="O'Neal Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/uabccc" coords="423,190,3" shape="circle">
+                                    <!--FL cluster done -->
+                                    <area alt="Mayo Clinic Comp Cancer Center, Jacksonville, FL" title="Mayo Clinic Comp Cancer Center, Jacksonville, FL Location" href="https://www.mayoclinic.org/departments-centers/mayo-clinic-cancer-center" coords="487,251,3" shape="circle">
+                                    <area alt="Moffitt Comp Cancer Center, Tampa FL" title="Moffitt Comp Cancer Center" href="" coords="484,274,4" shape="circle">
+                                    <!--TX cluster done -->
+                                    <area alt="University of Texas Southwestern Medical Center Comp Cancer Center, Dallas TX" title="University of Texas Southwestern Medical Center Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/utswsimmons" coords="309,233,4" shape="circle">
+                                    <area alt="Baylor College of Medicine Comp Cancer Center, Houston, TX" title="Baylor College of Medicine Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/baylorduncan" coords="328,276,2" shape="circle">
+                                    <area alt="U. of TX MD Anderson Comp Cancer Center, Houston, TX" title="U. of TX MD Anderson Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/mdanderson" coords="321,274,2" shape="circle">
+                                    <!--Mid USA, Mayo (MN, AZ, FL) done -->
+                                    <area alt="U. of Minnesota Masonic Comp Cancer Center, Minneapolis,MN" title="U. of Minnesota Masonic Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/minnesotamasonic" coords="343,92,3" shape="circle">
+                                    <area alt="Mayo Clinic Comp Cancer Center, Rochester,MN" title="Mayo Clinic Comp Cancer Center, MN Location" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/mayoclinic" coords="354,101,3" shape="circle">
+                                    <area alt="U. of Wisconsin Carbone Comp Cancer Center, WI" title="U. of Wisconsin Carbone Comp Cancer Center" href="cancer.gov/research/infrastructure/cancer-centers/find/uwcarbone" coords="374,104,3" shape="circle">
+                                    <area alt="U. of Iowa Holden Comp Cancer Center, IA" title="U. of Iowa Holden Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/iowaholden" coords="355,129,3" shape="circle">
+
+                                    <area alt="Alvin J. Siteman Barnes-Jewish Comp Cancer Center, MO" title="Alvin J. Siteman Barnes-Jewish Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/washingtonsiteman" coords="374,161,2" shape="circle">
+                                    <area alt="The U. of Kansas Comp Cancer Center, KS" title="The U. of Kansas Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/kucc" coords="329,160,3" shape="circle">
+
+                                    <area alt="Northwestern U. Comp Cancer Center, IL" title="Northwestern U. Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/northwesternlurie" coords="390,122,3" shape="circle">
+                                    <area alt="U. of Chicago Comp Cancer Center, IL" title="U. of Chicago Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/uchicagoccc" coords="397,121,2" shape="circle">
+                                    <area alt="Indiana U. Simon Comp Cancer Center, IN" title="Indiana U. Simon Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/indianasimon" coords="414,144,4" shape="circle">
+                                    <!--Pacific 5/5, Mayo mentioned thrice in (AZ, MN, FL), Phoenix is North of Tucson, AZ done -->
+                                    <area alt="U. of Utah, UT" title="U. of Utah Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/utahhuntsman" coords="151,125,3" shape="circle">
+                                    <area alt="U. of Colorado Cancer Center,CO" title="U. of Colorado Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/ucolorado" coords="225,158,3" shape="circle">
+                                    <area alt="U. of New Mexico Comp Cancer Center, NW" title="U. of New Mexico Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/newmexicocrtc" coords="193,201,3" shape="circle">
+                                    <area alt="Mayo Clinic Comp Cancer Center, Phoenix, AZ" title="Mayo Clinic Comp Cancer Center, AZ Location" href="https://www.mayoclinic.org/departments-centers/mayo-clinic-cancer-center" coords="140,210,4" shape="circle">
+                                    <area alt="U. of Arizona, Tucson, AZ" title="U. of Arizona" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/arizonacc" coords="154,230,3" shape="circle">
+                                    <!--NW done -->
+                                    <area alt="Fred Hutch Comp CC,WA" title="Fred Hutch Comp CC" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/fredhutchcrc" coords="85,20,5" shape="circle">
+                                    <area alt="Oregon Health & Science U.,Comp OR" title="OHSU Knight Cancer Institute" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/uhawaiicc" coords="69,50,3" shape="circle">
+                                    <!--8 CA done -->
+                                    <area alt="UC Davis Comp Cancer Center, Sacamento, CA" title="UC Davis Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/ucdaviscc" coords="58,135,3" shape="circle">
+                                    <area alt="UCSF Helen Diller Comp Cancer Center, San Fran, CA" title="UCSF Helen Diller Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/ucsfhelendiller" coords="44,137,2" shape="circle">
+                                    <area alt="Stanford U. Comp Cancer Center, Stanford,CA" title="Stanford U. Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/stanfordci" coords="46,147,3" shape="circle">
+                                    <area alt="City of Hope Comp Cancer Center, Duarte,CA" title="City of Hope Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/beckmancityofhope" coords="66,180,3" shape="circle">
+                                    <area alt="UC Irvine Comp Cancer Center, Orange, CA" title="UC Irvine Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/ucirvinechao" coords="67,187,4" shape="circle">
+                                    <area alt="USC Norris Comp Cancer Center, LA, CA" title="USC Norris Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/uscnorris" coords="61,185,2" shape="circle">
+                                    <area alt="UCLA, Jonsson Comp Cancer Center, LA, CA" title="UCLA, Jonsson Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/sylvester-miami" coords="57,183,4" shape="circle">
+                                    <area alt="UC San Diego Moores Comp Cancer Center, La Jolla,CA" title="UC San Diego Moores Comp Cancer Center" href="https://www.cancer.gov/research/infrastructure/cancer-centers/find/ucsdmoores" coords="87,203,3" shape="circle">
+                                </map>
+                    </div>
+                </div> <!--end of row-->
+
+                <div class="row">
+                    <div class="col-sm-4" style="text-justify:inter-word;">
+                        <h5><strong>Cancer Centers List</strong></h5>
+                        <p>A comprehensive directory with contact information for all our cancer centers.</p>
+                        <a href="~/Center/CCList" aria-label="hyperlink to find a cancer center"> Find a cancer center &raquo;</a>
+                    </div>
+                    <div class="col-sm-4" style="text-justify:inter-word;">
+                        <h5><strong>Research Programs</strong></h5>
+                        <p>Research programs promote collaborative research between basic laboratory, clinical, and population sciences.</p>
+                        <a href="https://cancercenters.cancer.gov/Center/RP" target="_blank" aria-label="hyperlink to find a research program"> Find a research program &raquo;</a>
+                    </div>
+                    <div class="col-sm-4" style="text-justify:inter-word;">
+                        <h5><strong>Shared Resources</strong></h5>
+                        <p>Shared resources provide researchers access to cutting edge technologies and services that promote scientific interaction and productivity.</p>
+                        <a href="~/Center/SharedResource" aria-label="hyperlink to find a shared resource"> Find a shared resource &raquo;</a>
+                    </div>
+                </div> <!--end of row -->
             </div>
-            <div class="col-sm-4" style="text-justify:inter-word;">
-                <h5><strong>Research Programs</strong></h5>
-                <p>Research programs promote collaborative research between basic laboratory, clinical, and population sciences.</p>
-                <a href="https://cancercenters.cancer.gov/Center/RP" target="_blank" aria-label="hyperlink to find a research program"> Find a research program &raquo;</a>
-            </div>
-            <div class="col-sm-4" style="text-justify:inter-word;">
-                <h5><strong>Shared Resources</strong></h5>
-                <p>Shared resources provide researchers access to cutting edge technologies and services that promote scientific interaction and productivity.</p>
-                <a href="~/Center/SharedResource" aria-label="hyperlink to find a shared resource"> Find a shared resource &raquo;</a>
-            </div>
-        </div> <!--end of row -->
-    </div>
 </body>
 </html>
