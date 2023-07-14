@@ -221,16 +221,7 @@ warning 6002: The table/view 'OCC.dbo.vwDT3NewlyPatientBenchmark' does not have 
           <Property Name="CompRegLow" Type="varchar" MaxLength="8000" />
           <Property Name="CompRegMedian" Type="varchar" MaxLength="8000" />
           <Property Name="CompRegSubtotal" Type="varchar" MaxLength="8000" />
-          <Property Name="ClinicalEnrollHigh" Type="varchar" MaxLength="8000" />
-          <Property Name="ClinicalEnrollLow" Type="varchar" MaxLength="8000" />
-          <Property Name="ClinicalEnrollMedian" Type="varchar" MaxLength="8000" />
-          <Property Name="ClinicalEnrollSubtotal" Type="varchar" MaxLength="8000" />
-          <Property Name="CompEnrollHigh" Type="varchar" MaxLength="8000" />
-          <Property Name="CompEnrollLow" Type="varchar" MaxLength="8000" />
-          <Property Name="CompEnrollMedian" Type="varchar" MaxLength="8000" />
-          <Property Name="CompEnrollSubtotal" Type="varchar" MaxLength="8000" />
           <Property Name="TotalReg" Type="varchar" MaxLength="8000" />
-          <Property Name="TotalEnroll" Type="varchar" MaxLength="8000" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OCC.dbo.vwDT3Top20EnrolledBenchmark' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -589,16 +580,7 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
     [vwDT3NewlyPatientBenchmark].[CompRegLow] AS [CompRegLow], 
     [vwDT3NewlyPatientBenchmark].[CompRegMedian] AS [CompRegMedian], 
     [vwDT3NewlyPatientBenchmark].[CompRegSubtotal] AS [CompRegSubtotal], 
-    [vwDT3NewlyPatientBenchmark].[ClinicalEnrollHigh] AS [ClinicalEnrollHigh], 
-    [vwDT3NewlyPatientBenchmark].[ClinicalEnrollLow] AS [ClinicalEnrollLow], 
-    [vwDT3NewlyPatientBenchmark].[ClinicalEnrollMedian] AS [ClinicalEnrollMedian], 
-    [vwDT3NewlyPatientBenchmark].[ClinicalEnrollSubtotal] AS [ClinicalEnrollSubtotal], 
-    [vwDT3NewlyPatientBenchmark].[CompEnrollHigh] AS [CompEnrollHigh], 
-    [vwDT3NewlyPatientBenchmark].[CompEnrollLow] AS [CompEnrollLow], 
-    [vwDT3NewlyPatientBenchmark].[CompEnrollMedian] AS [CompEnrollMedian], 
-    [vwDT3NewlyPatientBenchmark].[CompEnrollSubtotal] AS [CompEnrollSubtotal], 
-    [vwDT3NewlyPatientBenchmark].[TotalReg] AS [TotalReg], 
-    [vwDT3NewlyPatientBenchmark].[TotalEnroll] AS [TotalEnroll]
+    [vwDT3NewlyPatientBenchmark].[TotalReg] AS [TotalReg]
     FROM [dbo].[vwDT3NewlyPatientBenchmark] AS [vwDT3NewlyPatientBenchmark]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwDT3Top20EnrolledBenchmark" EntityType="Self.vwDT3Top20EnrolledBenchmark" store:Type="Views" store:Schema="dbo">
@@ -751,7 +733,6 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
         <EntityContainer Name="OCCEntities" annotation:LazyLoadingEnabled="true">
           <FunctionImport Name="uspGetOCCStaffPOC" ReturnType="Collection(OCCModel.uspGetOCCStaffPOC_Result)" />
           <EntitySet Name="vwDT2bBenchmark" EntityType="OCCModel.vwDT2bBenchmark" />
-          <EntitySet Name="vwDT3NewlyPatientBenchmark" EntityType="OCCModel.vwDT3NewlyPatientBenchmark" />
           <EntitySet Name="vwDT3Top20EnrolledBenchmark" EntityType="OCCModel.vwDT3Top20EnrolledBenchmark" />
           <EntitySet Name="vwDT3Top20RegisteredBenchmark" EntityType="OCCModel.vwDT3Top20RegisteredBenchmark" />
           <EntitySet Name="vwDT4PhaseBenchmark" EntityType="OCCModel.vwDT4PhaseBenchmark" />
@@ -769,6 +750,7 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
           <EntitySet Name="vwDT1Benchmark" EntityType="OCCModel.vwDT1Benchmark" />
           <EntitySet Name="Centers" EntityType="OCCModel.Center" />
           <EntitySet Name="vwETs" EntityType="OCCModel.vwET" />
+          <EntitySet Name="vwDT3NewlyPatientBenchmark" EntityType="OCCModel.vwDT3NewlyPatientBenchmark" />
         </EntityContainer>
         <ComplexType Name="uspGetOCCStaffPOC_Result">
           <Property Type="String" Name="EmpLastName" Nullable="true" MaxLength="25" />
@@ -815,34 +797,6 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
           <Property Name="CompNIHLow" Type="Int32" />
           <Property Name="CompNIHAvg" Type="Int32" />
           <Property Name="CompNIHMedian" Type="Int32" />
-        </EntityType>
-        <EntityType Name="vwDT3NewlyPatientBenchmark">
-          <Key>
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="FY" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FY" Type="Int32" Nullable="false" />
-          <Property Name="ClinicalCount" Type="Int32" />
-          <Property Name="ClinicalRegHigh" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="ClinicalRegLow" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="ClinicalRegMedian" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="ClinicalRegSubtotal" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="CompCount" Type="Int32" />
-          <Property Name="CompRegHigh" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="CompRegLow" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="CompRegMedian" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="CompRegSubtotal" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="ClinicalEnrollHigh" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="ClinicalEnrollLow" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="ClinicalEnrollMedian" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="ClinicalEnrollSubtotal" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="CompEnrollHigh" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="CompEnrollLow" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="CompEnrollMedian" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="CompEnrollSubtotal" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="TotalReg" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <Property Name="TotalEnroll" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="vwDT3Top20EnrolledBenchmark">
           <Key>
@@ -1164,6 +1118,25 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
           <Property Name="Titles" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
           <Property Name="Emails" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="vwDT3NewlyPatientBenchmark">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="FY" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FY" Type="Int32" Nullable="false" />
+          <Property Name="ClinicalCount" Type="Int32" />
+          <Property Name="ClinicalRegHigh" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="ClinicalRegLow" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="ClinicalRegMedian" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="ClinicalRegSubtotal" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="CompCount" Type="Int32" />
+          <Property Name="CompRegHigh" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="CompRegLow" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="CompRegMedian" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="CompRegSubtotal" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="TotalReg" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1201,34 +1174,6 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
                 <ScalarProperty Name="BasicNCILow" ColumnName="BasicNCILow" />
                 <ScalarProperty Name="BasicNCIHigh" ColumnName="BasicNCIHigh" />
                 <ScalarProperty Name="FY" ColumnName="FY" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="vwDT3NewlyPatientBenchmark">
-            <EntityTypeMapping TypeName="OCCModel.vwDT3NewlyPatientBenchmark">
-              <MappingFragment StoreEntitySet="vwDT3NewlyPatientBenchmark">
-                <ScalarProperty Name="TotalEnroll" ColumnName="TotalEnroll" />
-                <ScalarProperty Name="TotalReg" ColumnName="TotalReg" />
-                <ScalarProperty Name="CompEnrollSubtotal" ColumnName="CompEnrollSubtotal" />
-                <ScalarProperty Name="CompEnrollMedian" ColumnName="CompEnrollMedian" />
-                <ScalarProperty Name="CompEnrollLow" ColumnName="CompEnrollLow" />
-                <ScalarProperty Name="CompEnrollHigh" ColumnName="CompEnrollHigh" />
-                <ScalarProperty Name="ClinicalEnrollSubtotal" ColumnName="ClinicalEnrollSubtotal" />
-                <ScalarProperty Name="ClinicalEnrollMedian" ColumnName="ClinicalEnrollMedian" />
-                <ScalarProperty Name="ClinicalEnrollLow" ColumnName="ClinicalEnrollLow" />
-                <ScalarProperty Name="ClinicalEnrollHigh" ColumnName="ClinicalEnrollHigh" />
-                <ScalarProperty Name="CompRegSubtotal" ColumnName="CompRegSubtotal" />
-                <ScalarProperty Name="CompRegMedian" ColumnName="CompRegMedian" />
-                <ScalarProperty Name="CompRegLow" ColumnName="CompRegLow" />
-                <ScalarProperty Name="CompRegHigh" ColumnName="CompRegHigh" />
-                <ScalarProperty Name="CompCount" ColumnName="CompCount" />
-                <ScalarProperty Name="ClinicalRegSubtotal" ColumnName="ClinicalRegSubtotal" />
-                <ScalarProperty Name="ClinicalRegMedian" ColumnName="ClinicalRegMedian" />
-                <ScalarProperty Name="ClinicalRegLow" ColumnName="ClinicalRegLow" />
-                <ScalarProperty Name="ClinicalRegHigh" ColumnName="ClinicalRegHigh" />
-                <ScalarProperty Name="ClinicalCount" ColumnName="ClinicalCount" />
-                <ScalarProperty Name="FY" ColumnName="FY" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1546,6 +1491,25 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
                 <ScalarProperty Name="grantnumber" ColumnName="grantnumber" />
                 <ScalarProperty Name="fy" ColumnName="fy" />
                 <ScalarProperty Name="ETID" ColumnName="ETID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwDT3NewlyPatientBenchmark">
+            <EntityTypeMapping TypeName="OCCModel.vwDT3NewlyPatientBenchmark">
+              <MappingFragment StoreEntitySet="vwDT3NewlyPatientBenchmark">
+                <ScalarProperty Name="TotalReg" ColumnName="TotalReg" />
+                <ScalarProperty Name="CompRegSubtotal" ColumnName="CompRegSubtotal" />
+                <ScalarProperty Name="CompRegMedian" ColumnName="CompRegMedian" />
+                <ScalarProperty Name="CompRegLow" ColumnName="CompRegLow" />
+                <ScalarProperty Name="CompRegHigh" ColumnName="CompRegHigh" />
+                <ScalarProperty Name="CompCount" ColumnName="CompCount" />
+                <ScalarProperty Name="ClinicalRegSubtotal" ColumnName="ClinicalRegSubtotal" />
+                <ScalarProperty Name="ClinicalRegMedian" ColumnName="ClinicalRegMedian" />
+                <ScalarProperty Name="ClinicalRegLow" ColumnName="ClinicalRegLow" />
+                <ScalarProperty Name="ClinicalRegHigh" ColumnName="ClinicalRegHigh" />
+                <ScalarProperty Name="ClinicalCount" ColumnName="ClinicalCount" />
+                <ScalarProperty Name="FY" ColumnName="FY" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
