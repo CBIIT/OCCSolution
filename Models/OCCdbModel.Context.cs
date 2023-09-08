@@ -28,7 +28,6 @@ namespace OCCSolution.Models
         }
     
         public virtual DbSet<vwDT2bBenchmark> vwDT2bBenchmark { get; set; }
-        public virtual DbSet<vwDT3NewlyPatientBenchmark> vwDT3NewlyPatientBenchmark { get; set; }
         public virtual DbSet<vwDT3Top20EnrolledBenchmark> vwDT3Top20EnrolledBenchmark { get; set; }
         public virtual DbSet<vwDT3Top20RegisteredBenchmark> vwDT3Top20RegisteredBenchmark { get; set; }
         public virtual DbSet<vwDT4PhaseBenchmark> vwDT4PhaseBenchmark { get; set; }
@@ -46,6 +45,7 @@ namespace OCCSolution.Models
         public virtual DbSet<vwDT1Benchmark> vwDT1Benchmark { get; set; }
         public virtual DbSet<Center> Centers { get; set; }
         public virtual DbSet<vwET> vwETs { get; set; }
+        public virtual DbSet<vwDT3NewlyRegBenchmark> vwDT3NewlyRegBenchmark { get; set; }
     
         public virtual ObjectResult<uspGetOCCStaffPOC_Result> uspGetOCCStaffPOC()
         {

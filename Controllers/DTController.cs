@@ -95,7 +95,7 @@ namespace OCCSolution.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    ViewData["vwDT3NewlyPatientBenchmark"] = db.vwDT3NewlyPatientBenchmark.ToList();
+                    ViewData["vwDT3NewlyRegBenchmark"] = db.vwDT3NewlyRegBenchmark.ToList();
                     ViewData["vwDT3Top20EnrolledBenchmark"] = db.vwDT3Top20EnrolledBenchmark.ToList();
                     ViewData["vwDT3Top20RegisteredBenchmark"] = db.vwDT3Top20RegisteredBenchmark.ToList();
                 }

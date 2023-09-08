@@ -9,16 +9,10 @@ namespace OCCSolution.Models
     public class Data
     {
 
-        public List<vwDT3NewlyPatientBenchmark> GetDT3NewlyPatients()
+        public List<vwDT3NewlyRegBenchmark> GetDT3NewlyReg()
         {
-            List<vwDT3NewlyPatientBenchmark> newlyPatients = new List<vwDT3NewlyPatientBenchmark>();
-            return newlyPatients;
-        }
-
-        public List<vwDT3Top20EnrolledBenchmark> GetDT3Top20EnrolledPatients()
-        {
-            List<vwDT3Top20EnrolledBenchmark> enroll = new List<vwDT3Top20EnrolledBenchmark>();
-            return enroll;
+            List<vwDT3NewlyRegBenchmark> newlyRegPatients = new List<vwDT3NewlyRegBenchmark>();
+            return newlyRegPatients;
         }
 
         public List<vwDT3Top20RegisteredBenchmark> GetDT3Top20RegisteredPatients()

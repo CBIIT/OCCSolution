@@ -95,10 +95,10 @@
                             </thead>
                             <tbody style="font-size:small;">
                                 @{
-                                    if (ViewData["vwDT3NewlyPatientBenchmark"] != null)
+                                    if (ViewData["vwDT3NewlyRegBenchmark"] != null)
                                     {
-                                        foreach (var item in ViewData["vwDT3NewlyPatientBenchmark"]
-                                            as List<OCCSolution.Models.vwDT3NewlyPatientBenchmark>)
+                                        foreach (var item in ViewData["vwDT3NewlyRegBenchmark"]
+                                            as List<OCCSolution.Models.vwDT3NewlyRegBenchmark>)
                                         {
                                             <tr>
                                                 <td aria-labelledby="">@item.FY</td>

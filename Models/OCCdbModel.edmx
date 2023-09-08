@@ -30,6 +30,8 @@
           <Property Name="ComprehensivenessYear" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vw2B' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'OCC.dbo.vwCCList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vwCCList">
           <Key>
@@ -65,6 +67,8 @@ warning 6002: The table/view 'OCC.dbo.vwCOE' does not have a primary key defined
           <Property Name="Titles" Type="nvarchar" MaxLength="512" Nullable="false" />
           <Property Name="Emails" Type="nvarchar" MaxLength="512" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwDT1aLeadershipBenchmark' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <!--Errors Found During Generation:
 warning 6002: The table/view 'OCC.dbo.vwDT1Benchmark' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vwDT1Benchmark">
@@ -142,6 +146,10 @@ warning 6002: The table/view 'OCC.dbo.vwDT1Benchmark' does not have a primary ke
           <Property Name="TotalSR" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwDT1Benchmark-NotInUse' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'OCC.dbo.vwDT1BProgramBenchmark' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'OCC.dbo.vwDT1cMember' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vwDT1cMember">
           <Key>
@@ -203,8 +211,8 @@ warning 6002: The table/view 'OCC.dbo.vwDT2bBenchmark' does not have a primary k
           <Property Name="CompNIHMedian" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'OCC.dbo.vwDT3NewlyPatientBenchmark' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="vwDT3NewlyPatientBenchmark">
+warning 6002: The table/view 'OCC.dbo.vwDT3NewlyRegBenchmark' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwDT3NewlyRegBenchmark">
           <Key>
             <PropertyRef Name="ID" />
             <PropertyRef Name="FY" />
@@ -566,22 +574,22 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
     [vwDT2bBenchmark].[CompNIHMedian] AS [CompNIHMedian]
     FROM [dbo].[vwDT2bBenchmark] AS [vwDT2bBenchmark]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="vwDT3NewlyPatientBenchmark" EntityType="Self.vwDT3NewlyPatientBenchmark" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="vwDT3NewlyRegBenchmark" EntityType="Self.vwDT3NewlyRegBenchmark" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [vwDT3NewlyPatientBenchmark].[ID] AS [ID], 
-    [vwDT3NewlyPatientBenchmark].[FY] AS [FY], 
-    [vwDT3NewlyPatientBenchmark].[ClinicalCount] AS [ClinicalCount], 
-    [vwDT3NewlyPatientBenchmark].[ClinicalRegHigh] AS [ClinicalRegHigh], 
-    [vwDT3NewlyPatientBenchmark].[ClinicalRegLow] AS [ClinicalRegLow], 
-    [vwDT3NewlyPatientBenchmark].[ClinicalRegMedian] AS [ClinicalRegMedian], 
-    [vwDT3NewlyPatientBenchmark].[ClinicalRegSubtotal] AS [ClinicalRegSubtotal], 
-    [vwDT3NewlyPatientBenchmark].[CompCount] AS [CompCount], 
-    [vwDT3NewlyPatientBenchmark].[CompRegHigh] AS [CompRegHigh], 
-    [vwDT3NewlyPatientBenchmark].[CompRegLow] AS [CompRegLow], 
-    [vwDT3NewlyPatientBenchmark].[CompRegMedian] AS [CompRegMedian], 
-    [vwDT3NewlyPatientBenchmark].[CompRegSubtotal] AS [CompRegSubtotal], 
-    [vwDT3NewlyPatientBenchmark].[TotalReg] AS [TotalReg]
-    FROM [dbo].[vwDT3NewlyPatientBenchmark] AS [vwDT3NewlyPatientBenchmark]</DefiningQuery>
+    [vwDT3NewlyRegBenchmark].[ID] AS [ID], 
+    [vwDT3NewlyRegBenchmark].[FY] AS [FY], 
+    [vwDT3NewlyRegBenchmark].[ClinicalCount] AS [ClinicalCount], 
+    [vwDT3NewlyRegBenchmark].[ClinicalRegHigh] AS [ClinicalRegHigh], 
+    [vwDT3NewlyRegBenchmark].[ClinicalRegLow] AS [ClinicalRegLow], 
+    [vwDT3NewlyRegBenchmark].[ClinicalRegMedian] AS [ClinicalRegMedian], 
+    [vwDT3NewlyRegBenchmark].[ClinicalRegSubtotal] AS [ClinicalRegSubtotal], 
+    [vwDT3NewlyRegBenchmark].[CompCount] AS [CompCount], 
+    [vwDT3NewlyRegBenchmark].[CompRegHigh] AS [CompRegHigh], 
+    [vwDT3NewlyRegBenchmark].[CompRegLow] AS [CompRegLow], 
+    [vwDT3NewlyRegBenchmark].[CompRegMedian] AS [CompRegMedian], 
+    [vwDT3NewlyRegBenchmark].[CompRegSubtotal] AS [CompRegSubtotal], 
+    [vwDT3NewlyRegBenchmark].[TotalReg] AS [TotalReg]
+    FROM [dbo].[vwDT3NewlyRegBenchmark] AS [vwDT3NewlyRegBenchmark]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwDT3Top20EnrolledBenchmark" EntityType="Self.vwDT3Top20EnrolledBenchmark" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -750,7 +758,7 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
           <EntitySet Name="vwDT1Benchmark" EntityType="OCCModel.vwDT1Benchmark" />
           <EntitySet Name="Centers" EntityType="OCCModel.Center" />
           <EntitySet Name="vwETs" EntityType="OCCModel.vwET" />
-          <EntitySet Name="vwDT3NewlyPatientBenchmark" EntityType="OCCModel.vwDT3NewlyPatientBenchmark" />
+          <EntitySet Name="vwDT3NewlyRegBenchmark" EntityType="OCCModel.vwDT3NewlyRegBenchmark" />
         </EntityContainer>
         <ComplexType Name="uspGetOCCStaffPOC_Result">
           <Property Type="String" Name="EmpLastName" Nullable="true" MaxLength="25" />
@@ -1118,7 +1126,7 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
           <Property Name="Titles" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
           <Property Name="Emails" Type="String" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="vwDT3NewlyPatientBenchmark">
+        <EntityType Name="vwDT3NewlyRegBenchmark">
           <Key>
             <PropertyRef Name="ID" />
             <PropertyRef Name="FY" />
@@ -1494,9 +1502,9 @@ warning 6002: The table/view 'OCC.dbo.vwRP' does not have a primary key defined.
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vwDT3NewlyPatientBenchmark">
-            <EntityTypeMapping TypeName="OCCModel.vwDT3NewlyPatientBenchmark">
-              <MappingFragment StoreEntitySet="vwDT3NewlyPatientBenchmark">
+          <EntitySetMapping Name="vwDT3NewlyRegBenchmark">
+            <EntityTypeMapping TypeName="OCCModel.vwDT3NewlyRegBenchmark">
+              <MappingFragment StoreEntitySet="vwDT3NewlyRegBenchmark">
                 <ScalarProperty Name="TotalReg" ColumnName="TotalReg" />
                 <ScalarProperty Name="CompRegSubtotal" ColumnName="CompRegSubtotal" />
                 <ScalarProperty Name="CompRegMedian" ColumnName="CompRegMedian" />
