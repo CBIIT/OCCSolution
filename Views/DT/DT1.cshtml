@@ -22,6 +22,7 @@
         06/27/2018      AM          modified table font and background colors to meet new 508 compliance standard
           2/22/22      Chi          Updated the data with FY2020 - fy2020 won't show up - WHY? check the connectingstring for dev OCCuser in web.config :-)
                                     added, "From 2017 to present, we're no longer track member number."
+       09/11/2023     Chi           Updated according to Molly's suggestions
     ---------------------------------------------------------------------------------------------------------------------------------------*@
 <!DOCTYPE html>
 <html>
@@ -84,9 +85,9 @@
         <p class="pull-right" style="color:#202020;"><small>Press F5 to reset the data table</small></p>
         <div class="centerContent pull-left">
             <div class="col-sm-12 pull-left" style="color:#003f59;">
-                <p style="color:#202020"><small>All values are from data submitted annually by Centers starting from 2010 to recent year.</small></p>
-                <p style="font-size:small;">The table below is the compilation of Data Tables 1A, 1B, 1D, and 1C data. It lists, by type of center,the current high, low, and median number of Senior Leaders, Peer-Reviewed Research Programs, Peer-Reviewed Shared Resources, and overall membership size for Aligned and Non-aligned Members. It also includes subtotals and a total for all centers.</p>
-                <p style="font-size:small;"><b>Note:</b> After 2016 the Centers are no longer required to submit membership data.</p><br />
+                <p style="font-size:small;">The table below is the compilation of Data Tables 1A, 1B, 1D, and 1C. 
+                                            It lists the current high, low, and median counts of Senior Leaders, peer-reviewed Research Programs, peer-reviewed Shared Resources, and overall membership size, categorized by center type, from 2010 to the present year. 
+                                            Additionally, it provides subtotals and a cumulative total for all centers. Please note that starting from 2017, centers are no longer obligated to submit membership data.</p>
             </div>
             <table id="example" style="width:45%;">
                 <thead>
@@ -308,7 +309,7 @@
                 //populate the FY ddl
                 table.column(0).data().unique().sort().each(function (d, j) {
                     select.append('<option value="' + d + '">' + d + '</option>')      //populate the ddl with FY
-                    .val("2015");                                                     //set the default FY valaue   
+                    .val("2020");                                                     //set the default FY valaue   
                     
                 });
             }         

@@ -1,19 +1,10 @@
-﻿@using OCCSolution;
+@using OCCSolution;
 @{
     ViewBag.Title = "DT3";
 }
 @*--------------------------------------------------------------------------------------------------------------------------------------
-        DATE            Developer    Desc
-        12/21/2014      Chi          Created.
-        12/24/2014      Chi          Hide the prev, next, ect page info.
-        12/30/2014      Chi          Aded the FY to the dataTable footer
-        03/27/2015      Chi          Removed occHyperlink, added id="home" to the 1st <a> tag, added aria-hidden="true"
-        04/02/2015      AM           Removed table footers, changed all fontsize smaller to small
-                                     Removed table footers
-        06/01/2017      Chi          Set the dropdown value to 2015
-        06/27/2018      AM           modified table font and background colors to meet new 508 compliance standard
-        02/22/2022       Chi         Updated with FY20 data, added "After 2016 the Centers are no longer required to sumbit Enrolled Patient data."
-        07/14/2023     Chi           Removed Enrolled Patients Col 
+        DATE           Developer    Desc
+        09/11/2023     Chi          Created a new DT3 view
     ---------------------------------------------------------------------------------------------------------------------------------------*@
 <!DOCTYPE HTML>
 <html>
@@ -66,22 +57,20 @@
         </ul>
         <p class="pull-right" style="color:#202020;"><small>Press F5 to reset the data table</small></p>
         <div class="centerContent pull-left">
-            <div class="col-sm-12 pull-left" style="color:#003f59;">
-                <p style="color:#202020"><small><b>Note:</b> All values are from data submitted annually by Centers starting from 2010 to recent year.</small></p>
-            </div>
+            @*<div class="col-sm-12 pull-left" style="color:#003f59;">
+                <p style="color:#202020"><small><b>Note:</b> All values are from data submitted annually by centers starting from 2010 to recent year.</small></p>
+            </div>*@
 
             <ul class="nav nav-tabs" style="font-size:small;">
                 <li class="active" style="color:#005C83;"><a data-toggle="tab" href="#Patients">Newly Registered Patients </a></li>
                 <li><a data-toggle="tab" href="#RegSites">Top 20 Disease Sites for Newly Registered</a></li>
-                @*<li><a data-toggle="tab" href="#EnrollSites">Top 20 Disease Sites for Newly Enrolled</a></li>*@
             </ul>
 
             <div class="tab-content">
                 <div id="Patients" class="tab-pane fade in active">
                     <div class="col-sm-12 pull-left" style="font-size:small; color:#005C83;">
                         <br />
-                        <p>The table below lists the high, low, median, total number of patients newly registered on interventional therapeutic protocols at NCI-designated Clinical and Comprehensive Cancer Centers during the 12-month reporting period starting from 2010 to recent year.</p>
-                        @*<p><b>Note:</b> After 2016 the Centers are no longer required to submit enrolled patients data.</p><br />*@
+                        <p>The table below lists the high, low, median, and total number of patients newly registered on interventional therapeutic protocols in the 12-month reporting period starting from 2010 to recent year at NCI-Designated Clinical and Comprehensive Cancer Centers.</p>
                         <table id="example" style="width:60%;">
                             <thead>
                                 <tr style="font-size:small; color:white; background-color:#1A5276">
@@ -90,7 +79,6 @@
                                     <th>Type of Center</th>
                                     <th align="left">Range</th>
                                     <th align="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Registered &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Patients</th>
-                                    @*<th align="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enrolled &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Patients</th>*@
                                 </tr>
                             </thead>
                             <tbody style="font-size:small;">
@@ -106,7 +94,6 @@
                                                 <td style="font-size:small; width:140px;" title="Click here to go to the cancer center list"><b>@item.ClinicalCount Clinical Centers</b></td>
                                                 <td align="left">High</td>
                                                 <td align="right">@item.ClinicalRegHigh</td>
-                                                @*<td align="right">@item.ClinicalEnrollHigh</td>*@
                                             </tr>
                                             <tr>
                                                 <td>@item.FY</td>
@@ -114,7 +101,6 @@
                                                 <td></td>
                                                 <td align="left">Low</td>
                                                 <td align="right">@item.ClinicalRegLow</td>
-                                                @*<td align="right">@item.ClinicalEnrollLow</td>*@
                                             </tr>
                                             <tr class="odd">
                                                 <td>@item.FY</td>
@@ -122,7 +108,6 @@
                                                 <td></td>
                                                 <td align="left">Median</td>
                                                 <td align="right">@item.ClinicalRegMedian</td>
-                                                @*<td align="right">@item.ClinicalEnrollMedian</td>*@
                                             </tr>
                                             <tr style="color:black; font-weight:bolder;" class="highlighted">
                                                 <td>@item.FY</td>
@@ -130,7 +115,7 @@
                                                 <td></td>
                                                 <td scope="row" align="left">Subtotal</td>
                                                 <td align="right">@item.ClinicalRegSubtotal</td>
-                                                @*<td align="right">@item.ClinicalEnrollSubtotal</td>*@
+
                                             </tr>
 
                                             <tr class="odd">
@@ -214,11 +199,9 @@
                     </div>
                 </div> <!--end of tab2-->
 
-
             </div> <!--end of tab-content-->
         </div> <!--end of centerContent-->
     </div><!--end of container class-->
-
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function () {
             $('#example').DataTable({
@@ -257,7 +240,7 @@
                         });
                     table.column(0).data().unique().sort().each(function (d, j) {
                         select.append('<option value="' + d + '">' + d + '</option>')    //populate the FY ddl
-                            .val("2015");                                                      //set default the value
+                            .val("2021");                                                      //set default the value
 
                     });
                 }
@@ -291,7 +274,7 @@
                         });
                     table2.column(0).data().unique().sort().each(function (d, j) {
                         select.append('<option value="' + d + '">' + d + '</option>')      //populate the FY ddl
-                            .val("2015");                                                      //set default the value
+                            .val("2021");                                                      //set default the value
 
                     });
                 }
@@ -325,7 +308,7 @@
                         });
                     table3.column(0).data().unique().sort().each(function (d, j) {
                         select.append('<option value="' + d + '">' + d + '</option>')      //populate the FY ddl
-                            .val("2015");                                                      //set default the value
+                            .val("2021");                                                      //set default the value
                     });
                 }
             });
