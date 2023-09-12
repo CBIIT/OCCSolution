@@ -23,7 +23,7 @@
         <EntityTypeShape EntityType="OCCModel.vwDT1Benchmark" Width="1.5" PointX="9.625" PointY="0.625" />
         <EntityTypeShape EntityType="OCCModel.Center" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="OCCModel.vwET" Width="1.5" PointX="7.375" PointY="6.5" />
-        <EntityTypeShape EntityType="OCCModel.vwDT3NewlyRegBenchmark" Width="1.5" PointX="12.375" PointY="10.75" />
+        <EntityTypeShape EntityType="OCCModel.vwDT3NewlyRegBenchmark" Width="2.625" PointX="12.125" PointY="9.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
