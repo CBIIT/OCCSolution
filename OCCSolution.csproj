@@ -339,9 +339,6 @@
     <Compile Include="Models\vwDT1cMember.cs">
       <DependentUpon>OCCdbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\vwDT3NewlyPatientBenchmark.cs">
-      <DependentUpon>OCCdbModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ICD.cs" />
     <Compile Include="Models\ICD9Repository .cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -408,6 +405,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterDatatablesModelBinder.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Models\vwDT3NewlyRegBenchmark.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-social.css" />
@@ -3847,13 +3845,13 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\AEM.jpg" />
-    <Content Include="images\banner1.jpg" />
     <Content Include="images\banner2.jpg" />
     <Content Include="images\banner3.jpg" />
     <Content Include="images\banner4.jpg" />
     <Content Include="images\Banner5.jpg" />
     <Content Include="images\blankprofile.jpg" />
-    <Content Include="images\CCMap69.jpg" />
+    <Content Include="images\CCMap72.jpg" />
+    <Content Include="images\CenterTypeLabel.jpg" />
     <Content Include="images\eDataDiagram.jpg" />
     <Content Include="images\exitdisclaimer.gif" />
     <Content Include="images\faqbanner.jpg" />
@@ -3866,6 +3864,8 @@
     <Content Include="images\iStockCheckIt.jpg" />
     <Content Include="images\MAM.jpg" />
     <Content Include="images\MH.jpg" />
+    <Content Include="images\MM.jpg" />
+    <Content Include="images\MollyMaher.jpeg" />
     <Content Include="images\moneyjaricon.jpg" />
     <Content Include="images\NCIccLogo.JPG" />
     <Content Include="images\CheckMark.png" />
@@ -5365,7 +5365,7 @@
     <Content Include="Views\DT\DT.cshtml" />
     <Content Include="Views\DT\DT1.cshtml" />
     <Content Include="Views\DT\DT2.cshtml" />
-    <Content Include="Views\DT\DT3.cshtml" />
+    <Content Include="Views\DT\DT3-old.cshtml" />
     <Content Include="Views\DT\DT4.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -5390,7 +5390,6 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Scripts\treetable.jquery.json" />
-    <Content Include="Views\Center\CancerCenters.cshtml" />
     <Content Include="Views\Home\OurTeam.cshtml" />
     <Content Include="Views\GrantsFunding\GrantsFunding.cshtml" />
     <Content Include="Views\PoliciesResources\PoliciesResources.cshtml" />
@@ -5540,6 +5539,8 @@
     <Content Include="Views\Home\Keyboard.cshtml" />
     <Content Include="Views\GrantsFunding\ICD10.cshtml" />
     <Content Include="Views\Center\RP.cshtml" />
+    <Content Include="Views\Center\CancerCenters.cshtml" />
+    <Content Include="Views\DT\DT3.cshtml" />
     <None Include="Views\GrantsFunding\RPPR.cshtml" />
     <None Include="Views\Home\About.cshtml" />
     <None Include="Views\Home\Index.cshtml" />
