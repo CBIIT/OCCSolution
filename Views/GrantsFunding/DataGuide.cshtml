@@ -95,13 +95,13 @@
     <div class="container" id="pageCenterID">
         <div class="row" id="centerContentID">
             <h2 class="tealFont">&nbsp;CCSG Data Guide</h2>
-            <p style="font-size:medium; padding-left:.5em;"><small>Revised May 1, 2023</small></p>
+            <p style="font-size:medium; padding-left:.5em;"><small>Updated September 12, 2023</small></p>
             <hr style="margin-bottom:0em;" />
             <ul class="breadcrumb" style="float:left; margin-bottom:2px;">
                 <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
                 <li><a href="~/GrantsFunding/GrantsFunding">Grants & Funding</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
                 <li class="grayFont active">CCSG Data Guide</li>
-            </ul
+            </ul>
         </div>
         <div class="row">
             <div class="col-xs-3" id="myScrollspy">
@@ -110,7 +110,6 @@
                     <li><a href="#dt1a">Data Table 1A</a></li>
                     <li><a href="#dt1b">Data Table 1B</a></li>
                     <li><a href="#dt1c">Data Table 1C</a></li>
-                    @*<li><a href="#dt1d" >Data Table 1D</a></li>*@
                     <li><a href="#SRCat">Shared Resource Category Table</a></li>
                     <li><a href="#dt2a">Data Table 2A</a></li>
                     <li><a href="#dt2b">Data Table 2B</a></li>
@@ -122,9 +121,8 @@
                 </ul>
             </div>
             <div class="col-xs-9">
-                @*<h5 style="text-align:center; color: red; font-weight:bold">FOR COMPETING APPLICATIONS ONLY</h5>*@
                 <h2 style="text-align:center">P30 Cancer Center Support Grant</h2>
-                <h3 style="text-align:center">Data Table Guide v3.1.2</h3><br />
+                <h3 style="text-align:center">Data Table Guide v3.1.3</h3><br />
 
                 <h4 style="text-align:center">
                     National Institutes of Health / DHHS<br />
@@ -137,7 +135,7 @@
 
                 <h4 id="purpose" style="font-weight:bold">Purpose of the Data Tables</h4>
                 <p>In competing applications (Types 1 and 2), the Data Tables (DT) facilitate consistency and thoroughness in review by providing peer reviewers with standardized information on center organization and leadership, active cancer-related research, and several aspects of clinical function.</p>
-                <p>In non-competitive applications (Types 3 and 5), electronic DT 1-4 (eData), submitted to the Office of Cancer Centers (OCC), are used to assess center progress, generate reports, and produce benchmark data on the Centers program.</p>
+                <p>In non-competitive applications (Types 3 and 5), electronic DT1-4 (eData), submitted to the Office of Cancer Centers (OCC), are used to assess center progress, generate reports, and produce benchmark data on the Centers program.</p>
 
                 <h4 id="subtype" style="font-weight:bold">Submission Types</h4>
 
@@ -155,30 +153,31 @@
                     <tbody>
                         <tr>
                             <td style="text-align:center">1</td>
-                            <td style="text-align:center">DT 1-5</td>
+                            <td style="text-align:center">DT1-5</td>
                             <td style="text-align:center">None</td>
-                            <td>None (DT 1-4 due if CCSG is awarded)</td>
+                            <td>None (DT1-4 due if CCSG is awarded)</td>
                         </tr>
                         <tr>
                             <td style="text-align:center">2</td>
-                            <td style="text-align:center">DT 1-5</td>
+                            <td style="text-align:center">DT1-5</td>
                             <td style="text-align:center">None</td>
-                            <td>DT 1-4 (60 days prior to start date)*</td>
+                            <td>DT1-4 (60 days prior to start date)*</td>
                         </tr>
                         <tr>
                             <td style="text-align:center">3</td>
                             <td style="text-align:center">NA</td>
-                            <td style="text-align:center">DT 1</td>
-                            <td>DT 1-4 (60 days prior to start date)</td>
+                            <td style="text-align:center">DT1</td>
+                            <td>DT1-4 (60 days prior to start date)</td>
                         </tr>
                         <tr>
                             <td style="text-align:center">5</td>
                             <td style="text-align:center">NA</td>
-                            <td style="text-align:center">DT 1</td>
-                            <td>DT 1-4 (60 days prior to start date)</td>
+                            <td style="text-align:center">DT1</td>
+                            <td>DT1-4 (60 days prior to start date)</td>
                         </tr>
                 </table>
-                <p><b>Note:</b> Per NIH policy, T2 applications serve as the progress report for the fiscal year in which the application is newly funded. Although no separate RPPR need be submitted 60 days prior to the start date of the newly funded award, DT 1-4 must still be submitted at that time.</p>
+                <p style="text-align:center;"><b>Table 1 - Submission Types</b></p> </br>
+                <p><b>Note:</b> Per NIH policy, T2 applications serve as the progress report for the fiscal year in which the application is newly funded. Although no separate RPPR need be submitted 60 days prior to the start date of the newly funded award, DT1-4 must still be submitted at that time.</p>
                 <p>See <a href="~/GrantsFunding/eData">eData Guide</a> for instructions on format. </p>
 
                 @*<p>An FAQ document for further guidance is at available at <a href="~/home/FAQs">FAQs</a>.</p>*@
@@ -193,8 +192,8 @@
                 </ul>
 
                 <h3 id="dt1a">DT1</h3>
-                <p>DT1A-D provide general information about the Senior Leadership, Research Programs, Cancer Center Membership, and Shared Resources. </p>
-                <p>For T2 applications, “New” in DT 1 refers to new since the last T2 application. For T3 and T5, “New” refers to new since the last T3 or T5 progress report.</p>
+                <p>DT1A-C provide general information about the senior leadership, research programs, cancer center membership, and shared resources. </p>
+                <p>For T2 applications, “New” in DT1 refers to new since the last T2 application. For T3 and T5, “New” refers to new since the last T3 or T5 progress report.</p>
                 <h3>DT1A - Senior Leadership</h3>
                 <hr />
                 <p>For a center-defined reporting date, follow the format below to report the Senior Leadership: 	</p>
@@ -231,7 +230,7 @@
                             <td>Galley, Mark  </td>
                             <td>Assoc. Director for Basic Science</td>
                             <td>MD</td>
-                            <td>Yes</td>
+                            <td>Y</td>
                         </tr>
                         <tr>
                             <td>Barrie, Thomas  </td>
@@ -285,8 +284,8 @@
                             <td>Cancer Control and Prevention</td>
                             <td>Pham, Phuong</td>
                             <td>PhD</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
+                            <td>Y</td>
+                            <td>Y</td>
                             <td>14</td>
                         </tr>
                         <tr>
@@ -294,7 +293,7 @@
                             <td>Epidemiology</td>
                             <td>Kauman, John<br />Jordon, Mark</td>
                             <td>MD<br />PhD</td>
-                            <td>Yes</td>
+                            <td>Y</td>
                             <td></td>
                             <td>19</td>
                         </tr>
@@ -303,7 +302,7 @@
                             <td>Prostate</td>
                             <td>Yeh, Grace</td>
                             <td>MD</td>
-                            <td>Yes</td>
+                            <td>Y</td>
                             <td></td>
                             <td>26</td>
                         </tr>
@@ -347,43 +346,6 @@
                 </table>
                 <p><b>Note:</b> Include Program Leaders in number of members. Members in more than one program should be counted once.</p>
 
-
-                @*<h3 id="dt1c">DT 1C - Cancer Center Membership</h3>
-        <hr />
-        <p>For a center-defined reporting date, follow the format below to report the Center’s membership:</p>
-        <br />
-        <p style="float:right"><b>2P30CA120212-09</b></p>
-        <div style="margin-left:25%">
-            [Name of] Cancer Center<br />
-            Reporting Date: MM/DD/YYYY<br />
-            Data Table 1C - Cancer Center Membership
-        </div><br />
-        <table class="table table-bordered">
-            <thead>
-                <tr class="tableHeader">
-                    <th style="width:60%;" >Type of Member</th>
-                    <th style=" width:40%;">Total Number</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Programmatically Aligned Members (Individuals)</td>
-                    <td>118</td>
-                </tr>
-                <tr>
-                    <td>Non-Programmatically Aligned Members (Individuals)</td>
-                    <td>9</td>
-                </tr>
-                <tr>
-                    <td>Grand Total - Total Number of Cancer Center Members (Individuals)</td>
-                    <td>127</td>
-                </tr>
-
-
-            </tbody>
-        </table>*@
-
-
                 <h3 id="dt1c">DT1C - Shared Resources</h3>
                 <hr />
                 <p>For a center-defined reporting date, follow the format below to report the Shared Resources:</p>
@@ -422,7 +384,7 @@
                             <td>MD</td>
                             <td></td>
                             <td></td>
-                            <td>Yes</td>
+                            <td>Y</td>
                             <td>1.35</td>
                         </tr>
                         <tr>
@@ -440,7 +402,7 @@
                             <td>Goldstein, Phillip</td>
                             <td>MD</td>
                             <td></td>
-                            <td>Yes</td>
+                            <td>Y</td>
                             <td></td>
                             <td>1.36</td>
 
@@ -467,7 +429,7 @@
                             <td>Organic Synthesis</td>
                             <td>Singer, Richard</td>
                             <td>PhD</td>
-                            <td>Yes</td>
+                            <td>Y</td>
                             <td></td>
                             <td></td>
                             <td>1.12</td>
@@ -485,7 +447,7 @@
                             <td>Translational Chemistry</td>
                             <td>Hahn, Otto</td>
                             <td>PhD</td>
-                            <td>Yes</td>
+                            <td>Y</td>
                             <td></td>
                             <td></td>
                             <td>4.08</td>
@@ -614,25 +576,26 @@
                         </div>
                     </div>
                 </div> <!--class="panel" id="SRCat"-->
+                <p style="text-align:center;"><b>Table 2 - Shared Resources Category</b></p></br>
 
-                <h3 id="dt2a"> DT 2A and 2B</h3>
+                <h3 id="dt2a"> DT2A and DT2B</h3>
                 <hr />
-                <p>DT2A and DT2B report all active cancer-related research grants and contracts held by center members and awarded by external sources to the fiscally responsible institution of which the Cancer Center is a part. Grants and contracts to center members awarded to other institutions that are not formal consortium partners of the center should not be included.</p>
+                <p>DT2A and DT2B report all active cancer-related research grants and contracts held by center members and awarded by external sources to the fiscally responsible institution of which the cancer center is a part. Grants and contracts to center members awarded to other institutions that are not formal consortium partners of the center should not be included.</p>
 
                 <h3>DT2A</h3>
                 <hr />
-                <ul class="liIndent">
+                <ol class="liIndent">
                     <li>Define a reporting date and include cancer-related grants and contracts that are active as of that date, including those in no-cost extension. </li></br>
-                    <li>Organize data table 2a into two separate tables peer-reviewed research projects and non-peer-reviewed research projects.</li></br>
+                    <li>Organize DT2A into two separate tables peer-reviewed research projects and non-peer-reviewed research projects.</li></br>
                     <li>
                         Only grant and contracts from NCI, NIH, or organizations listed in the following URL are considered peer-reviewed:
                         <a href="~/documents/PRFundingOrgs508.pdf" target="_blank">Peer Review Funding Orgs</a><br /><br />
-                        All others funding sources should be listed as non-peer reviewed. The Office of Cancer Centers will perform an administrative review of DT2 in Type 1 and 2 applications to ensure compliance with this rule.
+                        All others funding sources should be listed as non-peer reviewed. The OCC will perform an administrative review of DT2 in Type 1 and 2 applications to ensure compliance with this rule.
                     </li></br>
                     <li>Provide a separate DT2A for each consortium partner.</li></br>
                     <li>Grants and contracts that fund infrastructure, cores, instrumentation, etc. (i.e, not research projects) should be listed ZY and should not be assigned to a particular program; they should also not be listed in the version of DT2A of each Research Program.</li></br>
                     <li>Report projects in alphabetical order within each table by the principal investigator’s (PI) last name, or overall PI’s name for multi-component projects.</li></br>
-                    <li>Report only grants and contracts that are awarded by external sources to the fiscally responsible institution of which the Center is a part, and whose PI is a Cancer Center member. Thus, grants and contracts that flow to other institutions, even if the PI is a member of the Center, are not reported, unless the other institution is a consortium partner of the Center as established by previous CCSG peer review.</li></br>
+                    <li>Report only grants and contracts that are awarded by external sources to the fiscally responsible institution of which the Center is a part, and whose PI is a cancer center member. Thus, grants and contracts that flow to other institutions, even if the PI is a member of the Center, are not reported, unless the other institution is a consortium partner of the Center as established by previous CCSG peer review.</li></br>
                     <li>Report only direct costs.</li></br>
                     <li>Report the entire direct cost of the project, and then provide the amount of the grant that is considered cancer-relevant. For grants that are 100% cancer-relevant (such as all grants from NCI), these figures will be identical. The Center should develop a reasonable method of determining cancer relevance; estimates of cancer-relevance should be defensible in peer-review.</li></br>
                     <li>For projects that are on a no-cost extension, list only the unobligated balance in the Annual Project and Annual Program Costs and add (NCE) at the end of the project number.</li></br>
@@ -640,8 +603,8 @@
                     <li>Any grant or contract that is infrastructure-related (such as the CCSG and its supplements, cores associated with such projects as SPOREs or P01s) should be coded ZY and not included in any Research Program.</li></br>
                     <li>In the version of DT2A associated with each Research Program, include only peer-reviewed research projects that are cancer-relevant; do not include any ZY projects.</li></br>
                     <li>Provide subtotals of the Direct Costs at the bottom of each of the 2 tables.</li></br>
-                    <li>Consortium Centers: Submit one DT 2A for each consortium partner; combine all consortium partners in DT2B.</li>
-                </ul>
+                    <li>Consortium Centers: Submit one DT2A for each consortium partner; combine all consortium partners in DT2B.</li>
+                </ol>
 
                 <p>Provide the following information:</p>
 
@@ -688,7 +651,12 @@
                 <p>DT2B describes the total number of cancer-related research projects (excluding the CCSG itself and associated supplements) and their aggregate total annual direct cost.</p>
 
                 <ul class="liIndent">
-                    <li>For a center-defined reporting date, list the total number of cancer-related research projects and the sum of annual direct cancer-relevant funding for each major funding agency category as follows: NCI Peer-Reviewed, Other NIH Peer-Reviewed, Other Peer-Reviewed; and Industry Non Peer-Reviewed and Other Non-Peer Reviewed Projects.  Do not include training projects, as they are reported in the Cancer Research Career Enhancement and Other Activities component. Do not include the CCSG itself or associated supplements in DT2B, but include other projects coded ZY.</li></br>
+                    <li>
+                        For a center-defined reporting date, list the total number of cancer-related research projects and the sum of annual direct cancer-relevant funding for each major funding agency category as follows:
+                        NCI Peer-Reviewed, Other NIH Peer-Reviewed, Other Peer-Reviewed; and Industry Non Peer-Reviewed and Other Non-Peer Reviewed Projects.
+                        Do not include training projects, as they are reported in the Cancer Research Career Enhancement and Other Activities component.
+                        Do not include the CCSG itself or associated supplements in DT2B, but include other projects coded ZY.
+                    </li></br>
                     <li>Provide subtotals and a grand total where indicated.</li>  </br>
                     <li>For multiple project grants or contracts, count each subproject as one project (Do not count overall as one – a SPORE with 5 subprojects (example 10 above) would count as 5 projects.</li>
                 </ul>
@@ -755,25 +723,25 @@
                 <h3 id="dt3">DT3</h3>
                 <hr />
 
-                <p>DT3 is intended to provide reviewers with an overview, organized by primary cancer site, of the number of cancer cases seen at the Cancer Center.</p>
-                <p>For a center-defined 12-month reporting period, DT 3 therefore reports the number of newly registered patients at the Cancer Center (registry analytic and non-analytic cases, as defined below.</p>
-                <p>Use the following definitions to complete the DT 3 table:</p>
+                <p>DT3 is intended to provide reviewers with an overview, organized by primary cancer site, of the number of cancer cases seen at the cancer center.</p>
+                <p>For a center-defined 12-month reporting period, DT3 therefore reports the number of newly registered patients at the cancer center (registry analytic and non-analytic cases, as defined below.</p>
+                <p>Use the following definitions to complete the DT3 table:</p>
 
                 <ul class="liIndent">
                     <li><b>Name of Reporting Source:</b> For consortium centers or those with affiliated institutions, indicate the specific name of the reporting institution.</li></br>
-                    <li><b>Reporting Period:</b> The 12-month period as defined by the Cancer Center.</li></br>
+                    <li><b>Reporting Period:</b> The 12-month period as defined by the cancer center.</li></br>
                     <li>
                         <b>Reportable Cancers:</b> Malignancies with an International Classification of Diseases for Oncology (ICD) behavior code of 2 or 3 should be reported, in accordance with the established requirements of registry standard setting organizations. Refer to
                         <a href="https://cancercenters.cancer.gov/GrantsFunding/ICD10" target="_blank">ICD 10</a> for the list of International Classification of Diseases for Oncology codes.
                     </li></br>
-                    <li><b>Newly registered patients:</b> Newly registered patients are those patients seen face-to-face and recorded in the Cancer Center’s Cancer Registry for the first time for that diagnosis during the reporting period. They include inpatients and outpatients who:</li>
+                    <li><b>Newly registered patients:</b> Newly registered patients are those patients seen face-to-face and recorded in the cancer center’s Cancer Registry for the first time for that diagnosis during the reporting period. They include inpatients and outpatients who:</li>
                 </ul>
                 <ol class="liIndent">
                     <li>
-                        are newly diagnosed and/or receiving first course of treatment at the Cancer Center, i.e., equivalent to American College of Surgeons-defined analytic case codes 00 – 22
+                        are newly diagnosed and/or receiving first course of treatment at the cancer center, i.e., equivalent to American College of Surgeons-defined analytic case codes 00 – 22
                         <a href="https://www.facs.org/media/r5rl5scw/fords-2016.pdf" target="_blank">FORDS-2016</a>;
                     </li></br>
-                    <li>have recurrent or persistent disease and are referred to the Cancer Center for evaluation and treatment, i.e., equivalent to American College of Surgeons-defined non-analytic code 32 (do not include other non-analytic codes).</li>
+                    <li>have recurrent or persistent disease and are referred to the cancer center for evaluation and treatment, i.e., equivalent to American College of Surgeons-defined non-analytic code 32 (do not include other non-analytic codes).</li>
                 </ol>
 
                 <p>Do not include:</p>
@@ -781,10 +749,10 @@
                 <ul class="liIndent">
                     <li>Any patient more than once unless they have two malignancies in the same year.</li></br>
                     <li>Consults (e.g., second opinions), new patient appointments, diagnoses at autopsy, admission of former patients for rehabilitation purposes or treatment of some other condition, or patient follow-up after treatment.</li> </br>
-                    <li>Patients whose only contact with the Center is due to enrollment on protocol studies organized among community practitioners by Cancer Center staff.</li>
+                    <li>Patients whose only contact with the Center is due to enrollment on protocol studies organized among community practitioners by cancer center staff.</li>
                 </ul>
 
-                <p>A Cancer Center without access to a local or institutional registry should use alternate means to capture data as close as possible to the above definition.</p>
+                <p>A cancer center without access to a local or institutional registry should use alternate means to capture data as close as possible to the above definition.</p>
                 <p>Follow this table to determine method of reporting Newly Registered Patients:</p>
                 <table class="table table-bordered">
                     <thead>
@@ -795,7 +763,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Cancer Center primary clinical arm(s), e.g., adult and pediatric hospitals and outpatient clinics that report through the Center’s cancer registry</td>
+                            <td>Cancer center primary clinical arm(s), e.g., adult and pediatric hospitals and outpatient clinics that report through the Center’s cancer registry</td>
                             <td>Include</td>
                         </tr>
                         <tr>
@@ -813,17 +781,12 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Cancer Center affiliates that do not report through the center’s registry</td>
+                            <td>Cancer center affiliates that do not report through the center’s registry</td>
                             <td>Exclude</td>
                         </tr>
                     </tbody>
                 </table>
-
-                @*<p>
-            <b>Total patients newly enrolled in interventional treatment trials:</b>Interventional treatment trials are protocols designed to evaluate one or more interventions for treating a disease, syndrome, or condition. The participants may receive diagnostic, treatment, behavioral, or other types of interventions. <b>Note:</b> This equates to therapeutic trials in the previous versions of the guidelines.
-            Include a patient more than once if he/she participated in more than one interventional treatment trial during the reporting period.
-        </p>
-        <p><b> Note:</b> Data in these two columns should match in terms of their institutional source populations, following the criteria stated above. They should reflect the number of patients, not the number of visits. </p>*@
+                <p style="text-align:center;"><b>Table 3 - DT3 Reporting Method</b></p>
 
                 <p style="text-align:center; font-size:medium">
                     <a href="~/Documents/CCSGDataGuide508.pdf#page=13" target="_blank">DT3 Example Format Table</a>
@@ -832,7 +795,46 @@
                 <h3 id="dt4">DT4</h3>
                 <hr />
 
-                <p>DT4 serves as a report of the cancer-related hypothesis-driven clinical research studies open at the Cancer Center during a center-defined 12-month reporting period. Consortium centers submit only one DT4. Use the following definitions to complete DT 4:</p>
+                <p id="DT4Definition">
+                    DT4 serves as a report of the cancer-related hypothesis-driven clinical research studies open at the cancer center during a recent 12-month period.
+                    DT4 interventional treatment trials must be generated using the Clinical Trials Reporting Program (CTRP) database.
+                    Individual non-consenting (pragmatic) trials, ancillary, correlative and observational studies may be submitted using CTRP or independently of CTRP. Consortium centers submit only one DT4.
+                    Title the PDF attachment as "DT4.pdf”. New (Type 1) applications are not required to use CTRP in preparation of DT4.
+                </p><br />
+                <p>Use the following table to determine appropriate DT4 submission:</p>
+                <table class="table table-bordered" id="DT4Submission">
+                    <thead>
+                        <tr class="tableHeader">
+                            <th style="width:25%;">Clinical Research Category</th>
+                            <th style="width:25%;">New (T1)</th>
+                            <th style="width:25%;">Competing (T2)</th>
+                            <th style="width:25%;">Non-Competing (T5)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>INT</td>
+                            <td>CCSG Format</td>
+                            <td>CTRP-Generated</td>
+                            <td>CTRP-Generated</td>
+                        </tr>
+                        <tr>
+                            <td>OBS</td>
+                            <td>CCSG Format</td>
+                            <td>CCSG Format</td>
+                            <td>CTRP-Generated</td>
+                        </tr>
+                        <tr>
+                            <td>ANC/COR</td>
+                            <td>CCSG Format</td>
+                            <td>CCSG Format</td>
+                            <td>CCSG Format</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="text-align:center;"><b>Table 4 - DT4 Submission</b></p>
+
+                <p>Use the following definitions to complete DT4:</p>
 
                 <h4>Clinical Research includes:</h4>
                 <ul class="liIndent">
@@ -866,7 +868,7 @@
                 <p>
                     <b>Externally Peer-Reviewed: </b> R01s, SPORES, U01s, U10s, P01s, CTEP, or any other clinical research study mechanism supported by the NIH or organizations on this list: <a href="~/documents/PRFundingOrgs508.pdf" target="_blank">Peer Review Funding Orgs </a>
                 </p>
-                <p><b>Institutional: </b>In-house clinical research studies authored or co-authored by Cancer Center investigators and undergoing scientific peer review solely by the Protocol Review and Monitoring System of the Cancer Center. The Cancer Center investigator has primary responsibility for conceptualizing, designing, and implementing the clinical research study and reporting results.</p>
+                <p><b>Institutional: </b>In-house clinical research studies authored or co-authored by cancer center investigators and undergoing scientific peer review solely by the Protocol Review and Monitoring System of the cancer center. The Cancer Center investigator has primary responsibility for conceptualizing, designing, and implementing the clinical research study and reporting results.</p>
                 <ul class="liIndent">
                     <li>It is acceptable for industry and other entities to provide support (e.g., drug, device, other funding), but the trial should clearly be the intellectual product of the center investigator</li></br>
                     <li>This category may also include:</li></br>
@@ -895,21 +897,21 @@
                 <p><b>NCI ID:</b> The unique ID assigned to the trial by the NCI's Clinical Trials Reporting Program (CTRP).</p>
                 <p><b>Protocol ID/IRB Number (Proto ID):</b> The unique identifier for the study. List the common protocol number that the trial is known under nationally, if one exists. For other trials that do not have an NCT number or a common protocol number that the trial is known under nationally, use an internal protocol identification or IRB number.</p>
                 <p><b>Other Protocol ID (Other Proto ID):</b> Additional IDs assigned to the trial, including the following: NCI, Cancer Therapy Evaluation Program (CTEP) or Division of Cancer Prevention (DCP), unique IDs from other  registries, Protocol numbers assigned by the review board, other IDs.</p>
-                <p><b>Local Trial ID:</b> The unique ID assigned at the Cancer Center level and used at the sites level to identify a trial.</p>
+                <p><b>Local Trial ID:</b> The unique ID assigned at the cancer center level and used at the sites level to identify a trial.</p>
                 <p><b>PI:</b>The last name and first initial of the PI from the Center who is responsible for this Clinical Research Study.</p>
-                <p><b>Program (Prog) Code: </b>Use the Research Program code defined by the center in DT 1B. For clinical research studies that span more than one Research Program, include both Program Codes in this column. </p>
+                <p><b>Program (Prog) Code: </b>Use the Research Program code defined by the center in DT1B. For clinical research studies that span more than one Research Program, include both Program Codes in this column. </p>
                 <p><b>Date Opened (activation): </b>The official start date of a trial determined by 1) the date of activation noted in an official clinical trial activation announcement or 2) date of first patient accrual if the trial in question did not have a formal activation announcement.</p>
                 <p><b>Date Closed: </b>The date the clinical research study closed to accrual. This does not include patient follow-up. If the study is still open, leave this field blank.</p>
-                <br />
+             
                 <h4 id="phaseID"><u>Phase</u></h4>
-                <p><b>Early Phase I:</b> Exploratory trials, involving very limited human exposure, with no therapeutic. or diagnostic intent (e.g., screening studies, microdose studies). See FDA guidance on exploratory IND studies for more information.</p>
+                <p><b>Early Phase I:</b> Exploratory trials, involving very limited human exposure, with no therapeutic. or diagnostic intent (e.g., screening studies, microdose studies). See FDA guidance on exploratory Investigational New Drug (IND) studies for more information.</p>
                 <p><b>I:</b>Includes initial studies to determine the metabolism and pharmacologic actions of drugs in humans, the side effects associated with increasing doses, and to gain early evidence of effectiveness; may include healthy participants and/or patients.</p>
 
-                <p><b>I/II:</b>Trials that are a combination of phases 1 and 2.</p>
+                <p><b>I/II:</b>Trials that are a combination of phases I and II.</p>
 
                 <p><b>II:</b>Includes controlled clinical studies conducted to evaluate the effectiveness of the drug for a particular indication or indications in participants with the disease or condition under study and to determine the common short-term side effects and risks.</p>
 
-                <p><b>II/III:</b>Trials that are a combination of phases 2 and 3.</p>
+                <p><b>II/III:</b>Trials that are a combination of phases II and III.</p>
 
                 <p><b>III:</b>Includes trials conducted after preliminary evidence suggesting effectiveness of the drug has been obtained, and are intended to gather additional information to evaluate the overall benefit-risk relationship of the drug.</p>
 
@@ -919,7 +921,7 @@
 
                 <p><b>Pilot:</b>Pilot attribute can be assigned to any phase.  Indicate whether the study is a pilot phase by inserting “Y” for yes and "N" or (leave blank) for no.</p>
 
-                <br />
+          
                 <h4 id="primarypurposeID"><u>Primary Purpose</u></h4>
                 <p>Assign the appropriate Primary Purpose to Interventional or Non-Interventional (Observational or Ancillary/Correlative) Clinical Research Categories.</p>
                 <p><b>Basic Science (BAS): </b>Protocol designed to examine the basic mechanisms of action (e.g., 	physiology, biomechanics) of an intervention.</p>
@@ -966,8 +968,8 @@
                 <p><b>Targeted Accrual for your Center:</b>For single-institution and multi-institutional trials initiated 	at your Center, indicate the total number of participants your Center is expected to accrue 	for the study. For single-institution trials the “Total Accrual for your Center” and the “Total Targeted Accrual” numbers will be the same. Do not submit a targeted range, such as “10 – 100.”</p>
                 <p><b>Accrual Institutions:</b></p>
                 <ul class="liIndent">
-                    <li>Cancer Center:  List the number of participants enrolled in the clinical research study at your Cancer Center, including formal Consortium Partners.</li></br>
-                    <li>Other Institutions: •	Other Institutions: List the number of participants enrolled in the clinical research study at all hospitals, treatment facilities, and/or research facilities that are a formal part of the Cancer Center (e.g., nearby community hospitals).</li>
+                    <li>Cancer Center:  List the number of participants enrolled in the clinical research study at your cancer center, including formal Consortium Partners.</li></br>
+                    <li>Other Institutions: •	Other Institutions: List the number of participants enrolled in the clinical research study at all hospitals, treatment facilities, and/or research facilities that are a formal part of the cancer center (e.g., nearby community hospitals).</li>
                 </ul>
                 <p><b>Accrual Timeframes:</b></p>
                 <ul class="liIndent">
@@ -987,10 +989,13 @@
 
                 <h3 id="dt5" style="text-align:left">DT5</h3>
                 <hr />
-                <p>DT5 reports the Cancer Center’s current budget (Type 2) and its requested budget (Types 1 and 2).</p>
+                <p>DT5 reports the cancer center’s current budget (Type 2) and its requested budget (Types 1 and 2).</p>
                 <ul class="liIndent">
-                    <li>Provide the direct cost CCSG budget of the last full year of funding (for Type 2), and the requested budget for the first year of the new competitive project period (Types 1 and 2) for each major budget category listed below. List non-salary funds for Research Programs separately, and list the Shared Resources as a single combined figure that includes salaries and operating costs/activities. List only the total for Developmental Funds.  Sum all the direct costs at the bottom of the chart.</li></br>
-                    <li>The current budget, if applicable, should reflect the last full year of the current competitive project period as submitted in the type 5 application and/or as detailed in the notice of award for that period, exclusive of carryover funds and supplements. The direct cost figures should include any third party indirect costs, since these are charged as direct costs to the CCSG.</li>
+                    <li>Provide the direct cost CCSG budget of the last full year of funding (for Type 2), and the requested budget for the first year of the new competitive project period (Types 1 and 2) for each major budget category listed below. 
+                    List non-salary funds for Research Programs separately, and list the Shared Resources as a single combined figure that includes salaries and operating costs/activities. 
+                    List only the total for Developmental Funds.  Sum all the direct costs at the bottom of the chart.</li></br>
+                    <li>The current budget, if applicable, should reflect the last full year of the current competitive project period as submitted in the type 5 application and/or as detailed in the notice of award for that period, exclusive of carryover funds and supplements. 
+                    The direct cost figures should include any third party indirect costs, since these are charged as direct costs to the CCSG.</li>
                 </ul>
                 <br />
                 <p style="float:right;"><b>2P30CA120212-09</b></p>
@@ -1118,7 +1123,7 @@
                     </tbody>
                 </table>
 
-                <p><b>Note:</b> DT 5 includes third party indirect costs.  It does not include CCSG carryover funds or CCSG supplement dollars.</p>
+                <p><b>Note:</b> DT5 includes third party indirect costs.  It does not include CCSG carryover funds or CCSG supplement dollars.</p>
 
 
                 <h3 id="sum" style="text-align:center">Summary of Changes to the Data Guide</h3>
@@ -1132,6 +1137,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <td>09/12/2023</td>
+                            <td>DT4</td>
+                            <td>
+                                <li> Updated CCSG Data Guide version from v3.1.2 to v3.1.3</li>
+                                <li> Updated the  <a href="~/GrantsFunding/DataGuide#DT4Definition">definition</a>  </li>
+                               
+                                <li> Added <a href="~/GrantsFunding/DataGuide#DT4Submission">Table 4 - DT4 Submission</a></li>
+                            </td>
+                        </tr>
+
                         <tr>
                             <td>05/01/2023</td>
                             <td>DT5</td>
