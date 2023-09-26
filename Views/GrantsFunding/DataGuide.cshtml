@@ -95,7 +95,7 @@
     <div class="container" id="pageCenterID">
         <div class="row" id="centerContentID">
             <h2 class="tealFont">&nbsp;CCSG Data Guide</h2>
-            <p style="font-size:medium; padding-left:.5em;"><small>Updated September 12, 2023</small></p>
+            <p style="font-size:medium; padding-left:.5em;"><small>Updated Sept 26, 2023</small></p>
             <hr style="margin-bottom:0em;" />
             <ul class="breadcrumb" style="float:left; margin-bottom:2px;">
                 <li class="tip-bottom tooltipColor" data-toggle="tooltip" data-original-title="Click here or press Alt+h to go to OCC Home Page"><a href="#">@Html.ActionLink("Home", "Index", "Home")</a> <span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span></li>
@@ -640,9 +640,8 @@
                     <li>For accrual-based trials, list the funding awarded for actual or estimated number of patients enrolled in the reporting year.</li>
                 </ol>
 
-
                 <p style="text-align:center; font-size:medium">
-                    <a href="~/Documents/CCSGDataGuide508.pdf#page=8" target="_blank">DT2A Example Format Table</a>
+                    <a id="DT2AExample" href="~/Documents/CCSGDataGuide508.pdf#page=8" target="_blank">DT2A Example Format Table</a>
                 </p>
 
                 <h3 id="dt2b">DT2B</h3>
@@ -660,7 +659,7 @@
                     <li>Provide subtotals and a grand total where indicated.</li>  </br>
                     <li>For multiple project grants or contracts, count each subproject as one project (Do not count overall as one – a SPORE with 5 subprojects (example 10 above) would count as 5 projects.</li>
                 </ul>
-                <p>Follow the example below:</p>
+                <p>The following example illustrate how to report DT2B:</p>
 
                 <p style="float:right; padding-right:.5em;"><b>2P30CA120212-09</b></p>
                 <div style="margin-left:25%">
@@ -786,7 +785,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <p style="text-align:center;"><b>Table 3 - DT3 Reporting Method</b></p>
+                <p style="text-align:center;"><b>Table 4 - DT3 Reporting Method</b></p>
 
                 <p style="text-align:center; font-size:medium">
                     <a href="~/Documents/CCSGDataGuide508.pdf#page=13" target="_blank">DT3 Example Format Table</a>
@@ -832,7 +831,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <p style="text-align:center;"><b>Table 4 - DT4 Submission</b></p>
+                <p style="text-align:center;"><b>Table 5 - DT4 Submission</b></p>
 
                 <p>Use the following definitions to complete DT4:</p>
 
@@ -902,7 +901,7 @@
                 <p><b>Program (Prog) Code: </b>Use the Research Program code defined by the center in DT1B. For clinical research studies that span more than one Research Program, include both Program Codes in this column. </p>
                 <p><b>Date Opened (activation): </b>The official start date of a trial determined by 1) the date of activation noted in an official clinical trial activation announcement or 2) date of first patient accrual if the trial in question did not have a formal activation announcement.</p>
                 <p><b>Date Closed: </b>The date the clinical research study closed to accrual. This does not include patient follow-up. If the study is still open, leave this field blank.</p>
-             
+
                 <h4 id="phaseID"><u>Phase</u></h4>
                 <p><b>Early Phase I:</b> Exploratory trials, involving very limited human exposure, with no therapeutic. or diagnostic intent (e.g., screening studies, microdose studies). See FDA guidance on exploratory Investigational New Drug (IND) studies for more information.</p>
                 <p><b>I:</b>Includes initial studies to determine the metabolism and pharmacologic actions of drugs in humans, the side effects associated with increasing doses, and to gain early evidence of effectiveness; may include healthy participants and/or patients.</p>
@@ -921,7 +920,7 @@
 
                 <p><b>Pilot:</b>Pilot attribute can be assigned to any phase.  Indicate whether the study is a pilot phase by inserting “Y” for yes and "N" or (leave blank) for no.</p>
 
-          
+
                 <h4 id="primarypurposeID"><u>Primary Purpose</u></h4>
                 <p>Assign the appropriate Primary Purpose to Interventional or Non-Interventional (Observational or Ancillary/Correlative) Clinical Research Categories.</p>
                 <p><b>Basic Science (BAS): </b>Protocol designed to examine the basic mechanisms of action (e.g., 	physiology, biomechanics) of an intervention.</p>
@@ -991,11 +990,15 @@
                 <hr />
                 <p>DT5 reports the cancer center’s current budget (Type 2) and its requested budget (Types 1 and 2).</p>
                 <ul class="liIndent">
-                    <li>Provide the direct cost CCSG budget of the last full year of funding (for Type 2), and the requested budget for the first year of the new competitive project period (Types 1 and 2) for each major budget category listed below. 
-                    List non-salary funds for Research Programs separately, and list the Shared Resources as a single combined figure that includes salaries and operating costs/activities. 
-                    List only the total for Developmental Funds.  Sum all the direct costs at the bottom of the chart.</li></br>
-                    <li>The current budget, if applicable, should reflect the last full year of the current competitive project period as submitted in the type 5 application and/or as detailed in the notice of award for that period, exclusive of carryover funds and supplements. 
-                    The direct cost figures should include any third party indirect costs, since these are charged as direct costs to the CCSG.</li>
+                    <li>
+                        Provide the direct cost CCSG budget of the last full year of funding (for Type 2), and the requested budget for the first year of the new competitive project period (Types 1 and 2) for each major budget category listed below.
+                        List non-salary funds for Research Programs separately, and list the Shared Resources as a single combined figure that includes salaries and operating costs/activities.
+                        List only the total for Developmental Funds.  Sum all the direct costs at the bottom of the chart.
+                    </li></br>
+                    <li>
+                        The current budget, if applicable, should reflect the last full year of the current competitive project period as submitted in the type 5 application and/or as detailed in the notice of award for that period, exclusive of carryover funds and supplements.
+                        The direct cost figures should include any third party indirect costs, since these are charged as direct costs to the CCSG.
+                    </li>
                 </ul>
                 <br />
                 <p style="float:right;"><b>2P30CA120212-09</b></p>
@@ -1138,12 +1141,27 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <td>09/26/2023</td>
+                            <td>DT2A</td>
+                            <td>
+                                <li>
+                                    Updates for <a href="~/GrantsFunding/DataGuide#DT2AExample">DT2A Example 10:</a></br>
+
+                                    To prevent double counting, $1,250,000 was removed from the "Cancer-
+                                    Relevant Annual Project DC" column, and
+                                    to accurately account for the total cancer-relevant Direct Cost (DC),
+                                    $250,000 and $200,00 were added both “Cancer-Relevant Annual
+                                    Project DC” and “Annual Program Direct Costs” columns.
+                                </li>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>09/12/2023</td>
                             <td>DT4</td>
                             <td>
                                 <li> Updated CCSG Data Guide version from v3.1.2 to v3.1.3</li>
                                 <li> Updated the  <a href="~/GrantsFunding/DataGuide#DT4Definition">definition</a>  </li>
-                               
+
                                 <li> Added <a href="~/GrantsFunding/DataGuide#DT4Submission">Table 4 - DT4 Submission</a></li>
                             </td>
                         </tr>
