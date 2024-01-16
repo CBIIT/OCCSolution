@@ -4,6 +4,7 @@
 @*--------------------------------------------------------------------------------------------------------------------------------------
         DATE           Developer    Desc
         09/11/2023     Chi          Created a new DT3 view
+        01/16/2024     Chi          Add "Newly" to the column name, and remvoed extra spaces b/w data columns
     ---------------------------------------------------------------------------------------------------------------------------------------*@
 <!DOCTYPE HTML>
 <html>
@@ -76,7 +77,7 @@
                                     <th></th>
                                     <th>Type of Center</th>
                                     <th align="left">Range</th>
-                                    <th align="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Registered &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Patients</th>
+                                    <th align="right">Newly Registered </br> Patients</th>
                                 </tr>
                             </thead>
                             <tbody style="font-size:small;">
@@ -91,28 +92,28 @@
                                                 <td></td>
                                                 <td style="font-size:small; width:140px;" title="Click here to go to the cancer center list"><b>@item.ClinicalCount Clinical Centers</b></td>
                                                 <td align="left">High</td>
-                                                <td align="right">@item.ClinicalRegHigh</td>
+                                                <td align="left">@item.ClinicalRegHigh</td>
                                             </tr>
                                             <tr>
                                                 <td>@item.FY</td>
                                                 <td></td>
                                                 <td></td>
                                                 <td align="left">Low</td>
-                                                <td align="right">@item.ClinicalRegLow</td>
+                                                <td align="left">@item.ClinicalRegLow</td>
                                             </tr>
                                             <tr class="odd">
                                                 <td>@item.FY</td>
                                                 <td></td>
                                                 <td></td>
                                                 <td align="left">Median</td>
-                                                <td align="right">@item.ClinicalRegMedian</td>
+                                                <td align="left">@item.ClinicalRegMedian</td>
                                             </tr>
                                             <tr style="color:black; font-weight:bolder;" class="highlighted">
                                                 <td>@item.FY</td>
                                                 <td></td>
                                                 <td></td>
                                                 <td scope="row" align="left">Subtotal</td>
-                                                <td align="right">@item.ClinicalRegSubtotal</td>
+                                                <td align="left">@item.ClinicalRegSubtotal</td>
 
                                             </tr>
 
@@ -121,7 +122,7 @@
                                                 <td></td>
                                                 <td style="font-size:small; width:140px;" title="Click here to go to the cancer center list"><b>@item.CompCount Comp Centers</b></td>
                                                 <td align="left">High</td>
-                                                <td align="right">@item.CompRegHigh</td>
+                                                <td align="left">@item.CompRegHigh</td>
                                                 @*<td align="right">@item.CompEnrollHigh</td>*@
                                             </tr>
                                             <tr>
@@ -129,7 +130,7 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td align="left">Low</td>
-                                                <td align="right">@item.CompRegLow</td>
+                                                <td align="left">@item.CompRegLow</td>
                                                 @*<td align="right">@item.CompEnrollLow</td>*@
                                             </tr>
                                             <tr class="odd">
@@ -137,7 +138,7 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td align="left">Median</td>
-                                                <td align="right">@item.CompRegMedian</td>
+                                                <td align="left">@item.CompRegMedian</td>
                                                 @*<td align="right">@item.CompEnrollMedian</td>*@
                                             </tr>
                                             <tr style="color:black; font-weight:bolder;" class="highlighted">
@@ -145,7 +146,7 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td scope="row" align="left">Subtotal</td>
-                                                <td align="right">@item.CompRegSubtotal</td>
+                                                <td align="left">@item.CompRegSubtotal</td>
                                                 @*<td align="right">@item.CompEnrollSubtotal</td>*@
                                             </tr>
                                             <tr style="background-color:#1A5276;!important;" class="bottom">
@@ -153,7 +154,7 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td align="left">Total</td>
-                                                <td align="right">@item.TotalReg</td>
+                                                <td align="left">@item.TotalReg</td>
                                                 @*<td align="right">@item.TotalEnroll</td>*@
                                             </tr>
                                         }
@@ -174,7 +175,7 @@
                                     <th title="Click here to filter by Fiscal Year">FY</th>
                                     <th title="Click here to filter by Fiscal Year">FY</th>
                                     <th align="left">Primary Site</th>
-                                    <th align="left">Registered Patients</th>
+                                    <th align="left">Newly Registered Patients</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -187,7 +188,7 @@
                                                 <td>@row.FY</td>
                                                 <td></td>
                                                 <td>@row.PrimarySite</td>
-                                                <td align="center">@String.Format("{0:#,##0}", row.RegisteredPatient)</td>
+                                                <td align="left">@String.Format("{0:#,##0}", row.RegisteredPatient)</td>
                                             </tr>
                                         }
                                     }
